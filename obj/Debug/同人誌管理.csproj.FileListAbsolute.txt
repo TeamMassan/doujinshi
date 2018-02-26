@@ -11,3 +11,6 @@ C:\Users\Shunki\documents\visual studio 2015\Projects\同人誌管理\obj\Debug\
 C:\Users\Shunki\documents\visual studio 2015\Projects\同人誌管理\obj\Debug\同人誌管理.detail_search.resources
 C:\Users\Shunki\documents\visual studio 2015\Projects\同人誌管理\obj\Debug\同人誌管理.tabele_manage.resources
 C:\Users\Shunki\documents\visual studio 2015\Projects\同人誌管理\bin\Debug\System.Data.SQLite.dll
+D:\teammassan\bin\Debug\同人誌管理.exe.config
+D:\teammassan\obj\Debug\同人誌管理.exe
+D:\teammassan\obj\Debug\同人誌管理.pdb

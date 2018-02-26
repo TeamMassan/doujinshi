@@ -61,11 +61,11 @@
     <Compile Include="detail_search.Designer.cs">
       <DependentUpon>detail_search.cs</DependentUpon>
     </Compile>
-    <Compile Include="tabele_manage.cs">
+    <Compile Include="table_manage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="tabele_manage.Designer.cs">
-      <DependentUpon>tabele_manage.cs</DependentUpon>
+    <Compile Include="table_manage.Designer.cs">
+      <DependentUpon>table_manage.cs</DependentUpon>
     </Compile>
     <Compile Include="top.cs">
       <SubType>Form</SubType>
@@ -90,8 +90,8 @@
     <EmbeddedResource Include="detail_search.resx">
       <DependentUpon>detail_search.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="tabele_manage.resx">
-      <DependentUpon>tabele_manage.cs</DependentUpon>
+    <EmbeddedResource Include="table_manage.resx">
+      <DependentUpon>table_manage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="top.resx">
       <DependentUpon>top.cs</DependentUpon>

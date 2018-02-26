@@ -1,5 +1,5 @@
 ﻿namespace 同人誌管理 {
-    partial class tabele_manage {
+    partial class table_manage {
         /// <summary>
         /// Required designer variable.
         /// </summary>
