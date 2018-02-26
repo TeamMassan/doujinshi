@@ -1,0 +1,56 @@
+﻿<?xml version="1.0"?>
+<Class_Language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<TableTab>テーブル一覧</TableTab>
+	<ViewTab>ビュー一覧</ViewTab>
+	<Openning>%1はすでに開いています。</Openning>
+	<SaveMsg>%1は変更されています。\n変更を保存しますか？</SaveMsg>
+	<LngChangeMsg>Please restart PupSQLite to enable the language setting.</LngChangeMsg>
+	<Saerch>検索</Saerch>
+	<Replace>置換</Replace>
+	<KoreijouUP>これ以上上に%1は見つかりませんでした。</KoreijouUP>
+	<KoreijouDown>これ以上下に%1は見つかりませんでした。</KoreijouDown>
+	<Arimasen>これ以上%1は見つかりませんでした。</Arimasen>
+	<Break>中止するにはPause/Breakキーを押してください。</Break>
+	<Tyuudan>処理を中断しました。</Tyuudan>
+	<SelectionSearch>選択範囲で一致する文字列をすべて検索しますか？</SelectionSearch>
+	<TableSeach>%1内でマッチする文字列をすべて置換しますか？</TableSeach>
+	<CloseTableMsg>テーブルを閉じてから再度実行してください。</CloseTableMsg>
+	<DeleteMsg>%1を削除しますか？</DeleteMsg>
+	<DeleteTablesMsg>選択中のテーブルを削除しますか？</DeleteTablesMsg>
+	<ReplacedMsg>%1個置換しました。</ReplacedMsg>
+	<Searchfailure>%1は見つかりませんでした。</Searchfailure>
+	<CreateTableMsg>テーブル名を入力して下さい。</CreateTableMsg>
+	<CreateTableTitle>新規テーブル名の入力</CreateTableTitle>
+	<SortA>昇順</SortA>
+	<SortD>降順</SortD>
+	<ShowAll>全て表示</ShowAll>
+	<NotNULL>null以外</NotNULL>
+	<DeleteIndexMsg>選択中のインデックスを削除しますか？</DeleteIndexMsg>
+	<DeleteViewMsg>選択中のビューを削除しますか？</DeleteViewMsg>
+	<DeleteTriggerMsg>選択中のトリガーを削除しますか？</DeleteTriggerMsg>
+	<IndexTab>Index一覧</IndexTab>
+	<TriggerTab>Trigger一覧</TriggerTab>
+	<FixedColumn>このカラムで固定する</FixedColumn>
+	<ReleaseFix>このカラムの固定を解除</ReleaseFix>
+	<NoEdit>(直接編集不可)</NoEdit>
+	<SendMail>このアドレスにメールを送る</SendMail>
+	<OpenURL>このURLを開く</OpenURL>
+	<OpenPath>このパスを開く</OpenPath>
+	<CopyFolder>このフォルダをコピー</CopyFolder>
+	<CopyFile>このファイルをコピー</CopyFile>
+	<FilterNotInclude>%1 を含まない</FilterNotInclude>
+	<FilterInclude>%1 を含む</FilterInclude>
+	<FilterEqual>%1 と等しい</FilterEqual>
+	<FilterNotEqual>%1 と等しくない</FilterNotEqual>
+	<FilterOneOfSelected>選択中の値いずれかと等しい</FilterOneOfSelected>
+	<FilterNotOneOfSelected>選択中の値いずれかと等しくない</FilterNotOneOfSelected>
+	<FilterOR> または </FilterOR>
+	<FilterAllOfSelected>選択中の値いずれとも等しい</FilterAllOfSelected>
+	<FilterNotAllOfSelected>選択中の値いずれとも等しくない</FilterNotAllOfSelected>
+	<SelectedRange>選択範囲</SelectedRange>
+	<ColumnComment>カラムコメント</ColumnComment>
+	<AutoHide>自動的に隠す</AutoHide>
+	<AlwaysShow>常に表示する</AlwaysShow>
+	<CanView>ダブルクリックで常に表示できます。</CanView>
+	<CanHide>ダブルクリックで隠せます。</CanHide>
+</Class_Language>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" href="../css/default.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../css/function.css" type="text/css" media="all" />
+		<title>PupSQLite マニュアル-BLOB型データの扱い</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rev="made" href="pup@wmail.plala.or.jp" />
+	</head>
+	<body>
+		<div id="box">
+			<p id="toindex"><a href="../index.html#func">目次へ</a></p>
+			<h2 id="totop">BLOB型データの扱い</h2>
+			<ul>
+				<li><a href="#blobdata">BLOB型データ</a></li>
+				<li><a href="#blobreg">BLOB型データの登録･編集</a></li>
+				<li><a href="#blobout">BLOB型データ取り出し</a></li>
+			</ul>
+			<h2 id="blobdata">BLOB型データ</h2>
+			<p>BLOB型データとはBinary Large OBject型データで要するにバイナリーデータ(JPEGファイルやExcelファイルなど)を格納することのできる列を提供します。</p>
+			<h2 id="blobreg">BLOB型データの登録・編集</h2>
+			<div class="viewbox2">
+				<img class="onfloat" src="../image/blob01.gif" width="410px" height="82px" alt="BLOB型フィールドへの登録方法" />
+				<p>BLOB型のセルを選択し右クリック→ファイルの登録でファイルを選択して登録することができます。<br />
+				BLOB型の列にファイルを登録する場合は、そのテーブルを事前に保存しておく必要があります。また、BLOB型の列への登録や編集は即時にデータベースに反映されますので、破棄終了はできません。</p>
+			</div>
+			<div class="viewbox2">
+				<img class="onfloat" src="../image/blob02.gif" width="295px" height="121px" alt="BLOB型フィールドへの登録方法2" />
+				<p>BLOB型セルにファイルを登録する前にテーブルが保存されていなければ左図のメッセージが表示され登録は行えません。<br />
+				データの登録が完了するとセルには"Byte[]配列"という表示になります。</p>
+				<img src="../image/blob03.gif" width="265px" height="65px" alt="BLOB型フィールドへの登録方法3" />
+			</div>
+			<h2 id="blobout">BLOB型データの取り出し</h2>
+			<div class="viewbox4">
+				<img class="onfloat" src="../image/blob04.gif" width="416px" height="85px" alt="BLOB型データの出力" />
+				<p>BLOB型セルのデータを取り出すにはBLOB型セルを右クリック→ファイルの出力とします。<br />
+				すると名前を付けて保存ダイアログボックスが開きますので拡張子を含むファイル名を指定してください。<br />
+				ファイルの出力ではファイル名が分かりませんので、その他のセルにファイル名等を設定しておくと良いでしょう。</p>
+				<img class="onfloat" src="../image/binaryviewer.gif" width="570px" height="349px" alt="BLOB型データの表示" />
+				<p>またBLOB型のセルをダブルクリックするとバイナリ・ビューワが開きバイナリ・ファイルの内容を確認できます。<br />
+				画像(BMP,JPG,PNG,GIF,TIF）の場合はその画像が表示されます。</p>
+			</div>
+		</div>
+		<p id="footter">Copyright(C) 2008-2013 <a href="mailto:pup428@gmail.com">Pup</a> All Rights Reserved.</p>
+	</body>
+</html>

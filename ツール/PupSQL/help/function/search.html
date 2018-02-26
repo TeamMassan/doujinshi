@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" href="../css/default.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../css/function.css" type="text/css" media="all" />
+		<title>PupSQLite マニュアル-データグリッドウィンドウでの操作(検索と置換)</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rev="made" href="pup@wmail.plala.or.jp" />
+	</head>
+	<body>
+		<div id="box">
+			<p id="toindex"><a href="../index.html#func">目次へ</a></p>
+			<ul>
+				<li><a href="dgwinedit.html">データの編集</a></li>
+				<li><a href="filter.html">フィルタ</a></li>
+				<li><a href="#totop">検索と置換</a></li>
+				<li><a href="otherfunction.html">その他の操作</a></li>
+			</ul>
+			<h2 id="totop">検索と置換</h2>
+			<ul>
+				<li><a href="#quick">クイック検索</a></li>
+				<li><a href="#search1">検索</a></li>
+				<li><a href="#search2">高度な検索</a></li>
+				<li><a href="#replace1">置換</a></li>
+				<li><a href="#replace2">高度な置換</a></li>
+			</ul>
+			<div class="viewbox1">
+				<h3 id="quick">クイック検索</h3>
+				<img class="onfloat" src="../image/quick.png" width="440px" height="191px" alt="クイック検索画像" />
+				<p>クイック検索の起動はデータグリッドウィンドウでShift+Ctrl+Fまたはコンテキストメニュー(右クリック)からクイック検索で表示します。</p>
+				<p>クイック検索のテキストボックスに文字を入力すれば<em>選択されている列</em>を下方向に逐次検索を行います。<br />
+				また、現在のセルから上や下への検索、大文字小文字を区別しての検索なども可能です。</p>
+				<p>すばやい検索が可能なのであらかじめどの列に目的のデータがあるか分かっている場合などに有効な検索方法です。[ver1.0.1.0追加]</p>
+				<p class="totop"><a href="#totop">ページトップへ戻る</a></p>
+			</div>
+			<div class="viewbox1">
+				<h3 id="search1">検索</h3>
+				<img class="onfloat" src="../image/searchdialog1.gif" width="316px" height="205px" alt="検索ダイアログ画像" />
+				<p>検索をするためには<em>メインメニューの機能→検索と置換</em>か<em>キーボードのCtrlキー+Fキー｣</em>で
+				｢検索と置換ダイアログ｣を表示させます。</p>
+				<p>そして、検索文字列に検索したい文字列を入力後、検索テーブルを指定して｢次を検索｣ボタンをクリックします。</p>
+				<img class="onfloat" src="../image/breaksearch.gif" width="181px" height="121px" alt="検索の中止画像" />
+				<p>検索を途中で中止するにはキーボードの｢Break/Pouse｣キーを押してください。</p>
+				<p class="totop"><a href="#totop">ページトップへ戻る</a></p>
+			</div>
+			<div class="viewbox4">
+				<h3 id="search2">高度な検索</h3>
+				<img class="onfloat" src="../image/searchdialog2.gif" width="316px" height="336px" alt="検索ダイアログ（オプション）画像" />
+				<p>高度な検索を行うには<img src="../image/optionbtn.gif" height="14px" width="14px" alt="オプションボタン" />
+				をクリックします。</p>
+				<p>検索オプションを設定すれば「正規表現で検索」や「全角と半角を区別して検索」などが行えます。<br />
+				「正規表現で検索」にチェックを入れると「検索する文字列」の横の<img src="../image/seikibtn.gif" width="29px" height="20px" alt="正規表現入力補助" />
+				「正規表現入力補助」ボタンが有効になります。</p>
+				<img src="../image/seikibld.gif" width="361px" height="92px" alt="正規表現入力補助メニュ画像" />
+				<p><img src="../image/seikibtn.gif" width="29px" height="20px" alt="正規表現入力補助" />
+				をクリックすると正規表現の入力補助メニューが表示されますのでクリックして「検索文字列」に挿入することが可能です。</p>
+				<p>正規表現については<a href="../index.html#outlinks">外部リンク</a>の<a target="_blank" href="http://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE">
+				正規表現とは？</a>を参照してください。</p>
+				<p class="totop"><a href="#totop">ページトップへ戻る</a></p>
+			</div>
+			<div class="viewbox3">
+				<h3 id="replace1">置換</h3>
+				<img class="onfloat" src="../image/replacedialog1.gif" width="316px" height="245px" alt="置換ダイアログ画像" />
+				<p>置換をするためには<em>メインメニューの機能→検索と置換</em>か<em>キーボードのCtrlキー+Fキー｣</em>で
+				｢検索と置換ダイアログ｣を表示させます。</p>
+				<p>そして、検索文字列に検索したい文字列を入力後、「置換後の文字列」を指定し検索テーブルを指定して｢置換｣ボタンをクリックします。</p>
+				<p>すると検索が開始され、ヒットすれば置換が行われます。「すべて置換」では検索文字列が見つかり続ける間置換を繰り返します。</p>
+				<img class="onfloat" src="../image/breaksearch.gif" width="181px" height="121px" alt="置換の中止画像" />
+				<p>置換を途中で中止するにはキーボードの｢Break/Pouse｣キーを押してください。</p>
+				<p class="totop"><a href="#totop">ページトップへ戻る</a></p>
+			</div>
+			<div class="viewbox3">
+				<h3 id="replace2">高度な置換</h3>
+				<img class="onfloat" src="../image/replacedialog2.gif" width="316px" height="374px" alt="置換ダイアログ（オプション）画像" />
+				<p>高度な置換を行うには<img src="../image/optionbtn.gif" height="14px" width="14px" alt="オプションボタン" />
+				をクリックします。</p>
+				<p>検索オプションを設定すれば「正規表現で置換」などが行えます。<br />
+				「正規表現で検索」にチェックを入れると「検索する文字列」と「置換後の文字列」の横の<img src="../image/seikibtn.gif" width="29px" height="20px" alt="正規表現入力補助" />
+				「正規表現入力補助」ボタンが有効になります。</p>
+				<img src="../image/seikibld.gif" width="361px" height="92px" alt="正規表現入力補助メニュ画像" />
+				<p><img src="../image/seikibtn.gif" width="29px" height="20px" alt="正規表現入力補助" />
+				をクリックすると正規表現の入力補助メニューが表示されますのでクリックして「検索文字列」や「置換後の文字列」に挿入することが可能です。</p>
+				<p>正規表現については<a href="../index.html#outlinks">外部リンク</a>の<a target="_blank" href="http://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE">
+				正規表現とは？</a>を参照してください。</p>
+				<p class="totop"><a href="#totop">ページトップへ戻る</a></p>
+			</div>
+		<p id="footter">Copyright(C) 2008-2013 <a href="mailto:pup428@gmail.com">Pup</a> All Rights Reserved.</p>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" href="../css/default.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../css/function.css" type="text/css" media="all" />
+		<title>PupSQLite マニュアル-Excelファイルの取り込み(既存のテーブル)</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rev="made" href="pup@wmail.plala.or.jp" />
+	</head>
+	<body>
+		<div id="box">
+			<p id="toindex"><a href="../index.html#func">目次へ</a></p>
+			<ul>
+				<li><a href="readexcel.html">Excelファイルの取り込み</a></li>
+				<ul>
+					<li><a href="excel2newdb.html">新しいデータベースに取り込む</a></li>
+					<li><a href="excel2newtbl.html">新しいテーブルに取り込む</a></li>
+					<li><a href="#totop">既存のテーブルに取り込む</a></li>
+				</ul>
+			</ul>
+			<h2 id="totop">既存のテーブルに取り込む</h2>
+			<p>Excelファイル内のデータを既存のテーブル取り込みます。</p>
+			<div class="viewbox6">
+				<h3>1.Excelファイルの選択</h3>
+				<img class="onfloat" src="../image/excel2exsittbl.gif" width="366px" height="168px" alt="Excelを既存のテーブルに取り込むメニュー画像" />
+				<p>Excelファイルを既存のテーブルに取り込むにはメインメニューのファイル→Excelファイル取り込み→既存のテーブルをクリックします。</p>
+				<p>その後、取り込みたいExcelファイルを選択します。すると｢取り込みオプション｣ダイアログが表示されます。</p>
+			</div>
+			<div class="viewbox4">
+				<h3>2.取り込みオプション</h3>
+				<img class="onfloat" src="../image/readoption.gif" width="330px" height="290px" alt="取り込みオプションダイアログ画像" />
+				<p>取り込みオプションダイアログでは以下の手順で操作してください。</p>
+				<ol class="marginleft2">
+					<li>取り込むシートを1つ選択</li>
+					<li>取り込みオプション(フィールド)を決定</li>
+					<li>取り込みオプション(データ)を決定</li>
+					<li>｢実行｣ボタンをクリック</li>
+				</ol>
+				<p>取り込みオプション(フィールド)ではExcelファイルの中でフィールドとして扱う行を指定します。<br />
+				指定方法は２つで</p>
+				<ul class="marginleft2">
+					<li>一行目をフィールドとする</li>
+					<li>フィールド指定文字を使用する</li>
+				</ul>
+				<p>となります。</p>
+				<p>フィールド指定文字を使用する場合はExcelファイルの中のフィールドとしたい行の先頭セルの値の前に指定文字を入力しておく必要があります。</p>
+				<p>また取り込みオプション(データ)で指定した文字列が先頭にある行は取り込みません。<br />
+				同様に各フィールド名の先頭に取り込みオプション(データ)で指定した文字があった場合はそのフィールド全体を取り込みません。</p>
+				<p>すべての操作が完了すると既存のテーブルに取り込むための｢項目の選択｣ダイアログが表示されます。</p>
+			</div>
+			<div class="viewbox4">
+				<h3>3.フィールドのマッチング</h3>
+				<img class="onfloat" src="../image/fldcollationxls.gif" width="400px" height="400px" alt="項目の選択ダイアログボックス画像" />
+				<p>ダイアログが表示されたら以下の手順でフィールドのマッチングをします。</p>
+				<ol id="marginleft">
+					<li>取り込み先のテーブルを選択して「テーブルの選択」ボタンをクリック</li>
+					<li>左に既存テーブルのフィールド、右にExcelのフィールドでマッチしないものだけが表示される。</li>
+					<li>左右のフィールドで対応するものをそれぞれ選択し「＝」ボタンをクリック</li>
+					<li>3の作業を左右どちらかのフィールドがなくなるまで繰り返す</li>
+					<li>「OK」をクリック</li>
+				</ol>
+				<p>上記操作が完了するとExcelファイルのデータ取り込みが開始されます。<br />
+				Excelのフィールドが残った状態ではそのフィールドのデータは取り込まれません。</p>
+				<p>また、取り込み時にエラーがあった場合はエラーのあったレコードのみを最後にCSVファイルとして出力します。</p>
+				<img src="../image/csvreaderror.gif" width="295px" height="121px" alt="CSVファイルの取り込みエラー画像" />
+				<p class="totop"><a href="#totop">ページトップへ戻る</a></p>
+			</div>
+		</div>
+		<p id="footter">Copyright(C) 2008-2013 <a href="mailto:pup428@gmail.com">Pup</a> All Rights Reserved.</p>
+	</body>
+</html>

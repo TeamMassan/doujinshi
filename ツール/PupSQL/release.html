@@ -1,0 +1,3646 @@
+<?xml version="1.0" encoding="shift_jis"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/css" />
+    <meta http-equiv="content-stype-type" content="text/css" />
+    <title>PupSQLite更新履歴</title>
+    <style type="text/css">
+      body {
+      background-color:#FFFFFF;
+      padding:0;
+      margin:0;
+      }
+      #box1 {
+      background-color:#FFFFFF;
+      width:100%;
+      height:100%;
+      margin:0;
+      padding:0;
+      }
+      h1 {
+      width:90%;
+      text-align:center;
+      background-color:#333333;
+      border:double 3px #FFFFFF;
+      margin:0;
+      padding-top:0.5em;
+      height:1.5em;
+      color:#FFFFFF;
+      }
+      .listbox {
+      width:80%;
+      margin-left:1px;
+      margin-top:2em;
+      list-style-type:none;
+      }
+      .title {
+      display:block;
+      width:65%;
+      border-left:solid 5px #999999;
+      border-bottom:solid 1px #999999;
+      padding-left:1px;
+      background-color:#CCCCCC;
+      }
+      .date {
+      margin-left:1px;
+      font-size:0.8em;
+      }
+      .listitem {
+      width:65%;
+      margin-left:0px;
+      margin-top:0.5em;
+      }
+      .item,.sitem {
+      font-size:0.8em;
+      border-bottom:solid 1px #BCBCBC;
+      margin-top:0.3em;
+      }
+      .sitem {
+      margin-left:1.5em;
+      }
+      *html body {
+      text-align:center;
+      }
+      *html h1 {
+      height:3.5em;
+      border:double 3px #333333;
+      }
+      *html #box2 {
+      text-align:left;
+      }
+      *html .listitem {
+      margin-left:1px;
+      }
+      em {
+      font-style:normal;
+      font-weight:bold;
+      color:#FF0000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box0">
+      <div id="box1">
+        <h1>PupSQLite更新履歴</h1>
+        <div id="box2">
+          <ul>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.12.1<span class="date">(2017年10月4日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">Boolean型のセル(CheckBoxCell)は複数選択してShiftキーかCtrlキーを押しながらクリックすることで、一度に値の変更ができるように改善</li>
+                      <li class="item">文字列の検索・置換で空文字とNULLも検索・置換できるように改善</li>
+                      <li class="sitem">NULLを検索・置換する場合は(null)と入力してください。</li>
+                      <li class="item">カラムもクリックしてソートした時にソート方向を表示するように改善</li>
+                      <li class="item">カラムのコンテキストメニューに「すべてのカラムの幅を揃える」を追加。すべてのカラムの幅を現在選択しているカラムの幅に揃えます。</li>
+                      <li class="item">最終行を編集モードにした後に何も入力せずにいるとすべてのレコードに制約チェックマークが付いてしまうのを修正</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.11.6<span class="date">(2017年10月2日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">データがないテーブルにデータを追加すると1回目だけ上手く行かないのを修正</li>
+                      <li class="item">数値型の主キーの自動発番が正しく出来ないことがあったのを修正</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.11.5<span class="date">(2017年9月28日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">コピペのパフォーマンスを向上</li>
+                      <li class="item">AutoFilterの(null以外)という項目の動作を改善</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.11.2<span class="date">(2017年9月21日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">コピペしたデータが正しく登録できなかったのを修正</li>
+                      <li class="item">一部の処理のパフォーマンスを向上</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.11.0<span class="date">(2017年9月13日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">入力時の制約チェックにかなり時間がかかっていたのを高速化</li>
+                      <li class="item">ZIP形式の内容が正しくなくて起動しなかったのを修正</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.10.2<span class="date">(2017年9月11日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">クエリウィンドウにSQLファイル、テキストファイルをD&Dできるように改善</li>
+                      <li class="item">クエリウィンドウでAccessDBを読み込んだ際にAccessDB内のクエリ一覧を取得し使えるように改善</li>
+                      <li class="item">Microsoft AccessDBの一括インポートでクエリもビューとしてインポートするように改善</li>
+                      <li class="sitem">SQLiteで扱えないSQLが使用されている場合はビューとして作成されません。</li>
+                      <li class="sitem">エラーとなったクエリは最後にまとめてSQLファイルとして出力可能です。</li>
+                      <li class="item">SQL入力で未入力状態でUNDOやREDOを行なうと例外が発生したのを修正</li>
+                      <li class="item">入力補完候補を対象のDB種類(SQLite,Oracleなど)に合せて変更するように改善</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.10.1<span class="date">(2017年9月5日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">クエリウィンドウでサーバー型DBへ接続しSQLを実行する場合にユーザー名やパスワードが間違っていると例外が発生してしまうのを修正</li>
+                      <li class="item">クエリウィンドウでも右クリック+マウスホイール操作で横スクロールするように改善(Ctrl+ホイール操作だと高速横スクロール)</li>
+                      <li class="item">接続先設定に現在開いているSQLiteDBを表示するように改善</li>
+                      <li class="item">クエリウィンドウのファイル指定でMicrosoft AccessのDBファイルも指定できるように改善</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.9.0<span class="date">(2017年9月1日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">主キーが複数あるテーブルで主キーが重複するデータを貼り付けた際、エラーメッセージが過剰だったのを修正</li>
+                      <li class="item">SQLが不正なまま実行するとクエリウィンドウの実行時間におかしな時間が表示されるのを修正</li>
+                      <li class="item">クエリウィンドウでデータが取得出来ないSQL(SELECT文以外等)を実行した後に自動で実行するSELECT文を指定出来るように改善</li>
+                      <li class="item">結果が0になるようなフィルタリングを行なうと例外が発生したのを修正</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.8.6<span class="date">(2017年8月29日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">主キーが複数あるテーブルで主キーが重複するデータを貼り付けた際、エラーメッセージが過剰だったのを修正</li>
+                      <li class="item">主キーやユニーク制約違反のエラーメッセージが重複を解消しても残ってしまう不具合を解消</li>
+                      <li class="item">クエリウィンドウでAltキーを押してもメインメニューにフォーカスが移らなかったのを修正</li>
+                      <li class="item">複数テーブルを開いている際にテーブル全体を再読込するとカラム幅が変わってしまうのを修正</li>
+                      <li class="item">クエリウィンドウが開いているとF5キーが効かなかったのを修正</li>
+                      <li class="item">暗号化されたDBを開く際にパスワード入力をキャンセルすると例外が発生するのを修正</li>
+                      <li class="item">クエリウィンドウが表示されている時は検索ウィンドウは表示出来ないように修正</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.8.3<span class="date">(2017年8月24日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">スペースを含むカラムがあるとテーブルが開けなかったのを修正</li>
+                      <li class="item">SQL文の色付機能を改善</li>
+                      <li class="item">入力補完を有効にしているとTabの後に補完が正しく行なわれないのを修正</li>
+                      <li class="item">関数として利用できないものが入力補完の候補して表示されるのを修正</li>
+                      <li class="item">クエリウィンドウでは検索ウィンドウを表示しないように変更</li>
+                      <li class="item">クエリウィンドウでも日付型のフォーマットをオプションで指定したものにするように改善</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.7.6<span class="date">(2017年8月21日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">タブをマウスホイールクリックでテーブルが閉じれなかったのを修正</li>
+                      <li class="item">データベースタブもマウスホイールクリックで閉じれるように改善</li>
+                      <li class="item">Enterキーでセルを移動する方向がオプションで正しく保存できなかったのを修正</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.7.4<span class="date">(2017年8月2日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">同名のテーブルと開いているとテーブル定義の編集が出来なかったので修正</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.7.3<span class="date">(2017年7月26日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">大量のペースト時にメモリを食いつぶしてしまうのを修正</li>
+                      <li class="sitem">4万レコード(25カラム)程度の貼り付けであれば数秒で終わりますが、制約チェックにかなりの時間がかかります。(1万レコード25カラムで3分程度)</li>
+                      <li class="sitem">100件以上の貼付けでは制約チェックするかどうかを貼り付け終了時に確認するようにしました。</li>
+                      <li class="item">行を選択して右クリックで表示される「選択行の削除」の効率が悪かったのを修正</li>
+                      <li class="item">入力補完のキーワードを追加</li>
+                      <li class="item">クイック検索がうまく動作していなかったのを修正</li>
+                      <li class="item">ROWIDを表示するか単純に行番号を表示するかをデータグリッドの左上を右クリックで表示されるコンテキストメニューで設定できるように改善</li>
+                      <li class="item">ファイル名にシングルクォーテーションがあるとうまくお気に入りに登録できなかったのを修正</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.6.2<span class="date">(2017年7月20日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">主キーが設定されていないテーブルを開いた状態でオプションダイアログを閉じると例外が発生するのを修正</li>
+                      <li class="item">想定している例外に対してはエラー番号を表示するように改善</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.6.0<span class="date">(2017年7月18日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">数値型のセルで自動でIMEモードをオフしていましたが、この機能をオプションとしました。(デフォルトはON)</li>
+                      <li class="item">データが件数が0になるSQLでSQLite以外のDBを表示し、フィルタリングを実行しようとすると例外が発生するのを修正</li>
+                      <li class="item">セルデータをペーストするとカラム幅がリセットされてしまうのを修正</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.5.10<span class="date">(2017年7月7日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">テーブルを開いた際に最終行をクリックするとカラム幅が150pxに変更されてしまうのを修正</li>
+                      <li class="item">プログラム内のコードを最適化(動作に影響ありません)</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.5.8<span class="date">(2017年6月29日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">コメントの内INTEGERのカラムでコンテキストメニューを出そうとすると落ちるのを修正</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.5.7<span class="date">(2017年6月23日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">シングルクォーテーションが含まれているファイル名も扱えるように改善</li>
+                      <li class="item">色の設定を改善</li>
+                      <li class="item">SQLite 3.19.3 に更新</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.5.5<span class="date">(2017年6月12日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">テーブルを開く時の速度を改善</li>
+                      <li class="item">ベージ設定で印刷時に反映されていないものがあったので修正</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.5.4<span class="date">(2017年6月9日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">すべての行を削除した後に再読込を行ない、編集後保存するとすべての行が削除されてしまうのを修正</li>
+                      <li class="sitem">System.Data.SQLite.dllを1.0.105.1に更新</li>
+                      <li class="item">オプションの表示タブにある色関連の機能不具合を修正</li>
+                      <li class="item">DataGridViewのカラム幅が完全にフィットしない不具合を修正</li>
+                      <li class="item">プリント時に指定間隔行の色やヘッダー色、フォント色を反映するように改善</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.5.0<span class="date">(2017年6月2日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">指定間隔で行の背景色を設定できるように改善</li>
+                      <li class="sitem">1行おき～100行おきまで指定可能です。</li>
+                      <li class="sitem">5行目、10行目の色を変えたい場合は4行おきになります。</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.4.0<span class="date">(2017年5月24日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">エクスポート時の保存先をオプションの「編集」タブから選択できるようにしました。</li>
+                      <li class="sitem">DBと同じ場所</li>
+                      <li class="sitem">前回と同じ場所</li>
+                      <li class="sitem">常に固定</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.3.3<span class="date">(2017年5月23日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">ビューの再読込で例外が発生するのを修正</li>
+                      <li class="item">テーブルを閉じる時にメモリをしっかりと開放するように改善</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.3.0<span class="date">(2017年5月16日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">挿入メニューに連続データを追加</li>
+                      <li class="sitem">数値型か日付型であれば連続データ(等差)の入力ができます。</li>
+                      <li class="item">挿入メニュー内の計算で √　(平方根)に対応</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.2.1<span class="date">(2017年5月15日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">日付型の保存時のDateformatにオプション設定の値を利用するように変更</li>
+                      <li class="item">日付型を複合主キーにもつテーブルの更新がうまくできない場合があったのを修正</li>
+                      <li class="item">ROWIDの表示更新の改善</li>
+                  </ul>
+              </li>
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.1.13<span class="date">(2017年5月10日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">日付型のエクスポート時にフォーマットを設定と合わせるように改善</li>
+                      <li class="item">トリガー作成ダイアログで入力補完が正しく動かなかったのを修正</li>
+                      <li class="item">データのインポートでテーブル一覧以外がアクティブになっているとインポート先のテーブル一覧が表示されなかったのを修正</li>
+                      <li class="item">SQLite 3.18.0</li>
+                  </ul>
+              </li> 
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.1.11<span class="date">(2017年4月13日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">データの読み込み行を指定している時に次のページに移動するとシステムカラムが表示されるのを修正</li>
+                      <li class="item">カラムコメントがテーブルの編集で編集できなかったのを修正</li>
+                      <li class="item">テーブル作成時に同時にインデックスを作成できなかったのを修正</li>
+                  </ul>
+              </li> 
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.1.6<span class="date">(2017年3月22日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">Windowsでクラシックモードで表示した時のGUIのズレを修正</li>
+                      <li class="item">行ヘッダーの幅も変更を次回テーブルを開く時に再現するように改善</li>
+                      <li class="item">インポート完了時のメッセージで挿入できなかったデータ数のみの表示から全データ数、成功数、失敗数を表示するように変更</li>
+                  </ul>
+              </li> 
+              <li class="listbox">
+                  <span class="title">
+                      version 1.30.1.5<span class="date">(2017年3月21日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">oracleなどからのインポート時に"OK"と不要なメッセージが出力されるのを修正</li>
+                      <li class="item">カラムに'を含む文字列があるとアプリ終了時にエラーがでるのを修正(保存などは行なえています。)</li>
+                  </ul>
+              </li> 
+            <li class="listbox">
+                  <span class="title">
+                      version 1.30.1.4<span class="date">(2017年3月15日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">テーブルの編集でカラムを追加して名称変更するとテーブル編集が出来なかった不具合を修正</li>
+                  </ul>
+            </li> 
+            <li class="listbox">
+                  <span class="title">
+                      version 1.30.1.2<span class="date">(2017年3月13日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">単純にカラムを追加するだけだとカラム名がデフォルトで追加されてしまうのを修正</li>
+                      <li class="item">次回以降はスタートページを表示しないとしても、直後にオプションを更新すると次回も表示されてしまうのを修正</li>
+                      <li class="item">SQLiteのバージョンを3.15.2に更新</li>
+                      <li class="item">テーブルレベルのCHECK制約に制約名をつけられるように改善</li>
+                      <li class="item">入力補完後のカレットの位置がおかしいのを修正</li>
+                  </ul>
+            </li> 
+            <li class="listbox">
+                  <span class="title">
+                      version 1.30.0.2<span class="date">(2017年3月10日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">入力補完後のカレットの位置がおかしいのを修正</li>
+                  </ul>
+            </li> 
+            <li class="listbox">
+                  <span class="title">
+                      version 1.30.0.1<span class="date">(2017年3月10日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">CHECK制約に対応</li>
+                      <li class="sitem">カラムレベルとカテーブルレベルそれぞれに対応</li>
+                      <li class="sitem">カラムレベルの記載する場合でも条件式にカラム名は必要です。</li>
+                      <li class="sitem">Checkカラムの記述例： age > 10</li>
+                  </ul>
+            </li> 
+            <li class="listbox">
+                  <span class="title">
+                      version 1.29.8.11<span class="date">(2017年3月8日)</span>
+                  </span>
+                  <ul class="listitem">
+                      <li class="item">外部キー制約がある場合のテーブルの編集操作を改善</li>
+                      <li class="item">F3キーでフィルタリングする際にLIKE検索が正しくできない不具合を修正</li>
+                      <li class="item">外部キー制約が設定されているのにアプリ内で外部キーが無効になっている場合メッセージを表示するように改善</li>
+                  </ul>
+            </li> 
+            <li class="listbox">
+              <span class="title">
+                version 1.29.8.7<span class="date">(2017年1月30日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">複合キーのテーブルに貼り付けを行なうと例外は発生するのを修正</li>
+              </ul>
+            </li> 
+            <li class="listbox">
+              <span class="title">
+                version 1.29.8.6<span class="date">(2017年1月6日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">データグリッドウィンドウのステータスバーのサイズがおかしくなっていたのを修正</li>
+                <li class="item">テーブル一覧のサイズが不用意に大きくなってしまうことへの対応</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.8.5<span class="date">(2016年12月21日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルの編集でカラムを追加すると余計なメッセージが表示されることがあったのを修正</li>
+                <li class="item">メインメニューなどのフォントをシステムのフォントと合せように修正</li>
+                <li class="sitem">ウィンドウの色とデザインより変更した内容が反映されます。</li>
+                <li class="sitem">あまり大きかったり小さいとデザインが崩れる場合があります。</li>
+                <li class="item">データグリッド上のショートカットキーがうまく動作しなかったのを修正</li>
+                <li class="item">クエリウィンドウを開くメニューをツールボタンのSQL文入力の中に追加</li>
+                <li class="item">既存行に正しく貼り付けができない場合があったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.8.1<span class="date">(2016年11月17日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルを開いた際に前回開いていたカラムの幅を再現するように改善</li>
+                <li class="item">テーブルを開く速度が遅くなっていたのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.7.0<span class="date">(2016年11月15日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムの幅を内容により自動調整しない場合の初期値を設定できるように改善</li>
+                <li class="item">四則演算機能の不具合を修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.6.1<span class="date">(2016年11月8日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブル比較で片側がNULLの場合に正しく差異が検出できない不具合を修正</li>
+                <li class="item">postgreSQLのインポートができなくなっていたのを修正</li>
+                <li class="item">DateTime型のカラムを複数選択すると内容例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.5.1<span class="date">(2016年10月12日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">INTEGER,REAL型のカラムにマイナス記号が入力できなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.5.0<span class="date">(2016年10月4日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLite3.14.2に対応</li>
+                <li class="item">貼り付け範囲を超えるペーストを行なうとエラーメッセージが表示されるのを抑制</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.4.3<span class="date">(2016年9月27日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">検索結果が0になるフィルタリングを行なうとエラーメッセージが表示されるのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.4.2<span class="date">(2016年9月26日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">四則演算で割り算の優先度が低かったのを修正</li>
+                <li class="item">( ) の評価不具合を修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.4.0<span class="date">(2016年9月23日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">挿入メニュー内に四則計算の結果を挿入する機能を追加(Ctrl+Bでも呼び出せます。)</li>
+                <li class="item">データが無いテーブルに複数行のデータをペーストすると例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.3.5<span class="date">(2016年9月21日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQL文の色付けにて /*～～*/ 形式のコメントに対応</li>
+                <li class="item">テーブルを削除しようとしても開いているとメッセージが出て削除できない場合があったのを修正</li>
+                <li class="item">挿入メニュー内に四則計算の結果を挿入する機能を追加(Ctrl+Bでも呼び出せます。)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.3.4<span class="date">(2016年9月20日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">メインウィンドウの左端にあるテーブル一覧やビュー一覧のラベルの動作を改善</li>
+                <li class="item">入力補完の動作を改善</li>
+                <li class="item">Accessなどからのインポートの際にコメントに改行があるとインポート出来なかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.3.3<span class="date">(2016年9月15日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLiteDBファイルを一度開いてから閉じた後にクエリウィンドウを表示するとエラーメッセージが出力されてしまうのを修正</li>
+                <li class="item">スタートページがメインウィンドウの中央に表示されない場合があったのを修正</li>
+                <li class="item">コピペ後にスクロール位置が保持されないのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.3.2<span class="date">(2016年9月8日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">編集後と保存時にスクロールが保持されず勝手に動くのを修正</li>
+                <li class="item">右クリックをしながらマウスホイールを回すと横スクロールするように変更</li>
+                <li class="item">Ctrlキーを押しながらマウスホイールを回すと速い横スクロールになります。</li>
+                <li class="item">Shitキーを押しながらマウスホイールを回すと複数開いているテーブルを切り替えます。</li>
+                <li class="item">WHERE句後に現在かかっているフィルターが入力補完で表示されるように改善(ちょっと前から)</li>
+                <li class="item">入力補完できるキーワードを追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.2.1<span class="date">(2016年9月5日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">コピーしたテキストを貼り付けるとカレントセルが選択行の一番左のセルになってしまうのを修正</li>
+                <li class="item">新規行で主キーのチェックが不正にかかる場合があったのを修正</li>
+                <li class="item">フィルタリングの際に水平スクロールの位置が保持されないことがあるのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.2.0<span class="date">(2016年8月31日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">空文字をNULLとしてインポートする設定がきかなかったのを修正</li>
+                <li class="item">2つ目以降に開いたテーブルのカラムの初期幅がセルの内容よりも小さい場合があったのを修正</li>
+                <li class="item">数値型(INTEGER,REALなど)カラムではIMEモードを自動的にOFFにするように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.1.3<span class="date">(2016年8月23日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Ctrl+Vで貼り付けが動作しない場合があったのを修正</li>
+                <li class="item">NULLのセルをコピーすると"(null)"というテキストがコピーされるのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.1.2<span class="date">(2016年8月18日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">GUI、メニューなどの英語表記対応を少し進めました。</li>
+                <li class="item">SQLウィンドウを開いてからDBを開くと正しくSQLを発行できない不具合を修正</li>
+                <li class="item">LIKEフィルターがコンテキストメニューからだと上手く動作しなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.1.1<span class="date">(2016年8月9日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">検索ウィンドウで入力後のカレットの位置がおかしくなるのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.1.0<span class="date">(2016年8月4日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">インポート時に空文字をNULLとして読み込むかどうかのオプションを追加</li>
+                <li class="sitem">ExcelやCSVなどNULLと空の概念が曖昧な場合に使って下さい。</li>
+                <li class="item">言語設定を英語にすると起動出来なかったのを修正</li>
+                <li class="item">F3で選択フィルター、Shit+F3で非選択フィルター、F4でフィルタ解除のショートカットキーを設定</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.0.9<span class="date">(2016年8月3日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルの新規作成時にSQLの確認を行なうと上手くテーブル作成が出来なかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.0.8<span class="date">(2016年8月2日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">印刷プレビューに閉じるツールボタンを追加</li>
+                <li class="item">印刷プレビューの最大ページが100になっていたのを修正</li>
+                <li class="item">印刷プレビュー以外からも印刷ページ設定ができるように改善</li>
+                <li class="item">印刷プレビューの拡大縮小を5%～2000%に制限</li>
+                <li class="item">テーブル作成時に正しくSQL文が作成できない場合があったのを修正</li>
+                <li class="item">主キーの自動入力機能が正しく動作しない場合があったのを修正</li>
+                <li class="item">制約チェックが正しく動作しない場合があったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.29.0.3<span class="date">(2016年7月29日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">フィルターがかかっている状態での印刷の不具合を解消</li>
+                <li class="item">印刷プレビュー画面でマウス操作を改善</li>
+                <li class="sitem">ホイールを回すとページを移動できます。</li>
+                <li class="sitem">右クリックしながらホイールを回すと拡大と縮小ができます。</li>
+                <li class="sitem">左クリックでドラッグするとパン操作ができます。(スクロール可能時)</li>
+              </ul>
+            </li>
+           <li class="listbox">
+              <span class="title">
+                version 1.29.0.2<span class="date">(2016年7月28日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">一行目の入力で制約チェックが正しく動いていなかったのを修正</li>
+              </ul>
+            </li>
+             <li class="listbox">
+              <span class="title">
+                version 1.29.0.1<span class="date">(2016年7月27日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルデータの印刷機能を追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.28.4.5<span class="date">(2016年7月26日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">セルを複数選択した時に画面下部に表示している選択している行数と列数が誤っていたのを修正</li>
+                <li class="item">オプション内の最近使ったファイルを自分で管理する場合にファイルを登録するダイアログにあるボタンにアイコンが設定されていなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.28.4.3<span class="date">(2016年7月21日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">データグリッド上のコンテキストメニューの「挿入」に機能追加</li>
+                <li class="sitem">カレンダーで指定・・日付、時刻をカレンダーで指定できます。</li>
+                <li class="sitem">ファイル・・・指定したファイルのパスを挿入できます。</li>
+                <li class="sitem">フォルダ・・・指定したフォルダのパスを挿入できます。</li>
+                <li class="item">オートフィルタが20万件以上のデータを持つテーブルでOFFになっていたのを10万件に変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.28.4.2<span class="date">(2016年7月20日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">セルの値編集用テキストボックスでの編集はEnterキーを押した時に確定するように変更</li>
+                <li class="sitem">Enterキーを押す前にマウスでセルを移動すると編集はキャンセルされます。</li>
+                <li class="item">テーブルの新規作成時にテーブル名入力用テキストボックスを選択状態にしました。</li>
+                <li class="item">テーブルの再読み込みをすると行番号が消えてしまうのを修正</li>
+                <li class="item">地域と言語設定の日付の書式によっては日付型カラムの値が正しく取得できなかったのを修正</li>
+                <li class="item">オートフィルタのコンテキストメニュー「全て表示」が正しく動作していなかったのを修正</li>
+                <li class="item">オートフィルタが20000件以上のデータを持つテーブルでOFFになっていたのを20万件に変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.28.4.0<span class="date">(2016年7月19日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">セルの値編集用テキストボックスが上手く動作していなかったのを修正</li>
+                <li class="item">オートフィルタの全て表示にチェックをつけると他のアイテム全てにチェックが付くように変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.28.3.2<span class="date">(2016年7月5日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLite 3.13.0に対応</li>
+                <li class="item">フィルタリングしたテーブルやビューを再読み込みすると行が表示されなくなるのを修正</li>
+                <li class="item">表示行数を指定している場合、ページングすると上手く変更内容の保存が出来なかったのを修正</li>
+                <li class="sitem">表示行数を指定している場合はページング毎に自動で変更内容がDBへ反映されます。</li>
+              </ul>
+            </li>  
+             <li class="listbox">
+              <span class="title">
+                version 1.28.2.0<span class="date">(2016年7月5日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">入力時に制約のチェックを行なうかどうかをオプションとしました。(初期値はON)</li>
+                <li class="sitem">入力時の制約チェックがおかしいと思う場合はOFFにして下さい。</li>
+              </ul>
+            </li>
+             <li class="listbox">
+              <span class="title">
+                version 1.28.1.10<span class="date">(2016年7月5日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">主キーが無いテーブルでも主キーのチェックを行なっていたのを修正</li>
+              </ul>
+            </li>
+             <li class="listbox">
+              <span class="title">
+                version 1.28.1.9<span class="date">(2016年6月30日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">セルの値をDeleteキーで削除した場合に更新状態にならないのを修正</li>
+              </ul>
+            </li>
+             <li class="listbox">
+              <span class="title">
+                version 1.28.1.8<span class="date">(2016年6月29日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">制約チェックの修正</li>
+                <li class="item">コピペ不具合修正</li>
+              </ul>
+            </li>
+             <li class="listbox">
+              <span class="title">
+                version 1.28.1.1<span class="date">(2016年6月23日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Trigger一覧を表示するように改善</li>
+                <li class="item">コピペ不具合解消</li>
+                <li class="item">主キーに値は設定されていない場合は自動で値を設定するオプションを追加</li>
+              </ul>
+            </li>
+             <li class="listbox">
+              <span class="title">
+                version 1.28.0.0<span class="date">(2016年6月17日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">大量のデータ(30万件以上)のテーブルを開くとメモリが足りなくなり強制終了するのを改善</li>
+                <li class="sitem">PCの性能にもよりますが70万件でも普通に使えることを確認</li>
+                <li class="sitem">15万件以上のテーブルを表示行数制限無しで開く場合はオートフィルターを使用不可にしました。</li>
+                <li class="item">Index一覧を表示するように改善</li>
+                <li class="item">トリガーの編集ができるように改善</li>
+                <li class="item">複数セルをコピーして1つのセルだけ選択した状態でペーストするとすべてのコピー範囲にペーストするように改善</li>
+                <li class="item">コピペ編集時に制約違反があってもメッセージではなく、行のエラーテキストとして表示するように変更を</li>
+              </ul>
+            </li>
+             <li class="listbox">
+              <span class="title">
+                version 1.27.1.2<span class="date">(2016年5月30日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">フィルタがかかっている状態で値を編集し、その結果で編集した行がフィルタリングされてしまい非表示になる状態で結果を保存しようとすると例外が発生していたのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.27.1.1<span class="date">(2016年5月26日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">オートフィルターオプションで前回の値を覚えるように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.27.1.0<span class="date">(2016年5月18日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ViewではNULL可不可のチェックをしないように変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.27.0.0<span class="date">(2016年5月16日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLite 3.12.2にバージョンアップ</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.26.1.0<span class="date">(2016年5月2日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">NUMERIC型を数値型として追加</li>
+                <li class="sitem">
+                  <a href="http://www.dbonline.jp/sqlite/type/index1.html" target="_blank">http://www.dbonline.jp/sqlite/type/index1.html</a> にあるように<br />「NUMERIC型のカラムにTEXT型の値が格納された場合、INTEGER型またはREAL型に変換を試みます。成功すればそのデータ型で格納されますが、失敗すればTEXT型のまま格納されます。」<br />とは出来ておりません。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.26.0.3<span class="date">(2016年5月2日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">読み込み行数を指定している時でもフィルタリングでは全件の中からデータを取得するように改善</li>
+                <li class="item">主キーが複数あり最終カラムにコメントが設定されているテーブルの編集ができなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.25.9.0<span class="date">(2016年4月19日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQL入力ウィンドウで対象データベースのリストの保持方法を変更</li>
+                <li class="sitem">SQL入力ウィンドウを閉じると現在開いているDBのみになりますが、参照ボタンから追加できます。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.25.8.0<span class="date">(2016年4月11日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルの編集で主キーが複数あると上手くいかなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.25.7.2<span class="date">(2016年4月8日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">お気入りの管理機能が上手く動いていないのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.25.7.1<span class="date">(2016年4月6日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">インデックス名をカンマ区切りで複数指定できるように改善</li>
+                <li class="sitem">カンマを含むインデックスが既にあると分割されてしまいます。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.25.7.0<span class="date">(2016年4月6日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブル内の全データ削除を行った後カラムの幅が大きくなるのを修正</li>
+                <li class="item">テーブル編集時に最終カラムにAutoIncrementとコメントを設定すると例外が発生したのを修正</li>
+                <li class="item">テーブル作成・編集時のチェック機能を実装</li>
+                <li class="item">DATETIME型のDEFAULTに(datetime('now','localtime'))が使えるように改善</li>
+                <li class="sitem">(datetime(CURRENT_TIMESTAMP,'localtime'))も使えます。</li>
+                <li class="sitem">(datetime(CURRENT_TIME,'localtime'))も使えます。</li>
+                <li class="sitem">(datetime(CURRENT_DATE,'localtime'))も使えます。</li>
+                <li class="item">テーブル作成・編集時にINDEXを名称で指定できるように変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.25.6.0<span class="date">(2016年3月29日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLite 3.9.2に対応</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.25.5.0<span class="date">(2016年1月12日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">F5でテーブルを再読も込する際にカラムの幅が広がってしまうのを修正</li>
+                <li class="item">テーブルを開いていて、その内容が選択されている場合にF5を押すとそのテーブルのみ再読み込みするように変更</li>
+                <li class="item">一部英語環境でも日本語で表示されるメニューがあったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.25.4.5<span class="date">(2015年8月26日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルが開いている時にテーブル定義の編集をしようとした時のメッセージを修正</li>
+                <li class="item">ペーストした時にDataGridがスクロールしてしまうのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.25.4.1<span class="date">(2015年6月29日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">複数行テキストを含むデータがあると保存できなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.25.4.0<span class="date">(2015年6月26日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">保存時の処理を高速化しました。</li>
+                <li class="item">検索時の処理を高速化しました。</li>
+                <li class="item">SQLiteを 3.8.10.2にバージョンアップアップしました。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.25.3.0<span class="date">(2015年6月25日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブル一覧からテーブルを開いた場合のSQL入力ボックスでSQLの入力保管の中にカラム名がでるように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.25.2.0<span class="date">(2015年5月11日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Excelのインポートでブックの保存をきかれるのを抑止</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.25.1.1<span class="date">(2015年4月30日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブル一覧が空の場合にCtrl+Cの実行で例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.25.0.0<span class="date">(2015年4月22日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLite 3.8.8.3に対応</li>
+                <li class="item">用語の統一(フィールド→カラム)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.24.2.4<span class="date">(2015年4月16日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">インポート時にテーブル定義ウィンドウでテーブル名を変更しても反映されなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.24.2.3<span class="date">(2015年4月14日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルを閉じた後に違うテーブルでオートフィルタを使おうとすると例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.24.2.1<span class="date">(2015年4月9日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">データ型によりオートフィルタの内容を変更(Excel風)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.24.1.0<span class="date">(2015年4月7日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">異なるSQLiteDB間でもテーブルのコピーができるように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.24.0.6<span class="date">(2015年4月6日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">フィルターを2回かけるとレコードが一つしか表示されなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.24.0.5<span class="date">(2015年4月1日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ROWIDを表示する設定時にグリッドの左上の表示される「ROWID」の文字が切れることがあったのを修正</li>
+                <li class="item">カラムを非表示にしたり再表示するとカラムのドロップダウンボタンの位置がズレるのを修正</li>
+                <li class="item">オートフィルターのGUIを調整</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.24.0.2<span class="date">(2015年3月31日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">オートフィルターを改善</li>
+                <li class="item">INT型と符号付き32ビット整数として扱えるオプションを実装</li>
+                <li class="sitem">INTEGER型は常に符号付き64ビット整数として扱われます。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.23.4.3<span class="date">(2015年3月17日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">フィルターがかかっている状態でデータを再読み込みすると何も表示されなくなるのを修正</li>
+                <li class="item">オートフィルターをかけながらSELECT文を開いているテーブルに発行したあとにカラムクリックでソートをすると例外が発生するのを修正</li>
+                <li class="item">リロードでシステム用カラムが見えてしまうのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.23.3.0<span class="date">(2015年2月25日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">選択中のセルデータを削除(NULLに)するメニューをコンテキストメニューに追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.23.2.0<span class="date">(2015年2月24日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">インポート用ファイル指定時にD＆Dを可能に改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.23.1.1<span class="date">(2015年2月9日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">データグリッドでSQL(SELECT文)を実行した時に、カラムの幅が大きくなるのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.23.1.0<span class="date">(2015年1月29日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">DataGridViewのスクロール時のちらつきを抑制</li>
+                <li class="item">フィルタリング時のパフォーマンスを少し向上</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.23.0.5<span class="date">(2015年1月22日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">オートフィルタ機能の微調整</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.23.0.0<span class="date">(2015年1月20日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">オートフィルタ機能を実装</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.22.3.0<span class="date">(2015年1月16日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルの比較WindowのGUIを改善</li>
+                <li class="item">インポートエラー時に起きる配列系初期化に関する不具合を修正</li>
+                <li class="item">データグリッドウィンドウのSQLエディターのフォント変更が即時反映されるように改善</li>
+                <li class="item">データグリッドウィンドウのSQLエティターでテキストを右端で折り返すことができるように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.22.2.0<span class="date">(2014年11月21日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ROWIDが表示されなくなっていたのを修正</li>
+                <li class="item">レコードを全選択して削除する際の効率を改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.22.1.0<span class="date">(2014年11月14日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLite3.8.6に対応</li>
+                <li class="item">パフォーマンスの改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.22.0.0<span class="date">(2014年11月11日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Access形式エクスポートする際に長さが指定されていない、または255を超える長さが指定されているTEXTはメモ型としてエクスポートするように改善</li>
+                <li class="item">Access形式でエクスポートする際にエラーがあった場合はログファイルを出力するように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.21.1.0<span class="date">(2014年11月06日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Access形式エクスポートする際に '(アポストロフィ)を含むデータが出力されないのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.21.0.0<span class="date">(2014年09月09日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLite 3.8.5に対応</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.20.10.0<span class="date">(2014年09月09日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">CSVファイル以外からのインポート時にもNULLを正確に判断するように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.20.9.0<span class="date">(2014年08月21日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルの作成でAutoIncrimentとコメントが指定されていると上手くSQLを作成出来なかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.20.8.1<span class="date">(2014年08月19日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">DATETIME型のデータが常にDateTimeFormatの書式で更新されてしまうのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.20.7.0<span class="date">(2014年08月11日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムを右クリックした時のコンテキストメニューからのソートが上手く出来なかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.20.6.2<span class="date">(2014年07月04日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">1.20.5.0の修正でデータベースを閉じる際に不具合が生じていたのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.20.6.1<span class="date">(2014年07月04日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルを開いている場合は、そのテーブルのテーブル定義を変更できないように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.20.6.0<span class="date">(2014年07月02日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">DataGridのコンテキストメニューで「すべてのデータを削除」を選択した後にテーブルを開いたままインポートを行うとDeleteが再実行されるのを修正</li>
+                <li class="item">CSVのインポート時にNULLと空文字を区別するように改善(ただし空文字はダブルクォーテーションで囲われていることが条件となります。)</li>
+                <li class="item">Boolean型の値はチェックボックスとして表示されますが、NULLとFalseの場合の区別がつくように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.20.5.0<span class="date">(2014年06月30日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">選択中のデータベースを閉じる際に開いているテーブルより先にデータベースを閉じて閉まっていたのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.20.4.1<span class="date">(2014年06月05日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Oracleからのインポートを行った後にテーブルの比較機能を実行すると例外が発生してしまうのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.20.4.0<span class="date">(2014年05月13日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLiteDBからのインポート時にビューも指定できるように変更(テーブルとして取り込みます)</li>
+                <li class="item">スタートページを表示しない場合にウィンドウサイズが小さくできなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.20.3.1<span class="date">(2014年04月18日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">最近使ったファイルを独自に管理する機能の不具合を修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.20.3.0<span class="date">(2014年04月17日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">トリガーが設定されているビューは編集できるように改善</li>
+                <li class="sitem">トリガーの影響を受けないデータも編集できますが、保存はされません。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.20.2.0<span class="date">(2014年04月11日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">オプションに「最近使ったファイルを独自に管理」を追加</li>
+                <li class="sitem">Windowsの最近使ったファイルでは無く本ソフトが独自に管理します。(最大20件)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.20.1.0<span class="date">(2014年04月10日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQL入力ウィンドウにコンテキストメニューを追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.20.0.2<span class="date">(2014年04月10日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQL入力ウィンドウで右端で折り返す設定の時にインテリセンスが表示されなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.20.0.1<span class="date">(2014年04月04日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">クエリウィンドウをSQL入力ウィンドウから開いた時、SQL文に色付けがされていないのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.20.0.0<span class="date">(2014年04月03日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLエディターでキーワードの色付け機能を実装</li>
+                <li class="item">クエリウィンドウのCSV出力でUTF8を選択できるように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.19.7.1<span class="date">(2014年03月28日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">暗号化されたDBファイルをコマンドライン引数にしてPupSQLiteを起動すると通常使うパスワードを使わなかった不具合を修正</li>
+                <li class="item">データグリッドウィンドウのコンテキストメニューからCSV出力する際にUTF8とShitJISをフィルタで指定できるように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.19.7.0<span class="date">(2014年03月25日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLite 3.8.4.1に対応しました。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.19.6.0<span class="date">(2014年03月24日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLエディターのフォントをオプションで指定できるように改善</li>
+                <li class="item">1.16.0.0の更新履歴の正規表現の書式が間違っていたので訂正</li>
+                <li class="sitem">REGEXP([カラム名],'正規表現パターン',オプション番号)</li>
+                <li class="item">SQL文を記述して結果を得ることに特化したクエリウィンドウの実装</li>
+                <li class="sitem">機能→クエリウィンドウを開く</li>
+                <li class="sitem">接続設定→ファイルを指定 or サーバー指定</li>
+                <li class="sitem">サーバー指定ではMySQL,postgreSQL,SQLServer,Oracleが指定可能です。</li>
+                <li class="sitem">
+                  <b>サーバー指定では発行したクエリをロールバックする機能はありませんので注意してください。</b>
+                </li>
+                <li class="sitem">クエリウィンドウが発行したSQLの実行時間がウィンドウ下部に表示されます。</li>
+                <li class="sitem">クエリウィンドウではSQL文での入力しか受け付けておりません。</li>
+                <li class="sitem">INSERTなどの結果を見たい場合はSELECT文を発行してください。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.19.5.0<span class="date">(2014年03月24日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQL文でViewのエクスポート時にデータの実態のINSERT文を出力しないように改善</li>
+                <li class="item">カラムが一つしか無いViewが作成できなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.19.4.0<span class="date">(2014年03月20日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLファイルを呼び出しやすくするためSQLファイル格納フォルダを指定できるようにしました。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.19.3.0<span class="date">(2014年03月14日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルの再読み込みをした後、カラムをクリックしてもソートができなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.19.2.0<span class="date">(2014年03月13日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Boolean型の出力時にTrue,Flaseと文字列になっていたのを1,0と数値に修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.19.1.0<span class="date">(2014年03月05日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">CSV出力時に最終行と列が出力されないのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.19.0.1<span class="date">(2014年02月19日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQL文でのエクスポートでUTF-8のBOM無しに対応しました。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.18.1.0<span class="date">(2014年01月10日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">複合UNIQUE制約に対応しました。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.18.0.1<span class="date">(2013年12月29日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">外部キー制約を有効にしても動作しなかったのを修正</li>
+                <li class="item">外部キー制約があるとカラムの編集ができなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.17.3.1<span class="date">(2013年11月19日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブル一覧ウィンドウ(ドッキングしていない方)のフィルターを設定して開く機能を削除</li>
+                <li class="item">ビュー作成ダイアログのレイアウトを少し変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.17.2.0<span class="date">(2013年11月05日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ROWIDというカラムが実際にテーブル内になったらテーブルが開けなかったのを修正</li>
+                <li class="item">現在の状態をXMLファイルに出力メニューがなくなっていたのを復活</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.17.1.0<span class="date">(2013年10月22日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">MySQL 6.7.4.0に対応</li>
+                <li class="item">テーブル検索のテキストボックスでCtrl+Cで貼り付けをすると開いているテーブルの選択しているセルにもデータがペーストされる修正</li>
+                <li class="item">DateTime型の書式があわなくて開けなかった時にメッセージのあと例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.17.0.1<span class="date">(2013年10月20日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Oracleのインポートで複数テーブルを指定するとエラーとなるのを修正</li>
+                <li class="item">ファイル→開くのアクセスキーが間違っていたのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.17.0.0<span class="date">(2013年10月19日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Oracleからのインポートに対応しました。</li>
+                <li class="sitem">主キーの取得にも対応しております。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.16.3.3<span class="date">(2013年10月18日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Alt+F→O でファイルオープンダイアログを表示するようにアクセスキーを復活させました。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.16.3.2<span class="date">(2013年10月15日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ファイルをダブルクリック(関連付け)から開く場合にエラーが表示されるのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.16.3.1<span class="date">(2013年10月15日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Ctrl+Oでデータベースを開くダイアログを表示するように改善</li>
+                <li class="item">データベースを開いたらその中のテーブルもすべて開くオプションを追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.16.2.2<span class="date">(2013年10月03日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">XMLでのエクスポート時にカラム名がメッセージとして表示されづつけるのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.16.2.1<span class="date">(2013年08月21日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ネットワークドライブ上にファイルがあると開けなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.16.2.0<span class="date">(2013年08月12日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLite 3.7.17に対応(System.Data.SQLite.dll 1.0.88.0)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.16.1.5<span class="date">(2013年08月08日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルとビューを切り替える処理で以上終了する可能性があったので対応</li>
+                <li class="item">テーブルが取得できなかった場合に落ちることがあったのを修正</li>
+                <li class="sitem">テーブル名は+などの記号があった場合取得できないことがあります。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.16.1.4<span class="date">(2013年07月23日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">保存すべき内容が無い場合に保存機能が動いてしまうことがあったのを修正</li>
+                <li class="item">SQLの結果の表示でDateTime型の書式が正しく反映されていなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.16.1.3<span class="date">(2013年06月30日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">保存時のプログレスバーの位置がずれていたのを修正</li>
+                <li class="item">SQL実行ウィンドウで「結果をデータグリッドに表示する」にチェックが入っている状態でSQL分の構文エラーがあるとフリーズしてしまうのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.16.1.2<span class="date">(2013年06月08日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">セルの終端で方向キーを押すと隣のセルに移動するオプションを無効にしている場合にセルの編集でエラーが発生することがあるのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.16.1.1<span class="date">(2013年06月06日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムの編集ダイアログに行番号を追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.16.0.1<span class="date">(2013年05月20日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">DateTime型があるとテーブルが開けない場合があったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.16.0.0<span class="date">(2013年05月17日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">REGEXP([カラム名],'正規表現',オプション番号)でWHERE句に正規表現を使えるように改善(.NET4から使えなくしていました。)</li>
+                <li class="item">主な正規表現オプションの説明</li>
+                <li class="sitem">0 ・・・ オプションが何も設定されないことを指定します。</li>
+                <li class="sitem">1 ・・・ IgnoreCase 検索時に大文字と小文字を区別しないことを指定します。</li>
+                <li class="sitem">2 ・・・ Multiline 複数行モードを指定します。^ と $ の意味を変更して、文字列全体の先頭と末尾だけでなく、任意の行の先頭と末尾にもそれぞれが一致するようにします。</li>
+                <li class="sitem">16・・・ 単一行モードを指定します。\n 以外の任意の文字ではなく、すべての文字と一致するようにピリオド (.) の意味を変更します。</li>
+                <li class="sitem">64・・・ RightToLeft 検索が左から右ではなく右から左に行われるように指定します。</li>
+                <li class="sitem">複数のオプションを指定する場合は番号の合計値(複数行モードで大文字と小文字を区別しないなら 1+2なので3を指定)</li>
+                <li class="item">データ型を指定しないテーブルが開けない場合があったのを修正</li>
+                <li class="item">CSV出力時に最終カラムが欠落してしまうのを修正</li>
+                <li class="item">XML出力したスキーマにROWIDが出力されていたのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.15.5.1<span class="date">(2013年05月05日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">System.Data.SQLite.dllのバージョンアップに対応しきれていない部分があったためSQLite 3.7.15.2に戻します。。。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.15.5.0<span class="date">(2013年05月05日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">パスワード入力ウィンドウで「内容を表示する」オプションを追加</li>
+                <li class="item">内容を表示中のパスワード入力ウィンドウでは日本語など2バイト文字の入力もできるように改善</li>
+                <li class="item">SQLite 3.7.16.2に対応(System.Data.SQLite.dll ver1.0.85.0)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.15.4.0<span class="date">(2013年05月02日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムのコンテキストメニューに「幅を内容に合わせる」を追加</li>
+                <li class="item">ビュー値は変更できないように修正(値の変更はキャンセルされます。)</li>
+                <li class="item">PupSQLite起動時にウィンドウのセンターが画面外の場合はプライマリスクリーンのセンターにPupSQLiteのウィンドウを表示するように変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.15.3.5<span class="date">(2013年03月19日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">BLOB型のカラムを含むテーブルを開くとエラーが出力されるのを修正</li>
+                <li class="item">最終行(新規行)はセルに直接入力しか受け付けないように修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.15.3.4<span class="date">(2013年03月11日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SELECT文で一部しかカラムを表示していないときにテーブルのリロードをするとエラーとなるのを修正</li>
+                <li class="item">ビューをテーブルとしてコピーしようとしてもビューのままコピーされるのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.15.3.3<span class="date">(2013年03月5日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">PupSQLiteが起動中に関連付けしている別DBファイルを開こうとしても開けなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.15.3.2<span class="date">(2013年02月27日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムのプロパティのOKボタンの位置がおかしかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.15.3.1<span class="date">(2013年02月18日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルの比較でROWIDまで対象となっていたのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.15.3.0<span class="date">(2013年02月14日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">存在しないファイルパスが入っているセルのコンテキストメニューの表示が遅かったのを修正</li>
+                <li class="item">Languageメニューの挙動を改善</li>
+                <li class="item">スタートウィンドウのお気に入り一覧をマウスホイールでスクロール可能に改善</li>
+                <li class="item">コンテキストメニューの「すべてのデータを削除」をデータを削除しても保存ボタンが有効にならないのを修正</li>
+                <li class="item">テーブルを複数開いている状態でリロードをすると選択していないテーブルでROWIDカラムが表示される不具合を修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.15.2.1<span class="date">(2013年02月04日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">セルの値を削Deleteキーで削除すると行番号が消えてしまうのを修正</li>
+                <li class="item">多言語化をGUIの一部だけ対応(メッセージ関係は日本語)</li>
+                <li class="item">System.Data.SQLite.dllをアップデート(SQLite 3.7.15.2)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.15.1.0<span class="date">(2013年01月22日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">リロード時にカラムの幅が自動調整されてしまうのをリロード前の幅を保持するように変更</li>
+                <li class="item">テーブルをタブで移動してもセル内容表示テキストボックスの高さが変わらないように変更</li>
+                <li class="item">SQLファイルをＤ＆Ｄで実行可能に改善</li>
+                <li class="sitem">PupSQLiteのアイコンにDBファイルとSQLファイルをＤ＆Ｄすると実行します。</li>
+                <li class="sitem">コマンドラインで PupSQLite.exe DBファイルパス SQLファイルパス とするとSQLを実行します。</li>
+                <li class="sitem">テーブル一覧にSQLファイルをＤ＆ＤするとそのDBに対してSQLファイルの内容を実行します。</li>
+                <li class="sitem">開いたテーブルの何もない部分(標準ではグレーの部分)にSQLファイルをＤ＆Ｄするとその内容を実行します。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.15.0.0<span class="date">(2013年01月21日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">自動アップデートの機能改善</li>
+                <li class="item">SQLiteデータベースをインポートするとROWIDをカラムとして追加してしまうのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.14.3.3<span class="date">(2013年01月16日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ROWIDカラムがビュー作成で表示されてしまうのを修正</li>
+                <li class="item">インテリセンスが1行の場合にスクロールバーで見えなくなるのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.14.3.2<span class="date">(2013年01月15日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Excelの数式バーのようなものを追加</li>
+                <li class="item">カラム編集における文字数設定で255を超える数値を設定可能に変更</li>
+                <li class="item">セル内容編集時の右クリックメニューに「切り取り」と「選択中のテキストを削除」の追加</li>
+                <li class="item">セル内容の編集中に終端(上右下左)にカーソルが達しても方向キー(↑→↓←)で隣のセルに移動しないように変更(オプションで設定変更可能)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.14.2.1<span class="date">(2013年01月10日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">DateTime型をSQLファイルへエクスポートすると日付のセパレータがスラッシュになるのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.14.2.0<span class="date">(2013年01月09日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">DateTime型をXMLからインポートするときに日付書式が上手く処理できていなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.14.1.0<span class="date">(2012年12月13日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブル名変更後にテーブルのコピーができなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.14.0.0<span class="date">(2012年12月05日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ROWIDを表示できるように改善(ツール→オプション→表示→ROWIDを表示する)</li>
+                <li class="item">主キーの無いテーブルの場合は更新をROWIDを使って行うように変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.13.6.1<span class="date">(2012年11月27日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムのプロパティでセルの内容に合わせるチェックボックスが反応しなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.13.6.0<span class="date">(2012年11月26日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムのプロパティでカラムの幅を設定できるように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.13.5.0<span class="date">(2012年11月20日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムのデフォルト値に空文字が設定できなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.13.4.0<span class="date">(2012年10月18日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルを開いた直後(何もセルを選択していない状態)にCtrl+Cを押すとエラーメッセージが表示されたのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.13.3.0<span class="date">(2012年10月06日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">主キーが複数ある場合にテーブルのコピーができなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.13.2.1<span class="date">(2012年10月04日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLite 3.7.14にバージョンアップ</li>
+                <li class="item">エラー発生時のメッセージボックスを変更しました。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.13.1.0<span class="date">(2012年07月26日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLiteDBファイルのショートカットをドラッグ＆ドロップしても開けるように改善</li>
+                <li class="item">「現在の状態をビューにする」機能の不具合解消</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.13.0.5<span class="date">(2012年07月17日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムがひとつしかない場合に主キーを設定できなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.13.0.3<span class="date">(2012年06月26日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ペースト時の不具合を修正</li>
+                <li class="item">Windows7で最小化したSQLViewerが最表示しにくいのを修正</li>
+                <li class="item">主キーが内テーブルで主キーの重複チェックがかかってしまうのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.13.0.2<span class="date">(2012年06月22日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">DateTime型にNULLが入力できなかったのを修正(Deleteキーでエラーが表示された)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.13.0.1<span class="date">(2012年06月22日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">主キーが長整数型に対応できなくなっていたのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.13.0.0<span class="date">(2012年06月15日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルを開くのが遅くなっていたのを少し改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.12.6.4<span class="date">(2012年06月12日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ジャンプリストからファイルを開こうとすると例外が発生するのを修正</li>
+                <li class="item">自動バージョンアップに失敗したら次回以降もバージョンアップできなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.12.6.3<span class="date">(2012年06月05日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">セル内の文字列を選択してコピーすると例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.12.6.2<span class="date">(2012年06月01日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">DataGridViewのセルが表示されていない領域で表示されるコンテキストメニューにもフィルターの解除を追加</li>
+                <li class="item">行全体を選択した状態でコピーをすると各行の先頭にタブが挿入されてしまうのを修正</li>
+                <li class="item">NULLのセルをコピーすると(null)という文字列がコピーされてしまうのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.12.6.1<span class="date">(2012年05月28日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">複数種キーが設定されているテーブルにデータ(重複している)をペーストした時のエラーアイコンが正しくなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.12.5.2<span class="date">(2012年05月11日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルの作成時にカラム削除用のコンテキストメニューを追加</li>
+                <li class="item">主キーのカラムにNULLを含むデータをペーストすると例外が発生したのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.12.5.1<span class="date">(2012年05月09日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">文字列の主キーの値を編集しようとすると例外が起きたのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.12.5.0<span class="date">(2012年05月02日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">コンテキストメニューに区切り線を追加</li>
+                <li class="item">DataGridViewにペーストした時に主キーが勝手にインクリメントされないように改善</li>
+                <li class="item">ペースト時は重複した主キーを設定可能となるため、重複している主キーのレコードにはエラーアイコンを表示するように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.12.4.1<span class="date">(2012年04月27日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">すべてのレコードを選択してDeleteキーを押すと例外が発生する可能性があったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.12.4.0<span class="date">(2012年04月22日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">MyQueryでウィンドウ閉じるメニューが機能していなかったのを修正</li>
+                <li class="item">MyQueryでレコード移動用ボタンを追加(ジャンプメニュー削除)</li>
+                <li class="item">MyQueryでフィルターの編集メニューを削除</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.12.3.0<span class="date">(2012年04月10日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">MyQueryでCtrl+Cを押すとPupSQLiteが落ちたのを修正</li>
+                <li class="item">MyQueryにCSV出力機能を実装</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.12.2.1<span class="date">(2012年04月05日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">画面外で起動していまうようなときはプライマリディスプレイの真ん中で起動するように改善</li>
+                <li class="item">INSERT時にシングルクォーテーションがあるとINSERT出来なかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.12.2.0<span class="date">(2012年04月05日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Shift-Jis以外の文字コードのデータをコピーすると文字化けするのを修正</li>
+                <li class="item">CSVをUTF-8でエクスポートできるように改善</li>
+                <li class="item">シングルクォーテーションのデータが保存出来なかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.12.1.3<span class="date">(2012年03月29日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">REAL型で作成したカラムがTEXT型と誤認してしまう不具合を解消</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.12.1.2<span class="date">(2012年03月28日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">オプションにある「CSVファイルで出力する場合はダブルクォーテーションで囲う」がチェック状態に関わらず常に有効になっていたのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.12.1.1<span class="date">(2012年03月19日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">外部キーなしでテーブルの作成をすると例外が起きたのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.12.1.0<span class="date">(2012年03月16日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">MyQueryにてデータのコピーができるように右クリックメニューに追加</li>
+                <li class="sitem">カラム名ありはカラム名を付加してコピーします。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.12.0.0<span class="date">(2012年03月07日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">外部キーに対応</li>
+                <li class="sitem">外部キーを有効にするにはツール→オプション→SQLiteタブの「外部キーを有効にする」にチェック</li>
+                <li class="item">テーブルを削除してもメインメニュー内のデータベースメニューから削除されていなかったのを修正</li>
+                <li class="item">トリガーの作成方法を改善</li>
+                <li class="item">SQLの入力補完で複数行ある場合に一行目の最後で入力補完をすると2行目の先頭にカーソルが移動してしまうのを修正</li>
+                <li class="item">主キーの無いテーブルでセルの値をNULLにするSQLの発行が上手く行かないことがあったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.11.5.0<span class="date">(2012年03月01日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">スタートページをフェードインするように変更</li>
+                <li class="item">Viewのカラムの一部だけ表示するようなSelect文でテーブルを表示した時にコンテキストメニューを表示しないように変更</li>
+                <li class="sitem">カラムがすべて表示されていない場合にフィルタリング処理などが上手く動作しないための一時対応</li>
+                <li class="item">テーブルの比較機能で変更内容をSQL文として出力できるように改善</li>
+                <li class="item">テーブルをHTML形式でエクスポートできるように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.11.4.0<span class="date">(2012年02月20日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">スタートページを表示するように変更</li>
+                <li class="sitem">スタートページでは最近使ったファイルやお気に入りに簡単にアクセス可能。更新履歴も表示されます。</li>
+                <li class="sitem">オプションで「開始時にスタートページを表示する」をONにしてください。</li>
+                <li class="sitem">オプションの「終了時に開いているファイルを次回起動時に自動で開く」が有効で起動時にファイルが開かれる場合は表示されません。</li>
+                <li class="item">選択中のテーブル以外のテーブルを閉じるメニューをタブのコンテキストメニューに追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.11.3.3<span class="date">(2012年02月14日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">子ウィンドウを最大化した状態でメインメニューのウィンドウ→重ねて表示 などをするとウィンドウの閉じるボタンなどが表示されなかったのを修正</li>
+                <li class="item">ヘルプメニュー内にToolStripMenuItem26があったのを削除</li>
+                <li class="item">タブ化に対応していないウィンドウがあったので対応。</li>
+                <li class="item">行を移動しないと変更(編集・が確定しなかったのを修正</li>
+                <li class="item">BLOB型を含むテーブルを再読み込みするとBLOB型のカラムが上手く表示できなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.11.3.2<span class="date">(2012年02月12日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">BLOB型を含むテーブルのデータが保存できなかったのを修正</li>
+                <li class="item">セル内の改行を許可するどうかをオプションで選択できるように変更(許可がデフォルト)</li>
+                <li class="sitem">改行を許可すると非常に長いテキストが格納されている場合に表示が遅くなることがあります。</li>
+                <li class="item">メニューアイコンのリソースを変更</li>
+                <li class="item">ビュー一覧のタブを追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.11.3.1<span class="date">(2012年02月10日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Boolean型を含むテーブルのデータが保存できなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.11.3.0<span class="date">(2012年02月08日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">存在しないファイルをお気に入りから選択した時に削除できるように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.11.2.0<span class="date">(2012年02月03日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ボタンアイコン、メニュー周りを変更</li>
+                <li class="item">readme.txtの【ファイル構成】を更新</li>
+                <li class="item">お気に入り機能を追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.11.1.0<span class="date">(2012年02月02日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">再読み込みボタンと変更の保存ボタンを各タブに追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.11.0.0<span class="date">(2012年02月02日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLite 3.7.10に対応</li>
+                <li class="item">複数テーブルを開いている場合にすべてのテーブルを一度に閉じると、一番初めに開いたテーブルの変更確認が表示されないのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.10.5.1<span class="date">(2012年02月01日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">バージョンチェックに対応</li>
+                <li class="item">自動バージョンアップに対応</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.10.5.0<span class="date">(2012年02月01日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">保存周りの処理を改善</li>
+                <li class="item">レコード移動ボタンを追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.10.4.3<span class="date">(2011年12月26日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">改行を含むCSVデータを改行込みでインポートできるように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.10.3.3<span class="date">(2011年12月3日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">主キーが無いテーブルにDateTime型のカラムがあるかDataTime型のカラムが主キーの場合にレコードの更新・削除ができなかったのを修正</li>
+                <li class="sitem">入力時と同じDateTimeFormatを使ってください。</li>
+                <li class="sitem">DateTimeFormatは機能→オプション→SQLiteにあります。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.10.3.2<span class="date">(2011年11月24日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">｢すべてのデータを削除｣ができなくなっていたのを修正</li>
+                <li class="item">データグリッド内のコンテキストメニューの｢すべてのデータを削除｣でDBに即時反映しないように改善</li>
+                <li class="item">テーブル名を表示しているタブのテキストが変わっても×ボタンの位置が変わらなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.10.3.1<span class="date">(2011年11月18日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQL文を入力して実行ダイアログで結果をデータグリッドで表示する設定時にSELECT文以外を指定した場合例外が発生するのを修正</li>
+                <li class="item">必要ソフトにC++ 2010 再配布パッケージを追加</li>
+                <li class="item">SQLite 3.7.8に対応(System.Data.SQLite.dll ver 1.0.76.0)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.10.3.0<span class="date">(2011年11月15日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQL発行時に自動で最適化をするオプションを追加</li>
+                <li class="sitem">大きなサイズのDBだと最適化に時間がかかりますのでご注意ください。</li>
+                <li class="item">アトミックコミットとロールバックの実装にrollback journalとwalを切り替えられるように変更</li>
+                <li class="sitem">機能→オプション→SQLiteタブ→Atomic Commit and Rollback</li>
+                <li class="sitem">walを使うと3.7以降のバージョンのSQLiteでしか読み書きできません。(最適化後は3.0以降で可能)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.10.2.0<span class="date">(2011年11月10日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">
+                  古いバージョンのSQLiteでは読み込めなくなっていたのでLagacy Formatを指定して、<strong>｢最適化実行後｣</strong>は3.0.0以降のバージョンであれば読み書き可能になるように変更
+                </li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.10.1.0<span class="date">(2011年11月09日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ジャンプリストのファイルを指定して変換の対象拡張子を調整</li>
+                <li class="item">ジャンプリストにコピーして開くを追加</li>
+                <li class="item">ショートカットキーの反応がおかしかったのを修正</li>
+                <li class="item">テーブル名に(,\,.などがあるとテーブルの編集ダイアログにインデックスが反映されなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.10.0.0<span class="date">(2011年11月6日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">.NET Framework4に変更</li>
+                <li class="item">SQLiteのバージョンを3.7.6.3に変更</li>
+                <li class="item">ジャーナルモードにWALを採用</li>
+                <li class="item">テーブルを表示しているタブに閉じるボタンを追加</li>
+                <li class="sitem">テーブル名のタブを右クリックしながらマウスホイールを回すと選択タブを切替られます。</li>
+                <li class="item">SQL入力ボックスでCtrl+Aで全文選択できなかったのを修正</li>
+                <li class="item">終了時のウィンドウ位置とサイズを次回起動時に復元しきれない場合があったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.14.0<span class="date">(2011年10月21日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQL文でエクスポートにUTF-8を追加</li>
+                <li class="item">SQL文入力ウィンドウからDataGridを開くときにBLOB型があるとエラーが出力されたのを修正</li>
+                <li class="item">DataTime型のデータをCSVでエクスポートするときに区切り文字が-になるように修正</li>
+                <li class="item">MDBファイルの取込で主キーが一つだと取り込めなかったのを修正(デバッグ用メッセージが表示されていたのも修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.13.5<span class="date">(2011年7月25日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">MDBファイルの取込で主キーが複数あると取り込めなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.13.4<span class="date">(2011年6月27日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ファイル名に'があったら例外が発生する場合があったのを修正</li>
+                <li class="item">セルに改行を入力可能に改善(Shift+Enter)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.13.3<span class="date">(2011年4月25日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブル作成時にINDEXを指定しても反映されなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.13.2<span class="date">(2011年4月11日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルの比較で例外が発生するのを修正</li>
+                <li class="item">CSV出力の際に値をダブルクォーテーションで囲うかどうかの設定を可能に改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.13.0<span class="date">(2011年2月7日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">セルのコンテキストメニュー(右クリックメニュー)に｢挿入｣を追加(今日の日付、現在の日時、現在の時刻を挿入可能)</li>
+                <li class="item">ソート直後に検索ダイアログで検索ボタンを押すと例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.12.1<span class="date">(2011年2月1日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">コンピュータがロックされた後、復帰するとドッキング状態でもテーブル一覧ウィンドウが表示されてしまう不具合を修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.12.0<span class="date">(2011年1月31日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムの編集で右クリックからカラムの削除ができるように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.11.1<span class="date">(2011年1月25日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">主キーが設定されていない場合に編集で例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.11.0<span class="date">(2011年1月24日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">同一カラムのデータを複数選択して右クリックするとORで検索できるように改善</li>
+                <li class="item">複数カラムのデータを選択して右クリックするとANDで検索できるように改善</li>
+                <li class="item">フィルターの編集機能を拡張</li>
+                <li class="sitem">接続文字(AND OR)を設定できるように変更</li>
+                <li class="sitem">同一グループの条件を( )で囲うように改善</li>
+                <li class="item">検索ダイアログをEscキーで閉じれるように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.10.4<span class="date">(2011年1月18日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">マルチディスプレイだとテーブル一覧ダイアログが不正表示されるのを修正</li>
+                <li class="item">データ編集時に空文字をNULLと判断していたのを修正(NULL制約がある場合にエラーが出なくなります。)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.10.3<span class="date">(2011年1月13日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Access2007形式(*.accdb)ファイルをインポートしようとしてもテーブル一覧が表示されなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.10.2<span class="date">(2011年1月5日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">インポート時のテーブル作成の不具合を修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.10.1<span class="date">(2010年12月14日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">最近使ったファイルに登録をOSに任せることにしました。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.10.0<span class="date">(2010年12月11日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ヘッダーを右クリックで開くメニューからカラム名のコピーができるように改善</li>
+                <li class="item">レコードの無いテーブルにペーストすると主キーに連番が振られなかったのを修正</li>
+                <li class="item">ペースト後のセルの位置が不自然だったのを修正</li>
+                <li class="item">複数セルを選択中はカラムコメント表示欄に選択されている行と列の数を表示するように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.9.1<span class="date">(2010年11月17日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Integer PrimaryKeyがInt32に制限されていたのをInt64まで扱えるように変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.9.0<span class="date">(2010年11月13日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">誤字修正(複合→復号)</li>
+                <li class="item">開発環境をVisual Studio 2010に変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.8.4<span class="date">(2010年11月5日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">データ量の多いテーブル(50万行以上)をCSV出力しようとすると例外が発生するのを修正</li>
+                <li class="sitem">｢機能｣→｢オプション｣→｢読込最大行数｣を10万行程度以下にしてください。</li>
+                <li class="sitem">CSV以外の形式では例外が発生します。</li>
+                <li class="sitem">テーブルの表示時も読み込み最大行数が指定されていないと例外が発生します。</li>
+                <li class="sitem">読込最大行数は小さいほどテーブルの表示が早くなります。</li>
+                <li class="item">大量データをペーストした後にマウスホイールでスクロールすると例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.8.2<span class="date">(2010年10月19日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブル名やカラム名に"("があるとBLOB型カラムにデータを保存できなかったのを修正</li>
+                <li class="item">SQL入力ボックスにSELECT文をWHERE句なしで入力して実行すると例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.8.1<span class="date">(2010年10月13日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ペーストの不具合を修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.8.0<span class="date">(2010年10月08日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">PupSQLiteの最新版に自動更新する機能を追加</li>
+                <li class="sitem">自動更新がONの場合は自動更新ツールがPupSQLite起動時にチェックし、自動で差分ファイルダウンロードをします。</li>
+                <li class="sitem">実際の更新(バージョンアップ)はPupSQLiteの終了時に行われます。</li>
+                <li class="item">ペースト動作のバグを解消</li>
+                <li class="item">SELECT * FROM [hoge] WHERE [hoge].[id] IN (SELECT [id] FROM [foo]);がSQL入力ボックスから実行できなかったのを修正</li>
+                <li class="sitem">※SQL入力ボックスは開いているDataGridViewウィンドウでCtrl+Q</li>
+                <li class="item">一度開いたファイルを閉じてもPupSQLiteが終了するまでファイルを握ってしまっていたのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.7.0<span class="date">(2010年10月01日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">フィルターを指定して開くで選択したテーブルに無いカラムを指定すると例外が発生してしまうのを改善</li>
+                <li class="item">テーブルを開いていない時に検索ボタンをクリックすることで選択中のテーブルの横断検索ができるように改善</li>
+                <li class="sitem">テーブルを選択していない場合はすべてのテーブルが検索対象となります。</li>
+                <li class="sitem">テーブル横断検索の結果はそれぞれのテーブルが検索にマッチした行のみ表示された状態で開かれます。</li>
+                <li class="sitem">一件もマッチしなかったテーブルは開かれません。</li>
+                <li class="sitem">そのテーブルのフィルターはコンテキストメニューの｢SQL文を使ってフィルターをかける｣から編集・解除可能です。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.6.4<span class="date">(2010年09月29日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">PostgreSQLのインポートでポート番号を指定できるように変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.6.3<span class="date">(2010年09月27日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">｢ファイルからインポート｣ダイアログで前回インポートしたファイルを記憶するように変更(終了時には破棄)</li>
+                <li class="item">ファイルから既存のテーブルにインポートする際、インポート先に同名のテーブルがあったら選択状態にするように変更</li>
+                <li class="item">ツールメニュー(アイコンメニュー)を大きいアイコンで表示できるように変更(メニュー→ツール)</li>
+                <li class="item">ツールメニューのアイコンを変更</li>
+                <li class="item">テーブル一覧を隠す動作を改善</li>
+                <li class="item">｢フィルターを設定して(テーブルを)開く｣メニューをテーブル一覧のコンテキストメニューに追加</li>
+                <li class="item">テーブル一覧をカラムクリックで並び変えられるように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.6.2<span class="date">(2010年09月17日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">主キーごとコピーしても貼り付けの際に主キーが重複しないように改善2</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.6.1<span class="date">(2010年09月15日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">主キーごとコピーしても貼り付けの際に主キーが重複しないように改善</li>
+                <li class="item">メインメニュー→ファイル(F)に｢コピーして開く｣を追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.6.0<span class="date">(2010年09月14日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLビューワーでCtrl+Aにより全文選択をできるように改善</li>
+                <li class="item">メインメニューのデータベースからテーブルを開くと同じテーブルを同時に複数開けたのを修正</li>
+                <li class="item">最適化時に最適化前と後のファイルサイズを表示するように変更</li>
+                <li class="item">テーブル一覧(ドッキング済み)を自動的に隠す機能を追加</li>
+                <li class="item">XMLファイルのインポートの不具合を修正</li>
+                <li class="item">データベースの内容をSQL文(CREATE TABLEとINSERT)でエクスポートできるように改善</li>
+                <li class="item">SQL文内で正規表現を利用可能に改善</li>
+                <li class="item">テーブル名のタブをダブルクリックでSQL入力ボックスを表示するように改善(コンテキストメニューにも追加)</li>
+                <li class="item">SQL文を入力可能なウィンドウから正規表現ビルダーを起動できるように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.5.0<span class="date">(2010年08月26日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブル表示のスピードを改善しました。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.4.1<span class="date">(2010年08月18日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">行ヘッダーを選択してコピーしたときに正しく貼り付けできなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.4.0<span class="date">(2010年08月04日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">DataGridViewからコピーしたデータをExcelに張り付けると文字化けするのを修正</li>
+                <li class="item">最終行へペーストした場合は行の挿入(INSERT)として扱うように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.3.1<span class="date">(2010年08月03日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">データにカンマを含むカンマ区切りのCSVファイルのインポートに不具合があったのを修正</li>
+                <li class="item">データに改行を含むCSVファイルのインポートに不具合があったのを修正</li>
+                <li class="item">何も保存するものが無い場合は全てを保存ボタンを無効にするように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.3.0<span class="date">(2010年07月14日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">データの最大読み込み行数をオプションで設定している場合にページを移動する度に変更をデータベースに反映するように変更</li>
+                <li class="item">インポートの際にNULLのデータは読み込まないように変更→INTEGER PRIMARY KEYのカラムがNULLの場合は勝手に連番が振られます。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.2.0<span class="date">(2010年07月14日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ビューもテーブルとしてコピーできるように改善(その際主キーとUNIQUE制約は破棄されます)</li>
+                <li class="item">コンテキストメニューにテーブル名の変更が無くなっていたので復活</li>
+                <li class="item">テーブルの再読み込みをした後にテーブル名を正しく取得できずにテーブルの更新が行えないのを修正</li>
+                <li class="item">他のデータベースからのインポートでNULLが"NULL"という文字列で取り込まれていたのを修正</li>
+                <li class="item">AutoIncrementを設定している場合に正しくテーブル作成SQL文ができなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.1.0<span class="date">(2010年06月18日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルのコピーでSQLite標準外のデータ型も保持するように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.0.4<span class="date">(2010年06月17日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Excelなどから既存テーブルにデータをインポートする際の操作を改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.0.3<span class="date">(2010年06月02日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">インポート時データが無いセルの値を空文字になっていたのをNULLに変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.0.2<span class="date">(2010年05月20日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムがひとつしかないテーブルを開くと例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.0.1<span class="date">(2010年05月20日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">NULL不可のセルで初期値が設定されていないセルをNULLのままレコードの追加が可能だったのを修正</li>
+                <li class="item">入力できないデータ(REAL型にTEXT型を入力など)をセルにペーストするとUPDATE文が不完全になるのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.9.0.0<span class="date">(2010年04月19日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">System.Data.SQLite.dllを1.0.66.0にバージョンアップ。SQLite ver3.6.23.1に対応しました。</li>
+                <li class="item">カラムが一つしかないテーブルを作成しようとするとうまくSQL文が作成できなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.10.2<span class="date">(2010年04月15日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQL文入力ウィンドウの｢SQL文をクリア｣ボタンのキャプションがおかしかったのを修正</li>
+                <li class="item">オプションでフォントの設定をした後にダイアログをキャンセルしてもフォントの変更が反映されていたのを修正</li>
+                <li class="item">フォントの設定が即座に開いているDataGridViewに反映されなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.10.0<span class="date">(2010年03月26日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ドッキング状態のテーブル一覧にテーブル検索BOXを追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.9.1<span class="date">(2010年03月17日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">主キーが複数あるテーブルまたはビューをAccess形式でエクスポートできなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.9.0<span class="date">(2010年03月16日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブル一覧(ドッキング状態)にテーブル検索ボックスを追加</li>
+                <li class="item">コメントのないテーブルをメニューの｢現在の状態をビューにする｣機能を使用すると例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.8.0<span class="date">(2010年02月09日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Windows VistaとWindows7で一部のダイアログの表示が崩れていたのを修正</li>
+                <li class="item">テストデータ作成βで作成件数を最低100件からに変更</li>
+                <li class="item">Excel2007以外ではインポートができなかったのを修正</li>
+                <li class="sitem">ver1.8.8.0からはInterop.Excel.dllは不要となりますので削除していただいてOKです</li>
+                <li class="item">｢いつもの最適化｣機能で"journal"ファイルがあった場合は使用中と判断して最適化を実行しないように修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.7.4<span class="date">(2010年02月05日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">1.8.7.1での改善後、テーブルを開いた直後にEnterキーを押すと例外が発生するようになったのを修正</li>
+                <li class="item">デバッグ用のメニューが露出していたのを修正</li>
+                <li class="item">機能メニューに｢いつもの最適化｣メニューを追加。ファイルを登録すればファイルを開かずに目的のファイルを最適化できます。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.7.2<span class="date">(2010年02月02日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">最新版のチェックができなくなっていたのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.7.1<span class="date">(2010年02月01日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルを開いた直後に1レコード目の第一カラムが編集できなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.7.0<span class="date">(2010年01月28日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">PostgreSQLでスキーマをつかって同名のテーブルを設定しているとインポートができなかったのを修正</li>
+                <li class="item">インポートエラーの際に出力するファイル名をerror.logとしました。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.6.1<span class="date">(2010年01月22日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">コマンドラインからのインポートではエラーログを1ファイルで出力するように変更</li>
+                <li class="item">インポートでコメントが反映されない不具合を修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.6.0<span class="date">(2010年01月21日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">コマンドラインからのMDB→SQLite変換で例外が発生していたのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.5.1<span class="date">(2009年11月20日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">DataGridViewウィンドウ内でのSQL入力ボックスの内容は各タブ毎に保持するように変更</li>
+                <li class="item">SQL入力ウィンドウのSQL文クリアボタンを追加</li>
+                <li class="item">1.8.4.1で直したはずのカラム指定文字列ありのExcelファイルの読み込み不具合がなおってなかったので修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.4.3<span class="date">(2009年11月18日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">コンテキストメニューの｢すべてのデータを削除｣後に編集を続行すると例外が発生したのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.4.2<span class="date">(2009年11月15日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">起動時に自動で開く、前回使ったファイルを「最近使ったファイル」に登録しないように変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.4.1<span class="date">(2009年11月12日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラム指定文字列ありのExcelファイルの読み込み不具合を解消</li>
+                <li class="item">Excelでコピーした値をそのままPupSQLiteの指定範囲にペーストできるように改善</li>
+                <li class="item">IntelliSense.dbを編集可能に変更。ユーザーで入力補完の内容を定義可能になります。</li>
+                <li class="sitem">IntelliSenseテーブル：インテリセンスの定義テーブル</li>
+                <li class="sitem">Keywordカラム：入力補完したい文字列</li>
+                <li class="sitem">Chainカラム:ここで指定した文字列の後にスペースが入力されるとインテリセンスが起動します。(※先頭のカンマは必須です。）</li>
+                <li class="sitem">名前テーブル、名字テーブル：テストデータ作成用名前テーブルです。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.4.0<span class="date">(2009年9月25日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムの編集でAutoIncrementを設定した場合にSQL文の作成失敗するのを修正</li>
+                <li class="item">標準のメールクライアントが設定されていない場合にメール送信機能で例外が発生するのを修正</li>
+                <li class="item">Application.ThreadExceptionをトラップし予期せぬ例外でもアプリケーションが強制終了しないように改善</li>
+                <li class="item">SQLite3データベースでないファイルを開こうとした場合に複合化のパスワードを求められるのをパスワードを入力するか選択可能に変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.3.2<span class="date">(2009年9月9日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">再読み込みをした後に、カラムヘッダーをクリックしてソートをすると落ちるのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.3.1<span class="date">(2009年9月1日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">FireBirdデータベースを新規テーブルに読み込むと例外が発生するのを修正</li>
+                <li class="item">テーブルの編集でAutoIncrementが設定されていると編集ができなかったのを修正</li>
+                <li class="item">DATETIME型のデータ内容がSQLiteの日付型書式にマッチしていなかったらPupSQLiteが落ちてしまうのを修正</li>
+                <li class="item">SQLiteデータベースを他のSQLiteデータベースにインポートできるように改善</li>
+                <li class="item">PupSQLite公開サイト(Pup's Atelier)のURLを変更</li>
+                <li class="item">FireBirdデータベースのTime型をTEXT型に読み込むように変更(日付型でないとPupSQLiteでは表示できないため）</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.3.0<span class="date">(2009年8月28日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">前回入力したインポート先の情報を保持するように改善</li>
+                <li class="item">F5キーを押してもたまに再読み込みがされなかったのを修正</li>
+                <li class="item">複数行を削除をDBに反映できなくなっていたのを修正</li>
+                <li class="item">ウィンドウ切り替え用タブを追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.2.2<span class="date">(2009年8月20日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムの編集で初期値の入っていないカラムを移動しようとすると例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.2.1<span class="date">(2009年8月20日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">*.db以外の拡張子の設定をしていないとテーブルの比較でTargetDatabaseのファイルを選択すると例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.2.0<span class="date">(2009年8月19日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルの作成や編集の際にカラムのデータ型によって初期値欄に入力制限機能を追加</li>
+                <li class="sitem">TEXT型：制限無し</li>
+                <li class="sitem">INTEGER型：0～9のみ</li>
+                <li class="sitem">REAL型：0～9と. のみ</li>
+                <li class="sitem">BOOLEAN型：0と1のみ(1がチェックあり)</li>
+                <li class="sitem">DATETIME型：制限無し(CURRENT...定数のみ補完あり)</li>
+                <li class="item">フィルターをしていない状態でフィルターの編集→削除とすると例外が発生したのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.1.5<span class="date">(2009年8月15日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">オプションで設定してもテーブル名が[ ]で囲まれてしまうのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.1.4<span class="date">(2009年8月10日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">コピーをせずに貼り付けをしようとすると例外が発生するのを修正</li>
+                <li class="item">テーブル名とカラム名を[ ]で囲まない設定の時にAccessへエクスポートできなかったのを修正</li>
+                <li class="item">ヘルプ→バージョン情報にサポートしているSQLiteのバージョンを明記</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.1.3<span class="date">(2009年8月7日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">｢開く(Password指定)｣メニューを削除</li>
+                <li class="item">｢名前を付けて保存｣メニューをDBを開いていればテーブルを開いていなくても実行できるように改善</li>
+                <li class="item">ViewのCreate文の書き方によってカラムコメントが正しく反映出来ない場合があったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.1.2<span class="date">(2009年8月5日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルの変更をすべて保存で反映する際に、エラーが起きて中断したとしても、あたかも正常終了したようなメッセージがエラーの後に表示されてしまっていたのを修正</li>
+                <li class="item">テーブルの作成・編集時にカラムの初期値もカラム名などと一行で設定可能に改善</li>
+                <li class="item">CURRENT_TIMESTAMPやCURRENT_DATE,CURRENT_TIME定数の値がPupSQLiteでの表示のみ日本時間になっていたのをSQLiteの値(UTC標準時間)で表示されるように改善</li>
+                <li class="item">カラム名を右クリックからプロパティを表示できるように改善</li>
+                <li class="item">SQLの実行ウィンドウのパスワード入力テキストボックスを削除</li>
+                <li class="item">フォントサイズを大きくすると行の高さがフォントに合わせて大きくなるように改善</li>
+                <li class="item">サーバーからのインポートで各サーバーの起動ボタンを削除(うまく起動できないので）</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.1.1<span class="date">(2009年8月4日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムヘッダー部分をクリックして並び替えを行うと落ちる現象を修正</li>
+                <li class="item">主キーの無いテーブルを編集使用とすると落ちるのを修正</li>
+                <li class="item">検索ウィンドウを表示したときは現在選択されているテーブルを検索対象として表示するように改善</li>
+                <li class="item">データグリッドのコンテキストメニューの｢現在の状態をCSVファイルに出力｣がうまく動かないことがあったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.1.0<span class="date">(2009年8月2日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">複合キーに対応</li>
+                <li class="item">フォントの変更でデータグリッドウィンドウ内以外にもフォントを適用</li>
+                <li class="item">テーブルの作成時・編集時にPupSQLiteが生成するSQL文内でテーブル名を[ ]で囲うかどうかをオプションで指定可能に変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.0.1<span class="date">(2009年7月29日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラム名と同じ値をいれると更新されないことがあったのを修正</li>
+                <li class="item">mdbファイルのインポートの際にFrom句のエラーが出てしまうのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.8.0.0<span class="date">(2009年7月28日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLiteデータベースとその他のデータベース間でテーブルの比較ができるように改善</li>
+                <li class="item">最新版のダウンロードの際にダウンロード後のファイル名にバージョンが無かったのを修正</li>
+                <li class="item">Viewの作成時にコメントの入っていないカラムを選択すると例外が発生するのを修正</li>
+                <li class="item">テーブルの変更の保存時に進捗状況(プログレスバー)を表示するように改善</li>
+                <li class="item">Windows2000でPupSQLiteを起動するとメインメニューが黒くなってしまうのを修正</li>
+                <li class="item">インテリセンスでカラムの一覧が表示されているときに方向キーの左右でカーソルを移動させると例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.7.7.1<span class="date">(2009年7月20日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブル作成時にカラム名を指定しないと例外が発生するのを修正</li>
+                <li class="item">ツールに「テストデータ作成β」機能を追加（まだβ版機能です）</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.7.7.0<span class="date">(2009年7月13日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">MDFファイルの一括取り込みに対応(SQL Serverのインストールが必要)(テストはSQL Server Express 2005)</li>
+                <li class="item">複数のSQLファイルを読み込んで実行ができるように改善(読込む順番はファイル名の昇順)</li>
+                <li class="item">PostgreSQLの読込に対応（postgreSQLのインストールとODBCドライバが必要)</li>
+                <li class="item">FireBirdデータベースファイル(*.fdb)の読込に対応(FireBirdのインストールが必要)</li>
+                <li class="item">｢すべて置換｣の際にカレントセルが置換の対象から外れていたのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.7.6.0<span class="date">(2009年7月1日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">前回開いていたテーブルを次回起動時に自動的に開くように改善</li>
+                <li class="item">主キーの無いテーブルではテーブルの比較機能が使えないように修正</li>
+                <li class="item">編集中のセルにコピーしたセルの内容を貼り付けると、同じ値が二度張り付けられるのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.7.5.2<span class="date">(2009年6月23日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Excelファイルにエクスポートする際にデータが多すぎると例外で落ちるのを修正</li>
+                <li class="item">英語のみのShift-JISで書き込まれた.sqlファイルの文字コードが取得できなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.7.5.0<span class="date">(2009年6月3日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Boolean型のデータ型に対応</li>
+                <li class="item">テーブル一覧ウィンドウがドッキング中にテーブル操作系ツールボタンがアクティブでない為、１回のクリックでコマンドを起動できなかったのを修正</li>
+                <li class="item">テーブル定義文の表示で.sqlファイルに出力した際に改行がおかしかったのを修正</li>
+                <li class="item">Accessからのインポートの際にカラムのサイズ(最大文字数や桁数)を取得するように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.7.4.2<span class="date">(2009年6月2日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ツールボタンのREINDEXが動作していなかったのを修正</li>
+                <li class="item">PupSQLiteを起動してそのまま何もせずに終了すると例外が発生したのを修正</li>
+                <li class="item">EXCEL出力の際、INTEGER型のカラムのみExcelシートを｢数値」に書式設定するように改善</li>
+                <li class="item">起動時に前回開いていたデータベースを開くように改善(オプションで切り替え可能。)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.7.4.0<span class="date">(2009年5月29日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">現在のテーブルの状態(カラムの表示/非表示やフィルターがかかった状態)をビューにする機能を追加(ツールメニュー)</li>
+                <li class="item">NULL値の扱いを改善(INTEGERやREALのカラムではNULL=0としていたのをNULLはNULLとしました)</li>
+                <li class="item">列の固定・表示・非表示のメニューをカラムヘッダーを右クリックしたときに表示されるように変更</li>
+                <li class="item">自動バージョンチェックやPupSQLiteから最新版の確認を行い、最新版をダウンロードする際のファイル名をpupsqlite_ver_○○○○.zipとなるように変更しました。(○○○○はバージョン)</li>
+                <li class="item">ビューもエクスポートできるように改善</li>
+                <li class="item">定数CURRENT_DATE、CURRENT_TIME、CURRENT_TIMESTAMPに対応しました。(カラムの初期値に設定可能です。)</li>
+                <li class="item">検索ウィンドウの正規表現文字列の挿入の不具合を解消</li>
+                <li class="item">セルが編集状態の時のコピーした文字列の貼り付け動作を改善</li>
+                <li class="item">同梱のSystem.Data.SQLite.dllがSQLite 3.6.13対応バージョンにアップしたので差し替え。</li>
+                <li class="item">検索・置換ウィンドウでの｢すべて置換｣機能の機能改善(スピードと中断時処理)</li>
+                <li class="item">主キーがINTEGER型でない場合エラー編集後に例外が発生するのを修正</li>
+                <li class="item">主キーが設定されているテーブルで行をすべてDELETEキーなどで削除して新たにデータを入力すると例外が発生するのを修正</li>
+                <li class="item">
+                  テーブル一覧ウィンドウからテーブルを選択(複数可)して<a href="http://www.3rd-impact.net/Document/SQLite/Translation/Current/lang_reindex.html" title="SQLiteが認識するSQL - REINDEX">REINDEX</a>を実行できるように改善
+                </li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.7.3.0<span class="date">(2009年5月22日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Accessデータベースにエクスポートする際にAUTOINCREMENTが指定されているとCREATE TABLE文がエラーとなっていたのを修正し、オートナンバー型になるように改善</li>
+                <li class="item">フィルターメニューを改善</li>
+                <li class="item">Excelファイルへのエクスポート機能を追加</li>
+                <li class="item">私(Pup)のメールアドレスを変更</li>
+                <li class="item">ショートカットキーを設定</li>
+                <li class="sitem">Ctrl+N：テーブルの新規作成</li>
+                <li class="sitem">Ctrl+B：テーブル一覧とビュー一覧の切り替え</li>
+                <li class="sitem">Ctrl+D：テーブル一覧ウィンドウのドッキング/ドッキング解除</li>
+                <li class="sitem">Ctrl+E：カラムの編集</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.7.2.0<span class="date">(2009年5月15日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルの新規作成時にIndexを設定しても反映されなかったのを修正</li>
+                <li class="item">INTEGER PRIMARY KEY と AUTOINCREMENT、カラムの最大文字数(VARCHAR(10)などの指定)に対応</li>
+                <li class="item">ファイルやフォルダパスが入力されたセルを複数選択してコピーできるように改善</li>
+                <li class="item">ウェブブラウザやテキストエディタなどから文字列のドラッグ＆ドロップを受け付けるように改善</li>
+                <li class="item">コンテキストメニューからのメールの送信でShiftキーを押しながらでCC、Ctrlキーを押しながらでBCCに登録するように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.7.1.2<span class="date">(2009年5月11日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">メールアドレスの入力されたセルを複数(2000文字を超えるぐらい)指定してメールを送信しようとするとアクセスが拒否されるのを修正</li>
+                <li class="sitem">ThunderBirdが標準メールの場合に一つ目のメルアドの@の前に"が入ることが確認されています。</li>
+                <li class="item">テーブル一覧をドッキング状態のままDBをすべて閉じても、PupSQLiteのウィンドウテキストにファイル名が残るのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.7.1.1<span class="date">(2009年5月7日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブル一覧をドッキング解除したあとにテーブル一覧を閉じると例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.7.1.0<span class="date">(2009年5月5日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムの編集の際、編集対象のテーブル名をウィンドウキャプションに表示するように改善</li>
+                <li class="item">複数セルを選択しながら右クリックをすると複数選択が解除されてしまうのを修正</li>
+                <li class="item">クイック検索テキストボックスにフォーカスがあるときにCtrl+Vで貼り付けを行うとDataGridViewウィンドウの選択しているセルにも貼り付けが実行されてしまうのを修正</li>
+                <li class="item">PupSQLiteや開こうとしているファイルのパスに;や=が含まれていると例外が発生していたのを修正</li>
+                <li class="item">
+                  <em>SQL Server</em>からのインポートに対応(テストはSQL Server2005 Express Editionで行っています。)
+                </li>
+                <li class="item">サーバーから複数テーブルの一括取り込みができるように改善(カラム制約はPupSQLite任せとなりますので必要に応じてカラムの編集を行ってください)</li>
+                <li class="item">インポートの際、日付型カラムに初期値が設定されていて、その書式がPupSQLiteが許容していない書式の場合は文字列型として取り込むように変更</li>
+                <li class="item">MySQLデータベースの取り込みの差異にスキーマ情報をしっかり取得するように改善</li>
+                <li class="item">データ内のメールアドレスを複数選択して右クリックメニューの｢このアドレスにメールを送信｣をすると、規定のメーラーの宛先に選択中のメルアドを複数挿入できるようになりました。</li>
+                <li class="sitem">一度にたくさん(50個以上)選択しても｢アクセスが拒否されました。｣とエラーが発生することがあります。(環境によって異なるかもしれません)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.7.0.3<span class="date">(2009年4月23日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">暗号化されたSQLiteファイルを｢開く｣メニューで開こうとした場合パスワードを要求するように変更</li>
+                <li class="item">複数のセルを選択してDeleteキーを押しても最初のセルしかNULLにできなかったのを修正</li>
+                <li class="item">ビュー作成ウィンドウを表示中でもその他の操作(テーブルを開いたり)ができるように変更</li>
+                <li class="item">検索で見つからなかった場合に例外が発生することがあったのを修正</li>
+                <li class="item">存在しないテーブルを開こうとしたり、再読み込みをすると例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.7.0.2<span class="date">(2009年4月17日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">一括エクスポートができるように改善</li>
+                <li class="item">Excel、XMLファイルの一括インポートができるように改善</li>
+                <li class="item">Accessファイルの取り込み時にカラムの制約が取得できていなかったのを改善</li>
+                <li class="item">\\から始まるファイルパスだと、右クリックメニューから｢開く｣と｢コピー｣が行えなかったのを改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.7.0.0<span class="date">(2009年4月15日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">多言語対応断念</li>
+                <li class="item">取り込み機能と書き出し機能をそれそれインポート、エクスポートに統合</li>
+                <li class="item">SQLiteのデフォルトの拡張子に*.sqliteを追加</li>
+                <li class="item">Accessファイル(97/2000/2007)形式の書き出し機能を追加</li>
+                <li class="item">TEXT型のセルにファイル名かフォルダ名があれば右クリックのメニューからコピーができるように改善</li>
+                <li class="item">NOT NULL制約時でもDEFAULT値を設定しないても良いように変更</li>
+                <li class="item">データ型の取得方法を変更。今までより柔軟にデータ型をSQLiteのデータ型で扱えます。</li>
+                <li class="item">カラム制約の取得方法を変更。今までより正確に取得可能となりました。</li>
+                <li class="item">テーブルの新規作成ウィンドウでPupSQLiteが生成するSQL文を確認(編集不可)できるように改善</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.6.3.6<span class="date">(2009年4月11日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ビュー作成ウィンドウの並び替え基準カラムを直接編集できるように変更</li>
+                <li class="item">ビュー作成ウィンドウの並び替え基準カラムをShiftキーかCrltキーを押しながら選択することで複数選択可能に改善</li>
+                <li class="item">ビュー作成ウィンドウで自動作成されたCreate View文を閲覧・編集できるように改善</li>
+                <li class="item">ビュー作成ウィンドウでテーブル一覧にビューが表示されるように改善</li>
+                <li class="item">コマンドラインからのテーブルの比較ができなかったのを修正</li>
+                <li class="item">ビューのカラムコメントがCerate View文の内容によって正しく取得できなかったのを改善</li>
+                <li class="item">レコードの重複チェックで並び替えカラムを指定できるように変更</li>
+                <li class="item">レコードの重複チェックでチェック後に表示するDataGridViewで削除対象の(重複レコードのなかで一番下以外)を選択状態にできるように変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.6.3.5<span class="date">(2009年4月9日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムの初期値(DEFAULT)の文字列にカンマが含まれていると正しく動作しなかったのを修正</li>
+                <li class="item">Create文の内容によってはビューが表示できないことがあったのを修正</li>
+                <li class="item">大量に行を選択してDELETEキーやコンテキストメニューの「選択行を削除」で削除した場合の速度をすこし改善</li>
+                <li class="item">日付型カラムにPupSQLiteが未対応の書式データがあるとカラムの編集すらできなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.6.3.3<span class="date">(2009年4月6日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">パスワード付きMDBファイルを取り込めるように改善しました。</li>
+                <li class="item">ファイルの取り込みを途中でキャンセルすると例外が発生するのを修正しました。</li>
+                <li class="item">ビューの作成フォームでSQL文を確認しようとすると例外が発生するのを改善しました。</li>
+                <li class="item">カラムの編集ウィンドウで初期値を削除できないのを修正</li>
+                <li class="item">ビューの作成フォームで作成後エラーが出てしまうのを修正</li>
+                <li class="item">ビューの作成フォームで抽出条件の設定方法を改善</li>
+                <li class="item">テーブル一覧ウィンドウをドッキングしているとメインメニューからSQL文の表示関係が無効になってしまうのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.6.3.2<span class="date">(2009年4月5日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">NOT NULL制約が無くてもDEFAULTを設定できるように改善しました。</li>
+                <li class="item">DataGridViewウィンドウのタブを右クリックでも選択可能に改善しました。</li>
+                <li class="item">DataGridViewウィンドウのタブを中クリックで閉じるように改善しました。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.6.3.1<span class="date">(2009年4月5日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムの初期値に空文字を設定できるように変更</li>
+                <li class="item">セルの値を変更する際にセルを選択した状態でDELETEキーを押すとNULL値がセットできるように変更</li>
+                <li class="item">セルの値を変更する際にセルの内容を選択してすべて削除すれば空文字が設定できるように変更</li>
+                <li class="item">テーブル一覧のコンテキストメニューにテーブル定義文の表示を追加</li>
+                <li class="item">メインメニューのテーブル定義文の表示をテーブルを開いていないときでもテーブル一覧ウィンドウでテーブルを選択していれば使えるように改善</li>
+                <li class="item">ドッキング後のテーブル一覧ウィンドウの挙動が一部おかしいのを修正</li>
+                <li class="item">セルの値がNULLの場合は(null)とグレーで表示されるように変更</li>
+                <li class="item">すでに開いているテーブルを再度開こうとするとすでに開いているテーブルを選択するように変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.6.3.0<span class="date">(2009年4月4日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">CSV出力にタブ区切りテキストでの出力を追加</li>
+                <li class="item">ビューを開くときにエラーが発生してしまうのを修正</li>
+                <li class="item">テーブルを開いていたらテーブル一覧からテーブルの削除ができないように変更</li>
+                <li class="item">テーブル一覧ウィンドウをメインウィンドウ左にドッキングできるように改善</li>
+                <li class="item">選択フィルター、非選択フィルターがうまく動作しないことがあったのを修正</li>
+                <li class="item">メニューやメッセージの一部を英語に対応(途中です・・)（メインメニューのLanguageから言語を選択可能です。）</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.6.2.0<span class="date">(2009年3月30日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">｢ツール｣→｢重複チェック｣にテーブル内の重複レコードのみをSELECTする機能を追加（テーブルの内容によってはかなり速度が遅いです;;)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.6.1.2<span class="date">(2009年3月28日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQL入力ウィンドウのSQL入力TextBoxにスクロールバーが表示されなかったのを修正</li>
+                <li class="item">ビューのデータ型が正しく取得できていなかったのを修正</li>
+                <li class="item">テーブルの比較メニューを機能からツールに移動</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.6.1.1<span class="date">(2009年3月25日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLキーワードに色づけを削除</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.6.1.0<span class="date">(2009年3月21日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLキーワードに色づけをするように変更</li>
+                <li class="item">タブ区切りのテキストファイルの読み込みに対応(CSVファイル取り込みでtxtファイルを指定)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.6.0.3<span class="date">(2009年3月19日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLコマンドの入力補完ウィンドウ見栄えを改善</li>
+                <li class="item">SQLコマンドの入力補完でテーブル名の後にピリオドを入力するとカラム一覧を表示するように変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.6.0.2<span class="date">(2009年3月16日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLコマンドの入力補完機能強化</li>
+                <li class="item">各種データ型をSQLite3対応のデータ型に内部で変換するように変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.6.0.1<span class="date">(2009年3月15日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLコマンドの入力補完機能で一部のキーワードの際にカラム名とテーブル名が候補に出るように改善</li>
+                <li class="item">カラムの編集でOKボタンが無効になるバグを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.6.0.2<span class="date">(2009年3月16日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLコマンドの入力補完機能強化</li>
+                <li class="item">各種データ型をSQLite3対応のデータ型に内部で変換するように変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.6.0.1<span class="date">(2009年3月15日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLコマンドの入力補完機能で一部のキーワードの際にカラム名とテーブル名が候補に出るように改善</li>
+                <li class="item">カラムの編集でOKボタンが無効になるバグを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.6.0.0<span class="date">(2009年3月14日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLコマンドの入力補完機能を追加、オプションの編集タブより入力補完機能のONOFFが可能です。またIntelliSense.dbがPupSQLite.exeと同じフォルダに追加になっていますのでインストールの際はご注意ください。</li>
+                <li class="item">コマンドラインからテーブルの比較が出来る機能を追加書式は以下</li>
+                <li class="sitem">/diff FilePath1 TableName1 FilePath2 TableName2</li>
+                <li class="sitem">/diff FilePath1 TableName1 FilePath2 TableName2 WHERE句(WEHRE自体は不要)</li>
+                <li class="sitem">/diff FilePath1 TableName1 Password1 FilePath2 TableName2 password2</li>
+                <li class="sitem">/diff FilePath1 TableName1 Password1 FilePath2 TableName2 password2 WHERE句</li>
+                <li class="item">右クリックでもセルを選択できるように変更(コンテキストメニューは表示されます）</li>
+                <li class="item">カラムの編集でカラムを全て削除が可能だったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.5.3.1<span class="date">(2009年3月6日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">DATETIMEデータをDATETIMEらしく扱えるように改善。使用可能書式は以下</li>
+                <li class="sitem">yyyy-MM-dd (2009-03-06→2009年3月6日)</li>
+                <li class="sitem">yyyy-MM-dd HH:mm (2009-03-06 00:09→2009年3月6日0時9分)</li>
+                <li class="sitem">yyyy-MM-dd HH:mm:ss (2009-03-06 00:09:20→2009年3月6日0時9分20秒)</li>
+                <li class="sitem">HH:mm (00:09→0時9分)</li>
+                <li class="sitem">HH:mm:ss (00:09:20→0時9分20秒)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.5.3.0<span class="date">(2009年3月4日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">コマンドラインからmdb→SQLiteの変換で変換終了後にエラー終了してしまうのを修正</li>
+                <li class="item">コマンドラインから既存のテーブルにmdbのテーブルを追加できる機能を追加 /mdb+t </li>
+                <li class="item">すでにPupSQLiteが起動していたらコマンドラインからの変換ができなかったのを修正</li>
+                <li class="item">フィルターやソートがかかっているセルにもペーストができるように改善</li>
+                <li class="item">値が変更されるたびにフィルターを実行するかどうかをオプションで選択可能に変更</li>
+                <li class="item">SQL実行ウィンドウの各種チェックボックスの状態を記憶するように改善</li>
+                <li class="item">SQL実行ウィンドウなどのSQL入力領域でのSQLキーワードの色づけを削除</li>
+                <li class="item">SQL実行ウィンドウのタブインデックスを設定</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.5.2.0<span class="date">(2009年2月26日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムヘッダーをクリックしてソートをかけた場合、そのソート対象カラムのセルを変更すると、すぐにソートが再実行されてしまうのをクリックしたときのみソートが実行されるように改善</li>
+                <li class="item">フィルターを設定しているカラムの値をフィルターにマッチしない値にすると、変更直後にフィルターが再実行されるのをメニューからフィルターを起動したときのみ、実行するように改善</li>
+                <li class="item">選択フィルターを実行するとからのレコードができてしまうことがあるのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.5.1.4<span class="date">(2009年2月21日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">Excelの取り込み時に読み込まない行などの指定があるとうまくいかなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.5.1.3<span class="date">(2009年2月19日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">INSERT文の作成を改善しました。主キーの無いテーブルでもユニークになるまでレコードの値を入れればOKです</li>
+                <li class="item">Excelファイルの取込時にシートを選択しなくても先に進めてしまうのを修正</li>
+                <li class="item">コマンドラインからのMDBファイル変換に上書きオプション(-u)を追加</li>
+                <li class="item">主キーの無いテーブルでは｢編集の度に保存する｣設定ができないように変更しました</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.5.1.2<span class="date">(2009年2月18日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムのコメントの取得が間違っていたのを修正</li>
+                <li class="item">カラムの初期値が設定されているとデータの追加ができなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.5.1.1<span class="date">(2009年2月17日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">コマンドライン引数 /mdbで起動するとMDBファイルを一括してSQLiteDBに変換する機能を追加</li>
+                <li class="sitem">/mdbに続けて-mで完了メッセージを表示します。</li>
+                <li class="sitem">/mdbに続けて-oで変換後そのDBを開きます。</li>
+                <li class="sitem">/mdbに続けて-t[テーブル名,テーブル名・・・]で指定したテーブルのみ変換します。</li>
+                <li class="sitem">スイッチ例 /mdb-m-o-t[Tbl01,Tbl02,Tbl05]</li>
+                <li class="item">AccessMDBの取り込みに一括取り込みメニューを追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.5.0.3<span class="date">(2009年2月14日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ビューを作成した直後に例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.5.0.2<span class="date">(2009年2月11日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">System.Data.SQLiteによる暗号化機能を追加。System.Data.SQLiteを使用して暗号化されたファイルを開いたり、暗号化されていないデータベースを暗号化することが可能です。</li>
+                <li class="item">300バイト以下のファイルをバイナリビューワで表示しようとすると落ちるのを修正</li>
+                <li class="item">カラムが一つしかないXMLなどのデータベースをSQLiteに取り込めなかったのを修正</li>
+                <li class="item">開発環境をVisual Basic 2008に変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.4.2.4<span class="date">(2009年2月6日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムの前にスペースが入っているとデータ型を正しく取得できなかったのを修正</li>
+                <li class="item">BLOBカラムを持っているテーブルのテーブル名が正しく取得できなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.4.2.3<span class="date">(2009年2月4日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">SQLの実行メニューのサブメニューを機能メニュー直下に移動</li>
+                <li class="item">データ型を指定しないSQL文で作成したテーブルのカラムを編集しようとすると落ちるのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.4.2.2<span class="date">(2009年2月1日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">NULLのセルを選択して検索ウィンドウを表示すると例外が発生するのを修正</li>
+                <li class="item">使っていないコードを削除</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.4.2.1<span class="date">(2009年1月31日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">パスを開く際に\\からはじめるパスも開けるように改善</li>
+                <li class="item">SQL文でカラムとデータ型の間にスペースが複数入っているとデータ型は文字列になってしまうのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.4.2.0<span class="date">(2009年1月25日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ファイルパス、フォルダパス、URL、メールアドレスの入っているセルを右クリックすると｢このパスを開く｣メニューが表示され、実行すると関連付けられたアプリケーションでそのパスを開くことができるようにした。</li>
+                <li class="item">CONSTRAINT句を使用していると例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.4.1.5<span class="date">(2009年1月24日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブル(ビュー)作成のSQL文のなかでコメントの前にスペースが2つ以上あるとテーブルが開けなかったりカラムの編集などができないのを修正</li>
+                <li class="item">SQL文入力字に一部のキーワードに対して色づけを行うように変更(評判が悪かったら削除しますが）</li>
+                <li class="item">いくつかの細かいバグの修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.4.1.4<span class="date">(2009年1月20日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブル名にスペースが2つ以上あるとデータ型が正しく取得できなかったのを修正</li>
+                <li class="item">テーブル名に"があると正しくIndexが取得できなかったのを修正</li>
+                <li class="item">データグリッドウィンドウでSQL文を実行したとき、主キーがSELECT文になかったらデータグリッドウィンドウでの直接編集を不可に変更（主キーの値がわからない為）</li>
+                <li class="item">SQL文の入力履歴を保持し、履歴を戻す、履歴からの実行、履歴のクリア機能を追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.4.1.3β<span class="date">(2009年1月18日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">画面のプロパティから画面のフォントサイズを変更するとクイック検索の｢大文字小文字を区別する｣の文字表示がはみ出すのを修正</li>
+                <li class="item">データがない状態でクイック検索を実行すると例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.4.1.2β<span class="date">(2009年1月17日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">データグリッドウィンドウでSELECT文を実行(Ctrl+Q)すると主キーが正しく取得できなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.4.1.1β<span class="date">(2009年1月14日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">複数のテーブルを開いているときにタブを移動しても総行数の表示が更新されないのを修正</li>
+                <li class="item">フィルターの編集、SQL文を使ってフィルターをかける、選択フィルターを一つ戻る、選択フィルター解除をツールメニューに追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.4.1.0β<span class="date">(2009年1月13日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">DB読み込み高速化の為、System.Data.SQLiteを使用、その為SQLite3.DLLは不要になります。</li>
+                <li class="item">カラムの編集にて、一度設定した主キーが削除できないのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.4.0.0β<span class="date">(2009年1月12日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">MySQLからの読み込みにβ対応(フィードバックをお願いいたします。）</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.3.1.1<span class="date">(2009年1月11日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">BLOBカラムを使っているときに置換や検索をすると例外が発生するのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.3.1.0<span class="date">(2009年1月10日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">クリップボードからテキストデータの貼り付けを許可</li>
+                <li class="item">データグリッドウィンドウにファイル・フォルダのドラッグ&amp;ドロップができるように変更</li>
+                <li class="item">TEXT型カラムにドラッグ&amp;ドロップするとファイル(フォルダ)パスを取得</li>
+                <li class="item">INTEGER型・REAL型カラムにドラッグ&amp;ドロップするとファイル(フォルダ)サイズを取得</li>
+                <li class="item">BLOBカラムにドラッグ&amp;ドロップするとファイルをセルに格納(フォルダは格納できません)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.3.0.0<span class="date">(2009年1月7日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルを開いた直後にテーブルのレコード数が正しく取得（表示）されないのを修正</li>
+                <li class="item">BLOBカラムのヘッダーをダブルクリックしてもBOLBデータを開こうとしてしまうのをセルをダブルクリックしたときのみになるように変更</li>
+                <li class="item">DataGridViewにSQL入力ウィンドウを表示できるように変更(Ctrlキー+Q)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.2.3.6<span class="date">(2009年1月6日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">フィルターや並び替えが設定されているセルを編集中に他のセルにクリックで移動した場合に稀に不正なUPDATE分が生成されるのを修正</li>
+                <li class="item">Create View文の大文字や小文字の状態によってはView名の変更が行えなかったのを改善</li>
+                <li class="item">拡張子が*.accdbのMS AccessデータベースもSQLiteDBに変換できるように改善</li>
+                <li class="item">クリック検索を常に表示するように変更しました。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.2.3.5<span class="date">(2009年1月5日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">セル内の一部を選択して選択フィルターをかけると、不要なUPDATE文を作成するのを修正</li>
+                <li class="item">ビルド構成をx86に変更。</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.2.3.4<span class="date">(2009年1月4日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">CONSTRAINTを使用した主キーの設定の場合に主キーカラムの取得にバグあったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.2.3.3<span class="date">(2009年1月3日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">最終行を削除するときの不具合を修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.2.3.2<span class="date">(2008年12月30日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">自動バージョン確認をON/OFFできるように変更</li>
+                <li class="item">SQLiteDBの任意拡張子を設定しない場合のバグを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.2.2.0<span class="date">(2008年12月29日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">読み込み時にカラムの幅をデータの長さにあわせて自動的に調整されるのを調整されない設定も可能に変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.2.1.2<span class="date">(2008年12月27日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">検索と置換ウィンドウを開いているときにCtrl+Fでもう一度開くとウィンドウの表示が崩れるのを修正</li>
+                <li class="item">クイック検索の表示位置がずれているのを修正</li>
+                <li class="item">バージョンチェック機能改善(起動時に自動チェックをします。)</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.2.1.0<span class="date">(2008年12月25日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">再読み込み機能追加</li>
+                <li class="item">データベースの拡張子を設定できるように変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.2.0.0<span class="date">(2008年12月17日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">最新版の確認が正しく実行されないのを修正</li>
+                <li class="item">データの変更をキャンセルしてPupSQLiteを終了する際に二度確認メッセージがでるのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.1.10.1<span class="date">(2008年12月14日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムの編集でカラムの順番を変更してもデータが変更されなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.1.9.0<span class="date">(2008年12月12日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブルが数字のみの場合に行削除で構文エラーが起きるのを修正</li>
+                <li class="item">ウィンドウの状態を保存するように変更(最大化など)</li>
+                <li class="item">ウィンドウのサイズを保存するように変更</li>
+                <li class="item">ウィンドウの位置を保存するように変更</li>
+                <li class="item">SQLiteのバージョンが2も選べたのを3のみに修正</li>
+                <li class="item">メインメニューのヘルプから作者サイト(ぷっぷのあとりえ)へジャンプ機能追加</li>
+                <li class="item">(更新されていない)マニュアルの(更新されていない)更新履歴を削除し、この更新履歴1本に変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.1.8.0<span class="date">(2008年12月04日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">MyQueryウィンドウでCSV出力機能を追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.1.7.0<span class="date">(2008年12月03日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">カラムの固定メニューが消えていたのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.1.6.0<span class="date">(2008年11月25日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">データグリッドビュー内のコンテキストメニュー(右クリック)に｢すべてのデータを削除｣を追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.1.5.0<span class="date">(2008年11月18日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">ビューの作成時に並び替え基準カラム(ORDER BY)を指定できるように変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.1.4.0<span class="date">(2008年11月17日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">最終行へのコピー＆ペーストを不可に変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.1.3.0<span class="date">(2008年10月10日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">既存のテーブルにCSVファイルを取り込む際にCSVファイル名とテーブル名が一致していないと取り込めなかったのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.1.2.0<span class="date">(2008年10月3日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">テーブル作成時に同じテーブル名があったら(1)、(2)...のようにインクリメントするように変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.1.1.0<span class="date">(2008年10月2日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">最近使ったファイルの取得を別スレッドに変更</li>
+                <li class="item">メインメニューのウィンドウ内のメニュー名が更新されないのを修正</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.1.0.0<span class="date">(2008年10月1日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">BLOBデータを表示するバイナリビューワ機能を追加</li>
+                <li class="item">更新履歴表示機能の追加</li>
+                <li class="item">複数のタブを持つ子ウィンドウをアクティブにすると必ず先頭のタブがアクティブになるのを選択中のタブがアクティブになるように変更</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                versiob 1.0.1.0<span class="date">(2008年9月25日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">クイック検索機能を追加</li>
+              </ul>
+            </li>
+            <li class="listbox">
+              <span class="title">
+                version 1.0.0.0<span class="date">(2008年9月8日)</span>
+              </span>
+              <ul class="listitem">
+                <li class="item">正式版公開</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

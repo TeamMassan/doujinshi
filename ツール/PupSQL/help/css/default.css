@@ -1,0 +1,81 @@
+body {
+	background-image:url(../image/back.gif);
+	background-repeat:repeat-x;
+	padding:0;
+	min-width:750px;
+	margin:8px;/*IE7—p‚É’Ç‰Á*/
+	}
+	
+#box {
+	margin-left:5%;
+	margin-top:0;
+	padding:0;
+	background-image:url(../image/logo.gif);
+	background-repeat:no-repeat;
+	height:100%;
+	}
+	
+h1 {
+	margin:0;
+	padding-top:100px;
+	font-family:"‚l‚r ‚oƒSƒVƒbƒN";
+	}
+	
+h2 {
+	border-bottom:solid 1px #36BCD3;
+	}
+		
+.totop {
+	margin-left:50%;
+	text-align:right;
+	font-size:0.8em;
+	list-style-image:url(../image/totop.gif);
+	}
+	
+#toindex {
+	margin:0;
+	padding-top:100px;
+	font-family:"‚l‚r ‚oƒSƒVƒbƒN";
+	}
+
+#footter {
+	border-top:solid 1px #36BCD3;
+	font-size:0.8em;
+	padding-left:50px;
+	margin-top:5em;
+	}
+	
+.onfloat {
+	float:left;
+	margin-right:20px;
+	margin-bottom:10px;
+	}
+	
+.nonfloat {
+	float:none;
+	}
+	
+em {
+	font-style:normal;
+	font-weight:bold;
+	}
+	
+ul a {
+	color:#1F7E8F;
+	}
+	
+*html ul ul li {
+	margin-left:3em;
+	}
+
+*:first-child+html ul ul li {
+	margin-left:3em;
+	}
+	
+#koujityuu {
+	color:#999999;
+	}
+	
+#koujityuu a {
+	color:#999999;
+	}

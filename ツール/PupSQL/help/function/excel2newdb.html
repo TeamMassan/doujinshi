@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" href="../css/default.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../css/function.css" type="text/css" media="all" />
+		<title>PupSQLite マニュアル-Excelファイルの取り込み(新しいデータベース)</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rev="made" href="pup@wmail.plala.or.jp" />
+	</head>
+	<body>
+		<div id="box">
+			<p id="toindex"><a href="../index.html#func">目次へ</a></p>
+			<ul>
+				<li><a href="readexcel.html">Excelファイルの取り込み</a></li>
+				<ul>
+					<li><a href="#top">新しいデータベースに取り込む</a></li>
+					<li><a href="excel2newtbl.html">新しいテーブルに取り込む</a></li>
+					<li><a href="excel2existtbl.html">既存のテーブルに取り込む</a></li>
+				</ul>
+			</ul>
+			<h2 id="top">新しいデータベースに取り込む</h2>
+			<p>Excelファイル内のデータを新しいSQLiteデータベースを作成し、そこに取り込みます。</p>
+			<div class="viewbox6">
+				<h3>1.Excelファイルの選択</h3>
+				<img class="onfloat" src="../image/excel2newdb.gif" width="366px" height="168px" alt="Excelを新しいデータベースに取り込むメニュー画像" />
+				<p>Excelファイルを新しいデータベースに取り込むにはメインメニューのファイル→Excelファイル取り込み→新しいデータベースをクリックします。</p>
+				<p>その後、取り込みたいExcelファイルを選択します。すると｢取り込みオプション｣ダイアログが表示されます。</p>
+			</div>
+			<div class="viewbox4">
+				<h3>2.取り込みオプション</h3>
+				<img class="onfloat" src="../image/readoption.gif" width="330px" height="290px" alt="取り込みオプションダイアログ画像" />
+				<p>取り込みオプションダイアログでは以下の手順で操作してください。</p>
+				<ol class="marginleft2">
+					<li>取り込むシートを1つ選択</li>
+					<li>取り込みオプション(フィールド)を決定</li>
+					<li>取り込みオプション(データ)を決定</li>
+					<li>｢実行｣ボタンをクリック</li>
+				</ol>
+				<p>取り込みオプション(フィールド)ではExcelファイルの中でフィールドとして扱う行を指定します。<br />
+				指定方法は２つで</p>
+				<ul class="marginleft2">
+					<li>一行目をフィールドとする</li>
+					<li>フィールド指定文字を使用する</li>
+				</ul>
+				<p>となります。</p>
+				<p>フィールド指定文字を使用する場合はExcelファイルの中のフィールドとしたい行の先頭セルの値の前に指定文字を入力しておく必要があります。</p>
+				<p>また取り込みオプション(データ)で指定した文字列が先頭にある行は取り込みません。<br />
+				同様に各フィールド名の先頭に取り込みオプション(データ)で指定した文字があった場合はそのフィールド全体を取り込みません。</p>
+			</div>
+			<div class="viewbox6">
+				<h3>3.テーブルの新規作成</h3>
+				<img class="onfloat" src="../image/excel2tblwin.gif" width="518px" height="234px" alt="テーブルの新規作成ウィンドウ画像" />
+				<p>最後にテーブルの新規作成ウィンドウがExcelファイルのフィールドを元に表示されるのでフィールド定義を設定し、｢OK｣ボタンをクリックします。</p>
+				<p>DBファイルの保存場所を決定したあと、Excelデータの取り込みが開始されます。</p>
+				<p><a href="new.html#newdb">テーブルの新規作成を参照</a></p>
+				<p class="totop"><a href="#top">ページトップへ戻る</a></p>
+			</div>
+		</div>
+		<p id="footter">Copyright(C) 2008-2013 <a href="mailto:pup428@gmail.com">Pup</a> All Rights Reserved.</p>
+	</body>
+</html>

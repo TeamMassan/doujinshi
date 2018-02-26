@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" href="../css/default.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../css/function.css" type="text/css" media="all" />
+		<title>PupSQLite マニュアル-テーブルの比較</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rev="made" href="pup@wmail.plala.or.jp" />
+	</head>
+	<body>
+		<div id="box">
+			<p id="toindex"><a href="../index.html#func">目次へ</a></p>
+			<h2 id="totop">テーブルの比較</h2>
+			<p>二つのテーブルの比較をするにはそれぞれのテーブル定義が一致していることが望ましいですが、
+			フィールド名などが違ってもフィールドの位置のみで比較処理をします。
+			そのため、フィールドの順番が違う場合はそろえておく必要があります。
+			また、主キーの設定されていないテーブルを比較するとうまく比較できません。</p>
+			<ol>
+				<li><h3>比較対象テーブルの選択</h3>
+					<div class="viewbox6">
+						<img class="onfloat" src="../image/hikaku1.gif" width="183px" height="177px" alt="テーブルの比較メニュー" />
+						<img class="onfloat" src="../image/hikaku2.gif" width="350px" height="208px" alt="テーブルの比較ダイアログ" />
+						<p>メインメニューの機能→テーブルの比較から｢テーブルの比較ダイアログを表示します。<br />
+						つづいて、左右のコンボボックスから対象のSQLiteDBを選択し、比較するテーブルを選択します。</p>
+					</div>
+				</li>
+				<li><h3>比較結果ウィンドウ</h3>
+					<div class="viewbox1">
+						<img class="onfloat" src="../image/hikaku.gif" width="497px" height="332px" alt="比較結果ウィンドウ画像" />
+						<h4>ボタンの説明</h4>
+						<ul id="hikakulist">
+							<li id="btn1">縦横の分割方向を切り替えます。</li>
+							<li id="btn2">差異のあるデータのみを表示します。</li>
+							<li id="btn3">左のデータをすべて右のデータと合わせます。</li>
+							<li id="btn4">選択中の左のデータを右のデータと合わせます。</li>
+							<li id="btn5">右のデータをすべて左のデータと合わせます。</li>
+							<li id="btn6">選択中の右のデータを左のデータと合わせます。</li>
+							<li id="btn7">変更をそれぞれのDBに反映します。</li>
+						</ul>
+					</div>
+				</li>
+			</ol>
+		</div>
+		<p class="totop"><a href="#top">ページトップへ戻る</a></p>
+		<p id="footter">Copyright(C) 2008-2013 <a href="mailto:pup428@gmail.com">Pup</a> All Rights Reserved.</p>
+	</body>
+</html>

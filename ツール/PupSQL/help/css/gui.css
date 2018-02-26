@@ -1,0 +1,12 @@
+ol p {
+	margin-top:0.1em;
+	margin-bottom:0.7em
+	}
+
+li {
+	font-weight:bold;
+	}
+	
+li p {
+	font-weight:normal;
+	}

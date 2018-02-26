@@ -1,0 +1,56 @@
+﻿<?xml version="1.0"?>
+<Class_Language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  	<TableTab>Tables</TableTab>
+  	<ViewTab>Views</ViewTab>
+  	<Openning>%1 is Openning.</Openning>
+  	<SaveMsg>Changes have been made to the %1.\nDo you want to save the changes?</SaveMsg>
+  	<LngChangeMsg>言語設定を有効にするにはPupSQLiteを再起動してください。</LngChangeMsg>
+  	<Saerch>Saerch</Saerch>
+	<Replace>Replace</Replace>
+	<KoreijouUP>On any more %1 was not found.</KoreijouUP>
+	<KoreijouDown>Under more %1 was not found.</KoreijouDown>
+	<Arimasen>On any more %1 was not found.</Arimasen>
+	<Break>Please press the Pause / Break key to abort.</Break>
+	<Tyuudan>Treatment I was interrupted.</Tyuudan>
+	<SelectionSearch>Are you sure you want to search all of the strings that match the selection range?</SelectionSearch>
+	<TableSeach>Are you sure you want to replace all the strings that match in %1?</TableSeach>
+	<CloseTableMsg>Please re-execute after closing the table.</CloseTableMsg>
+	<DeleteMsg>Are you sure you want to delete the %1?</DeleteMsg>
+	<DeleteTablesMsg>Are you sure you want to delete the selected Tables?</DeleteTablesMsg>
+	<ReplacedMsg>replace the %1 pieces of value.</ReplacedMsg>
+	<Searchfailure>%1was not found.</Searchfailure>
+	<CreateTableMsg>Please enter the name of the table.</CreateTableMsg>
+	<CreateTableTitle>Enter a new table name</CreateTableTitle>
+	<SortA>Ascending</SortA>
+	<SortD>Descending</SortD>
+	<ShowAll>All</ShowAll>
+	<NotNULL>not null</NotNULL>
+	<DeleteIndexMsg>Are you sure you want to delete the selected indexes?</DeleteIndexMsg>
+	<DeleteViewMsg>Are you sure you want to delete the selected Views?</DeleteViewMsg>
+	<DeleteTriggerMsg>Are you sure you want to delete the selected Trigger?</DeleteTriggerMsg>
+	<IndexTab>Indexes</IndexTab>
+	<TriggerTab>Triggers</TriggerTab>
+	<FixedColumn>Fixed with this column</FixedColumn>
+	<ReleaseFix>Release the fixing of this column</ReleaseFix>
+	<NoEdit>(No Edit)</NoEdit>
+	<SendMail>Send Mail</SendMail>
+	<OpenURL>Open URL</OpenURL>
+	<OpenPath>Open Path</OpenPath>
+	<CopyFolder>Copy Folder</CopyFolder>
+	<CopyFile>Copy File</CopyFile>
+	<FilterNotInclude>not include the %1</FilterNotInclude>
+	<FilterInclude>Including the %1</FilterInclude>
+	<FilterEqual>Equal to %1</FilterEqual>
+	<FilterNotEqual>Not Equal to %1</FilterNotEqual>
+	<FilterOneOfSelected>Equal to one of the selected</FilterOneOfSelected>
+	<FilterNotOneOfSelected>Not equal to any of the selected</FilterNotOneOfSelected>
+	<FilterOR> OR </FilterOR>
+	<FilterAllOfSelected>Equal to all of the selected</FilterAllOfSelected>
+	<FilterNotAllOfSelected>Not equal to all of the selected</FilterNotAllOfSelected>
+	<SelectedRange>Selected range</SelectedRange>
+	<ColumnComment>Column Comment</ColumnComment>
+	<AutoHide>Auto Hide</AutoHide>
+	<AlwaysShow>Always show</AlwaysShow>
+	<CanView>You can view by double-clicking .</CanView>
+	<CanHide>You can hide by double-clicking .</CanHide>
+</Class_Language>

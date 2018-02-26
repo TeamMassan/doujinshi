@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" href="../css/default.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../css/function.css" type="text/css" media="all" />
+		<title>PupSQLite マニュアル-新規作成</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rev="made" href="pup@wmail.plala.or.jp" />
+	</head>
+	<body>
+		<div id="box">
+			<p id="toindex"><a href="../index.html#func">目次へ</a></p>
+			<h2 id="totop">新規作成</h2>
+			<ul>
+				<li><a href="#newdb">データベースの新規作成</a></li>
+				<li><a href="#newtbl">テーブルの新規作成</a></li>
+				<li><a href="newview.html">ビューの新規作成</a></li>
+					<ul>
+						<li><a href="where.html">抽出条件の設定</a></li>
+						<li><a href="trigger.html">トリガーの設定</a></li>
+					</ul>
+			</ul>
+			<h2 id="newdb">データベースの新規作成</h2>
+			<div id="boxnewdb">
+				<img class="onfloat" src="../image/menu_newdb.gif" width="207px" height="77px" alt="データベースの新規作成メニュー画像" />
+				<p class="nonfloat">データベースの新規作成はテーブルの新規作成のあとデータベースの保存場所を指定します。</p>
+			</div>
+			<h2 id="newtbl">テーブルの新規作成</h2>
+			<p>テーブルウィンドウのテーブルボタンをクリックしてテーブル一覧が表示されている状態で<img src="../image/newicon.gif" width="16px" height="16px" alt="新規作成アイコン" />
+			新規作成をクリックするとテーブル名の入力からテーブルの作成が始まります。</p>
+			<p>またデータベースの新規作成ではメインメニュの<img src="../image/newicon.gif" width="16px" height="16px" alt="新規作成アイコン画像" />
+			新規作成をクリックすると同じようにテーブル名の設定からテーブルの新規作成が始まります。</p>
+			<div class="viewbox5">
+				<h3>1.テーブル名の入力</h3>
+				<img class="onfloat" src="../image/tblname.gif" width="359px" height="152px" alt="テーブル名の入力画像" />
+				<p>作成するテーブルの名前を入力します。. (ピリオド) ] (半角大カッコ)は使用できません。</p>
+			</div>
+			<p><a href="../gui/newtablewin.html">テーブルの新規作成ウィンドウの説明はこちら</a></p>
+			<div class="viewbox5">
+				<h3>2.フィールド名の入力</h3>
+				<img class="onfloat" src="../image/columnname.gif" width="212px" height="98px" alt="フィールド名の入力操作画像" />
+				<p>作成するフィールドの名前を入力します。. (ピリオド) ] (半角大カッコ)は使用できません。</p>
+			</div>
+			<h3>3.フィールドのデータ型と制約の入力</h3>
+			<div class="viewbox1">
+				<div class="floatbox">
+					<img class="nonfloat" src="../image/column.gif" width="251px" height="112px" alt="データ型と制約の入力操作画像" />
+					<p>初期値の設定</p>
+					<img src="../image/inputdefault.gif" width="159px" height="47px" alt="初期値の入力操作画像" />
+				</div>
+				<p>次にフィールドのデータ型と制約を入力します</p>
+				<p>データ型は下記の４つをサポートしています。</p>
+				<ul>
+					<li>文字列型・・・データを文字列として格納できます。</li>
+					<li>整数型・・・データを整数として格納できます。整数に変換できないデータを格納することはできません。</li>
+					<li>浮動小数点型・・・データを浮動小数点として格納できます。浮動小数点に変換できないデータを格納することはできません。</li>
+					<li>BinaryLargeObject型・・・データをバイナリーとして格納できます。画像やファイルなどをそのまま格納することが可能です。</li>
+				</ul>
+				<p>フィールドの制約では、NULLの可否と重複の可否を設定します。<br />
+				NULLが不可(NG)の場合はそのフィールドの初期値を設定してください。</p>
+			</div>
+			<div class="viewbox5">
+				<h3>4.インデックスとフィールドコメントの設定</h3>
+				<img class="onfloat" src="../image/indexandcomment.gif" width="296px" height="88px" alt="インデックスとフィールドコメントの入力操作画面" />
+				<p>次にフィールドのインデックスの設定とコメントの入力をします。<br />
+				フィールドにインデックスを設定するとそのフィールドの(SQL内での)検索が早くなりますが更新はその分遅くなります。</p>
+				<p>ここまでの入力がすべて完了したら｢OK｣ボタンをクリックしてテーブルの作成を完了してください。</p>
+			</div>
+			<p class="totop"><a href="#totop">ページトップへ戻る</a></p>
+		</div>
+		<p id="footter">Copyright(C) 2008-2013 <a href="mailto:pup428@gmail.com">Pup</a> All Rights Reserved.</p>
+	</body>
+</html>

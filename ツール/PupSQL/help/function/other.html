@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" href="../css/default.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../css/function.css" type="text/css" media="all" />
+		<title>PupSQLite マニュアル-その他の機能</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rev="made" href="pup@wmail.plala.or.jp" />
+	</head>
+	<body>
+		<div id="box">
+			<p id="toindex"><a href="../index.html#func">目次へ</a></p>
+			<ul>
+				<li><a href="#sql">SQLの実行</a></li>
+				<li><a href="#saiteki">最適化</a></li>
+				<li><a href="#sqlview">SQL文の表示</a></li>
+				<li><a href="hikaku.html">テーブルの比較</a></li>
+				<li><a href="option.html">オプションの設定</a></li>
+			</ul>
+			<img src="../image/menu_kinou.gif" width="189px" height="175px" alt="SQLの実行メニュー画像" />
+			<h2 id="sql">SQLの実行</h2>
+			<div class="viewbox3">
+				<img class="onfloat" src="../image/runsqlwindow.gif" width="520px" height="302px" alt="SQLの実行ウィンドウ画像" />
+				<ul>
+					<li class="sublist" id="imglist"><img src="../image/runsql.gif" width="418px" height="52px" alt="SQLの実行メニュー画像" /></li>
+					<li>SQL文を記入して実行<p>SQL文を直接記入して実行が可能です。SQLの実行ウィンドウ内に対象のデータベースを選択してからSQL文を記入し実行してください。<br />
+											オプションで｢結果をデータクリッドで表示する｣と｢実行後データベースを再読込みする｣があります。</p></li>
+					<li>ファイルを読み込んで実行<p>SQL文の書かれたファイルを読み込んでそのSQLを実行します。<br />
+											ファイルの種類は.sqlの拡張子を持つファイルがデフォルトとなります。</p></li>
+				</ul>
+				<p class="totop"><a href="#top">ページトップへ戻る</a></p>
+			</div>
+			<h2 id="saiteki">最適化</h2>
+			<div class="viewbox2">
+				<p>SQLiteDBでは行やテーブルが削除されても、その領域は次回追加されるときのために確保されたままとなっています。<br />
+				したがって、行削除やテーブル削除をしても思ったよりファイルサイズに変化が現れません。<br />
+				最適化は未使用で確保されている領域を開放し、データに見合ったファイルサイズにする機能です。</p>
+			</div>
+			<h2 id="sqlview">SQL文の表示</h2>
+			<div class="viewbox1">
+				<ul>
+					<li id="imglist"><img src="../image/sqlview.gif" width="361px" height="52px" alt="SQLの表示メニュー画像" /></li>
+					<li>テーブル定義文<p>現在アクティブなテーブル(またはビュー)の定義文を表示します。編集はできません。<br />
+						SQLファイルとしての出力が可能です。</p></li>
+					<li>現在までの変更内容<p>現在アクティブなテーブルの変更内容をSQL文として確認することが可能です。<br />
+						逐次保存の場合は表示されません。また、編集が可能ですが、グリッドビューウィンドウには反映されません。<br />
+						SQLファイルとしての出力が可能です。</p></li>
+				</ul>
+				<p class="totop"><a href="#top">ページトップへ戻る</a></p>
+			</div>
+		</div>
+		<p id="footter">Copyright(C) 2008-2013 <a href="mailto:pup428@gmail.com">Pup</a> All Rights Reserved.</p>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" href="../css/default.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../css/function.css" type="text/css" media="all" />
+		<title>PupSQLite マニュアル-オプションの設定</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rev="made" href="pup@wmail.plala.or.jp" />
+	</head>
+	<body>
+		<div id="box">
+			<p id="toindex"><a href="../index.html#func">目次へ</a></p>
+			<h2 id="totop">オプションの設定</h2>
+			<ul>
+				<li><a href="#sqlite">SQLiteの設定</a></li>
+				<li><a href="#view">表示設定</a></li>
+				<li><a href="#edit">編集設定</a></li>
+			</ul>
+			<h2 id="sqlite">SQLiteの設定</h2>
+			<div class="viewbox4">
+				<img class="onfloat" src="../image/option1.png" width="395px" height="289px" />
+				<ul class="setumeilist">
+					<li class="listtitle">SQLite Version</li>
+						<p class="listsetumei">使用するSQLiteのバージョンを指定します。PupSQLiteではバージョン３となります。</p>
+					<li class="listtitle">データベース圧縮</li>
+						<p class="listsetumei">SQLiteDBを圧縮するかどうかを設定します。圧縮するとファイルサイズは小さくなりますがアクセスに多少時間がかかる場合があります。</p>
+					<li class="listtitle">文字コード</li>
+						<p class="listsetumei">使用する文字コードを指定します。SQLiteではUTF-8またはUTF-16をサポートしています。</p>
+					<li class="listtitle">同期</li>
+						<p class="listsetumei">SQLiteがデータベースにアクセスする手法を設定します。FULL、Normal、OFFの順に信頼性は向上し、アクセススピードは低下します。</p>
+					<li class="listtitle">DateTimeFormat</li>
+						<p class="listsetumei">SQLiteで使用するDateTimeFormatを指定します。通常は変更の必要ありません。</p>
+					<li class="listtitle">*.db以外の拡張子</li>
+						<p class="listsetumei">SQLiteDBの拡張子が*.dbや*.db3でない場合はここで指定します。*.に続いて拡張子を指定し、複数指定する場合は；(セミコロン)で区切ります。</p>
+					<li class="listtitle">最新バージョンの確認を自動でする</li>
+						<p class="listsetumei">PupSQLiteの最新版の確認を自動で行います。</p>
+				</ul>
+			</div>
+			<h2 id="view">表示設定</h2>
+			<div class="viewbox1">
+				<img class="onfloat" src="../image/option2.png" width="395px" height="289px" />
+				<p class="setumeilist">表示設定ではPupSQLiteの各種表示の設定が可能です。データグリッドの見栄えやデータのフォントなどの変更ができます。<br />
+				「フィールドの幅をデータの内容にあわせる」にチェックが入っていない場合はフィールドのデータの長さに関わらず、フィールドの長さは100pxとなります。</p>
+			</div>
+			<h2 id="edit">編集設定</h2>
+			<div class="viewbox3">
+				<img class="onfloat" src="../image/option3.gif" width="395px" height="289px" />
+				<ul class="setumeilist">
+					<li class="listtitle">編集の度に保存する</li>
+						<p class="listsetumei">チェックボックスにチェックが入っていると、PupSQLiteでデータグリッド上のデータを編集する度にデータベースへその変更を反映します。<br />
+						編集するスピードは遅くなりますが、後述の読み込み最大行数を設定する際には必要になることもあります。</p>
+					<li class="listtitle">編集後移動する方向</li>
+						<p class="listsetumei">編集後にEnterキーを押した後に移動する方向を指定します。</p>
+					<li class="listtitle">読み込み最大行数</li>
+						<p class="listsetumei">読み込み最大行数を指定するとデータベースから取得するデータ自体が少なくなる為、読み込みにかかる時間が行数に応じて少なくなります。<br />
+						ただし、ページを移動する際に新たにデーターベースにアクセスする為保存していない変更内容は一見破棄されたように見えます。<br />
+						変更の保存を実行すればそれまでに編集された内容はデータベースに反映されますが、それまではデータグリッドに表示されない為、「SQL文を使ってフィルターをかける」以外のフィルターなどに対応できません。<br />
+						これを解消する為には「編集の度に保存する」にチェックをいれてください。</p>
+				</ul>
+			</div>
+		</div>
+		<p class="totop"><a href="#toindex">ページトップへ戻る</a></p>
+		<p id="footter">Copyright(C) 2008-2013 <a href="mailto:pup428@gmail.com">Pup</a> All Rights Reserved.</p>
+	</body>
+</html>

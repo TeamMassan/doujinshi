@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" href="../css/default.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../css/function.css" type="text/css" media="all" />
+		<title>PupSQLite マニュアル-ビューの新規作成</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rev="made" href="pup@wmail.plala.or.jp" />
+	</head>
+	<body>
+		<div id="box">
+			<p id="toindex"><a href="../index.html#func">目次へ</a></p>
+			<ul>
+				<li><a href="where.html">抽出条件の設定</a></li>
+				<li><a href="trigger.html">トリガーの設定</a></li>
+			</ul>
+			<h2 id="totop">ビューの新規作成</h2>
+			<p>ビューの新規作成では新たにビューの作成が可能です。既存のテーブルから必要なフィールドの抽出したり、
+				抽出条件を加えたり、複数のテーブルを結合したビューを作成することが可能です。</p>
+			<div class="viewbox1">
+				<h3>1.ビューの新規作成ウィンドウの表示</h3>
+				<img class="onfloat" src="../image/makeview1.gif" width="378px" height="220px" alt="ビューの新規作成画像" />
+				<p>ビューの新規作成ではテーブルウィンドウのビューボタンをクリックしビュー一覧を表示してから<img src="../image/newicon.gif" width="16px" height="16px" alt="ビューの新規作成アイコン" />
+				新規作成をクリックして｢ビューの新規作成ウィンドウ｣を表示します。</p>
+			</div>
+			<p><a href="../gui/viewwin.html" target="_blank">ビューの作成ウィンドウの説明はこちら</a></p>
+			<div class="viewbox2">
+				<h3>2.ビューの名前の入力</h3>
+				<img class="onfloat" src="../image/viewname.gif" width="285px" height="63px" alt="ビューの名前入力ボックス画像" />
+				<p>まず、ビューの名前を決定します。 .(ピリオド)と](半角大カッコ)は使用できません。</p>
+			</div>
+			<div class="viewbox1">
+				<h3>3.対象テーブルの選択</h3>
+				<img class="onfloat" src="../image/selecttable.gif" width="266px" height="181px" alt="テーブル選択画像" />
+				<p>次にビューに含めるテーブルを選択します。<BR />
+				含めたいテーブルをすべて選択し、｢選択テーブルを登録｣ボタンをクリックして登録をします。<br />
+				また、テーブル名をWクリックでも同様に登録が可能です。</p>
+			</div>
+			<div class="viewbox1">
+				<h3>4.主テーブルの選択</h3>
+				<img class="onfloat" src="../image/selectmaintable.gif" width="156px" height="221px" alt="主テーブル選択画像" />
+				<p>次に主テーブルを選択します。<BR />
+				主テーブルとはビューのキーになるテーブルのことでリレーションの設定をする場合には重要となります。<br />
+				主テーブルの主キーは必ず登録されます。</p>
+			</div>
+			<div class="viewbox1">
+				<h3>5.フィールドの登録</h3>
+				<img class="onfloat" src="../image/addfield.gif" width="337px" height="198px" alt="フィールドの登録操作画像" />
+				<p>次にビューに含むフィールドを登録します。<BR />
+				登録テーブル一覧のテーブル名を選択するとフィールド一覧に選択したテーブルのフィールドが表示されますので、
+				登録したいテーブルを選択して｢フィールドの追加｣ボタンをクリックしてください。</p>
+				<p>ここで登録したフィールドがビューのフィールドとして採用されます。</p>
+			</div>
+			<div class="viewbox3">
+				<h3>6.フィールド名とコメントの入力</h3>
+				<img src="../image/renamefield.gif" width="551px" height="160px" alt="フィールド名の編集操作画像" />
+				<p>フィールドの登録が完了したらビュー用のフィールド名を決定します。<br />
+				フィールドを登録したときはビューフィールド名は元のフィールド名と同じになっているので、違う場合は適切に変更します。<br />
+				複数のテーブルを結合して表示する場合など、フィールドの重複があると非常に分かりにくくなりますのでフィールドコメントとともにユニークになるよう変更が必要です。</p>
+				<p><a href="where.html">抽出条件の設定へ</a></p>
+				<p class="totop"><a href="#totop">ページトップへ戻る</a></p>
+			</div>
+		</div>
+		<p id="footter">Copyright(C) 2008-2013 <a href="mailto:pup428@gmail.com">Pup</a> All Rights Reserved.</p>
+	</body>
+</html>

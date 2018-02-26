@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" href="../css/default.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../css/function.css" type="text/css" media="all" />
+		<title>PupSQLite マニュアル-データグリッドウィンドウでの操作(フィルター)</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rev="made" href="pup@wmail.plala.or.jp" />
+	</head>
+	<body>
+		<div id="box">
+			<p id="toindex"><a href="../index.html#func">目次へ</a></p>
+			<ul>
+				<li><a href="dgwinedit.html">データの編集</a></li>
+				<li><a href="#totop">フィルター</a></li>
+				<li><a href="search.html">検索と置換</a></li>
+				<li><a href="otherfunction.html">その他の操作</a></li>
+			</ul>
+			<h2 id="totop">フィルター</h2>
+			<p>フィルターの種類には下記のようなものがあります。</p>
+			<ul>
+				<li><a href="#selectfilter">選択フィルター・非選択フィルター</a></li>
+				<li><a href="#editfilter">フィルターの編集</a></li>
+				<li><a href="#removefilter">フィルターを一つ戻る・選択フィルター解除</a></li>
+			</ul>
+			<h3 id="selectfilter">選択フィルター・非選択フィルター</h3>
+			<div class="viewbox6">
+			<img class="onfloat" src="../image/filtermenu.gif" width="209px" height="133px" alt="選択フィルター画像" />
+			<p>選択フィルターは選択しているフィールドの中で、選択中セルまたは文字列が含まれるレコードを表示します。<br />
+			もっとも頻繁に使用するフィルターで、何回も重ねて指定することが可能です。重ねて指定することによりレコードが絞られていきます。</p>
+			<p>セルを選択した状態で選択フィルターを実行するとそのセルの値と同じ値を持つレコードのみがすべて表示され、セル内の文字列を選択
+			した状態で選択フィルターを実行するとその文字列を含む値を持つレコードがすべて表示されます。</p>
+			<p>非選択フィルターは選択フィルターの逆となり、選択中のセルの値または文字列を含まないレコードのみが表示されます。</p>
+			</div>
+			<h3 id="editfilter">フィルターの編集</h3>
+			<div class="viewbox1">
+			<img class="onfloat" src="../image/editfilter.gif" width="485pa" height="246px" alt="フィルターの編集ダイアログ画像" />
+			<p>フィルターの編集では現在までに実行しているフィルターを編集することができます。<br />
+			リストよりフィールド名と条件、値を入力することにより選択フィルターでは実現できない｢以上/以下」や「超える/未満」といったフィルターを実行することが可能です。</p>
+			<p>編集したフィルターを反映するには<img src="../image/runbtn.gif" alt="実行ボタン" />をクリックしてください。</p>
+			</div>
+			<h3 id="removefilter">フィルターを一つ戻る・選択フィルターの解除</h3>
+			<p>最後に実行されたフィルターを取り消すには「フィルターを一つ戻る」を実行します。</p>
+			<p>すべてのフィルターを解除する場合は「選択フィルターの解除」実行してください。<br />
+			フィルターなしでテーブルを表示します。</p>
+		</div>
+		<p id="footter">Copyright(C) 2008-2013 <a href="mailto:pup428@gmail.com">Pup</a> All Rights Reserved.</p>
+	</body>
+</html>

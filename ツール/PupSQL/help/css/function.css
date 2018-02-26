@@ -1,0 +1,163 @@
+#boxtbl {
+	height:17em;
+}
+
+#boxnewdb {
+	height:5em;
+	}
+
+#boxnewdb2 {
+	height:10em;
+	}
+	
+#datatype {
+	margin:0 0 1em 570px;
+	}
+	
+.listdis {
+	margin:0;
+	}
+	
+.viewbox1 {
+	height:18.5em;
+	}
+	
+.viewbox2 {
+	height:8em;
+	}
+	
+.viewbox3 {
+	height:23em;
+	}
+	
+.viewbox4 {
+	height:28em;
+	}
+	
+.viewbox5 {
+	height:12em;
+	}
+	
+.viewbox6 {
+	height:15em;
+	}
+
+.viewbox7 {
+	height:10em;
+	}
+
+.floatbox {
+	height:15em;
+	float:left;
+	width:270px;
+	}
+	
+ol ol {
+	margin-left:320px;
+	}
+	
+#marginleft {
+	margin-left:430px;
+	}
+	
+.marginleft2 {
+	margin-left:360px;
+	}
+	
+#readcsv {
+	background-image:url(../image/csvicon.gif);
+	}
+	
+#readexcel {
+	background-image:url(../image/excelicon.gif);
+	}
+	
+#readmdb {
+	background-image:url(../image/mdbicon.gif);
+	}
+	
+#readxml {
+	background-image:url(../image/xmlicon.gif);
+	}
+	
+#readcsv,#readexcel,#readmdb,#readxml {
+	padding-left:32px;
+	background-repeat:no-repeat;
+	line-height:150%;
+	}
+	
+#imglist {
+	list-style:none;
+	}
+	
+.sublist {
+	margin-top:10px;
+	}
+	
+.listsetumei {
+	margin-top:2px;
+	margin-bottom:8px;
+	font-size:0.9em;
+	}
+	
+.listtitle {
+	font-weight:bold;
+	}
+
+#hikakulist {
+	margin-left:520px;
+	}
+	
+*:first-child+html #hikakulist {
+	margin-left:550px;
+	}
+	
+*html #hikakulist {
+	margin-left:550px;
+	}
+	
+#btn1 {
+	list-style-image:url(../image/hikakubtn1.gif);
+	padding:0;
+	margin:0 0 10px 0;
+	}
+	
+#btn2 {
+	list-style-image:url(../image/hikakubtn2.gif);
+	padding:0;
+	margin:0 0 10px 0;
+	}
+	
+#btn3 {
+	list-style-image:url(../image/hikakubtn3.gif);
+	padding:0;
+	margin:0 0 10px 0;
+	}
+	
+#btn4 {
+	list-style-image:url(../image/hikakubtn4.gif);
+	padding:0;
+	margin:0 0 10px 0;
+	}
+	
+#btn5 {
+	list-style-image:url(../image/hikakubtn5.gif);
+	padding:0;
+	margin:0 0 10px 0;
+	}
+	
+#btn6 {
+	list-style-image:url(../image/hikakubtn6.gif);
+	padding:0;
+	margin:0 0 10px 0;
+	}
+	
+#btn7 {
+	list-style-image:url(../image/hikakubtn7.gif);
+	padding:0;
+	margin:0 0 10px 0;
+	}
+	
+.setumeilist {
+	height:27em;
+	}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" href="../css/default.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../css/tbledit.css" type="text/css" media="all" />
+		<title>PupSQLite マニュアル-テーブルの編集</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rev="made" href="pup@wmail.plala.or.jp" />
+	</head>
+	<body>
+		<div id="box">
+			<p id="toindex"><a href="../index.html#func">目次へ</a></p>
+			<h2 id="totop">テーブルの編集</h2>
+			<ul>
+				<li><a href="#tblrename">テーブル名の変更</a></li>
+				<li><a href="#fldedit">フィールドの編集</a></li>
+				<li><a href="#tbldel">テーブルの削除</a></li>
+				<li><a href="#tblcopy">テーブルのコピー</a></li>
+			</ul>
+			<div class="tbleditbox1">
+				<h2 id="tblrename">テーブル名の編集</h2>
+				<img class="onfloat" src="../image/tblrename.gif" width="376px" height="136px" alt="テーブル名の変更操作画像" />
+				<p>テーブル名の変更はテーブルウィンドウの<img src="../image/tblrenameicon.gif" width="16px" height="16px" />
+				｢テーブル名の変更｣ボタンをクリックし、表示されたテーブル名の変更インプットボックスに変更後のテーブル名を入力してください。</p>
+				<p>ビュー名の変更もビュー一覧に切り替えた後に<img src="../image/tblrenameicon.gif" width="16px" height="16px" />
+				｢ビュー名の変更｣ボタンをクリックして、同じように変更後のビュー名を入力してください。</p>
+			</div>
+			<div class="tbleditbox1">
+				<h2 id="fldedit">フィールドの編集</h2>
+				<h3>1.フィールドの編集ダイアログの表示</h3>
+				<img class="onfloat" src="../image/fldedit.gif" width="376px" height="136px" alt="フィールドの編集操作画像" />
+				<p>フィールドの編集はテーブルウィンドウの<img src="../image/fldediticon.gif" width="16px" height="16px" />
+				｢フィールドの編集｣ボタンをクリックしてフィールドの編集ダイアログを表示してください。</p>
+			</div>
+			<h3>2.変更後のフィールド定義を入力</h3>
+			<img src="../image/fldeditwin.gif" width="761px" height="269px" alt="フィールドの編集ダイアログ画像" />
+			<p>フィールド名、データ型、NULL可否、重複可否、フィールドコメント、初期値、主キーのすべてを変更することができますが<br />
+			NULL可否や重複可否、主キーを変更した際にデータにNULLや重複データあった場合はフィールド編集の実行時にエラーが表示され処理を完了
+			できませんので、データ内容にはご注意願います。</p>
+			<p>また｢フィールドの追加｣ボタンでフィールドを追加することが可能ですが、これもその他のフィールド名を同じフィールド名を指定すると
+			フィールド編集の実行時にエラーとなりますので、必ず違うフィールド名を指定してください。</p>
+			<p class="totop"><a href="#totop">ページトップへ戻る</a></p>
+			<div class="tbleditbox1">
+				<h2 id="tbldel">テーブルの削除</h2>
+				<img class="onfloat" src="../image/tbldelwin.gif" width="376px" height="136px" alt="テーブルの削除操作画像" />
+				<p>テーブルの削除はテーブルウィンドウの<img src="../image/tbldelicon.gif" width="16px" height="16px" />
+				｢テーブルの削除｣ボタンをクリックすると削除することができます。この操作は即座にデータベースに反映されるためご注意願います。</p>
+			</div>
+			<div class="tbleditbox1">
+				<h2 id="tblcopy">テーブルのコピー</h2>
+				<img class="onfloat" src="../image/tablecopy01.gif" width="376px" height="231px" alt="テーブルのコピー画像" />
+				<p>既存のテーブルの複製を作るにはテーブル一覧ウィンドウでテーブルを選択してから右クリック→テーブルのコピーとすると"選択したテーブル名+のコピー(番号)"という名前のテーブルが作成されます。<br />
+				テーブルのコピーではカラム制約が引き継がれませんので(主キーなど)テーブル名の編集とともにフィールドの編集の必要となる場合があります。</p>
+				<img class="onfloat" src="../image/tablecopy02.gif" width="214px" height="69px" alt="テーブルのコピー画像2" />
+			<p class="totop"><a href="#totop">ページトップへ戻る</a></p>
+		</div>
+		<p id="footter">Copyright(C) 2008-2013 <a href="mailto:pup428@gmail.com">Pup</a> All Rights Reserved.</p>
+	</body>
+</html>
