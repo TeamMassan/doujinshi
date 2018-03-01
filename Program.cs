@@ -13,7 +13,7 @@ namespace 同人誌管理 {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new top());
+            Application.Run(new table_manage());
         }
     }
 }
