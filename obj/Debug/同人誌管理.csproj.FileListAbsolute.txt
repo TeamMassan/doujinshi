@@ -17,7 +17,6 @@ D:\teammassan\obj\Debug\同人誌管理.pdb
 C:\Users\Shunki\Documents\teamMssan\bin\Debug\同人誌管理.exe.config
 C:\Users\Shunki\Documents\teamMssan\obj\Debug\同人誌管理.exe
 C:\Users\Shunki\Documents\teamMssan\obj\Debug\同人誌管理.pdb
-C:\Users\Shunki\Documents\teamMssan\obj\Debug\同人誌管理.csprojResolveAssemblyReference.cache
 C:\Users\Shunki\Documents\teamMssan\obj\Debug\同人誌管理.add.resources
 C:\Users\Shunki\Documents\teamMssan\obj\Debug\同人誌管理.Properties.Resources.resources
 C:\Users\Shunki\Documents\teamMssan\obj\Debug\同人誌管理.detail_search.resources

@@ -51,6 +51,7 @@ namespace 同人誌管理 {
         //ロード時の処理
         private void add_Load(object sender, EventArgs e) {
             //作品名とジャンル一覧をコンボボックスにロード
+
             //  t_tableのIDの最大値を取得
 
             //新規IDをidに格納
