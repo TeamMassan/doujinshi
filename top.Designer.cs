@@ -29,7 +29,7 @@
             this.detailSearch = new System.Windows.Forms.Button();
             this.listView = new System.Windows.Forms.ListView();
             this.add = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tableManage = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -40,6 +40,7 @@
             this.searchKind.Name = "searchKind";
             this.searchKind.Size = new System.Drawing.Size(121, 20);
             this.searchKind.TabIndex = 0;
+            this.searchKind.Text = "全て";
             // 
             // word
             // 
@@ -60,7 +61,7 @@
             // 
             // detailSearch
             // 
-            this.detailSearch.Location = new System.Drawing.Point(573, 67);
+            this.detailSearch.Location = new System.Drawing.Point(161, 68);
             this.detailSearch.Name = "detailSearch";
             this.detailSearch.Size = new System.Drawing.Size(75, 23);
             this.detailSearch.TabIndex = 3;
@@ -86,14 +87,15 @@
             this.add.UseVisualStyleBackColor = true;
             this.add.Click += new System.EventHandler(this.add_Click);
             // 
-            // button1
+            // tableManage
             // 
-            this.button1.Location = new System.Drawing.Point(399, 397);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 51);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "テーブル管理";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tableManage.Location = new System.Drawing.Point(192, 397);
+            this.tableManage.Name = "tableManage";
+            this.tableManage.Size = new System.Drawing.Size(100, 51);
+            this.tableManage.TabIndex = 6;
+            this.tableManage.Text = "属性管理";
+            this.tableManage.UseVisualStyleBackColor = true;
+            this.tableManage.Click += new System.EventHandler(this.tableManage_Click);
             // 
             // close
             // 
@@ -111,7 +113,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 476);
             this.Controls.Add(this.close);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.tableManage);
             this.Controls.Add(this.add);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.detailSearch);
@@ -127,15 +129,14 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox searchKind;
         private System.Windows.Forms.TextBox word;
         private System.Windows.Forms.Button search;
         private System.Windows.Forms.Button detailSearch;
         private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.Button add;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button tableManage;
         private System.Windows.Forms.Button close;
+        public System.Windows.Forms.ComboBox searchKind;
     }
 }
 

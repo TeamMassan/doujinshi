@@ -32,11 +32,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.titleName = new System.Windows.Forms.TextBox();
-            this.circleName = new System.Windows.Forms.TextBox();
-            this.authorsName = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.titleForm = new System.Windows.Forms.TextBox();
+            this.circleForm = new System.Windows.Forms.TextBox();
+            this.authorsForm = new System.Windows.Forms.TextBox();
             this.all = new System.Windows.Forms.RadioButton();
             this.r15 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -48,6 +46,8 @@
             this.close = new System.Windows.Forms.Button();
             this.ageLimit = new System.Windows.Forms.Panel();
             this.place = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.ageLimit.SuspendLayout();
             this.place.SuspendLayout();
             this.SuspendLayout();
@@ -66,14 +66,14 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(28, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 12);
+            this.label2.Size = new System.Drawing.Size(216, 12);
             this.label2.TabIndex = 1;
-            this.label2.Text = "サークル名";
+            this.label2.Text = "サークル（合同の場合は半角コロンで区切る）";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 97);
+            this.label3.Location = new System.Drawing.Point(28, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(230, 12);
             this.label3.TabIndex = 2;
@@ -82,7 +82,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 155);
+            this.label4.Location = new System.Drawing.Point(28, 172);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 3;
@@ -91,7 +91,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(254, 155);
+            this.label5.Location = new System.Drawing.Point(265, 172);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 12);
             this.label5.TabIndex = 4;
@@ -100,7 +100,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 192);
+            this.label6.Location = new System.Drawing.Point(28, 209);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 5;
@@ -109,7 +109,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 234);
+            this.label7.Location = new System.Drawing.Point(28, 251);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 6;
@@ -118,7 +118,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(28, 269);
+            this.label8.Location = new System.Drawing.Point(28, 286);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 12);
             this.label8.TabIndex = 7;
@@ -127,46 +127,32 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(28, 385);
+            this.label9.Location = new System.Drawing.Point(28, 402);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(16, 12);
             this.label9.TabIndex = 8;
             this.label9.Text = "ID";
             // 
-            // titleName
+            // titleForm
             // 
-            this.titleName.Location = new System.Drawing.Point(90, 23);
-            this.titleName.Name = "titleName";
-            this.titleName.Size = new System.Drawing.Size(332, 19);
-            this.titleName.TabIndex = 9;
+            this.titleForm.Location = new System.Drawing.Point(90, 23);
+            this.titleForm.Name = "titleForm";
+            this.titleForm.Size = new System.Drawing.Size(392, 19);
+            this.titleForm.TabIndex = 9;
             // 
-            // circleName
+            // circleForm
             // 
-            this.circleName.Location = new System.Drawing.Point(90, 58);
-            this.circleName.Name = "circleName";
-            this.circleName.Size = new System.Drawing.Size(332, 19);
-            this.circleName.TabIndex = 10;
+            this.circleForm.Location = new System.Drawing.Point(30, 80);
+            this.circleForm.Name = "circleForm";
+            this.circleForm.Size = new System.Drawing.Size(452, 19);
+            this.circleForm.TabIndex = 10;
             // 
-            // authorsName
+            // authorsForm
             // 
-            this.authorsName.Location = new System.Drawing.Point(30, 120);
-            this.authorsName.Name = "authorsName";
-            this.authorsName.Size = new System.Drawing.Size(452, 19);
-            this.authorsName.TabIndex = 11;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(69, 152);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(169, 19);
-            this.textBox4.TabIndex = 12;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(295, 152);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(187, 19);
-            this.textBox5.TabIndex = 13;
+            this.authorsForm.Location = new System.Drawing.Point(30, 134);
+            this.authorsForm.Name = "authorsForm";
+            this.authorsForm.Size = new System.Drawing.Size(452, 19);
+            this.authorsForm.TabIndex = 11;
             // 
             // all
             // 
@@ -225,7 +211,7 @@
             // 
             // mainChara
             // 
-            this.mainChara.Location = new System.Drawing.Point(30, 284);
+            this.mainChara.Location = new System.Drawing.Point(30, 301);
             this.mainChara.Multiline = true;
             this.mainChara.Name = "mainChara";
             this.mainChara.Size = new System.Drawing.Size(452, 90);
@@ -234,14 +220,14 @@
             // id
             // 
             this.id.Enabled = false;
-            this.id.Location = new System.Drawing.Point(50, 381);
+            this.id.Location = new System.Drawing.Point(50, 398);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(100, 19);
             this.id.TabIndex = 20;
             // 
             // insert
             // 
-            this.insert.Location = new System.Drawing.Point(295, 381);
+            this.insert.Location = new System.Drawing.Point(295, 398);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(75, 23);
             this.insert.TabIndex = 21;
@@ -251,7 +237,7 @@
             // 
             // close
             // 
-            this.close.Location = new System.Drawing.Point(390, 380);
+            this.close.Location = new System.Drawing.Point(390, 397);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(75, 23);
             this.close.TabIndex = 22;
@@ -264,7 +250,7 @@
             this.ageLimit.Controls.Add(this.all);
             this.ageLimit.Controls.Add(this.r15);
             this.ageLimit.Controls.Add(this.radioButton3);
-            this.ageLimit.Location = new System.Drawing.Point(103, 185);
+            this.ageLimit.Location = new System.Drawing.Point(103, 202);
             this.ageLimit.Name = "ageLimit";
             this.ageLimit.Size = new System.Drawing.Size(317, 34);
             this.ageLimit.TabIndex = 23;
@@ -273,27 +259,43 @@
             // 
             this.place.Controls.Add(this.radioButton4);
             this.place.Controls.Add(this.radioButton5);
-            this.place.Location = new System.Drawing.Point(103, 230);
+            this.place.Location = new System.Drawing.Point(103, 247);
             this.place.Name = "place";
             this.place.Size = new System.Drawing.Size(200, 27);
             this.place.TabIndex = 24;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(75, 169);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(169, 20);
+            this.comboBox1.TabIndex = 25;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(313, 169);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(169, 20);
+            this.comboBox2.TabIndex = 26;
             // 
             // add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 432);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.place);
             this.Controls.Add(this.ageLimit);
             this.Controls.Add(this.close);
             this.Controls.Add(this.insert);
             this.Controls.Add(this.id);
             this.Controls.Add(this.mainChara);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.authorsName);
-            this.Controls.Add(this.circleName);
-            this.Controls.Add(this.titleName);
+            this.Controls.Add(this.authorsForm);
+            this.Controls.Add(this.circleForm);
+            this.Controls.Add(this.titleForm);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -326,11 +328,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox titleName;
-        private System.Windows.Forms.TextBox circleName;
-        private System.Windows.Forms.TextBox authorsName;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox titleForm;
+        private System.Windows.Forms.TextBox circleForm;
+        private System.Windows.Forms.TextBox authorsForm;
         private System.Windows.Forms.RadioButton all;
         private System.Windows.Forms.RadioButton r15;
         private System.Windows.Forms.RadioButton radioButton3;
@@ -342,5 +342,7 @@
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.Panel ageLimit;
         private System.Windows.Forms.Panel place;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
