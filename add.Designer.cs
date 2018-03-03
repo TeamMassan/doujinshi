@@ -41,13 +41,13 @@
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.mainChara = new System.Windows.Forms.TextBox();
-            this.id = new System.Windows.Forms.TextBox();
+            this.idForm = new System.Windows.Forms.TextBox();
             this.insert = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
             this.ageLimit = new System.Windows.Forms.Panel();
             this.place = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.orijinComboBox = new System.Windows.Forms.ComboBox();
+            this.genreComboBox = new System.Windows.Forms.ComboBox();
             this.ageLimit.SuspendLayout();
             this.place.SuspendLayout();
             this.SuspendLayout();
@@ -217,13 +217,13 @@
             this.mainChara.Size = new System.Drawing.Size(452, 90);
             this.mainChara.TabIndex = 19;
             // 
-            // id
+            // idForm
             // 
-            this.id.Enabled = false;
-            this.id.Location = new System.Drawing.Point(50, 398);
-            this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(100, 19);
-            this.id.TabIndex = 20;
+            this.idForm.Enabled = false;
+            this.idForm.Location = new System.Drawing.Point(50, 398);
+            this.idForm.Name = "idForm";
+            this.idForm.Size = new System.Drawing.Size(100, 19);
+            this.idForm.TabIndex = 20;
             // 
             // insert
             // 
@@ -264,34 +264,34 @@
             this.place.Size = new System.Drawing.Size(200, 27);
             this.place.TabIndex = 24;
             // 
-            // comboBox1
+            // orijinComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(75, 169);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(169, 20);
-            this.comboBox1.TabIndex = 25;
+            this.orijinComboBox.FormattingEnabled = true;
+            this.orijinComboBox.Location = new System.Drawing.Point(75, 169);
+            this.orijinComboBox.Name = "orijinComboBox";
+            this.orijinComboBox.Size = new System.Drawing.Size(169, 20);
+            this.orijinComboBox.TabIndex = 25;
             // 
-            // comboBox2
+            // genreComboBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(313, 169);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(169, 20);
-            this.comboBox2.TabIndex = 26;
+            this.genreComboBox.FormattingEnabled = true;
+            this.genreComboBox.Location = new System.Drawing.Point(313, 169);
+            this.genreComboBox.Name = "genreComboBox";
+            this.genreComboBox.Size = new System.Drawing.Size(169, 20);
+            this.genreComboBox.TabIndex = 26;
             // 
             // add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 432);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.genreComboBox);
+            this.Controls.Add(this.orijinComboBox);
             this.Controls.Add(this.place);
             this.Controls.Add(this.ageLimit);
             this.Controls.Add(this.close);
             this.Controls.Add(this.insert);
-            this.Controls.Add(this.id);
+            this.Controls.Add(this.idForm);
             this.Controls.Add(this.mainChara);
             this.Controls.Add(this.authorsForm);
             this.Controls.Add(this.circleForm);
@@ -337,12 +337,12 @@
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.TextBox mainChara;
-        private System.Windows.Forms.TextBox id;
+        private System.Windows.Forms.TextBox idForm;
         private System.Windows.Forms.Button insert;
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.Panel ageLimit;
         private System.Windows.Forms.Panel place;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox orijinComboBox;
+        private System.Windows.Forms.ComboBox genreComboBox;
     }
 }

@@ -26,3 +26,4 @@ C:\Users\Shunki\Documents\teamMssan\obj\Debug\同人誌管理.csproj.GenerateRes
 C:\Users\Shunki\Documents\teamMssan\bin\Debug\同人誌管理.exe
 C:\Users\Shunki\Documents\teamMssan\bin\Debug\同人誌管理.pdb
 C:\Users\Shunki\Documents\teamMssan\bin\Debug\System.Data.SQLite.dll
+C:\Users\Shunki\Documents\teamMssan\obj\Debug\同人誌管理.csprojResolveAssemblyReference.cache

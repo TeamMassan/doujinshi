@@ -7,16 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SQLite;
 
 namespace 同人誌管理 {
     public partial class top : Form {
         public top() {
             InitializeComponent();
         }
+        SQLiteConnct DB = new SQLiteConnct();
 
         //ロード時の処理
         private void top_Load(object sender, EventArgs e) {
+            //DBファイルが無い時にテーブル作成
+            DB.make_db();
             //簡易検索のジャンルをロード
             searchKind.Items.Add("全て");
             searchKind.Items.Add("作品タイトル");
@@ -26,7 +28,9 @@ namespace 同人誌管理 {
 
         //通常検索実行時の処理
         private void search_Click(object sender, EventArgs e) {
-
+            //SELECTクエリ発行
+            
+            //リストボックスへの読み出し
         }
         //詳細検索実行時の処理
         private void detailSearch_Click(object sender, EventArgs e) {
