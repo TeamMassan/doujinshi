@@ -23,21 +23,40 @@ namespace 同人誌管理 {
 
     //SQLiteへのコネクション周り    
     public class SQLiteConnct {
+
+        public SQLiteConnection conn = new SQLiteConnection("Data Source = doujinshi.sqlite");
+        //DBは実行ファイルと同じ場所にある
+
         //SQL発行（レスポンスを必要としない場合）
-        public void nonRetern(string SQLquery) {
-            SQLiteConnection conn = new SQLiteConnection("Data Source = doujinshi.sqlite"); 
-            //DBは実行ファイルと同じ場所にある
+        public void nonResponse(string SQLquery) {            
             SQLiteCommand cmd = new SQLiteCommand(SQLquery, conn);
-            conn.Open();
             try {
+                conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
             catch (Exception err) {
-                MessageBox.Show("エラーだよ馬鹿\n" + err.ToString() + "内容をコピーしました");
+                MessageBox.Show("エラーだ馬鹿\n内容をクリップボードにコピーするよ\n"
+                    + err.ToString());
                 Clipboard.SetText(SQLquery + "\n\n" + err.ToString());
             }
         }
+
+        //SQL発行（レスポンスがある場合）//メソッドの動作未検証
+        public SQLiteDataReader beResponse(string SQLquery) {
+            SQLiteCommand cmd = new SQLiteCommand(SQLquery, conn);
+            SQLiteDataReader reader = null; //未割り当ての返却防止にnullをセット
+            try {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                conn.Close();
+            }
+            catch (Exception err){
+                MessageBox.Show("SELECTの結果が取得出来ませんでした\n" + err.ToString() + "内容をコピーしました");
+                Clipboard.SetText(SQLquery + "\n\n" + err.ToString());
+            }
+            return reader;
+        } 
 
         //テーブル自動作成
         public void make_db() {
@@ -69,7 +88,7 @@ namespace 同人誌管理 {
                                 "circle TEXT, " +
                                 "FOREIGN KEY(ID) REFERENCES t_doujinshi(ID) ON DELETE CASCADE" +
                              "); ";
-            nonRetern(setting);
+            nonResponse(setting);
             /*
             //ジャンルコード・作品コード一覧セット
             string original = "INSERT INTO t_origin VALUES(1,'東方プロジェクト');" +

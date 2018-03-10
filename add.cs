@@ -14,15 +14,15 @@ namespace 同人誌管理 {
         public add() {
             InitializeComponent();
         }
+        SQLiteConnct connect = new SQLiteConnct();
 
         //登録ボタンの処理
         private void insert_Click(object sender, EventArgs e) {
             //SQL文組み立て
-            string INSERTquery;
+            string INSERTquery= "INSERT INTO t_doujinshi(ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place";
             //テスト用のINSERT文
             INSERTquery = "INSERT INTO t_doujinshi(ID,title,origin_ID,genre_ID,age_limit,date,"+
-                "main_chara,place)VALUES(3,'慧音先生の情報リテラシー講座',1,1,1,'20180205','上白沢慧音',1); ";
-
+                "main_chara,place)VALUES("+idForm.Text.ToString()+",'慧音先生の情報リテラシー講座',1,1,1,'20180205','上白沢慧音',1); ";
             //SQLiteへのコネクト
             SQLiteConnection conn = new SQLiteConnection("Data Source = doujinshi.sqlite"); //カレントディレクトリに置く
             SQLiteCommand cmd = new SQLiteCommand(INSERTquery, conn);
@@ -32,6 +32,8 @@ namespace 同人誌管理 {
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 MessageBox.Show("登録しました");
+                //ID連番を回す
+                idForm.Text = ((int.Parse(idForm.Text.ToString())) + 1).ToString();
             } catch(Exception err) {
                 MessageBox.Show(err.ToString());
                 Clipboard.SetText(INSERTquery);   //SQL文をクリップボードにコピー
@@ -44,8 +46,7 @@ namespace 同人誌管理 {
             genreComboBox.Text = "";
             mainChara.Text = "";
 
-            //ID連番を回す
-
+            
         }
 
         //閉じるボタンの処理
@@ -55,22 +56,21 @@ namespace 同人誌管理 {
 
         //ロード時の処理
         private void add_Load(object sender, EventArgs e) {
-            //作品名とジャンル一覧をコンボボックスにロード
-
-            //  t_tableのIDの最大値を取得
-
-            //新規IDをidに格納
+            //IDの最大値を取得
             string query = "SELECT MAX(ID)FROM t_doujinshi";
             SQLiteConnection conn = new SQLiteConnection("Data Source = doujinshi.sqlite");
             SQLiteCommand cmd = new SQLiteCommand(query, conn);
-            /*
             conn.Open();
             SQLiteDataReader reader = cmd.ExecuteReader();
-            string Maximum = reader.GetString(1);
+            int ID_max = 0;    //データが空の時は0で初期化される
+            if (reader.Read()) {
+                ID_max = int.Parse(reader["Max(ID)"].ToString());
+            }
+            reader.Close();
             conn.Close();
             //新規IDをidに格納
-            idForm.Text = Maximum;
-            */
+            ID_max++;
+            idForm.Text = ID_max.ToString();            
         }
     }
 }
