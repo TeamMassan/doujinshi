@@ -46,10 +46,10 @@ namespace 同人誌管理 {
                                 "title TEXT NOT NULL," +
                                 "origin_ID INTEGER NOT NULL," +
                                 "genre_ID INTEGER NOT NULL," +
-                                "age_limit INTEGER NOT NULL," +
+                                "age_limit TEXT NOT NULL," +
                                 "date TEXT," +
                                 "main_chara TEXT," +
-                                "place INTEGER" +
+                                "place TEXT" +
                              ");" +
                              "CREATE TABLE IF NOT EXISTS t_origin(" +
                                 "origin_ID INTEGER PRIMARY KEY NOT NULL," +
@@ -80,7 +80,7 @@ namespace 同人誌管理 {
                      "INSERT INTO t_origin VALUES(6, 'ラブライブ');" +
                      "INSERT INTO t_origin VALUES(7, 'デレマス');" +
                      "INSERT INTO t_origin VALUES(8, 'その他');";
-            nonRetern(original);
+            nonResponse(original);
             string genre = "INSERT INTO t_genre VALUES(1,'漫画');" +
                     "INSERT INTO t_genre VALUES(2, 'イラスト集'); " +
                     "INSERT INTO t_genre VALUES(3, '成人向け'); " +
@@ -94,7 +94,7 @@ namespace 同人誌管理 {
                     "INSERT INTO t_genre VALUES(11, '設定資料集');" +
                     "INSERT INTO t_genre VALUES(12, '合同本');" +
                     "INSERT INTO t_genre VALUES(13, 'その他');";
-            nonRetern(genre);
+            nonResponse(genre);
             */
         }
     }
