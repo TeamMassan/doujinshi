@@ -278,6 +278,7 @@
             this.originComboBox.Name = "originComboBox";
             this.originComboBox.Size = new System.Drawing.Size(169, 20);
             this.originComboBox.TabIndex = 3;
+            this.originComboBox.SelectedIndexChanged += new System.EventHandler(this.originComboBox_SelectedIndexChanged);
             // 
             // genreComboBox
             // 
@@ -286,6 +287,7 @@
             this.genreComboBox.Name = "genreComboBox";
             this.genreComboBox.Size = new System.Drawing.Size(169, 20);
             this.genreComboBox.TabIndex = 4;
+            this.genreComboBox.SelectedIndexChanged += new System.EventHandler(this.genreComboBox_SelectedIndexChanged);
             // 
             // label10
             // 

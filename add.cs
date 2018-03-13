@@ -34,6 +34,8 @@ namespace 同人誌管理 {
                 empty_flag = true;
             }
             //対象年齢もチェック
+            //パネルを指定してどのボタンがチェックされいるか見る
+
 
             //空白提言
             if (empty_flag == true) {
@@ -121,6 +123,18 @@ namespace 同人誌管理 {
             //新規IDをidFormに格納
             ID_max++;
             idForm.Text = ID_max.ToString();
+        }
+        
+        //作品名が選択された時の処理
+        private void originComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+            //対応するorigin_IDを探して大域変数に確保
+
+        }
+
+        //ジャンルが選択された時の処理
+        private void genreComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+            //対応するgenre_IDを探して大域変数に確保
+
         }
     }
 }
