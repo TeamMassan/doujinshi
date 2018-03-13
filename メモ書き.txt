@@ -19,10 +19,10 @@ CREATE TABLE IF NOT EXISTS t_doujinshi(
 	title TEXT NOT NULL,
 	origin_ID INTEGER NOT NULL,
 	genre_ID INTEGER NOT NULL,
-	age_limit INTEGER NOT NULL,
+	age_limit TEXT NOT NULL,
 	date TEXT,
 	main_chara TEXT,
-	place INTEGER
+	place TEXT
 );
 
 CREATE TABLE IF NOT EXISTS t_origin(

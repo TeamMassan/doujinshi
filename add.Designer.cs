@@ -46,7 +46,7 @@
             this.close = new System.Windows.Forms.Button();
             this.ageLimit = new System.Windows.Forms.Panel();
             this.place = new System.Windows.Forms.Panel();
-            this.orijinComboBox = new System.Windows.Forms.ComboBox();
+            this.originComboBox = new System.Windows.Forms.ComboBox();
             this.genreComboBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.yearForm = new System.Windows.Forms.TextBox();
@@ -125,7 +125,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(28, 312);
+            this.label8.Location = new System.Drawing.Point(28, 305);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 12);
             this.label8.TabIndex = 7;
@@ -134,7 +134,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(28, 428);
+            this.label9.Location = new System.Drawing.Point(28, 421);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(16, 12);
             this.label9.TabIndex = 8;
@@ -218,7 +218,7 @@
             // 
             // mainChara
             // 
-            this.mainChara.Location = new System.Drawing.Point(30, 327);
+            this.mainChara.Location = new System.Drawing.Point(30, 320);
             this.mainChara.Multiline = true;
             this.mainChara.Name = "mainChara";
             this.mainChara.Size = new System.Drawing.Size(452, 90);
@@ -227,14 +227,14 @@
             // idForm
             // 
             this.idForm.Enabled = false;
-            this.idForm.Location = new System.Drawing.Point(50, 424);
+            this.idForm.Location = new System.Drawing.Point(50, 417);
             this.idForm.Name = "idForm";
             this.idForm.Size = new System.Drawing.Size(100, 19);
             this.idForm.TabIndex = 20;
             // 
             // insert
             // 
-            this.insert.Location = new System.Drawing.Point(295, 424);
+            this.insert.Location = new System.Drawing.Point(295, 417);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(75, 23);
             this.insert.TabIndex = 11;
@@ -244,7 +244,7 @@
             // 
             // close
             // 
-            this.close.Location = new System.Drawing.Point(390, 423);
+            this.close.Location = new System.Drawing.Point(390, 416);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(75, 23);
             this.close.TabIndex = 12;
@@ -260,7 +260,7 @@
             this.ageLimit.Location = new System.Drawing.Point(103, 228);
             this.ageLimit.Name = "ageLimit";
             this.ageLimit.Size = new System.Drawing.Size(317, 34);
-            this.ageLimit.TabIndex = 23;
+            this.ageLimit.TabIndex = 8;
             // 
             // place
             // 
@@ -269,15 +269,15 @@
             this.place.Location = new System.Drawing.Point(103, 273);
             this.place.Name = "place";
             this.place.Size = new System.Drawing.Size(200, 27);
-            this.place.TabIndex = 24;
+            this.place.TabIndex = 9;
             // 
-            // orijinComboBox
+            // originComboBox
             // 
-            this.orijinComboBox.FormattingEnabled = true;
-            this.orijinComboBox.Location = new System.Drawing.Point(75, 169);
-            this.orijinComboBox.Name = "orijinComboBox";
-            this.orijinComboBox.Size = new System.Drawing.Size(169, 20);
-            this.orijinComboBox.TabIndex = 3;
+            this.originComboBox.FormattingEnabled = true;
+            this.originComboBox.Location = new System.Drawing.Point(75, 169);
+            this.originComboBox.Name = "originComboBox";
+            this.originComboBox.Size = new System.Drawing.Size(169, 20);
+            this.originComboBox.TabIndex = 3;
             // 
             // genreComboBox
             // 
@@ -357,7 +357,7 @@
             this.Controls.Add(this.yearForm);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.genreComboBox);
-            this.Controls.Add(this.orijinComboBox);
+            this.Controls.Add(this.originComboBox);
             this.Controls.Add(this.place);
             this.Controls.Add(this.ageLimit);
             this.Controls.Add(this.close);
@@ -413,7 +413,7 @@
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.Panel ageLimit;
         private System.Windows.Forms.Panel place;
-        private System.Windows.Forms.ComboBox orijinComboBox;
+        private System.Windows.Forms.ComboBox originComboBox;
         private System.Windows.Forms.ComboBox genreComboBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox yearForm;
