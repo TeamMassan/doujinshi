@@ -37,9 +37,9 @@
             this.close = new System.Windows.Forms.Button();
             this.bookName = new System.Windows.Forms.TextBox();
             this.bookAuthor = new System.Windows.Forms.TextBox();
-            this.bookGenre = new System.Windows.Forms.TextBox();
             this.charaForm = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.genreForm = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -171,13 +171,6 @@
             this.bookAuthor.Size = new System.Drawing.Size(277, 19);
             this.bookAuthor.TabIndex = 13;
             // 
-            // bookGenre
-            // 
-            this.bookGenre.Location = new System.Drawing.Point(98, 108);
-            this.bookGenre.Name = "bookGenre";
-            this.bookGenre.Size = new System.Drawing.Size(277, 19);
-            this.bookGenre.TabIndex = 14;
-            // 
             // charaForm
             // 
             this.charaForm.Location = new System.Drawing.Point(98, 248);
@@ -194,14 +187,22 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "キャラ";
             // 
+            // genreForm
+            // 
+            this.genreForm.FormattingEnabled = true;
+            this.genreForm.Location = new System.Drawing.Point(98, 111);
+            this.genreForm.Name = "genreForm";
+            this.genreForm.Size = new System.Drawing.Size(277, 20);
+            this.genreForm.TabIndex = 17;
+            // 
             // detail_search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(409, 325);
+            this.Controls.Add(this.genreForm);
             this.Controls.Add(this.charaForm);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.bookGenre);
             this.Controls.Add(this.bookAuthor);
             this.Controls.Add(this.bookName);
             this.Controls.Add(this.close);
@@ -239,8 +240,8 @@
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.TextBox bookName;
         private System.Windows.Forms.TextBox bookAuthor;
-        private System.Windows.Forms.TextBox bookGenre;
         private System.Windows.Forms.TextBox charaForm;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox genreForm;
     }
 }
