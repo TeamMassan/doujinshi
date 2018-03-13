@@ -48,6 +48,13 @@
             this.place = new System.Windows.Forms.Panel();
             this.originComboBox = new System.Windows.Forms.ComboBox();
             this.genreComboBox = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.yearForm = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.monthForm = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.dayForm = new System.Windows.Forms.TextBox();
             this.ageLimit.SuspendLayout();
             this.place.SuspendLayout();
             this.SuspendLayout();
@@ -100,7 +107,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 209);
+            this.label6.Location = new System.Drawing.Point(28, 226);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 5;
@@ -109,7 +116,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 251);
+            this.label7.Location = new System.Drawing.Point(28, 268);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 6;
@@ -118,7 +125,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(28, 305);
+            this.label8.Location = new System.Drawing.Point(28, 303);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 12);
             this.label8.TabIndex = 7;
@@ -127,7 +134,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(28, 421);
+            this.label9.Location = new System.Drawing.Point(28, 419);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(16, 12);
             this.label9.TabIndex = 8;
@@ -211,7 +218,7 @@
             // 
             // mainChara
             // 
-            this.mainChara.Location = new System.Drawing.Point(30, 320);
+            this.mainChara.Location = new System.Drawing.Point(30, 318);
             this.mainChara.Multiline = true;
             this.mainChara.Name = "mainChara";
             this.mainChara.Size = new System.Drawing.Size(452, 90);
@@ -220,14 +227,14 @@
             // idForm
             // 
             this.idForm.Enabled = false;
-            this.idForm.Location = new System.Drawing.Point(50, 417);
+            this.idForm.Location = new System.Drawing.Point(50, 415);
             this.idForm.Name = "idForm";
             this.idForm.Size = new System.Drawing.Size(100, 19);
             this.idForm.TabIndex = 20;
             // 
             // insert
             // 
-            this.insert.Location = new System.Drawing.Point(295, 417);
+            this.insert.Location = new System.Drawing.Point(295, 415);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(75, 23);
             this.insert.TabIndex = 21;
@@ -237,7 +244,7 @@
             // 
             // close
             // 
-            this.close.Location = new System.Drawing.Point(390, 416);
+            this.close.Location = new System.Drawing.Point(390, 414);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(75, 23);
             this.close.TabIndex = 22;
@@ -250,19 +257,19 @@
             this.ageLimit.Controls.Add(this.all);
             this.ageLimit.Controls.Add(this.r15);
             this.ageLimit.Controls.Add(this.radioButton3);
-            this.ageLimit.Location = new System.Drawing.Point(103, 202);
+            this.ageLimit.Location = new System.Drawing.Point(103, 219);
             this.ageLimit.Name = "ageLimit";
             this.ageLimit.Size = new System.Drawing.Size(317, 34);
-            this.ageLimit.TabIndex = 8;
+            this.ageLimit.TabIndex = 23;
             // 
             // place
             // 
             this.place.Controls.Add(this.radioButton4);
             this.place.Controls.Add(this.radioButton5);
-            this.place.Location = new System.Drawing.Point(103, 247);
+            this.place.Location = new System.Drawing.Point(103, 264);
             this.place.Name = "place";
             this.place.Size = new System.Drawing.Size(200, 27);
-            this.place.TabIndex = 9;
+            this.place.TabIndex = 24;
             // 
             // originComboBox
             // 
@@ -270,7 +277,7 @@
             this.originComboBox.Location = new System.Drawing.Point(75, 169);
             this.originComboBox.Name = "originComboBox";
             this.originComboBox.Size = new System.Drawing.Size(169, 20);
-            this.originComboBox.TabIndex = 3;
+            this.originComboBox.TabIndex = 25;
             // 
             // genreComboBox
             // 
@@ -280,11 +287,75 @@
             this.genreComboBox.Size = new System.Drawing.Size(169, 20);
             this.genreComboBox.TabIndex = 26;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(28, 201);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(65, 12);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "頒布年月日";
+            // 
+            // yearForm
+            // 
+            this.yearForm.Location = new System.Drawing.Point(103, 197);
+            this.yearForm.Name = "yearForm";
+            this.yearForm.Size = new System.Drawing.Size(59, 19);
+            this.yearForm.TabIndex = 28;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(169, 200);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(17, 12);
+            this.label11.TabIndex = 29;
+            this.label11.Text = "年";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(276, 200);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(17, 12);
+            this.label12.TabIndex = 31;
+            this.label12.Text = "月";
+            // 
+            // monthForm
+            // 
+            this.monthForm.Location = new System.Drawing.Point(212, 197);
+            this.monthForm.Name = "monthForm";
+            this.monthForm.Size = new System.Drawing.Size(59, 19);
+            this.monthForm.TabIndex = 30;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(379, 200);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(17, 12);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "日";
+            // 
+            // dayForm
+            // 
+            this.dayForm.Location = new System.Drawing.Point(313, 197);
+            this.dayForm.Name = "dayForm";
+            this.dayForm.Size = new System.Drawing.Size(59, 19);
+            this.dayForm.TabIndex = 32;
+            // 
             // add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 432);
+            this.ClientSize = new System.Drawing.Size(527, 463);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.dayForm);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.monthForm);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.yearForm);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.genreComboBox);
             this.Controls.Add(this.originComboBox);
             this.Controls.Add(this.place);
@@ -344,5 +415,12 @@
         private System.Windows.Forms.Panel place;
         private System.Windows.Forms.ComboBox originComboBox;
         private System.Windows.Forms.ComboBox genreComboBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox yearForm;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox monthForm;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox dayForm;
     }
 }
