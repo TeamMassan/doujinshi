@@ -15,7 +15,8 @@ namespace 同人誌管理 {
             InitializeComponent();
         }
 
-        SQLiteConnct connect = new SQLiteConnct();  //自作クラスのインスタンス
+        SQLiteConnct connect = new SQLiteConnct();  //SQL操作を簡易化するインスタンス
+
         //作品、ジャンルの対応を構造体の配列で格納
         public struct id_to_data {
             public string ID;
@@ -95,11 +96,16 @@ namespace 同人誌管理 {
         private void add_Load(object sender, EventArgs e) {
             //IDの最大値を取得
             string query = "SELECT MAX(ID) FROM t_doujinshi";
-            SQLiteConnection conn = new SQLiteConnection("Data Source = doujinshi.sqlite");
-            conn.Open();
-            SQLiteCommand cmd = new SQLiteCommand(query, conn);
-            SQLiteDataReader reader = cmd.ExecuteReader();
+            SQLiteDataReader reader=null;
+            connect.beResponse(query, ref reader);
             int ID_max = 0;
+
+            //readerが空の状態の時のreaderの中身が知りたい
+            if (reader != null) {
+                MessageBox.Show(reader.ToString());
+                Clipboard.SetText(reader.ToString());
+            }
+
             if (reader.Read()) {
                 try {
                     ID_max = int.Parse(reader["Max(ID)"].ToString());
@@ -108,7 +114,7 @@ namespace 同人誌管理 {
                     ID_max = 0;
                 }
             }
-            reader.Close();
+            connect.conn.Close();
             
             //新規IDをidFormに格納
             ID_max++;
@@ -118,15 +124,14 @@ namespace 同人誌管理 {
             //構造体にIDとタイトルセットで格納し、INSERTの時に対応するIDを利用したい
             //
             query = "SELECT origin_ID,origin_title FROM t_origin";
-            cmd = new SQLiteCommand(query, conn);
-            reader = cmd.ExecuteReader();
+            connect.beResponse(query, ref reader);
             for(int cnt = 0; reader.Read();cnt++) {
                 origin[cnt].ID = reader["origin_id"].ToString();
                 origin[cnt].title = reader["origin_title"].ToString();
                 originComboBox.Items.Add(reader["origin_title"].ToString());
                 Array.Resize(ref origin, cnt + 2);
             }
-            reader.Close();
+            connect.conn.Close();
 
             //ジャンル一覧をロード
             query = "SELECT genre_title FROM t_genre";

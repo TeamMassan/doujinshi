@@ -46,7 +46,6 @@ namespace 同人誌管理 {
         //関数外でconn.Close()する必要アリ
         public void beResponse(string SQLquery ,ref SQLiteDataReader reader) {
             SQLiteCommand cmd = new SQLiteCommand(SQLquery, conn);
-            reader = null; //未割り当ての返却防止にnullをセット
             try {
                 conn.Open();
                 reader = cmd.ExecuteReader();
