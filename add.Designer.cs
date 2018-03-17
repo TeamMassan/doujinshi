@@ -107,25 +107,25 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 226);
+            this.label6.Location = new System.Drawing.Point(28, 235);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
-            this.label6.TabIndex = 5;
+            this.label6.TabIndex = 8;
             this.label6.Text = "対象年齢";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 268);
+            this.label7.Location = new System.Drawing.Point(28, 277);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
-            this.label7.TabIndex = 6;
+            this.label7.TabIndex = 9;
             this.label7.Text = "保管場所";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(28, 303);
+            this.label8.Location = new System.Drawing.Point(28, 305);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 12);
             this.label8.TabIndex = 7;
@@ -134,7 +134,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(28, 419);
+            this.label9.Location = new System.Drawing.Point(28, 421);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(16, 12);
             this.label9.TabIndex = 8;
@@ -145,21 +145,21 @@
             this.titleForm.Location = new System.Drawing.Point(90, 23);
             this.titleForm.Name = "titleForm";
             this.titleForm.Size = new System.Drawing.Size(392, 19);
-            this.titleForm.TabIndex = 9;
+            this.titleForm.TabIndex = 0;
             // 
             // circleForm
             // 
             this.circleForm.Location = new System.Drawing.Point(30, 80);
             this.circleForm.Name = "circleForm";
             this.circleForm.Size = new System.Drawing.Size(452, 19);
-            this.circleForm.TabIndex = 10;
+            this.circleForm.TabIndex = 1;
             // 
             // authorsForm
             // 
             this.authorsForm.Location = new System.Drawing.Point(30, 134);
             this.authorsForm.Name = "authorsForm";
             this.authorsForm.Size = new System.Drawing.Size(452, 19);
-            this.authorsForm.TabIndex = 11;
+            this.authorsForm.TabIndex = 2;
             // 
             // all
             // 
@@ -167,7 +167,7 @@
             this.all.Location = new System.Drawing.Point(14, 8);
             this.all.Name = "all";
             this.all.Size = new System.Drawing.Size(59, 16);
-            this.all.TabIndex = 14;
+            this.all.TabIndex = 0;
             this.all.TabStop = true;
             this.all.Text = "全年齢";
             this.all.UseVisualStyleBackColor = true;
@@ -178,7 +178,7 @@
             this.r15.Location = new System.Drawing.Point(121, 8);
             this.r15.Name = "r15";
             this.r15.Size = new System.Drawing.Size(49, 16);
-            this.r15.TabIndex = 15;
+            this.r15.TabIndex = 1;
             this.r15.TabStop = true;
             this.r15.Text = "R-15";
             this.r15.UseVisualStyleBackColor = true;
@@ -189,7 +189,7 @@
             this.radioButton3.Location = new System.Drawing.Point(225, 8);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(49, 16);
-            this.radioButton3.TabIndex = 16;
+            this.radioButton3.TabIndex = 2;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "R-18";
             this.radioButton3.UseVisualStyleBackColor = true;
@@ -200,7 +200,7 @@
             this.radioButton4.Location = new System.Drawing.Point(14, 3);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(59, 16);
-            this.radioButton4.TabIndex = 17;
+            this.radioButton4.TabIndex = 0;
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "現住居";
             this.radioButton4.UseVisualStyleBackColor = true;
@@ -211,43 +211,43 @@
             this.radioButton5.Location = new System.Drawing.Point(121, 3);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(47, 16);
-            this.radioButton5.TabIndex = 18;
+            this.radioButton5.TabIndex = 1;
             this.radioButton5.TabStop = true;
             this.radioButton5.Text = "実家";
             this.radioButton5.UseVisualStyleBackColor = true;
             // 
             // mainChara
             // 
-            this.mainChara.Location = new System.Drawing.Point(30, 318);
+            this.mainChara.Location = new System.Drawing.Point(30, 320);
             this.mainChara.Multiline = true;
             this.mainChara.Name = "mainChara";
             this.mainChara.Size = new System.Drawing.Size(452, 90);
-            this.mainChara.TabIndex = 19;
+            this.mainChara.TabIndex = 10;
             // 
             // idForm
             // 
             this.idForm.Enabled = false;
-            this.idForm.Location = new System.Drawing.Point(50, 415);
+            this.idForm.Location = new System.Drawing.Point(50, 417);
             this.idForm.Name = "idForm";
             this.idForm.Size = new System.Drawing.Size(100, 19);
             this.idForm.TabIndex = 20;
             // 
             // insert
             // 
-            this.insert.Location = new System.Drawing.Point(295, 415);
+            this.insert.Location = new System.Drawing.Point(295, 417);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(75, 23);
-            this.insert.TabIndex = 21;
+            this.insert.TabIndex = 11;
             this.insert.Text = "登録";
             this.insert.UseVisualStyleBackColor = true;
             this.insert.Click += new System.EventHandler(this.insert_Click);
             // 
             // close
             // 
-            this.close.Location = new System.Drawing.Point(390, 414);
+            this.close.Location = new System.Drawing.Point(390, 416);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(75, 23);
-            this.close.TabIndex = 22;
+            this.close.TabIndex = 12;
             this.close.Text = "閉じる";
             this.close.UseVisualStyleBackColor = true;
             this.close.Click += new System.EventHandler(this.close_Click);
@@ -257,19 +257,19 @@
             this.ageLimit.Controls.Add(this.all);
             this.ageLimit.Controls.Add(this.r15);
             this.ageLimit.Controls.Add(this.radioButton3);
-            this.ageLimit.Location = new System.Drawing.Point(103, 219);
+            this.ageLimit.Location = new System.Drawing.Point(103, 228);
             this.ageLimit.Name = "ageLimit";
             this.ageLimit.Size = new System.Drawing.Size(317, 34);
-            this.ageLimit.TabIndex = 23;
+            this.ageLimit.TabIndex = 8;
             // 
             // place
             // 
             this.place.Controls.Add(this.radioButton4);
             this.place.Controls.Add(this.radioButton5);
-            this.place.Location = new System.Drawing.Point(103, 264);
+            this.place.Location = new System.Drawing.Point(103, 273);
             this.place.Name = "place";
             this.place.Size = new System.Drawing.Size(200, 27);
-            this.place.TabIndex = 24;
+            this.place.TabIndex = 9;
             // 
             // originComboBox
             // 
@@ -277,7 +277,7 @@
             this.originComboBox.Location = new System.Drawing.Point(75, 169);
             this.originComboBox.Name = "originComboBox";
             this.originComboBox.Size = new System.Drawing.Size(169, 20);
-            this.originComboBox.TabIndex = 25;
+            this.originComboBox.TabIndex = 3;
             // 
             // genreComboBox
             // 
@@ -285,12 +285,12 @@
             this.genreComboBox.Location = new System.Drawing.Point(313, 169);
             this.genreComboBox.Name = "genreComboBox";
             this.genreComboBox.Size = new System.Drawing.Size(169, 20);
-            this.genreComboBox.TabIndex = 26;
+            this.genreComboBox.TabIndex = 4;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(28, 201);
+            this.label10.Location = new System.Drawing.Point(28, 206);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 12);
             this.label10.TabIndex = 27;
@@ -298,15 +298,15 @@
             // 
             // yearForm
             // 
-            this.yearForm.Location = new System.Drawing.Point(103, 197);
+            this.yearForm.Location = new System.Drawing.Point(103, 201);
             this.yearForm.Name = "yearForm";
-            this.yearForm.Size = new System.Drawing.Size(59, 19);
-            this.yearForm.TabIndex = 28;
+            this.yearForm.Size = new System.Drawing.Size(73, 19);
+            this.yearForm.TabIndex = 5;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(169, 200);
+            this.label11.Location = new System.Drawing.Point(182, 206);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(17, 12);
             this.label11.TabIndex = 29;
@@ -315,7 +315,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(276, 200);
+            this.label12.Location = new System.Drawing.Point(244, 206);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(17, 12);
             this.label12.TabIndex = 31;
@@ -323,15 +323,15 @@
             // 
             // monthForm
             // 
-            this.monthForm.Location = new System.Drawing.Point(212, 197);
+            this.monthForm.Location = new System.Drawing.Point(205, 201);
             this.monthForm.Name = "monthForm";
-            this.monthForm.Size = new System.Drawing.Size(59, 19);
-            this.monthForm.TabIndex = 30;
+            this.monthForm.Size = new System.Drawing.Size(33, 19);
+            this.monthForm.TabIndex = 6;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(379, 200);
+            this.label13.Location = new System.Drawing.Point(313, 206);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(17, 12);
             this.label13.TabIndex = 33;
@@ -339,16 +339,16 @@
             // 
             // dayForm
             // 
-            this.dayForm.Location = new System.Drawing.Point(313, 197);
+            this.dayForm.Location = new System.Drawing.Point(274, 201);
             this.dayForm.Name = "dayForm";
-            this.dayForm.Size = new System.Drawing.Size(59, 19);
-            this.dayForm.TabIndex = 32;
+            this.dayForm.Size = new System.Drawing.Size(33, 19);
+            this.dayForm.TabIndex = 7;
             // 
             // add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 463);
+            this.ClientSize = new System.Drawing.Size(524, 468);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.dayForm);
             this.Controls.Add(this.label12);

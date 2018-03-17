@@ -15,6 +15,15 @@ namespace 同人誌管理 {
             InitializeComponent();
         }
 
+        SQLiteConnct connect = new SQLiteConnct();  //自作クラスのインスタンス
+        //作品、ジャンルの対応を構造体の配列で格納
+        public struct id_to_data {
+            public string ID;
+            public string title;
+        }
+        id_to_data[] origin = new id_to_data[1];
+        id_to_data[] genre = new id_to_data[1];
+
         //登録ボタンの処理
         private void insert_Click(object sender, EventArgs e) {
             //登録データの空白チェック
@@ -33,6 +42,8 @@ namespace 同人誌管理 {
                 empty_flag = true;
             }
             //対象年齢もチェック
+
+            //パネルを指定してどのボタンがチェックされているか見る
 
             //空白提言
             if (empty_flag == true) {
@@ -82,31 +93,12 @@ namespace 同人誌管理 {
 
         //ロード時の処理
         private void add_Load(object sender, EventArgs e) {
-
-            //作品一覧をロード
-            string query = "SELECT origin_title FROM t_origin";
+            //IDの最大値を取得
+            string query = "SELECT MAX(ID) FROM t_doujinshi";
             SQLiteConnection conn = new SQLiteConnection("Data Source = doujinshi.sqlite");
             conn.Open();
             SQLiteCommand cmd = new SQLiteCommand(query, conn);
             SQLiteDataReader reader = cmd.ExecuteReader();
-            while (reader.Read()) {
-                originComboBox.Items.Add(reader["origin_title"].ToString());
-            }
-            reader.Close();
-
-            //ジャンル一覧をロード
-            query = "SELECT genre_title FROM t_genre";
-            cmd = new SQLiteCommand(query, conn);
-            reader = cmd.ExecuteReader();
-            while (reader.Read()) {
-                genreComboBox.Items.Add(reader["genre_title"].ToString());
-            }
-            reader.Close();
-
-            //IDの最大値を取得
-            query = "SELECT MAX(ID) FROM t_doujinshi";
-            cmd = new SQLiteCommand(query, conn);
-            reader = cmd.ExecuteReader();
             int ID_max = 0;
             if (reader.Read()) {
                 try {
@@ -117,10 +109,39 @@ namespace 同人誌管理 {
                 }
             }
             reader.Close();
-            conn.Close();
+            
             //新規IDをidFormに格納
             ID_max++;
             idForm.Text = ID_max.ToString();
+
+            //作品一覧をロード
+            //構造体にIDとタイトルセットで格納し、INSERTの時に対応するIDを利用したい
+            //
+            query = "SELECT origin_ID,origin_title FROM t_origin";
+            cmd = new SQLiteCommand(query, conn);
+            reader = cmd.ExecuteReader();
+            for(int cnt = 0; reader.Read();cnt++) {
+                origin[cnt].ID = reader["origin_id"].ToString();
+                origin[cnt].title = reader["origin_title"].ToString();
+                originComboBox.Items.Add(reader["origin_title"].ToString());
+                Array.Resize(ref origin, cnt + 2);
+            }
+            reader.Close();
+
+            //ジャンル一覧をロード
+            query = "SELECT genre_title FROM t_genre";
+            connect.beResponse(query, ref reader);
+
+            /*
+            cmd = new SQLiteCommand(query, conn);
+            reader = cmd.ExecuteReader();
+            */
+            while (reader.Read()) {
+                genreComboBox.Items.Add(reader["genre_title"].ToString());
+            }
+            reader.Close();
+            connect.conn.Close();
+
         }
     }
 }
