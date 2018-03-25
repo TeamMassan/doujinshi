@@ -17,14 +17,6 @@ namespace 同人誌管理 {
 
         SQLiteConnct connect = new SQLiteConnct();  //SQL操作を簡易化するインスタンス
 
-        //作品、ジャンルの対応を構造体の配列で格納
-        public struct id_to_data {
-            public string ID;
-            public string title;
-        }
-        id_to_data[] origin = new id_to_data[1];
-        id_to_data[] genre = new id_to_data[1];
-
         //登録ボタンの処理
         private void insert_Click(object sender, EventArgs e) {
             //頒布年月日整形
@@ -52,7 +44,7 @@ namespace 同人誌管理 {
                 empty_flag = true;
             }
             if ((yearForm.Text != "" || monthForm.Text != "" || dayForm.Text != "") && date.Length != 8) {
-                //頒布日はnull可項目なので入力内容が存在し、8桁でない時のみ注意を促す
+                //頒布日はnull可項目なので入力内容が存在する&8桁でない時に注意を促す
                 empty += "頒布日、";
                 empty_flag = true;
             }
@@ -62,25 +54,31 @@ namespace 同人誌管理 {
                 MessageBox.Show(empty + "が空白です。");
                 return;     //必須項目が抜けていたら処理を中断
             }
-            
-            //チェックボタンの結果格納
-            //foreach使ってコレクションからchecked==trueの対象年齢と保管場所を取得
 
+            //チェックボタンの結果格納（暫定処理）
+            //foreach使ってコレクションからchecked==trueの対象年齢と保管場所を取得したい
+            string agelimit, place;
+            if (all.Checked == true)
+                agelimit = "all";
+            else if (r15.Checked == true)
+                agelimit = "r15";
+            else
+                agelimit = "r18";
+            if (house.Checked == true)
+                place = "house";
+            else
+                place = "hometown";
             //SQL文組み立て
-            //作品IDとジャンルIDはSQLの副問合せを利用したい
-            /*string insert_doujinshi = "INSERT INTO t_doujinshi(ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place)"+
-                "VALUES(" + idForm.Text + ","    //ID
-                + "'"+titleForm.Text+"','"       //タイトル
-                +                                //作品ID
-                +                                //ジャンルID
-                +                                //対象年齢ID
-                + date+","                       //頒布年月日
-                +                                //場所
-            */
-                
-            //テスト用のINSERT文
-            string insert_doujinshi = "INSERT INTO t_doujinshi(ID,title,origin_ID,genre_ID,age_limit,date," +
-                "main_chara,place)VALUES(" + idForm.Text + ",'慧音先生の情報リテラシー講座',1,1,'all','20180205','上白沢慧音','house')";
+            //作品IDとジャンルIDはコンボボックスの値からSQLの副問合せを利用
+            string insert_doujinshi = "INSERT INTO t_doujinshi(ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place)" +
+                "VALUES(" + idForm.Text + ","   //ID
+                + "'" + titleForm.Text + "',"   //タイトル
+                + "(SELECT origin_ID FROM t_origin WHERE '" + originComboBox.Text + "' = origin_title),"  //作品ID
+                + "(SELECT genre_ID FROM t_genre WHERE '" + genreComboBox.Text + "' = genre_title),"      //ジャンルID
+                + "'" + agelimit + "',"         //対象年齢ID
+                + date + ","                    //頒布年月日
+                + "'" + place + "',"            //場所
+                + "'" + mainChara.Text + "')";  //メインキャラ                
             string insert_author = "INSERT INTO t_author(ID,author)" +
                 "VALUES(" + idForm.Text + ",'" + authorsForm.Text + "')";
             string insert_circle = "INSERT INTO t_circle(ID,circle)" +
@@ -88,6 +86,7 @@ namespace 同人誌管理 {
 
             //クエリ発行
             connect.nonResponse(insert_doujinshi);
+            //残タスク：コロンで区切ったテキスト毎に作者orサークルクエリを分ける。配列を利用する。
             if (authorsForm.Text != "")
                 connect.nonResponse(insert_author);
             if (circleForm.Text != "")
@@ -132,25 +131,18 @@ namespace 同人誌管理 {
             idForm.Text = newID.ToString();
 
             //作品一覧をロード
-            //構造体にIDとタイトルセットで格納し、INSERTの時に対応するIDを利用したい
-            //
             query = "SELECT origin_ID,origin_title FROM t_origin";
             connect.beResponse(query, ref reader);
-            for(int cnt = 0; reader.Read();cnt++) {
-                origin[cnt].ID = reader["origin_id"].ToString();
-                origin[cnt].title = reader["origin_title"].ToString();
-                originComboBox.Items.Add(reader["origin_title"].ToString());
-                Array.Resize(ref origin, cnt + 2);
-            }
+            while(reader.Read())
+                originComboBox.Items.Add(reader["origin_title"].ToString());          
             reader.Close();
             connect.conn.Close();
 
             //ジャンル一覧をロード
             query = "SELECT genre_title FROM t_genre";
             connect.beResponse(query, ref reader);
-            while (reader.Read()) {
+            while (reader.Read())
                 genreComboBox.Items.Add(reader["genre_title"].ToString());
-            }
             reader.Close();
             connect.conn.Close();
 

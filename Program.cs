@@ -106,7 +106,7 @@ namespace 同人誌管理 {
 
             //ジャンルコード・作品コード一覧初期設定
             if (checkRecord("t_origin") < 8) {
-                string original = "INSERT INTO t_origin VALUES(1,'東方プロジェクト');" +
+                string original = "INSERT INTO t_origin VALUES(1,'東方Project');" +
                          "INSERT INTO t_origin VALUES(2, '艦これ');" +
                          "INSERT INTO t_origin VALUES(3, 'オリジナル');" +
                          "INSERT INTO t_origin VALUES(4, 'グラブル');" +
