@@ -29,12 +29,13 @@ namespace 同人誌管理 {
         //通常検索実行時の処理
         private void search_Click(object sender, EventArgs e) {
             //SELECTクエリ発行
+            //内部結合を用いる
             
             //リストボックスへの読み出し
         }
         //詳細検索実行時の処理
         private void detailSearch_Click(object sender, EventArgs e) {
-            detail_search detail = new detail_search();
+            var detail = new detail_search();
             detail.ShowDialog();
         }
 
@@ -45,13 +46,13 @@ namespace 同人誌管理 {
 
         //新規追加ボタンの処理
         private void add_Click(object sender, EventArgs e) {
-            add add = new add();
+            var add = new add();
             add.ShowDialog();
         }
 
         //属性管理ボタンの処理
         private void tableManage_Click(object sender, EventArgs e) {
-            table_manage table_manege = new table_manage();
+            var table_manege = new table_manage();
             table_manege.ShowDialog();
         }
     }

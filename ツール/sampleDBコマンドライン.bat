@@ -1,0 +1,2 @@
+sqlite3 sample_db.sqlite
+PAUSE

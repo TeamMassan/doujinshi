@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS t_doujinshi(
 	origin_ID INTEGER NOT NULL,
 	genre_ID INTEGER NOT NULL,
 	age_limit TEXT NOT NULL,
-	date TEXT,
+	date INTEGER,
 	main_chara TEXT,
 	place TEXT
 );
@@ -67,12 +67,12 @@ date,
 main_chara,
 place
 )VALUES(
-1,
+2,
 '慧音先生の情報リテラシー講座',
 1,
 1,
-1,
+'all',
 '20180205',
 '上白沢慧音',
-1
+'house'
 );

@@ -37,9 +37,9 @@
             this.authorsForm = new System.Windows.Forms.TextBox();
             this.all = new System.Windows.Forms.RadioButton();
             this.r15 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.r18 = new System.Windows.Forms.RadioButton();
+            this.house = new System.Windows.Forms.RadioButton();
+            this.hometown = new System.Windows.Forms.RadioButton();
             this.mainChara = new System.Windows.Forms.TextBox();
             this.idForm = new System.Windows.Forms.TextBox();
             this.insert = new System.Windows.Forms.Button();
@@ -164,6 +164,7 @@
             // all
             // 
             this.all.AutoSize = true;
+            this.all.Checked = true;
             this.all.Location = new System.Drawing.Point(14, 8);
             this.all.Name = "all";
             this.all.Size = new System.Drawing.Size(59, 16);
@@ -183,38 +184,39 @@
             this.r15.Text = "R-15";
             this.r15.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // r18
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(225, 8);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(49, 16);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "R-18";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.r18.AutoSize = true;
+            this.r18.Location = new System.Drawing.Point(225, 8);
+            this.r18.Name = "r18";
+            this.r18.Size = new System.Drawing.Size(49, 16);
+            this.r18.TabIndex = 2;
+            this.r18.TabStop = true;
+            this.r18.Text = "R-18";
+            this.r18.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // house
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(14, 3);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(59, 16);
-            this.radioButton4.TabIndex = 0;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "現住居";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.house.AutoSize = true;
+            this.house.Checked = true;
+            this.house.Location = new System.Drawing.Point(14, 3);
+            this.house.Name = "house";
+            this.house.Size = new System.Drawing.Size(59, 16);
+            this.house.TabIndex = 0;
+            this.house.TabStop = true;
+            this.house.Text = "現住居";
+            this.house.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // hometown
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(121, 3);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(47, 16);
-            this.radioButton5.TabIndex = 1;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "実家";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.hometown.AutoSize = true;
+            this.hometown.Location = new System.Drawing.Point(121, 3);
+            this.hometown.Name = "hometown";
+            this.hometown.Size = new System.Drawing.Size(47, 16);
+            this.hometown.TabIndex = 1;
+            this.hometown.TabStop = true;
+            this.hometown.Text = "実家";
+            this.hometown.UseVisualStyleBackColor = true;
             // 
             // mainChara
             // 
@@ -256,7 +258,7 @@
             // 
             this.ageLimit.Controls.Add(this.all);
             this.ageLimit.Controls.Add(this.r15);
-            this.ageLimit.Controls.Add(this.radioButton3);
+            this.ageLimit.Controls.Add(this.r18);
             this.ageLimit.Location = new System.Drawing.Point(103, 228);
             this.ageLimit.Name = "ageLimit";
             this.ageLimit.Size = new System.Drawing.Size(317, 34);
@@ -264,8 +266,8 @@
             // 
             // place
             // 
-            this.place.Controls.Add(this.radioButton4);
-            this.place.Controls.Add(this.radioButton5);
+            this.place.Controls.Add(this.house);
+            this.place.Controls.Add(this.hometown);
             this.place.Location = new System.Drawing.Point(103, 273);
             this.place.Name = "place";
             this.place.Size = new System.Drawing.Size(200, 27);
@@ -273,6 +275,7 @@
             // 
             // originComboBox
             // 
+            this.originComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.originComboBox.FormattingEnabled = true;
             this.originComboBox.Location = new System.Drawing.Point(75, 169);
             this.originComboBox.Name = "originComboBox";
@@ -281,6 +284,7 @@
             // 
             // genreComboBox
             // 
+            this.genreComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genreComboBox.FormattingEnabled = true;
             this.genreComboBox.Location = new System.Drawing.Point(313, 169);
             this.genreComboBox.Name = "genreComboBox";
@@ -404,9 +408,9 @@
         private System.Windows.Forms.TextBox authorsForm;
         private System.Windows.Forms.RadioButton all;
         private System.Windows.Forms.RadioButton r15;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton r18;
+        private System.Windows.Forms.RadioButton house;
+        private System.Windows.Forms.RadioButton hometown;
         private System.Windows.Forms.TextBox mainChara;
         private System.Windows.Forms.TextBox idForm;
         private System.Windows.Forms.Button insert;

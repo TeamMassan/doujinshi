@@ -55,10 +55,10 @@ namespace 同人誌管理 {
                     sql += " AND ";
                 else
                     check = 1;
-                sql += charaForm.Text + " = main_chara";
+                sql += charaForm.Text + " = main_chara";    //main_charaの所属テーブルが無いよ
             }
 
-            //全項目記入チェック
+            //全項目記入チェック                         //　1bitのフラグ変数はbool型の利用を推奨するよ
             if (check == 1)
                 MessageBox.Show(sql);
             Clipboard.SetText(sql);
