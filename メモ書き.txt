@@ -73,9 +73,9 @@ INSERT INTO t_doujinshi(
 )VALUES(
 	1,
 	'慧音先生の情報リテラシー講座',
-		SELECT origin_ID 
+		(SELECT origin_ID 
 		FROM t_origin
-		WHERE origin_title = '東方Project',
+		WHERE origin_title = '東方Project'),
 	1,
 	'all',
 	'20180205',

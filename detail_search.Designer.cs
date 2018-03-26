@@ -28,11 +28,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.all = new System.Windows.Forms.CheckBox();
+            this.r15 = new System.Windows.Forms.CheckBox();
+            this.r18 = new System.Windows.Forms.CheckBox();
+            this.house = new System.Windows.Forms.CheckBox();
+            this.hometown = new System.Windows.Forms.CheckBox();
             this.search = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
             this.bookName = new System.Windows.Forms.TextBox();
@@ -87,55 +87,55 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "保管場所";
             // 
-            // checkBox1
+            // all
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(98, 162);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(60, 16);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "全年齢";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.all.AutoSize = true;
+            this.all.Location = new System.Drawing.Point(98, 162);
+            this.all.Name = "all";
+            this.all.Size = new System.Drawing.Size(60, 16);
+            this.all.TabIndex = 5;
+            this.all.Text = "全年齢";
+            this.all.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // r15
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(197, 162);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(50, 16);
-            this.checkBox2.TabIndex = 6;
-            this.checkBox2.Text = "R-15";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.r15.AutoSize = true;
+            this.r15.Location = new System.Drawing.Point(197, 162);
+            this.r15.Name = "r15";
+            this.r15.Size = new System.Drawing.Size(50, 16);
+            this.r15.TabIndex = 6;
+            this.r15.Text = "R-15";
+            this.r15.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // r18
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(295, 162);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(50, 16);
-            this.checkBox3.TabIndex = 7;
-            this.checkBox3.Text = "R-18";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.r18.AutoSize = true;
+            this.r18.Location = new System.Drawing.Point(295, 162);
+            this.r18.Name = "r18";
+            this.r18.Size = new System.Drawing.Size(50, 16);
+            this.r18.TabIndex = 7;
+            this.r18.Text = "R-18";
+            this.r18.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // house
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(98, 201);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(48, 16);
-            this.checkBox4.TabIndex = 8;
-            this.checkBox4.Text = "住居";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.house.AutoSize = true;
+            this.house.Location = new System.Drawing.Point(98, 201);
+            this.house.Name = "house";
+            this.house.Size = new System.Drawing.Size(48, 16);
+            this.house.TabIndex = 8;
+            this.house.Text = "住居";
+            this.house.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // hometown
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(197, 201);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(48, 16);
-            this.checkBox5.TabIndex = 9;
-            this.checkBox5.Text = "実家";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.hometown.AutoSize = true;
+            this.hometown.Location = new System.Drawing.Point(197, 201);
+            this.hometown.Name = "hometown";
+            this.hometown.Size = new System.Drawing.Size(48, 16);
+            this.hometown.TabIndex = 9;
+            this.hometown.Text = "実家";
+            this.hometown.UseVisualStyleBackColor = true;
             // 
             // search
             // 
@@ -207,11 +207,11 @@
             this.Controls.Add(this.bookName);
             this.Controls.Add(this.close);
             this.Controls.Add(this.search);
-            this.Controls.Add(this.checkBox5);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.hometown);
+            this.Controls.Add(this.house);
+            this.Controls.Add(this.r18);
+            this.Controls.Add(this.r15);
+            this.Controls.Add(this.all);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -232,11 +232,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox all;
+        private System.Windows.Forms.CheckBox r15;
+        private System.Windows.Forms.CheckBox r18;
+        private System.Windows.Forms.CheckBox house;
+        private System.Windows.Forms.CheckBox hometown;
         private System.Windows.Forms.Button search;
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.TextBox bookName;

@@ -113,6 +113,7 @@
   <ItemGroup>
     <Content Include="メモ書き.txt" />
     <Content Include="作品・ジャンルINSERT.txt" />
+    <Content Include="越智ノート.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

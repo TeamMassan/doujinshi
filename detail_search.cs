@@ -14,6 +14,60 @@ namespace 同人誌管理 {
         public detail_search() {
             InitializeComponent();
         }
+
+        string protoage_shaiping(params bool[] checkbox_flag) {
+            bool check = false;
+            string sql = "(";
+            for (int cnt = 0; cnt < checkbox_flag.Length; cnt++)
+            {
+                if (checkbox_flag[cnt] == true)
+                {
+                    if (check == true)
+                        sql = " AND ";
+                    else
+                        check = true;
+                    sql += "'" + checkbox_flag[cnt] + "'";
+                }
+            }
+            sql += ")";
+            return sql;
+        }
+
+        string limit_shaiping(bool all_flag, bool r15_flag, bool r18_flag)
+        {
+            bool check = false;
+            string sql = "(";
+
+            //全年齢チェック
+            if (all_flag == true)
+            {
+                check = true;
+                sql += "'" + all.Checked + "'";
+            }
+
+            //R-15チェック
+            if (r15_flag == true)
+            {
+                if (check == true)
+                    sql += " OR ";
+                else
+                    check = true;
+                sql += "'" + r15.Checked + "'";
+            }
+
+            //R-18チェック
+            if (r18_flag == true)
+            {
+                if (check == true)
+                    sql += " OR ";
+                else
+                    check = true;
+                sql += "'" + r18.Checked + "'";
+            }
+
+            sql += ")";
+            return sql;
+        }
         //閉じるボタン
         private void close_Click(object sender, EventArgs e)
         {
@@ -23,43 +77,54 @@ namespace 同人誌管理 {
         private void search_Click(object sender, EventArgs e)
         {
             string sql = "SELECT ID FROM t_table WHERE ";
-            int check = 0;//記入チェック変数
+            bool check = false;//記入チェック変数
             //誌名記入チェック
             if (bookName.Text != "")
             {
-                check = 1;
-                sql += bookName.Text + " = t_origin.origin_title";
+                check = true;
+                sql += "'" + bookName.Text + "' = t_origin.origin_title";
             }
             //作者名記入チェック
             if (bookAuthor.Text != "")
             {
-                if (check == 1)
+                if (check == true)
                     sql += " AND ";
                 else
-                    check = 1;
-                sql += bookAuthor.Text + " = t_Author.Author";
+                    check = true;
+                sql += "'" +  bookAuthor.Text + "' = t_Author.Author";
             }
             //ジャンル記入チェック
-            if (genreForm.Text != "")
-            {
-                if (check == 1)
-                    sql += " AND ";
+            if (genreForm.Text != "") {
+                if (check == true)
+                    sql = " AND ";
                 else
-                    check = 1;
-                sql += genreForm.Text + " = t_Genle.genrename";
-            }
-            //キャラ記入チェック
-            if(charaForm.Text != "")
-            {
-                if (check == 1)
-                    sql += " AND ";
-                else
-                    check = 1;
-                sql += charaForm.Text + " = main_chara";    //main_charaの所属テーブルが無いよ
+                    check = true;
+                sql += "(SELECT genre_ID FROM t_genle ' ";
+                sql += genreForm.Text + "' = genre_title) = ";
+                sql += "t_doujinshi.genle_ID";
             }
 
-            //全項目記入チェック                         //　1bitのフラグ変数はbool型の利用を推奨するよ
-            if (check == 1)
+            //年齢チェックボックス判定
+            if (check == true)
+                sql += " AND ";
+            sql += limit_shaiping(all.Checked, r15.Checked, r18.Checked);
+
+            //保存場所チェックボックス判定
+            if (check == true)
+                sql += " AND ";
+
+            //キャラ記入チェック
+            if (charaForm.Text != "")
+            {
+                if (check == true)
+                    sql += " AND ";
+                else
+                    check = true;
+                sql += "'" + charaForm.Text + "' = t_doujinshi.main_chara";    //main_charaの所属テーブルが無いよ
+            }
+
+            //全項目記入チェック                         
+            if (check == true)
                 MessageBox.Show(sql);
             Clipboard.SetText(sql);
         }

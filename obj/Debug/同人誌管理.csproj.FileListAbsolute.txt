@@ -67,3 +67,16 @@ C:\myDrive\team-massan\obj\Debug\同人誌管理.csproj.GenerateResource.Cache
 C:\myDrive\team-massan\obj\Debug\同人誌管理.csproj.CoreCompileInputs.cache
 C:\myDrive\team-massan\obj\Debug\同人誌管理.exe
 C:\myDrive\team-massan\obj\Debug\同人誌管理.pdb
+C:\myDrive\database開発\team-massan local\bin\Debug\同人誌管理.exe.config
+C:\myDrive\database開発\team-massan local\bin\Debug\同人誌管理.exe
+C:\myDrive\database開発\team-massan local\bin\Debug\同人誌管理.pdb
+C:\myDrive\database開発\team-massan local\obj\Debug\同人誌管理.csprojResolveAssemblyReference.cache
+C:\myDrive\database開発\team-massan local\obj\Debug\同人誌管理.add.resources
+C:\myDrive\database開発\team-massan local\obj\Debug\同人誌管理.Properties.Resources.resources
+C:\myDrive\database開発\team-massan local\obj\Debug\同人誌管理.detail_search.resources
+C:\myDrive\database開発\team-massan local\obj\Debug\同人誌管理.table_manage.resources
+C:\myDrive\database開発\team-massan local\obj\Debug\同人誌管理.top.resources
+C:\myDrive\database開発\team-massan local\obj\Debug\同人誌管理.csproj.GenerateResource.Cache
+C:\myDrive\database開発\team-massan local\obj\Debug\同人誌管理.csproj.CoreCompileInputs.cache
+C:\myDrive\database開発\team-massan local\obj\Debug\同人誌管理.exe
+C:\myDrive\database開発\team-massan local\obj\Debug\同人誌管理.pdb

@@ -1,0 +1,32 @@
+﻿SELECT ID
+FROM t_doujinshi
+WHERE 'bookName.Text' = t_doujinshi.title AND
+		'bookAuthor.Text' = t_Author.atthor AND
+		(
+			SELECT genre_ID
+			FROM t_genre
+			WHERE 'bookGenre.Text' = genre_title
+		) = t_ doujinshi.genre_ID AND
+		('all'  = t_doujinshi.age_limit OR 'r15' = t_doujinshi.age_limit OR 'r18' = t_doujinshi.age_limit) AND
+		('home' = t_doujinshi.plase OR 'hometown' = t_doujinshi.plase) AND
+		'*charaForm.text*' = t_doudjinshi.main_chara
+
+
+SELECT ID
+FROM t_doujinshi INNER JOIN t_genre
+ON t_doujinshi.genreID = t_genre.genre_ID
+WHERE '本の名前' = t_doujinshi.title AND
+		'作者名' = t_author.author AND
+		(
+			SELECT genre_ID
+			FROM t_genre
+			WHERE '艦これ' = genre_title
+		) = t_doujinshi.genre_ID AND
+		('all'  = t_doujinshi.age_limit OR 'r15' = t_doujinshi.age_limit OR 'r18' = t_doujinshi.age_limit) AND
+		('home' = t_doujinshi.plase OR 'hometown' = t_doujinshi.plase) AND
+		'*魔理沙*' = t_doudjinshi.main_chara
+
+SELECT *
+FROM t_doujinshi INNER JOIN t_genre
+ON t_doujinshi.genre_ID = t_genre.genre_ID
+WHERE 'abc' = t_doujinshi.title
