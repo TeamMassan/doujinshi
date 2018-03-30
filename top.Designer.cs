@@ -35,12 +35,12 @@
             // 
             // searchKind
             // 
+            this.searchKind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.searchKind.FormattingEnabled = true;
             this.searchKind.Location = new System.Drawing.Point(25, 42);
             this.searchKind.Name = "searchKind";
             this.searchKind.Size = new System.Drawing.Size(121, 20);
             this.searchKind.TabIndex = 0;
-            this.searchKind.Text = "全て";
             // 
             // word
             // 

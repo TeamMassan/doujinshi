@@ -16,14 +16,15 @@ namespace 同人誌管理 {
         }
 
         string protoage_shaiping(params bool[] checkbox_flag) {
-            bool check = false;
             string sql = "(";
-            for (int cnt = 0; cnt < checkbox_flag.Length; cnt++)
+            bool check = false;
+            int num = checkbox_flag.Length;
+            for (int cnt = 0; cnt < num; cnt++)
             {
                 if (checkbox_flag[cnt] == true)
                 {
                     if (check == true)
-                        sql = " AND ";
+                        sql += " OR ";
                     else
                         check = true;
                     sql += "'" + checkbox_flag[cnt] + "'";
@@ -31,6 +32,21 @@ namespace 同人誌管理 {
             }
             sql += ")";
             return sql;
+        }
+
+        bool protoage_shaiping_check(params bool[] checkbox_flag)
+        {
+            bool check = false;
+            int num = checkbox_flag.Length;
+            for (int cnt = 0; cnt < num; cnt++)
+            {
+                if (checkbox_flag[cnt] == true)
+                {
+                    check = true;
+                    break;
+                }
+            }
+            return check;
         }
 
         string limit_shaiping(bool all_flag, bool r15_flag, bool r18_flag)
@@ -104,14 +120,21 @@ namespace 同人誌管理 {
                 sql += "t_doujinshi.genle_ID";
             }
 
+            //過去の記入チェック及び年齢チェックボックスのチェックの有無判定
+            if (check == true)
+                sql += " AND ";
+            else
+                check = protoage_shaiping_check(all.Checked, r15.Checked, r18.Checked);
             //年齢チェックボックス判定
-            if (check == true)
-                sql += " AND ";
-            sql += limit_shaiping(all.Checked, r15.Checked, r18.Checked);
+            sql += protoage_shaiping(all.Checked, r15.Checked, r18.Checked);
+            //sql += limit_shaiping(all.Checked, r15.Checked, r18.Checked);
 
+            //保存場所チェックボックスのチェックの有無判定
+            if(check == false)
+                check = protoage_shaiping_check(house.Checked, hometown.Checked);
+            sql += " AND ";
             //保存場所チェックボックス判定
-            if (check == true)
-                sql += " AND ";
+            sql += protoage_shaiping(house.Checked, hometown.Checked);
 
             //キャラ記入チェック
             if (charaForm.Text != "")
@@ -120,7 +143,7 @@ namespace 同人誌管理 {
                     sql += " AND ";
                 else
                     check = true;
-                sql += "'" + charaForm.Text + "' = t_doujinshi.main_chara";    //main_charaの所属テーブルが無いよ
+                sql += "'*" + charaForm.Text + "*' = t_doujinshi.main_chara";
             }
 
             //全項目記入チェック                         

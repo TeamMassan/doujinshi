@@ -79,19 +79,52 @@ namespace 同人誌管理 {
                 + date + ","                    //頒布年月日
                 + "'" + place + "',"            //場所
                 + "'" + mainChara.Text + "')";  //メインキャラ                
+            /*
+            //配列
+            string tmp = "";
+
+            //,で区切りながら作者名を登録
+            for (int cnt = 0; cnt < authorsForm.Text.Length; cnt++) {
+                if (authorsForm.Text[cnt] == ',') {
+                    string insert_author = "INSERT INTO t_author(ID,author)" +
+                        "VALUES(" + idForm.Text + ",'" + tmp + "')";
+                    connect.nonResponse(insert_author);
+                    tmp = "";
+                }
+                tmp += authorsForm.Text[cnt];
+            }
+            tmp = "";
+            for (int cnt = 0; cnt < circleForm.Text.Length; cnt++) {
+                tmp += circleForm.Text[cnt];
+                if (circleForm.Text[cnt + 1] == ',') {
+                    string insert_circle = "INSERT INTO t_circle(ID,circle)" +
+                        "VALUES(" + idForm.Text + ",'" + tmp + "')";
+                    connect.nonResponse(insert_circle);
+                    tmp = "";
+                    cnt++;
+                }
+            }
+            */
+            
             string insert_author = "INSERT INTO t_author(ID,author)" +
                 "VALUES(" + idForm.Text + ",'" + authorsForm.Text + "')";
             string insert_circle = "INSERT INTO t_circle(ID,circle)" +
                 "VALUES(" + idForm.Text + ",'" + circleForm.Text + "')";
+            
 
             //クエリ発行
             connect.nonResponse(insert_doujinshi);
             //残タスク：コロンで区切ったテキスト毎に作者orサークルクエリを分ける。配列を利用する。
+            
+
+            /*
             if (authorsForm.Text != "")
                 connect.nonResponse(insert_author);
             if (circleForm.Text != "")
                 connect.nonResponse(insert_circle);
             MessageBox.Show("登録しました");
+            */
+
 
             //ID連番を回す
             idForm.Text = ((int.Parse(idForm.Text)) + 1).ToString();

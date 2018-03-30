@@ -59,6 +59,20 @@ using System.Data.SQLite;を追加
 コネクション記述の参考ページ
 http://park.geocities.jp/gdfsm000/cs/cs603.html
 
+INSERT INTO t_circle(ID,author)VALUES(2,'クマアナジツジノクマアナ')
+
+System.Data.SQLite.SQLiteException (0x80004005): SQL logic error or missing database
+table t_circle has no column named author
+   場所 System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   場所 System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   場所 System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   場所 System.Data.SQLite.SQLiteDataReader.NextResult()
+   場所 System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   場所 System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   場所 System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   場所 System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   場所 同人誌管理.SQLiteConnct.nonResponse(String SQLquery) 場所 C:\Users\Shunki\Documents\teamMssan\Program.cs:行 51
+
 INSERTテストクエリ
 
 INSERT INTO t_doujinshi(
