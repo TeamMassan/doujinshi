@@ -28,6 +28,11 @@
             this.search = new System.Windows.Forms.Button();
             this.detailSearch = new System.Windows.Forms.Button();
             this.listView = new System.Windows.Forms.ListView();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.circle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.author = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.add = new System.Windows.Forms.Button();
             this.tableManage = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
@@ -71,11 +76,50 @@
             // 
             // listView
             // 
+            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
+            this.title,
+            this.circle,
+            this.author,
+            this.date});
+            this.listView.FullRowSelect = true;
             this.listView.Location = new System.Drawing.Point(25, 97);
+            this.listView.MultiSelect = false;
             this.listView.Name = "listView";
             this.listView.Size = new System.Drawing.Size(623, 271);
             this.listView.TabIndex = 4;
             this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.Details;
+            this.listView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
+            // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            this.ID.Width = 34;
+            // 
+            // title
+            // 
+            this.title.Text = "タイトル";
+            this.title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.title.Width = 188;
+            // 
+            // circle
+            // 
+            this.circle.Text = "サークル";
+            this.circle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.circle.Width = 170;
+            // 
+            // author
+            // 
+            this.author.Text = "作者";
+            this.author.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.author.Width = 124;
+            // 
+            // date
+            // 
+            this.date.Text = "頒布日";
+            this.date.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.date.Width = 101;
             // 
             // add
             // 
@@ -137,6 +181,11 @@
         private System.Windows.Forms.Button tableManage;
         private System.Windows.Forms.Button close;
         public System.Windows.Forms.ComboBox searchKind;
+        private System.Windows.Forms.ColumnHeader ID;
+        private System.Windows.Forms.ColumnHeader title;
+        private System.Windows.Forms.ColumnHeader circle;
+        private System.Windows.Forms.ColumnHeader author;
+        private System.Windows.Forms.ColumnHeader date;
     }
 }
 

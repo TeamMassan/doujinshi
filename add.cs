@@ -70,7 +70,7 @@ namespace 同人誌管理 {
                 place = "hometown";
             //SQL文組み立て
             //作品IDとジャンルIDはコンボボックスの値からSQLの副問合せを利用
-            string insert_doujinshi = "INSERT INTO t_doujinshi(ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place)" +
+            string insert_doujinshi = "INSERT INTO t_doujinshi(ID,title,origin_ID,genre_ID,age_limit,date,place,main_chara)" +
                 "VALUES(" + idForm.Text + ","   //ID
                 + "'" + titleForm.Text + "',"   //タイトル
                 + "(SELECT origin_ID FROM t_origin WHERE '" + originComboBox.Text + "' = origin_title),"  //作品ID
@@ -79,52 +79,46 @@ namespace 同人誌管理 {
                 + date + ","                    //頒布年月日
                 + "'" + place + "',"            //場所
                 + "'" + mainChara.Text + "')";  //メインキャラ                
-            /*
-            //配列
-            string tmp = "";
 
-            //,で区切りながら作者名を登録
-            for (int cnt = 0; cnt < authorsForm.Text.Length; cnt++) {
-                if (authorsForm.Text[cnt] == ',') {
-                    string insert_author = "INSERT INTO t_author(ID,author)" +
-                        "VALUES(" + idForm.Text + ",'" + tmp + "')";
-                    connect.nonResponse(insert_author);
-                    tmp = "";
-                }
-                tmp += authorsForm.Text[cnt];
-            }
-            tmp = "";
-            for (int cnt = 0; cnt < circleForm.Text.Length; cnt++) {
-                tmp += circleForm.Text[cnt];
-                if (circleForm.Text[cnt + 1] == ',') {
-                    string insert_circle = "INSERT INTO t_circle(ID,circle)" +
-                        "VALUES(" + idForm.Text + ",'" + tmp + "')";
-                    connect.nonResponse(insert_circle);
-                    tmp = "";
-                    cnt++;
-                }
-            }
-            */
-            
-            string insert_author = "INSERT INTO t_author(ID,author)" +
-                "VALUES(" + idForm.Text + ",'" + authorsForm.Text + "')";
-            string insert_circle = "INSERT INTO t_circle(ID,circle)" +
-                "VALUES(" + idForm.Text + ",'" + circleForm.Text + "')";
-            
-
-            //クエリ発行
+            //同人誌登録
             connect.nonResponse(insert_doujinshi);
-            //残タスク：コロンで区切ったテキスト毎に作者orサークルクエリを分ける。配列を利用する。
-            
-
-            /*
-            if (authorsForm.Text != "")
+            //コロンで区切ったテキスト毎に作者orサークル名を分けて登録
+            string tmp = "";
+            if (authorsForm.Text.Length != 0) {
+                string insert_author = "";
+                for (int cnt = 0; cnt < authorsForm.Text.Length; cnt++) {
+                    if (authorsForm.Text[cnt] == ',') {
+                        insert_author = "INSERT INTO t_author(ID,author)" +
+                            "VALUES(" + idForm.Text + ",'" + tmp + "')";
+                        connect.nonResponse(insert_author);
+                        tmp = "";
+                        cnt++;
+                    }
+                    tmp += authorsForm.Text[cnt];
+                }
+                insert_author = "INSERT INTO t_author(ID,author)" +
+                            "VALUES(" + idForm.Text + ",'" + tmp + "')";
                 connect.nonResponse(insert_author);
-            if (circleForm.Text != "")
+            }
+            if (circleForm.Text.Length != 0) {
+                tmp = "";
+                string insert_circle = "";
+                for (int cnt = 0; cnt < circleForm.Text.Length; cnt++) {
+                    if (circleForm.Text[cnt] == ',') {
+                        insert_circle = "INSERT INTO t_circle(ID,circle)" +
+                            "VALUES(" + idForm.Text + ",'" + tmp + "')";
+                        connect.nonResponse(insert_circle);
+                        tmp = "";
+                        cnt++;
+                    }
+                    tmp += circleForm.Text[cnt];
+                }
+                insert_circle = "INSERT INTO t_circle(ID,circle)" +
+                            "VALUES(" + idForm.Text + ",'" + tmp + "')";
                 connect.nonResponse(insert_circle);
-            MessageBox.Show("登録しました");
-            */
+            }
 
+            MessageBox.Show("登録しました");
 
             //ID連番を回す
             idForm.Text = ((int.Parse(idForm.Text)) + 1).ToString();
@@ -178,7 +172,6 @@ namespace 同人誌管理 {
                 genreComboBox.Items.Add(reader["genre_title"].ToString());
             reader.Close();
             connect.conn.Close();
-
         }
     }
 }

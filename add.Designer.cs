@@ -75,7 +75,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(216, 12);
             this.label2.TabIndex = 1;
-            this.label2.Text = "サークル（合同の場合は半角コロンで区切る）";
+            this.label2.Text = "サークル（合同の場合は半角コンマで区切る）";
             // 
             // label3
             // 
@@ -84,7 +84,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(230, 12);
             this.label3.TabIndex = 2;
-            this.label3.Text = "作者名　(複数人の場合は半角コロンで区切る)";
+            this.label3.Text = "作者名　(複数人の場合は半角コンマで区切る)";
             // 
             // label4
             // 
