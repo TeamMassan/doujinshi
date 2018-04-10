@@ -23,38 +23,39 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.originList = new System.Windows.Forms.ListBox();
+            this.genreList = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.bookChange = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.originBox = new System.Windows.Forms.TextBox();
+            this.genreBox = new System.Windows.Forms.TextBox();
+            this.originChange = new System.Windows.Forms.Button();
+            this.originDelete = new System.Windows.Forms.Button();
             this.genreChange = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.bookAdd = new System.Windows.Forms.Button();
+            this.genreDelete = new System.Windows.Forms.Button();
+            this.originAdd = new System.Windows.Forms.Button();
             this.genreAdd = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listBox1
+            // originList
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 18;
-            this.listBox1.Location = new System.Drawing.Point(12, 77);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(479, 256);
-            this.listBox1.TabIndex = 0;
+            this.originList.FormattingEnabled = true;
+            this.originList.ItemHeight = 18;
+            this.originList.Location = new System.Drawing.Point(12, 77);
+            this.originList.Name = "originList";
+            this.originList.Size = new System.Drawing.Size(479, 256);
+            this.originList.TabIndex = 0;
+            this.originList.SelectedIndexChanged += new System.EventHandler(this.originList_SelectedIndexChanged);
             // 
-            // listBox2
+            // genreList
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 18;
-            this.listBox2.Location = new System.Drawing.Point(12, 411);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(479, 274);
-            this.listBox2.TabIndex = 1;
+            this.genreList.FormattingEnabled = true;
+            this.genreList.ItemHeight = 18;
+            this.genreList.Location = new System.Drawing.Point(12, 411);
+            this.genreList.Name = "genreList";
+            this.genreList.Size = new System.Drawing.Size(479, 274);
+            this.genreList.TabIndex = 1;
             // 
             // label1
             // 
@@ -76,39 +77,39 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "ジャンル";
             // 
-            // textBox1
+            // originBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.textBox1.Location = new System.Drawing.Point(530, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(310, 31);
-            this.textBox1.TabIndex = 4;
+            this.originBox.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.originBox.Location = new System.Drawing.Point(530, 77);
+            this.originBox.Name = "originBox";
+            this.originBox.Size = new System.Drawing.Size(310, 31);
+            this.originBox.TabIndex = 4;
             // 
-            // textBox2
+            // genreBox
             // 
-            this.textBox2.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.textBox2.Location = new System.Drawing.Point(531, 411);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(309, 31);
-            this.textBox2.TabIndex = 5;
+            this.genreBox.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.genreBox.Location = new System.Drawing.Point(531, 411);
+            this.genreBox.Name = "genreBox";
+            this.genreBox.Size = new System.Drawing.Size(309, 31);
+            this.genreBox.TabIndex = 5;
             // 
-            // bookChange
+            // originChange
             // 
-            this.bookChange.Location = new System.Drawing.Point(530, 144);
-            this.bookChange.Name = "bookChange";
-            this.bookChange.Size = new System.Drawing.Size(125, 35);
-            this.bookChange.TabIndex = 6;
-            this.bookChange.Text = "変更";
-            this.bookChange.UseVisualStyleBackColor = true;
+            this.originChange.Location = new System.Drawing.Point(530, 144);
+            this.originChange.Name = "originChange";
+            this.originChange.Size = new System.Drawing.Size(125, 35);
+            this.originChange.TabIndex = 6;
+            this.originChange.Text = "変更";
+            this.originChange.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // originDelete
             // 
-            this.button2.Location = new System.Drawing.Point(715, 144);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 35);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "削除";
-            this.button2.UseVisualStyleBackColor = true;
+            this.originDelete.Location = new System.Drawing.Point(715, 144);
+            this.originDelete.Name = "originDelete";
+            this.originDelete.Size = new System.Drawing.Size(125, 35);
+            this.originDelete.TabIndex = 7;
+            this.originDelete.Text = "削除";
+            this.originDelete.UseVisualStyleBackColor = true;
             // 
             // genreChange
             // 
@@ -119,23 +120,23 @@
             this.genreChange.Text = "変更";
             this.genreChange.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // genreDelete
             // 
-            this.button4.Location = new System.Drawing.Point(715, 474);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(125, 35);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "削除";
-            this.button4.UseVisualStyleBackColor = true;
+            this.genreDelete.Location = new System.Drawing.Point(715, 474);
+            this.genreDelete.Name = "genreDelete";
+            this.genreDelete.Size = new System.Drawing.Size(125, 35);
+            this.genreDelete.TabIndex = 9;
+            this.genreDelete.Text = "削除";
+            this.genreDelete.UseVisualStyleBackColor = true;
             // 
-            // bookAdd
+            // originAdd
             // 
-            this.bookAdd.Location = new System.Drawing.Point(864, 77);
-            this.bookAdd.Name = "bookAdd";
-            this.bookAdd.Size = new System.Drawing.Size(151, 31);
-            this.bookAdd.TabIndex = 10;
-            this.bookAdd.Text = "新規追加";
-            this.bookAdd.UseVisualStyleBackColor = true;
+            this.originAdd.Location = new System.Drawing.Point(864, 77);
+            this.originAdd.Name = "originAdd";
+            this.originAdd.Size = new System.Drawing.Size(151, 31);
+            this.originAdd.TabIndex = 10;
+            this.originAdd.Text = "新規追加";
+            this.originAdd.UseVisualStyleBackColor = true;
             // 
             // genreAdd
             // 
@@ -163,17 +164,17 @@
             this.ClientSize = new System.Drawing.Size(1042, 697);
             this.Controls.Add(this.close);
             this.Controls.Add(this.genreAdd);
-            this.Controls.Add(this.bookAdd);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.originAdd);
+            this.Controls.Add(this.genreDelete);
             this.Controls.Add(this.genreChange);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.bookChange);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.originDelete);
+            this.Controls.Add(this.originChange);
+            this.Controls.Add(this.genreBox);
+            this.Controls.Add(this.originBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.genreList);
+            this.Controls.Add(this.originList);
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "table_manage";
             this.Text = "管理画面";
@@ -185,17 +186,17 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox originList;
+        private System.Windows.Forms.ListBox genreList;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button bookChange;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox originBox;
+        private System.Windows.Forms.TextBox genreBox;
+        private System.Windows.Forms.Button originChange;
+        private System.Windows.Forms.Button originDelete;
         private System.Windows.Forms.Button genreChange;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button bookAdd;
+        private System.Windows.Forms.Button genreDelete;
+        private System.Windows.Forms.Button originAdd;
         private System.Windows.Forms.Button genreAdd;
         private System.Windows.Forms.Button close;
     }
