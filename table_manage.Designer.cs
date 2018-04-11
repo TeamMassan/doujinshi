@@ -23,8 +23,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.originList = new System.Windows.Forms.ListBox();
-            this.genreList = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.originBox = new System.Windows.Forms.TextBox();
@@ -36,26 +34,13 @@
             this.originAdd = new System.Windows.Forms.Button();
             this.genreAdd = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
+            this.originList = new System.Windows.Forms.ListView();
+            this.originID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.originName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.genreList = new System.Windows.Forms.ListView();
+            this.genreID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.genreName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
-            // 
-            // originList
-            // 
-            this.originList.FormattingEnabled = true;
-            this.originList.ItemHeight = 18;
-            this.originList.Location = new System.Drawing.Point(12, 77);
-            this.originList.Name = "originList";
-            this.originList.Size = new System.Drawing.Size(479, 256);
-            this.originList.TabIndex = 0;
-            this.originList.SelectedIndexChanged += new System.EventHandler(this.originList_SelectedIndexChanged);
-            // 
-            // genreList
-            // 
-            this.genreList.FormattingEnabled = true;
-            this.genreList.ItemHeight = 18;
-            this.genreList.Location = new System.Drawing.Point(12, 411);
-            this.genreList.Name = "genreList";
-            this.genreList.Size = new System.Drawing.Size(479, 274);
-            this.genreList.TabIndex = 1;
             // 
             // label1
             // 
@@ -69,6 +54,8 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.label2.Location = new System.Drawing.Point(8, 384);
@@ -79,6 +66,8 @@
             // 
             // originBox
             // 
+            this.originBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.originBox.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.originBox.Location = new System.Drawing.Point(530, 77);
             this.originBox.Name = "originBox";
@@ -87,6 +76,8 @@
             // 
             // genreBox
             // 
+            this.genreBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.genreBox.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.genreBox.Location = new System.Drawing.Point(531, 411);
             this.genreBox.Name = "genreBox";
@@ -131,15 +122,18 @@
             // 
             // originAdd
             // 
+            this.originAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.originAdd.Location = new System.Drawing.Point(864, 77);
             this.originAdd.Name = "originAdd";
             this.originAdd.Size = new System.Drawing.Size(151, 31);
             this.originAdd.TabIndex = 10;
             this.originAdd.Text = "新規追加";
             this.originAdd.UseVisualStyleBackColor = true;
+            this.originAdd.Click += new System.EventHandler(this.originAdd_Click);
             // 
             // genreAdd
             // 
+            this.genreAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.genreAdd.Location = new System.Drawing.Point(864, 411);
             this.genreAdd.Name = "genreAdd";
             this.genreAdd.Size = new System.Drawing.Size(151, 31);
@@ -149,6 +143,7 @@
             // 
             // close
             // 
+            this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.close.Location = new System.Drawing.Point(864, 647);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(135, 38);
@@ -157,11 +152,63 @@
             this.close.UseVisualStyleBackColor = true;
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
+            // originList
+            // 
+            this.originList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.originID,
+            this.originName});
+            this.originList.FullRowSelect = true;
+            this.originList.Location = new System.Drawing.Point(26, 77);
+            this.originList.MultiSelect = false;
+            this.originList.Name = "originList";
+            this.originList.Size = new System.Drawing.Size(487, 292);
+            this.originList.TabIndex = 13;
+            this.originList.UseCompatibleStateImageBehavior = false;
+            this.originList.View = System.Windows.Forms.View.Details;
+            this.originList.SelectedIndexChanged += new System.EventHandler(this.origin_List_SelectedIndexChanged);
+            // 
+            // originID
+            // 
+            this.originID.Text = "ID";
+            this.originID.Width = 40;
+            // 
+            // originName
+            // 
+            this.originName.Text = "作品名";
+            this.originName.Width = 415;
+            // 
+            // genreList
+            // 
+            this.genreList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.genreID,
+            this.genreName});
+            this.genreList.FullRowSelect = true;
+            this.genreList.Location = new System.Drawing.Point(26, 411);
+            this.genreList.MultiSelect = false;
+            this.genreList.Name = "genreList";
+            this.genreList.Size = new System.Drawing.Size(483, 274);
+            this.genreList.TabIndex = 14;
+            this.genreList.UseCompatibleStateImageBehavior = false;
+            this.genreList.View = System.Windows.Forms.View.Details;
+            this.genreList.SelectedIndexChanged += new System.EventHandler(this.genreList_SelectedIndexChanged);
+            // 
+            // genreID
+            // 
+            this.genreID.Text = "ID";
+            this.genreID.Width = 47;
+            // 
+            // genreName
+            // 
+            this.genreName.Text = "ジャンル名";
+            this.genreName.Width = 417;
+            // 
             // table_manage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1042, 697);
+            this.Controls.Add(this.genreList);
+            this.Controls.Add(this.originList);
             this.Controls.Add(this.close);
             this.Controls.Add(this.genreAdd);
             this.Controls.Add(this.originAdd);
@@ -173,8 +220,6 @@
             this.Controls.Add(this.originBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.genreList);
-            this.Controls.Add(this.originList);
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "table_manage";
             this.Text = "管理画面";
@@ -186,8 +231,6 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox originList;
-        private System.Windows.Forms.ListBox genreList;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox originBox;
@@ -199,5 +242,11 @@
         private System.Windows.Forms.Button originAdd;
         private System.Windows.Forms.Button genreAdd;
         private System.Windows.Forms.Button close;
+        private System.Windows.Forms.ListView originList;
+        private System.Windows.Forms.ListView genreList;
+        private System.Windows.Forms.ColumnHeader originID;
+        private System.Windows.Forms.ColumnHeader originName;
+        private System.Windows.Forms.ColumnHeader genreID;
+        private System.Windows.Forms.ColumnHeader genreName;
     }
 }
