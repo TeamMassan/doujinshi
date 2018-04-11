@@ -18,6 +18,12 @@ namespace 同人誌管理 {
         string detail_query = "SELECT t_doujinshi.ID,title,circle,author,date " +
                                 "FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)" +
                                 "LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID ";
+        
+        //SELECT文を引数にして検索結果を読み込む
+        public static void road_result(string select_query) {
+            //SQLConnectクラスを静的に書き直した後に書く
+        }
+        
         //ロード時の処理
         private void top_Load(object sender, EventArgs e) {
             //DBファイルが無い時にテーブル作成
@@ -86,7 +92,8 @@ namespace 同人誌管理 {
                                 "FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)" +
                                 "LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID ";
             detail.ShowDialog();
-            search_query += detail.conditions;
+            //search_query += detail.conditions;
+            //Clipboard.SetText(search_query);
         }
 
         //閉じるボタンの処理
