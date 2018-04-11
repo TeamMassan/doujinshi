@@ -61,6 +61,8 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(28, 26);
             this.label1.Name = "label1";
@@ -70,6 +72,8 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(28, 61);
             this.label2.Name = "label2";
@@ -79,6 +83,8 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(28, 114);
             this.label3.Name = "label3";
@@ -88,6 +94,8 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(28, 172);
             this.label4.Name = "label4";
@@ -97,6 +105,8 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(265, 172);
             this.label5.Name = "label5";
@@ -106,6 +116,8 @@
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(28, 235);
             this.label6.Name = "label6";
@@ -115,6 +127,8 @@
             // 
             // label7
             // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(28, 277);
             this.label7.Name = "label7";
@@ -124,6 +138,8 @@
             // 
             // label8
             // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(28, 305);
             this.label8.Name = "label8";
@@ -133,6 +149,7 @@
             // 
             // label9
             // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(28, 421);
             this.label9.Name = "label9";
@@ -142,6 +159,8 @@
             // 
             // titleForm
             // 
+            this.titleForm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.titleForm.Location = new System.Drawing.Point(90, 23);
             this.titleForm.Name = "titleForm";
             this.titleForm.Size = new System.Drawing.Size(392, 19);
@@ -149,6 +168,8 @@
             // 
             // circleForm
             // 
+            this.circleForm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.circleForm.Location = new System.Drawing.Point(30, 80);
             this.circleForm.Name = "circleForm";
             this.circleForm.Size = new System.Drawing.Size(452, 19);
@@ -156,6 +177,8 @@
             // 
             // authorsForm
             // 
+            this.authorsForm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.authorsForm.Location = new System.Drawing.Point(30, 134);
             this.authorsForm.Name = "authorsForm";
             this.authorsForm.Size = new System.Drawing.Size(452, 19);
@@ -220,6 +243,9 @@
             // 
             // mainChara
             // 
+            this.mainChara.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mainChara.Location = new System.Drawing.Point(30, 320);
             this.mainChara.Multiline = true;
             this.mainChara.Name = "mainChara";
@@ -228,6 +254,7 @@
             // 
             // idForm
             // 
+            this.idForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.idForm.Enabled = false;
             this.idForm.Location = new System.Drawing.Point(50, 417);
             this.idForm.Name = "idForm";
@@ -236,6 +263,7 @@
             // 
             // insert
             // 
+            this.insert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.insert.Location = new System.Drawing.Point(295, 417);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(75, 23);
@@ -246,6 +274,7 @@
             // 
             // close
             // 
+            this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.close.Location = new System.Drawing.Point(390, 416);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(75, 23);
@@ -256,6 +285,8 @@
             // 
             // ageLimit
             // 
+            this.ageLimit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ageLimit.Controls.Add(this.all);
             this.ageLimit.Controls.Add(this.r15);
             this.ageLimit.Controls.Add(this.r18);
@@ -266,6 +297,8 @@
             // 
             // place
             // 
+            this.place.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.place.Controls.Add(this.house);
             this.place.Controls.Add(this.hometown);
             this.place.Location = new System.Drawing.Point(103, 273);
@@ -293,6 +326,8 @@
             // 
             // label10
             // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(28, 206);
             this.label10.Name = "label10";
@@ -309,6 +344,8 @@
             // 
             // label11
             // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(182, 206);
             this.label11.Name = "label11";
@@ -318,6 +355,8 @@
             // 
             // label12
             // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(244, 206);
             this.label12.Name = "label12";
@@ -334,6 +373,8 @@
             // 
             // label13
             // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(313, 206);
             this.label13.Name = "label13";

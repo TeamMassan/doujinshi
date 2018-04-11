@@ -50,51 +50,29 @@ CREATE TABLE IF NOT EXISTS t_circle(
 	FOREIGN KEY(ID) REFERENCES t_doujinshi(ID) ON DELETE CASCADE
 );
 
+外部キー制約はロード起動の度にオンにする？？
+
 同人誌テーブルに新規データ追加時は、プログラム側で作者テーブル、サークルテーブルにもINSERTクエリを出す
 
 .NET Flamewokのverによってhttp://www.sqlite.org/download.htmlからマシンに応じたドライバをインストール
 ver確認方法はhttps://msdn.microsoft.com/ja-jp/library/hh925568(v=vs.110).aspxを参照
 using System.Data.SQLite;を追加
-もう面倒くさいからdll単体で実行ファイルのディレクトリにぶち込んどこう
+もう面倒くさいからdll単体で実行ファイルのディレクトリにぶち込んだ
 コネクション記述の参考ページ
 http://park.geocities.jp/gdfsm000/cs/cs603.html
 
-INSERT INTO t_circle(ID,author)VALUES(2,'クマアナジツジノクマアナ')
+top簡易検索用SQLクエリ置き場
+SELECT t_doujinshi.ID,title,circle,author,date 
+FROM (
+	   t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID
+	 ) 
+LEFT OUTER JOIN t_circle
+ON t_doujinshi.ID = t_circle.ID;
+WHERE 
 
-System.Data.SQLite.SQLiteException (0x80004005): SQL logic error or missing database
-table t_circle has no column named author
-   場所 System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
-   場所 System.Data.SQLite.SQLiteCommand.BuildNextCommand()
-   場所 System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
-   場所 System.Data.SQLite.SQLiteDataReader.NextResult()
-   場所 System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
-   場所 System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
-   場所 System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
-   場所 System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
-   場所 同人誌管理.SQLiteConnct.nonResponse(String SQLquery) 場所 C:\Users\Shunki\Documents\teamMssan\Program.cs:行 51
+LEFT JOINの問題点：左表（ここではt_doujinshi）が優先されて作者orサークルが複数or　0の時に表示されない（null扱い？）
+出来ればFULL JOINと同様の処理を行いたい。
 
-INSERTテストクエリ
+SELECT t_doujinshi.ID,title,author,date 
+FROM t_doujinshi OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID;
 
-INSERT INTO t_doujinshi(
-	ID,
-	title,
-	origin_ID,
-	genre_ID,
-	age_limit,
-	date,
-	main_chara,
-	place
-)VALUES(
-	1,
-	'慧音先生の情報リテラシー講座',
-		(SELECT origin_ID 
-		FROM t_origin
-		WHERE origin_title = '東方Project'),
-	1,
-	'all',
-	'20180205',
-	'上白沢慧音',
-	'house'
-);
-
-INSERT INTO t_doujinshi(ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place)VALUES(3,'あきぐもちゃんす',(SELECT origin_ID FROM t_origin WHERE '艦これ' = origin_title),(SELECT genre_ID FROM t_genre WHERE '漫画' = genre_title),'r18',20150814,'house')

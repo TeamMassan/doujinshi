@@ -72,6 +72,21 @@ namespace 同人誌管理 {
             }
         }
 
+        //取得した日付列に単位を挟む
+        public string format_date(string date) {
+            string distribution = "";
+            distribution += date.Substring(0, 4) + "年";
+            if (date.Substring(4, 1) == "0")
+                distribution += " " + date.Substring(5, 1) + "月";
+            else
+                distribution += date.Substring(4, 2) + "月";
+            if (date.Substring(6, 1) == "0")
+                distribution += " " + date.Substring(7, 1) + "日";
+            else
+                distribution += date.Substring(6, 2) + "日";
+            return distribution;
+        }
+
         //テーブル自動作成
         public void make_db() {
             string setting = "CREATE TABLE IF NOT EXISTS t_doujinshi(" +

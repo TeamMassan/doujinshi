@@ -30,16 +30,37 @@ namespace 同人誌管理 {
         //通常検索実行時の処理
         private void search_Click(object sender, EventArgs e) {
             //SELECTクエリ発行
-            string search_query = "SELECT ID,title,circle,author,date FROM t_doujinshi INNER JOIN t_circle "+
-                "ON t_doujinshi.ID = t_circle.ID";
-
-            //リストボックスへの読み出し
-            string test_query = "SELECT * FROM t_doujinshi";
+            string search_query = "SELECT t_doujinshi.ID,title,circle,author,date "+
+                                "FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)"+
+                                "LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID ";
+            string conditions="";  //検索条件
+            switch (searchKind.Text) {
+                case "作品タイトル":
+                    conditions = "WHERE title LIKE '%" + conditionWord.Text + "%'"; break;
+                case "作家名":
+                    conditions = "WHERE author LIKE '%" + conditionWord.Text + "%'";  break;
+                case "サークル名":
+                    conditions = "WHERE circle LIKE '%" + conditionWord.Text + "%'";   break;
+                case "全て":
+                    conditions = "WHERE title LIKE '%" + conditionWord.Text + "%' OR "+
+                        "author LIKE '%"+ conditionWord.Text + "%' OR " +
+                        "circle LIKE '%" + conditionWord.Text + "%'";
+                    break;
+                default:    break;
+            }
+            search_query += conditions;
             SQLiteDataReader reader = null;
-            DB.beResponse(test_query, ref reader);
+            DB.beResponse(search_query, ref reader);
+            
+            //リストボックスへの読み出し
             listView.Items.Clear();   //二回目以降の多重出力を回避
             while (reader.Read()) {
-                string[] items = { reader["ID"].ToString(), reader["title"].ToString() };
+                string[] items = { reader["ID"].ToString(),
+                    reader["title"].ToString(),
+                    reader["circle"].ToString(),
+                    reader["author"].ToString(),
+                    DB.format_date(reader["date"].ToString())
+                };
                 listView.Items.Add(new ListViewItem(items));
             }
 
@@ -71,7 +92,7 @@ namespace 同人誌管理 {
         
         //リストビューアイテムの選択時の処理
         private void listView_SelectedIndexChanged(object sender, EventArgs e) {
-            if (listView.SelectedItems.Count > 0) ;
+            //if (listView.SelectedItems.Count > 0) ;
                 //二回目クリック以降にヘッダを除外してIDを取り出したい
         }
     }

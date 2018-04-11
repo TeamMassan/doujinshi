@@ -24,7 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.searchKind = new System.Windows.Forms.ComboBox();
-            this.word = new System.Windows.Forms.TextBox();
+            this.conditionWord = new System.Windows.Forms.TextBox();
             this.search = new System.Windows.Forms.Button();
             this.detailSearch = new System.Windows.Forms.Button();
             this.listView = new System.Windows.Forms.ListView();
@@ -47,12 +47,14 @@
             this.searchKind.Size = new System.Drawing.Size(121, 20);
             this.searchKind.TabIndex = 0;
             // 
-            // word
+            // conditionWord
             // 
-            this.word.Location = new System.Drawing.Point(192, 42);
-            this.word.Name = "word";
-            this.word.Size = new System.Drawing.Size(456, 19);
-            this.word.TabIndex = 1;
+            this.conditionWord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.conditionWord.Location = new System.Drawing.Point(192, 42);
+            this.conditionWord.Name = "conditionWord";
+            this.conditionWord.Size = new System.Drawing.Size(456, 19);
+            this.conditionWord.TabIndex = 1;
             // 
             // search
             // 
@@ -76,6 +78,9 @@
             // 
             // listView
             // 
+            this.listView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
             this.title,
@@ -100,19 +105,16 @@
             // title
             // 
             this.title.Text = "タイトル";
-            this.title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.title.Width = 188;
             // 
             // circle
             // 
             this.circle.Text = "サークル";
-            this.circle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.circle.Width = 170;
             // 
             // author
             // 
             this.author.Text = "作者";
-            this.author.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.author.Width = 124;
             // 
             // date
@@ -123,6 +125,7 @@
             // 
             // add
             // 
+            this.add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.add.Location = new System.Drawing.Point(25, 397);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(99, 51);
@@ -133,6 +136,7 @@
             // 
             // tableManage
             // 
+            this.tableManage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tableManage.Location = new System.Drawing.Point(192, 397);
             this.tableManage.Name = "tableManage";
             this.tableManage.Size = new System.Drawing.Size(100, 51);
@@ -143,6 +147,7 @@
             // 
             // close
             // 
+            this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.close.Location = new System.Drawing.Point(548, 397);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(100, 51);
@@ -156,13 +161,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 476);
+            this.Controls.Add(this.listView);
             this.Controls.Add(this.close);
             this.Controls.Add(this.tableManage);
             this.Controls.Add(this.add);
-            this.Controls.Add(this.listView);
             this.Controls.Add(this.detailSearch);
             this.Controls.Add(this.search);
-            this.Controls.Add(this.word);
+            this.Controls.Add(this.conditionWord);
             this.Controls.Add(this.searchKind);
             this.Name = "top";
             this.Text = "同人誌管理";
@@ -173,7 +178,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox word;
+        private System.Windows.Forms.TextBox conditionWord;
         private System.Windows.Forms.Button search;
         private System.Windows.Forms.Button detailSearch;
         private System.Windows.Forms.ListView listView;
