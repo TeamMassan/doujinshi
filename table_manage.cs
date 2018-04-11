@@ -71,7 +71,8 @@ namespace 同人誌管理 {
                       "重複確認", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             }
-            要考察、エラー吐く*/
+            要考察、エラー吐く
+            for-ifで頭悪く総当たり？非現実的*/
                 DialogResult res = MessageBox.Show(addtitle + "　を登録しますか？",//確認処理
                     "追加確認", MessageBoxButtons.YesNo);
                 if (res == DialogResult.Yes)
