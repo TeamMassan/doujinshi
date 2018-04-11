@@ -36,6 +36,7 @@
             this.add = new System.Windows.Forms.Button();
             this.tableManage = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
+            this.checkForm = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // searchKind
@@ -156,11 +157,19 @@
             this.close.UseVisualStyleBackColor = true;
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
+            // checkForm
+            // 
+            this.checkForm.Location = new System.Drawing.Point(341, 17);
+            this.checkForm.Name = "checkForm";
+            this.checkForm.Size = new System.Drawing.Size(164, 19);
+            this.checkForm.TabIndex = 8;
+            // 
             // top
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 476);
+            this.Controls.Add(this.checkForm);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.close);
             this.Controls.Add(this.tableManage);
@@ -191,6 +200,7 @@
         private System.Windows.Forms.ColumnHeader circle;
         private System.Windows.Forms.ColumnHeader author;
         private System.Windows.Forms.ColumnHeader date;
+        private System.Windows.Forms.TextBox checkForm;
     }
 }
 
