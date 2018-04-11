@@ -1,15 +1,17 @@
-﻿SELECT ID
-FROM t_doujinshi
+﻿SELECT t_doujinshi.ID,title,circle,author,date 
+FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)
+LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID
+
 WHERE 'bookName.Text' = t_doujinshi.title AND
-		'bookAuthor.Text' = t_Author.atthor AND
+		'bookAuthor.Text' = t_Author.author AND
 		(
 			SELECT genre_ID
 			FROM t_genre
 			WHERE 'bookGenre.Text' = genre_title
-		) = t_ doujinshi.genre_ID AND
+		) = t_doujinshi.genre_ID AND
 		('all'  = t_doujinshi.age_limit OR 'r15' = t_doujinshi.age_limit OR 'r18' = t_doujinshi.age_limit) AND
-		('home' = t_doujinshi.plase OR 'hometown' = t_doujinshi.plase) AND
-		'*charaForm.text*' = t_doudjinshi.main_chara
+		('home' = t_doujinshi.place OR 'hometown' = t_doujinshi.place) AND
+		t_doujinshi.main_chara LIKE '%charaForm.text%'
 
 
 SELECT ID
@@ -30,3 +32,4 @@ SELECT *
 FROM t_doujinshi INNER JOIN t_genre
 ON t_doujinshi.genre_ID = t_genre.genre_ID
 WHERE 'abc' = t_doujinshi.title
+
