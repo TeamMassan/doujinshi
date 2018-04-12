@@ -61,24 +61,6 @@ using System.Data.SQLite;を追加
 コネクション記述の参考ページ
 http://park.geocities.jp/gdfsm000/cs/cs603.html
 
-top簡易検索用SQLクエリ置き場
 SELECT t_doujinshi.ID,title,circle,author,date 
-FROM (
-	   t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID
-	 ) 
-LEFT OUTER JOIN t_circle
-ON t_doujinshi.ID = t_circle.ID;
-WHERE 
-
-LEFT JOINの問題点：左表（ここではt_doujinshi）が優先されて作者orサークルが複数or　0の時に表示されない（null扱い？）
-出来ればFULL JOINと同様の処理を行いたい。
-
-SELECT t_doujinshi.ID,title,author,date 
-FROM t_doujinshi OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID;
-
-SELECT t_doujinshi.ID,title,circle,author,date FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID 
-
-System.InvalidOperationException: オブジェクトの現在の状態に問題があるため、操作は有効ではありません。
-   場所 System.Data.SQLite.SQLiteConnection.Open()
-   場所 同人誌管理.SQLiteConnect.beResponse(String SQLquery, SQLiteDataReader& reader) 
-   場所 C:\Users\Shunki\Desktop\team-massan local\team-massan local\Program.cs:行 65
+FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)
+LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID 

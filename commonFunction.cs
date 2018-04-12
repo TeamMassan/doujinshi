@@ -136,8 +136,7 @@ namespace 同人誌管理 {
             return merged;
         }
         
-        
-        //取得した日付列に単位を挟む
+        //DBから取得した日付列に単位を挟む
         public static string insert_y_m_d(string date) {
             string distribution = "";
             distribution += date.Substring(0, 4) + "年";

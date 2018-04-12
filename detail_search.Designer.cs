@@ -150,7 +150,7 @@
             // search
             // 
             this.search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.search.Location = new System.Drawing.Point(192, 435);
+            this.search.Location = new System.Drawing.Point(192, 447);
             this.search.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(125, 34);
@@ -162,7 +162,7 @@
             // close
             // 
             this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.close.Location = new System.Drawing.Point(425, 435);
+            this.close.Location = new System.Drawing.Point(427, 447);
             this.close.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(125, 34);
@@ -178,7 +178,7 @@
             this.bookName.Location = new System.Drawing.Point(163, 52);
             this.bookName.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.bookName.Name = "bookName";
-            this.bookName.Size = new System.Drawing.Size(459, 25);
+            this.bookName.Size = new System.Drawing.Size(461, 25);
             this.bookName.TabIndex = 12;
             // 
             // bookAuthor
@@ -188,7 +188,7 @@
             this.bookAuthor.Location = new System.Drawing.Point(163, 108);
             this.bookAuthor.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.bookAuthor.Name = "bookAuthor";
-            this.bookAuthor.Size = new System.Drawing.Size(459, 25);
+            this.bookAuthor.Size = new System.Drawing.Size(461, 25);
             this.bookAuthor.TabIndex = 13;
             // 
             // charaForm
@@ -200,7 +200,7 @@
             this.charaForm.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.charaForm.Multiline = true;
             this.charaForm.Name = "charaForm";
-            this.charaForm.Size = new System.Drawing.Size(459, 19);
+            this.charaForm.Size = new System.Drawing.Size(461, 31);
             this.charaForm.TabIndex = 16;
             // 
             // label6
@@ -222,14 +222,14 @@
             this.genreForm.Location = new System.Drawing.Point(163, 166);
             this.genreForm.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.genreForm.Name = "genreForm";
-            this.genreForm.Size = new System.Drawing.Size(459, 26);
+            this.genreForm.Size = new System.Drawing.Size(461, 26);
             this.genreForm.TabIndex = 17;
             // 
             // detail_search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 488);
+            this.ClientSize = new System.Drawing.Size(684, 500);
             this.Controls.Add(this.genreForm);
             this.Controls.Add(this.charaForm);
             this.Controls.Add(this.label6);

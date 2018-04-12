@@ -33,3 +33,29 @@ FROM t_doujinshi INNER JOIN t_genre
 ON t_doujinshi.genre_ID = t_genre.genre_ID
 WHERE 'abc' = t_doujinshi.title
 
+データベースアクセスの基本的な流れ
+
+//データベースの場所を指定
+SQLiteConnection conn = new SQLiteConnection("Data Source = doujinshi.sqlite");
+//コマンドの作成
+SQLiteCommand cmd = new SQLiteCommand(SQLquery, conn);
+//コネクションを開く
+conn.Open();
+//データベースへの登録
+cmd.ExecuteNonQuery();
+//コネクションを閉じる
+conn.Close();
+
+SELECTの時はコマンド作成以降の処理
+ SQLiteDataReader reader = null;
+ reader = cmd.ExecuteReader();
+ while(reader.Read()){
+	textForm.Text = reader["カラム名"].ToString();
+ }
+ reader.Close();
+ conn.Close();
+
+ まぁ結局、実装済みの自作関数使ったほうが便利なので
+ detail_search.csのロード処理にcommonFunctionの自作関数を使ってみて！！
+ by マッサン
+ あと前回言い忘れてたけど、詳細検索画面でタブオーダーの変更を次回教えます

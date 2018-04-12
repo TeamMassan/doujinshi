@@ -17,18 +17,18 @@ namespace 同人誌管理 {
             Application.Run(new top());
         }
     }
-
+    /*
     //複数のフォームで使いたい自作関数はここに書いてね
     //使う時はインスタンスの生成をお忘れなく！
 
     //SQLiteへのコネクション周り    
-    public class SQLiteConnct {
+    public static class SQLiteConnect {
 
-        public SQLiteConnection conn = new SQLiteConnection("Data Source = doujinshi.sqlite");
-        //DBは実行ファイルと同じ場所にある
+        //DBの場所をexeファイルから相対パス指定
+        public static SQLiteConnection conn = new SQLiteConnection("Data Source = doujinshi.sqlite");
 
         //任意テーブルのレコード件数を取得
-        public int checkRecord(string table_name) {
+        public static int checkRecord(string table_name) {
             int Rows=0;
             string query = "SELECT COUNT(*) FROM " + table_name;
             var cmd = new SQLiteCommand(query, conn);
@@ -44,7 +44,7 @@ namespace 同人誌管理 {
         }
                         
         //SQL発行（レスポンスを必要としない場合）
-        public void nonResponse(string SQLquery) {            
+        public static void nonResponse(string SQLquery) {            
             var cmd = new SQLiteCommand(SQLquery, conn);
             try {
                 conn.Open();
@@ -59,8 +59,8 @@ namespace 同人誌管理 {
         }
 
         //SQL発行（readerがある場合）
-        //関数外でconn.Close()する必要アリ
-        public void beResponse(string SQLquery ,ref SQLiteDataReader reader) {
+        //関数外でreader.Close()とconn.Close()する必要アリ
+        public static void beResponse(string SQLquery ,ref SQLiteDataReader reader) {
             var cmd = new SQLiteCommand(SQLquery, conn);
             try {
                 conn.Open();
@@ -73,7 +73,7 @@ namespace 同人誌管理 {
         }
 
         //取得した日付列に単位を挟む
-        public string format_date(string date) {
+        public static string format_date(string date) {
             string distribution = "";
             distribution += date.Substring(0, 4) + "年";
             if (date.Substring(4, 1) == "0")
@@ -88,7 +88,7 @@ namespace 同人誌管理 {
         }
 
         //テーブル自動作成
-        public void make_db() {
+        public  static void make_db() {
             string setting = "CREATE TABLE IF NOT EXISTS t_doujinshi(" +
                                 "ID INTEGER PRIMARY KEY NOT NULL," +
                                 "title TEXT NOT NULL," +
@@ -149,4 +149,5 @@ namespace 同人誌管理 {
             }
         }
     }
+    */
 }

@@ -14,13 +14,16 @@ namespace 同人誌管理 {
         public detail_search() {
             InitializeComponent();
         }
+        public string conditions = "WHERE ";
+
+        //閉じるボタンから抜けた時、誤って検索処理が流れないようにする為、制御変数を追加しました by マッサン
+        public bool search_flag=false;
 
         string protoage_shaiping(bool[] checkbox_flag , params string[] checkbox_str) {
-            string conditions = "(";
+            string part_where = "(";
             bool check = false;
             bool mode = false ;
             int num = checkbox_str.Length;
-
             if (checkbox_str[0] == "house") mode = true;
             for (int cnt = 0; cnt < num; cnt++)
             {
@@ -28,20 +31,20 @@ namespace 同人誌管理 {
                 {
                     //ORの有無チェック
                     if (check == true)
-                        conditions += " OR ";
+                        part_where += " OR ";
                     else
                         check = true;
-                    conditions += "'" + checkbox_str[cnt] + "' = t_doujinshi.";
+                    part_where += "'" + checkbox_str[cnt] + "' = t_doujinshi.";
                     
                     //ageとplaseのどちらと比較するかの処理
                     if(mode == true)
-                        conditions += "place";
+                        part_where += "place";
                     else
-                       conditions += "age_limit";
+                        part_where += "age_limit";
                 }
             }
-            conditions += ")";
-            return conditions;
+            part_where += ")";
+            return part_where;
         }
 
 
@@ -63,37 +66,37 @@ namespace 同人誌管理 {
         string limit_shaiping(bool all_flag, bool r15_flag, bool r18_flag)
         {
             bool check = false;
-            string conditions = "(";
+            string part_where = "(";
 
             //全年齢チェック
             if (all_flag == true)
             {
                 check = true;
-                conditions += "'" + all.Checked + "'";
+                part_where += "'" + all.Checked + "'";
             }
 
             //R-15チェック
             if (r15_flag == true)
             {
                 if (check == true)
-                    conditions += " OR ";
+                    part_where += " OR ";
                 else
                     check = true;
-                conditions += "'" + r15.Checked + "'";
+                part_where += "'" + r15.Checked + "'";
             }
 
             //R-18チェック
             if (r18_flag == true)
             {
                 if (check == true)
-                    conditions += " OR ";
+                    part_where += " OR ";
                 else
                     check = true;
-                conditions += "'" + r18.Checked + "'";
+                part_where += "'" + r18.Checked + "'";
             }
 
-            conditions += ")";
-            return conditions;
+            part_where += ")";
+            return part_where;
         }
         //閉じるボタン
         private void close_Click(object sender, EventArgs e)
@@ -103,7 +106,7 @@ namespace 同人誌管理 {
         //検索ボタン
         private void search_Click(object sender, EventArgs e)
         {
-            string conditions = "WHERE ";
+            
             bool check = false;//記入チェック変数
             bool[] checkbox_flag = new bool[3];
 
@@ -111,7 +114,7 @@ namespace 同人誌管理 {
             if (bookName.Text != "")
             {
                 check = true;
-                conditions += "'" + bookName.Text + "' = t_origin.origin_title";
+                conditions += "t_doujinshi.title LIKE '%" + bookName.Text + "%'";
             }
             //作者名記入チェック
             if (bookAuthor.Text != "")
@@ -120,39 +123,43 @@ namespace 同人誌管理 {
                     conditions += " AND ";
                 else
                     check = true;
-                conditions += "'" +  bookAuthor.Text + "' = t_Author.Author";
+                conditions += "t_Author.Author LIKE '%" +  bookAuthor.Text + "%'";
             }
             //ジャンル記入チェック
             if (genreForm.Text != "") {
                 if (check == true)
-                    conditions = " AND ";
+                    conditions += " AND ";
                 else
                     check = true;
-                conditions += "(SELECT genre_ID FROM t_genle ' ";
+                conditions += "(SELECT genre_ID FROM t_genre WHERE '";
                 conditions += genreForm.Text + "' = genre_title) = ";
-                conditions += "t_doujinshi.genle_ID";
+                conditions += "t_doujinshi.genre_ID";
+            }
+            
+            //年齢チェックボックスの有無判定
+            if (protoage_shaiping_check(all.Checked, r15.Checked, r18.Checked) == true)
+            {
+                //過去の記入チェックの有無判定
+                if (check == true) conditions += " AND ";
+                check = true;
+
+                checkbox_flag[0] = all.Checked;
+                checkbox_flag[1] = r15.Checked;
+                checkbox_flag[2] = r18.Checked;
+                conditions += protoage_shaiping(checkbox_flag, "all", "r15", "r18");
+                //conditions += limit_shaiping(all.Checked, r15.Checked, r18.Checked);
             }
 
-            //過去の記入チェック及び年齢チェックボックスのチェックの有無判定
-            if (check == true)
-                conditions += " AND ";
-            else
-                check = protoage_shaiping_check(all.Checked, r15.Checked, r18.Checked);
-            //年齢チェックボックス判定
-            checkbox_flag[0] = all.Checked;
-            checkbox_flag[1] = r15.Checked;
-            checkbox_flag[2] = r18.Checked;
-            conditions += protoage_shaiping(checkbox_flag,"all","r15","r18");
-            //conditions += limit_shaiping(all.Checked, r15.Checked, r18.Checked);
-
             //保存場所チェックボックスのチェックの有無判定
-            if(check == false)
-                check = protoage_shaiping_check(house.Checked, hometown.Checked);
-            conditions += " AND ";
             //保存場所チェックボックス判定
-            checkbox_flag[0] = house.Checked;
-            checkbox_flag[1] = hometown.Checked;
-            conditions += protoage_shaiping(checkbox_flag,"house","hometown");
+            if (protoage_shaiping_check(house.Checked, hometown.Checked) == true)
+            {
+                if (check == true) conditions += " AND ";
+                check = true;
+                checkbox_flag[0] = house.Checked;
+                checkbox_flag[1] = hometown.Checked;
+                conditions += protoage_shaiping(checkbox_flag, "house", "hometown");
+            }
 
             //キャラ記入チェック
             if (charaForm.Text != "")
@@ -161,17 +168,19 @@ namespace 同人誌管理 {
                     conditions += " AND ";
                 else
                     check = true;
-                conditions += "'%" + charaForm.Text + "%' = t_doujinshi.main_chara";
+                conditions += "t_doujinshi.main_chara LIKE '%" + charaForm.Text + "%'";
             }
 
             //全項目記入チェック                         
-            if (check == true)
-                MessageBox.Show(conditions);
-            Clipboard.SetText(conditions);
+            if (check != true)
+                return;
+            search_flag = true;
+            Visible = false;
         }
         //ロード時の処理
         private void detail_search_Load(object sender, EventArgs e)
         {
+            //DB操作の練習に、ここの操作を私の自作関数使って書き換えてみて by マッサン
             string query = "SELECT genre_title FROM t_genre";
             SQLiteConnection conn = new SQLiteConnection("Data Source = doujinshi.sqlite");
             conn.Open();

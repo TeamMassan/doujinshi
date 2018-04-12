@@ -36,7 +36,7 @@
             this.add = new System.Windows.Forms.Button();
             this.tableManage = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
-            this.checkForm = new System.Windows.Forms.TextBox();
+            this.update = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // searchKind
@@ -54,7 +54,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.conditionWord.Location = new System.Drawing.Point(192, 42);
             this.conditionWord.Name = "conditionWord";
-            this.conditionWord.Size = new System.Drawing.Size(456, 19);
+            this.conditionWord.Size = new System.Drawing.Size(485, 19);
             this.conditionWord.TabIndex = 1;
             // 
             // search
@@ -92,7 +92,7 @@
             this.listView.Location = new System.Drawing.Point(25, 97);
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(623, 271);
+            this.listView.Size = new System.Drawing.Size(652, 271);
             this.listView.TabIndex = 4;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -149,7 +149,7 @@
             // close
             // 
             this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.close.Location = new System.Drawing.Point(548, 397);
+            this.close.Location = new System.Drawing.Point(577, 397);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(100, 51);
             this.close.TabIndex = 7;
@@ -157,19 +157,23 @@
             this.close.UseVisualStyleBackColor = true;
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
-            // checkForm
+            // update
             // 
-            this.checkForm.Location = new System.Drawing.Point(341, 17);
-            this.checkForm.Name = "checkForm";
-            this.checkForm.Size = new System.Drawing.Size(164, 19);
-            this.checkForm.TabIndex = 8;
+            this.update.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.update.Location = new System.Drawing.Point(341, 397);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(100, 51);
+            this.update.TabIndex = 8;
+            this.update.Text = "レコード修正\r\n(仮遷移)";
+            this.update.UseVisualStyleBackColor = true;
+            this.update.Click += new System.EventHandler(this.update_Click);
             // 
             // top
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 476);
-            this.Controls.Add(this.checkForm);
+            this.ClientSize = new System.Drawing.Size(705, 476);
+            this.Controls.Add(this.update);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.close);
             this.Controls.Add(this.tableManage);
@@ -200,7 +204,7 @@
         private System.Windows.Forms.ColumnHeader circle;
         private System.Windows.Forms.ColumnHeader author;
         private System.Windows.Forms.ColumnHeader date;
-        private System.Windows.Forms.TextBox checkForm;
+        private System.Windows.Forms.Button update;
     }
 }
 
