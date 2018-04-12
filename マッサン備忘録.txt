@@ -1,0 +1,84 @@
+﻿他コンポーネントと何の結合もしないテキストです
+メモ帳やSQLクエリの仮置き場に使ってください
+
+テーブルの一覧を取得
+.tables
+
+テーブルを削除
+DROP TABLE テーブル名;
+
+外部キー制約の有効化
+PRAGMA foreign_keys = ON;
+
+レコードの一覧を取得
+SELECT *　FROM テーブル名
+
+テーブル内のフィールド定義一覧を取得
+PRAGMA table_info(テーブル名);
+
+大元のテーブル作成
+CREATE TABLE IF NOT EXISTS t_doujinshi(
+	ID INTEGER PRIMARY KEY NOT NULL,
+	title TEXT NOT NULL,
+	origin_ID INTEGER NOT NULL,
+	genre_ID INTEGER NOT NULL,
+	age_limit TEXT NOT NULL,
+	date INTEGER,
+	main_chara TEXT,
+	place TEXT
+);
+
+CREATE TABLE IF NOT EXISTS t_origin(
+	origin_ID INTEGER PRIMARY KEY NOT NULL,
+	origin_title TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS t_genre(
+	genre_ID INTEGER PRIMARY KEY NOT NULL,
+	genre_title TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS t_author(
+	ID INTEGER NOT NULL,
+	author TEXT,
+	FOREIGN KEY(ID) REFERENCES t_doujinshi(ID) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS t_circle(
+	ID INTEGER NOT NULL,
+	circle TEXT,
+	FOREIGN KEY(ID) REFERENCES t_doujinshi(ID) ON DELETE CASCADE
+);
+
+外部キー制約はロード起動の度にオンにする？？
+
+同人誌テーブルに新規データ追加時は、プログラム側で作者テーブル、サークルテーブルにもINSERTクエリを出す
+
+.NET Flamewokのverによってhttp://www.sqlite.org/download.htmlからマシンに応じたドライバをインストール
+ver確認方法はhttps://msdn.microsoft.com/ja-jp/library/hh925568(v=vs.110).aspxを参照
+using System.Data.SQLite;を追加
+もう面倒くさいからdll単体で実行ファイルのディレクトリにぶち込んだ
+コネクション記述の参考ページ
+http://park.geocities.jp/gdfsm000/cs/cs603.html
+
+top簡易検索用SQLクエリ置き場
+SELECT t_doujinshi.ID,title,circle,author,date 
+FROM (
+	   t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID
+	 ) 
+LEFT OUTER JOIN t_circle
+ON t_doujinshi.ID = t_circle.ID;
+WHERE 
+
+LEFT JOINの問題点：左表（ここではt_doujinshi）が優先されて作者orサークルが複数or　0の時に表示されない（null扱い？）
+出来ればFULL JOINと同様の処理を行いたい。
+
+SELECT t_doujinshi.ID,title,author,date 
+FROM t_doujinshi OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID;
+
+SELECT t_doujinshi.ID,title,circle,author,date FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID 
+
+System.InvalidOperationException: オブジェクトの現在の状態に問題があるため、操作は有効ではありません。
+   場所 System.Data.SQLite.SQLiteConnection.Open()
+   場所 同人誌管理.SQLiteConnect.beResponse(String SQLquery, SQLiteDataReader& reader) 
+   場所 C:\Users\Shunki\Desktop\team-massan local\team-massan local\Program.cs:行 65
