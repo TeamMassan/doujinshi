@@ -11,3 +11,4 @@ C:\Users\Shunki\Documents\teamMssan\obj\Debug\同人誌管理.detail_search.reso
 C:\Users\Shunki\Documents\teamMssan\obj\Debug\同人誌管理.table_manage.resources
 C:\Users\Shunki\Documents\teamMssan\obj\Debug\同人誌管理.top.resources
 C:\Users\Shunki\Documents\teamMssan\obj\Debug\同人誌管理.csproj.GenerateResource.Cache
+C:\Users\Shunki\Documents\teamMssan\obj\Debug\同人誌管理.update.resources

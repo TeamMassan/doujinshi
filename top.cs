@@ -15,7 +15,7 @@ namespace 同人誌管理 {
             InitializeComponent();
         }
 
-        //SELECT発行による検索と結果読み込み処理
+        //検索と結果読み込み処理
         private void RoadResult(string WHEREphrase) {
             string seach_query = "SELECT t_doujinshi.ID,title,circle,author,date " +
                                 "FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)" +
@@ -29,13 +29,24 @@ namespace 同人誌管理 {
             SQLiteDataReader reader = null;
             SQLiteConnect.beResponse(seach_query, ref reader);
             string[] items = new string[5];
+            string LastId=null;
             while (reader.Read()) {
-                //サークル・作者が複数レコードの場合、同一IDから検出して複数レコードを同一カラムに納めたい
-                items[0] = reader["ID"].ToString();
-                items[1] = reader["title"].ToString();
-                items[2] = reader["circle"].ToString();
-                items[3] = reader["author"].ToString();
-                items[4] = Date.insert_y_m_d(reader["date"].ToString());
+                //合同本の場合、同一IDから検出して複数レコードは同一カラムに納める
+                if (LastId == reader["ID"].ToString()) {
+                    if (items[2] != reader["circle"].ToString())
+                        items[2] += " , " + reader["circle"].ToString();
+                    if (items[3] != reader["author"].ToString())
+                        items[3] += " , " + reader["author"].ToString();
+                    //直前の追加済みレコードを削除
+                    listView.Items.RemoveAt(int.Parse(LastId)-1);
+                } else {
+                    items[0] = reader["ID"].ToString();
+                    LastId = items[0];
+                    items[1] = reader["title"].ToString();
+                    items[2] = reader["circle"].ToString();
+                    items[3] = reader["author"].ToString();
+                    items[4] = Date.insert_y_m_d(reader["date"].ToString());
+                }
                 listView.Items.Add(new ListViewItem(items));
             }
             reader.Close();
@@ -51,6 +62,7 @@ namespace 同人誌管理 {
             searchKind.Items.Add("作品タイトル");
             searchKind.Items.Add("作家名");
             searchKind.Items.Add("サークル名");
+            searchKind.Items.Add("キャラ名");
         }
 
         //通常検索実行時の処理
@@ -63,6 +75,8 @@ namespace 同人誌管理 {
                     conditions = "WHERE author LIKE '%" + conditionWord.Text + "%'"; break;
                 case "サークル名":
                     conditions = "WHERE circle LIKE '%" + conditionWord.Text + "%'"; break;
+                case "キャラ名":
+                    conditions = "WHERE main_chara LIKE '%" + conditionWord.Text + "%'"; break;
                 case "全て":
                     conditions = "WHERE title LIKE '%" + conditionWord.Text + "%' OR " +
                         "author LIKE '%" + conditionWord.Text + "%' OR " +
@@ -70,8 +84,10 @@ namespace 同人誌管理 {
                     break;
                 default: break;
             }
+            //検索結果を表示
             RoadResult(conditions);
         }
+
         //詳細検索実行時の処理
         private void detailSearch_Click(object sender, EventArgs e) {
             var detail = new detail_search();
@@ -79,6 +95,13 @@ namespace 同人誌管理 {
             //詳細検索WHERE句を得て結果表示する
             if (detail.search_flag == true)
                 RoadResult(detail.conditions);
+        }
+
+        //アイテムをダブルクリック選択時に更新フォームを開く
+        private void listView_DoubleClick(object sender, EventArgs e) {
+            var update = new update();
+            update.selected_ID = listView.SelectedItems[0].SubItems[0].Text;
+            update.ShowDialog();
         }
 
         //閉じるボタンの処理
@@ -97,22 +120,42 @@ namespace 同人誌管理 {
             var table_manege = new table_manage();
             table_manege.ShowDialog();
         }
-        
-        string selectedId="1";
-        //リストビューアイテムの選択時の処理
-        private void listView_SelectedIndexChanged(object sender, EventArgs e) {
-            if (listView.SelectedItems.Count > 0)
-                selectedId = listView.SelectedItems[0].SubItems[0].Text;
-            //二回目クリック以降にヘッダを除外してIDを取り出したい
-            //checkForm.Text = listView.SelectedItems[0].SubItems[1].Text;
+
+        //
+        //以下はファイルメニューの処理です
+        //
+        private void quit_Click(object sender, EventArgs e) {
+            close_Click(sender, e);
         }
 
-        //更新フォーム確認用仮処理ボタン
-        //最終的にリストをダブルクリックで遷移するようにしたい
-        private void update_Click(object sender, EventArgs e) {
-            var update = new update();
-            update.selected_ID = selectedId;
-            update.ShowDialog();
+        //インポート処理
+        private void import_Click(object sender, EventArgs e) {
+            //ファイルダイアログを開く
+            var importFile = new OpenFileDialog();
+            importFile.Filter = "csvファイル (*.csv)|*.csv|テキストファイル(*.txt)|*.txt";
+            importFile.Title = "開くファイルを選択してください";
+
+            //OKボタンがクリックされたとき、選択されたファイルを読み取り専用で開く
+            if (importFile.ShowDialog() == DialogResult.OK) {
+                System.IO.Stream stream = importFile.OpenFile();
+                if (stream != null) {
+                    //内容を読み込み、表示する
+                    var cursor = new System.IO.StreamReader(stream);
+                    
+                    //各レコードの行を,や\nで判断しながらfor文で見てインポートしたい
+
+                    //とりあえず内容見てみる
+                    MessageBox.Show(cursor.ReadToEnd());
+                    //閉じる
+                    cursor.Close();
+                    stream.Close();
+                }
+            }
+        }
+
+        //エクスポート処理
+        private void export_Click(object sender, EventArgs e) {
+            //全レコードを適切な形でcsv出力したい
         }
     }
 }
