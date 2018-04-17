@@ -180,7 +180,7 @@ namespace 同人誌管理 {
         //ロード時の処理
         private void detail_search_Load(object sender, EventArgs e)
         {
-            //DB操作の練習に、ここの操作を私の自作関数使って書き換えてみて by マッサン
+            //DB操作の練習に、ここの処理をSQLiteConnect.beResponse使って書き換えてみて by マッサン
             string query = "SELECT genre_title FROM t_genre";
             SQLiteConnection conn = new SQLiteConnection("Data Source = doujinshi.sqlite");
             conn.Open();

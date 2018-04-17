@@ -66,7 +66,7 @@ namespace 同人誌管理 {
                 + "(SELECT origin_ID FROM t_origin WHERE '" + originComboBox.Text + "' = origin_title),"  //作品ID
                 + "(SELECT genre_ID FROM t_genre WHERE '" + genreComboBox.Text + "' = genre_title),"      //ジャンルID
                 + "'" + agelimit + "',"         //対象年齢ID
-                + Date.merge(dayForm.Text, monthForm.Text, dayForm.Text) + ","                    //頒布年月日
+                + Date.merge(dayForm.Text, monthForm.Text, dayForm.Text) + ","    //頒布年月日
                 + "'" + place + "',"            //場所
                 + "'" + mainChara.Text + "')";  //メインキャラ                
 

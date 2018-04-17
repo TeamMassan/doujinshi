@@ -21,7 +21,7 @@ namespace 同人誌管理
         public string selected_ID;
 
         private void update_Load(object sender, EventArgs e) {
-            MessageBox.Show("ID " + selected_ID + " が選択されています");
+
         }
     }
 }

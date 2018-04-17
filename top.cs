@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.IO;
 
 namespace 同人誌管理 {
     public partial class top : Form {
@@ -17,36 +18,22 @@ namespace 同人誌管理 {
 
         //検索と結果読み込み処理
         private void RoadResult(string WHEREphrase) {
-            string seach_query = "SELECT t_doujinshi.ID,title,circle,author,date " +
-                                "FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)" +
-                                "LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID ";
-
-            //全レコード検出するSELECTにWHERE句を連結
-            seach_query += WHEREphrase;
-
-            //リストボックスへの読み出し
+            const string seach_query = "SELECT t_doujinshi.ID, title AS タイトル,GROUP_CONCAT(circle) AS サークル, " +
+                "GROUP_CONCAT(author) AS 作者, date AS 頒布日 " +
+                "FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)" +
+                "LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID ";
+            const string group_by=" GROUP BY t_doujinshi.ID";
+            //リストビューへの読み出し
             listView.Items.Clear();   //二回目以降の多重出力を回避
             SQLiteDataReader reader = null;
-            SQLiteConnect.beResponse(seach_query, ref reader);
-            string[] items = new string[5];
-            string LastId=null;
+            SQLiteConnect.beResponse(seach_query + WHEREphrase + group_by, ref reader);
             while (reader.Read()) {
-                //合同本の場合、同一IDから検出して複数レコードは同一カラムに納める
-                if (LastId == reader["ID"].ToString()) {
-                    if (items[2] != reader["circle"].ToString())
-                        items[2] += " , " + reader["circle"].ToString();
-                    if (items[3] != reader["author"].ToString())
-                        items[3] += " , " + reader["author"].ToString();
-                    //直前の追加済みレコードを削除
-                    listView.Items.RemoveAt(int.Parse(LastId)-1);
-                } else {
-                    items[0] = reader["ID"].ToString();
-                    LastId = items[0];
-                    items[1] = reader["title"].ToString();
-                    items[2] = reader["circle"].ToString();
-                    items[3] = reader["author"].ToString();
-                    items[4] = Date.insert_y_m_d(reader["date"].ToString());
-                }
+                string[] items = {reader["ID"].ToString(),
+                        reader["タイトル"].ToString(),
+                        reader["サークル"].ToString(),
+                        reader["作者"].ToString(),
+                        Date.insert_y_m_d(reader["頒布日"].ToString())
+                };
                 listView.Items.Add(new ListViewItem(items));
             }
             reader.Close();
@@ -135,21 +122,30 @@ namespace 同人誌管理 {
             importFile.Filter = "csvファイル (*.csv)|*.csv|テキストファイル(*.txt)|*.txt";
             importFile.Title = "開くファイルを選択してください";
 
-            //OKボタンがクリックされたとき、選択されたファイルを読み取り専用で開く
+            //OKボタンがクリックされたときインポートする
             if (importFile.ShowDialog() == DialogResult.OK) {
-                System.IO.Stream stream = importFile.OpenFile();
-                if (stream != null) {
-                    //内容を読み込み、表示する
-                    var cursor = new System.IO.StreamReader(stream);
-                    
-                    //各レコードの行を,や\nで判断しながらfor文で見てインポートしたい
-
-                    //とりあえず内容見てみる
-                    MessageBox.Show(cursor.ReadToEnd());
-                    //閉じる
-                    cursor.Close();
-                    stream.Close();
+                StreamReader file = new StreamReader(importFile.FileName, Encoding.GetEncoding("Shift_JIS"));
+                string line;
+                char separator = ',';
+                while ((line = file.ReadLine()) != null) {
+                    //一行単位で配列に格納してINSERT文に埋め込み
+                    string[] subwords = line.Split(separator);
+                    if (subwords.Length != 8) { //一行から取り出したカラム数が8個でない時は中断
+                        MessageBox.Show("フォーマットが正しくありません\n処理を中断します"); break;
+                    }
+                    string ins_doujinshi = "INSERT INTO t_doujinshi (ID,title,origin_ID,genre_ID,age_limit,date,place) VALUES(" +
+                        subwords[0] + "," +"'" + subwords[1] + "'," + subwords[2] +","+subwords[3] + "," +
+                        "'" + subwords[4] + "',"+subwords[7]+",'house')";
+                    string ins_circle = "INSERT INTO t_circle VALUES(" +
+                        subwords[0] + ",'" + subwords[5] + "')";
+                    string ins_author = "INSERT INTO t_author VALUES(" +
+                        subwords[0] + ",'" + subwords[6] + "')";
+                    SQLiteConnect.nonResponse(ins_doujinshi);
+                    SQLiteConnect.nonResponse(ins_circle);
+                    SQLiteConnect.nonResponse(ins_author);
                 }
+                file.Close();
+                RoadResult("");
             }
         }
 

@@ -16,6 +16,9 @@ SELECT *　FROM テーブル名
 テーブル内のフィールド定義一覧を取得
 PRAGMA table_info(テーブル名);
 
+ヘッダーの表示(結果の対してフィールド名を表示する、便利)
+.explain ON
+
 大元のテーブル作成
 CREATE TABLE IF NOT EXISTS t_doujinshi(
 	ID INTEGER PRIMARY KEY NOT NULL,
@@ -50,7 +53,6 @@ CREATE TABLE IF NOT EXISTS t_circle(
 	FOREIGN KEY(ID) REFERENCES t_doujinshi(ID) ON DELETE CASCADE
 );
 
-外部キー制約はロード起動の度にオンにする？？
 
 同人誌テーブルに新規データ追加時は、プログラム側で作者テーブル、サークルテーブルにもINSERTクエリを出す
 
@@ -61,6 +63,36 @@ using System.Data.SQLite;を追加
 コネクション記述の参考ページ
 http://park.geocities.jp/gdfsm000/cs/cs603.html
 
+
 SELECT t_doujinshi.ID,title,circle,author,date 
 FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)
+LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID
+WHERE title LIKE '%月%';
+
+合同本の複数レコード処理に、同じグループのデータを一行で表示する
+GROUP_CONCAT関数が使えそう
+但し、その為のGROUP BY句はWHERE句より後に置く必要がある。
+SELECT t_doujinshi.ID,title AS タイトル,GROUP_CONCAT(circle) AS サークル,GROUP_CONCAT(author) AS 作者,date AS 頒布日 
+FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)
 LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID 
+GROUP BY t_doujinshi.ID;
+
+SELECT t_doujinshi.ID,title AS タイトル,GROUP_CONCAT(circle) AS サークル,GROUP_CONCAT(author) AS 作者,date AS 頒布日 
+FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)
+LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID 
+WHERE タイトル LIKE '%月%' GROUP BY t_doujinshi.ID;
+
+日付をdateから複数フォームに格納したい時に推奨
+SUBSTR関数で文字列の一部を返す
+
+
+DELETE FROM t_origin WHERE (origin_ID != (SELECT MIN(origin_ID) FROM t_origin)) AND origin_title = (
+	SELECT origin_title FROM t_origin WHERE origin_ID = (
+		SELECT MAX(origin_ID) 
+		FROM t_origin
+		)
+	)
+
+作品テーブルの重複調べるSQL
+SELECT origin_title,COUNT(origin_ID) AS 件数 FROM t_origin GROUP BY origin_title; 
+

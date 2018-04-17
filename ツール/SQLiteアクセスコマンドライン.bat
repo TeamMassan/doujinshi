@@ -1,2 +1,2 @@
-sqlite3 ../bin/Debug/doujinshi.sqlite
+sqlite3.exe ../bin/Debug/doujinshi.sqlite
 PAUSE

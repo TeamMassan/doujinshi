@@ -28,7 +28,7 @@ namespace 同人誌管理 {
             return Rows;
         }
 
-        //SQL発行（レスポンスを必要としない場合）
+        //SQL発行（readerを必要としない場合）
         public static void nonResponse(string SQLquery) {
             var cmd = new SQLiteCommand(SQLquery, conn);
             try {
@@ -37,9 +37,9 @@ namespace 同人誌管理 {
                 conn.Close();
             }
             catch (Exception err) {
-                MessageBox.Show("エラー\n内容をクリップボードにコピーするよ\n"
-                    + err.ToString());
-                Clipboard.SetText(SQLquery + "\n\n" + err.ToString());
+                MessageBox.Show("内容をクリップボードにコピーします\n"
+                    + err.ToString(), "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Clipboard.SetText(SQLquery + "\n\n" + err.Message + err.Source);
             }
         }
 
@@ -52,8 +52,10 @@ namespace 同人誌管理 {
                 reader = cmd.ExecuteReader();
             }
             catch (Exception err) {
-                MessageBox.Show("SELECTの結果が取得出来ませんでした\n" + err.ToString() + "内容をコピーしました");
-                Clipboard.SetText(SQLquery + "\n\n" + err.ToString());
+                MessageBox.Show("SELECTの結果が取得出来ませんでした\n" + SQLquery + "\n" +
+                    err.Message + "\n" + err.ToString() + "\n内容をコピーしました",
+                    "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Clipboard.SetText(SQLquery + "\n" + err.Message + err.Source);
             }
         }
 
