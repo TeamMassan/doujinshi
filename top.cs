@@ -111,6 +111,8 @@ namespace 同人誌管理 {
         //
         //以下はファイルメニューの処理です
         //
+
+        //終了処理
         private void quit_Click(object sender, EventArgs e) {
             close_Click(sender, e);
         }
@@ -126,10 +128,11 @@ namespace 同人誌管理 {
             if (importFile.ShowDialog() == DialogResult.OK) {
                 StreamReader file = new StreamReader(importFile.FileName, Encoding.GetEncoding("Shift_JIS"));
                 string line;
-                char separator = ',';
+                progress.Visible = true;    //プログレス可視化
+                int cnt_record = 0;
                 while ((line = file.ReadLine()) != null) {
                     //一行単位で配列に格納してINSERT文に埋め込み
-                    string[] subwords = line.Split(separator);
+                    string[] subwords = line.Split(',');
                     if (subwords.Length != 8) { //一行から取り出したカラム数が8個でない時は中断
                         MessageBox.Show("フォーマットが正しくありません\n処理を中断します"); break;
                     }
@@ -143,8 +146,11 @@ namespace 同人誌管理 {
                     SQLiteConnect.nonResponse(ins_doujinshi);
                     SQLiteConnect.nonResponse(ins_circle);
                     SQLiteConnect.nonResponse(ins_author);
+                    progress.Text = ((++cnt_record).ToString() + "件読み込みました。");
+                    Application.DoEvents();
                 }
                 file.Close();
+                progress.Visible = false;
                 RoadResult("");
             }
         }

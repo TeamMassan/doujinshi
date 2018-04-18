@@ -12,3 +12,17 @@ C:\Users\Shunki\Documents\teamMssan\obj\Debug\同人誌管理.table_manage.resou
 C:\Users\Shunki\Documents\teamMssan\obj\Debug\同人誌管理.top.resources
 C:\Users\Shunki\Documents\teamMssan\obj\Debug\同人誌管理.csproj.GenerateResource.Cache
 C:\Users\Shunki\Documents\teamMssan\obj\Debug\同人誌管理.update.resources
+C:\Users\Shunki\Documents\teamMassan\bin\Debug\同人誌管理.exe.config
+C:\Users\Shunki\Documents\teamMassan\obj\Debug\同人誌管理.exe
+C:\Users\Shunki\Documents\teamMassan\obj\Debug\同人誌管理.pdb
+C:\Users\Shunki\Documents\teamMassan\bin\Debug\同人誌管理.exe
+C:\Users\Shunki\Documents\teamMassan\bin\Debug\同人誌管理.pdb
+C:\Users\Shunki\Documents\teamMassan\bin\Debug\System.Data.SQLite.dll
+C:\Users\Shunki\Documents\teamMassan\obj\Debug\同人誌管理.csprojResolveAssemblyReference.cache
+C:\Users\Shunki\Documents\teamMassan\obj\Debug\同人誌管理.add.resources
+C:\Users\Shunki\Documents\teamMassan\obj\Debug\同人誌管理.Properties.Resources.resources
+C:\Users\Shunki\Documents\teamMassan\obj\Debug\同人誌管理.detail_search.resources
+C:\Users\Shunki\Documents\teamMassan\obj\Debug\同人誌管理.table_manage.resources
+C:\Users\Shunki\Documents\teamMassan\obj\Debug\同人誌管理.top.resources
+C:\Users\Shunki\Documents\teamMassan\obj\Debug\同人誌管理.update.resources
+C:\Users\Shunki\Documents\teamMassan\obj\Debug\同人誌管理.csproj.GenerateResource.Cache

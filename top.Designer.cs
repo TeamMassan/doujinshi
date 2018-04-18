@@ -43,6 +43,7 @@ namespace 同人誌管理 {
             this.import = new System.Windows.Forms.ToolStripMenuItem();
             this.export = new System.Windows.Forms.ToolStripMenuItem();
             this.quit = new System.Windows.Forms.ToolStripMenuItem();
+            this.progress = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -214,11 +215,23 @@ namespace 同人誌管理 {
             this.quit.Text = "終了(&X)";
             this.quit.Click += new System.EventHandler(this.quit_Click);
             // 
+            // progress
+            // 
+            this.progress.AutoSize = true;
+            this.progress.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.progress.Location = new System.Drawing.Point(350, 452);
+            this.progress.Name = "progress";
+            this.progress.Size = new System.Drawing.Size(127, 16);
+            this.progress.TabIndex = 9;
+            this.progress.Text = "progress_message";
+            this.progress.Visible = false;
+            // 
             // top
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 519);
+            this.Controls.Add(this.progress);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.close);
             this.Controls.Add(this.tableManage);
@@ -257,6 +270,7 @@ namespace 同人誌管理 {
         private System.Windows.Forms.ToolStripMenuItem import;
         private System.Windows.Forms.ToolStripMenuItem export;
         private System.Windows.Forms.ToolStripMenuItem quit;
+        private System.Windows.Forms.Label progress;
     }
 }
 
