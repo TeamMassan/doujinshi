@@ -45,116 +45,127 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(63, 57);
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.label1.Location = new System.Drawing.Point(46, 56);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 18);
+            this.label1.Size = new System.Drawing.Size(58, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "誌名";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 112);
+            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.label2.Location = new System.Drawing.Point(46, 111);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 18);
+            this.label2.Size = new System.Drawing.Size(82, 24);
             this.label2.TabIndex = 1;
             this.label2.Text = "作者名";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(63, 166);
+            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.label3.Location = new System.Drawing.Point(46, 165);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 18);
+            this.label3.Size = new System.Drawing.Size(108, 24);
             this.label3.TabIndex = 2;
             this.label3.Text = "ジャンル名";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(63, 244);
+            this.label4.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.label4.Location = new System.Drawing.Point(46, 243);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 18);
+            this.label4.Size = new System.Drawing.Size(106, 24);
             this.label4.TabIndex = 3;
             this.label4.Text = "対象年齢";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(63, 303);
+            this.label5.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.label5.Location = new System.Drawing.Point(46, 302);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 18);
+            this.label5.Size = new System.Drawing.Size(106, 24);
             this.label5.TabIndex = 4;
             this.label5.Text = "保管場所";
             // 
             // all
             // 
             this.all.AutoSize = true;
-            this.all.Location = new System.Drawing.Point(163, 243);
+            this.all.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.all.Location = new System.Drawing.Point(178, 243);
             this.all.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.all.Name = "all";
-            this.all.Size = new System.Drawing.Size(88, 22);
-            this.all.TabIndex = 5;
+            this.all.Size = new System.Drawing.Size(108, 28);
+            this.all.TabIndex = 3;
             this.all.Text = "全年齢";
             this.all.UseVisualStyleBackColor = true;
             // 
             // r15
             // 
             this.r15.AutoSize = true;
-            this.r15.Location = new System.Drawing.Point(328, 243);
+            this.r15.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.r15.Location = new System.Drawing.Point(343, 243);
             this.r15.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.r15.Name = "r15";
-            this.r15.Size = new System.Drawing.Size(72, 22);
-            this.r15.TabIndex = 6;
+            this.r15.Size = new System.Drawing.Size(87, 28);
+            this.r15.TabIndex = 4;
             this.r15.Text = "R-15";
             this.r15.UseVisualStyleBackColor = true;
             // 
             // r18
             // 
             this.r18.AutoSize = true;
-            this.r18.Location = new System.Drawing.Point(492, 243);
+            this.r18.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.r18.Location = new System.Drawing.Point(507, 243);
             this.r18.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.r18.Name = "r18";
-            this.r18.Size = new System.Drawing.Size(72, 22);
-            this.r18.TabIndex = 7;
+            this.r18.Size = new System.Drawing.Size(87, 28);
+            this.r18.TabIndex = 5;
             this.r18.Text = "R-18";
             this.r18.UseVisualStyleBackColor = true;
             // 
             // house
             // 
             this.house.AutoSize = true;
-            this.house.Location = new System.Drawing.Point(163, 302);
+            this.house.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.house.Location = new System.Drawing.Point(178, 302);
             this.house.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.house.Name = "house";
-            this.house.Size = new System.Drawing.Size(70, 22);
-            this.house.TabIndex = 8;
+            this.house.Size = new System.Drawing.Size(84, 28);
+            this.house.TabIndex = 6;
             this.house.Text = "住居";
             this.house.UseVisualStyleBackColor = true;
             // 
             // hometown
             // 
             this.hometown.AutoSize = true;
-            this.hometown.Location = new System.Drawing.Point(328, 302);
+            this.hometown.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.hometown.Location = new System.Drawing.Point(343, 302);
             this.hometown.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.hometown.Name = "hometown";
-            this.hometown.Size = new System.Drawing.Size(70, 22);
-            this.hometown.TabIndex = 9;
+            this.hometown.Size = new System.Drawing.Size(84, 28);
+            this.hometown.TabIndex = 7;
             this.hometown.Text = "実家";
             this.hometown.UseVisualStyleBackColor = true;
             // 
             // search
             // 
             this.search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.search.Location = new System.Drawing.Point(192, 447);
+            this.search.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.search.Location = new System.Drawing.Point(175, 446);
             this.search.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(125, 34);
-            this.search.TabIndex = 10;
+            this.search.TabIndex = 9;
             this.search.Text = "検索";
             this.search.UseVisualStyleBackColor = true;
             this.search.Click += new System.EventHandler(this.search_Click);
@@ -162,11 +173,12 @@
             // close
             // 
             this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.close.Location = new System.Drawing.Point(427, 447);
+            this.close.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.close.Location = new System.Drawing.Point(410, 446);
             this.close.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(125, 34);
-            this.close.TabIndex = 11;
+            this.close.TabIndex = 10;
             this.close.Text = "閉じる";
             this.close.UseVisualStyleBackColor = true;
             this.close.Click += new System.EventHandler(this.close_Click);
@@ -175,41 +187,45 @@
             // 
             this.bookName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.bookName.Location = new System.Drawing.Point(163, 52);
+            this.bookName.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.bookName.Location = new System.Drawing.Point(172, 49);
             this.bookName.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.bookName.Name = "bookName";
-            this.bookName.Size = new System.Drawing.Size(461, 25);
-            this.bookName.TabIndex = 12;
+            this.bookName.Size = new System.Drawing.Size(461, 31);
+            this.bookName.TabIndex = 0;
             // 
             // bookAuthor
             // 
             this.bookAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.bookAuthor.Location = new System.Drawing.Point(163, 108);
+            this.bookAuthor.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.bookAuthor.Location = new System.Drawing.Point(172, 105);
             this.bookAuthor.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.bookAuthor.Name = "bookAuthor";
-            this.bookAuthor.Size = new System.Drawing.Size(461, 25);
-            this.bookAuthor.TabIndex = 13;
+            this.bookAuthor.Size = new System.Drawing.Size(461, 31);
+            this.bookAuthor.TabIndex = 1;
             // 
             // charaForm
             // 
             this.charaForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.charaForm.Location = new System.Drawing.Point(163, 372);
+            this.charaForm.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.charaForm.Location = new System.Drawing.Point(172, 368);
             this.charaForm.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.charaForm.Multiline = true;
             this.charaForm.Name = "charaForm";
             this.charaForm.Size = new System.Drawing.Size(461, 31);
-            this.charaForm.TabIndex = 16;
+            this.charaForm.TabIndex = 8;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(63, 376);
+            this.label6.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.label6.Location = new System.Drawing.Point(46, 375);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 18);
+            this.label6.Size = new System.Drawing.Size(63, 24);
             this.label6.TabIndex = 15;
             this.label6.Text = "キャラ";
             // 
@@ -218,12 +234,13 @@
             this.genreForm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.genreForm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.genreForm.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.genreForm.FormattingEnabled = true;
-            this.genreForm.Location = new System.Drawing.Point(163, 166);
+            this.genreForm.Location = new System.Drawing.Point(172, 163);
             this.genreForm.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.genreForm.Name = "genreForm";
-            this.genreForm.Size = new System.Drawing.Size(461, 26);
-            this.genreForm.TabIndex = 17;
+            this.genreForm.Size = new System.Drawing.Size(461, 32);
+            this.genreForm.TabIndex = 2;
             // 
             // detail_search
             // 

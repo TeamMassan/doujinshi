@@ -14,10 +14,7 @@ namespace 同人誌管理 {
         public detail_search() {
             InitializeComponent();
         }
-        public string conditions = "WHERE ";
-
-        //閉じるボタンから抜けた時、誤って検索処理が流れないようにする為、制御変数を追加しました by マッサン
-        public bool search_flag=false;
+        public string conditions = "";
 
         string protoage_shaiping(bool[] checkbox_flag , params string[] checkbox_str) {
             string part_where = "(";
@@ -68,7 +65,7 @@ namespace 同人誌管理 {
             bool check = false;
             string part_where = "(";
 
-            //全年齢チェック
+            //全年齢チェック(用済み)
             if (all_flag == true)
             {
                 check = true;
@@ -106,7 +103,7 @@ namespace 同人誌管理 {
         //検索ボタン
         private void search_Click(object sender, EventArgs e)
         {
-            
+            conditions = "";
             bool check = false;//記入チェック変数
             bool[] checkbox_flag = new bool[3];
 
@@ -172,25 +169,26 @@ namespace 同人誌管理 {
             }
 
             //全項目記入チェック                         
-            if (check != true)
-                return;
-            search_flag = true;
+            if (check == true)
+                conditions = "WHERE " + conditions;
+                //return;
+            //search_flag = true;
             Visible = false;
         }
         //ロード時の処理
         private void detail_search_Load(object sender, EventArgs e)
         {
-            //DB操作の練習に、ここの処理をSQLiteConnect.beResponse使って書き換えてみて by マッサン
+            bookName.Focus();
+
+            //ジャンルのコンボボックスの中身の読み込み
+            SQLiteDataReader reader = null;
             string query = "SELECT genre_title FROM t_genre";
-            SQLiteConnection conn = new SQLiteConnection("Data Source = doujinshi.sqlite");
-            conn.Open();
-            SQLiteCommand cmd = new SQLiteCommand(query, conn);
-            SQLiteDataReader reader = cmd.ExecuteReader();
+            SQLiteConnect.beResponse(query, ref reader);
             while (reader.Read()) {
                 genreForm.Items.Add(reader["genre_title"].ToString());
             }
             reader.Close();
-            conn.Close();
+            SQLiteConnect.conn.Close();
         }
     }
 }

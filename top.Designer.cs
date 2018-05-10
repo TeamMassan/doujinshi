@@ -110,6 +110,7 @@ namespace 同人誌管理 {
             this.listView.TabIndex = 4;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
+            this.listView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView_ColumnClick);
             this.listView.DoubleClick += new System.EventHandler(this.listView_DoubleClick);
             // 
             // ID

@@ -44,6 +44,9 @@ namespace 同人誌管理 {
         private void top_Load(object sender, EventArgs e) {
             //DBファイルが無い時にテーブル作成
             SQLiteConnect.make_db();
+            //DB書き込み時に不要な領域自動解放するよう設定
+            SQLiteConnect.nonResponse("PRAGMA auto_vacuum = FULL");
+            
             //簡易検索のジャンルをロード
             searchKind.Items.Add("全て");
             searchKind.Items.Add("作品タイトル");
@@ -79,9 +82,7 @@ namespace 同人誌管理 {
         private void detailSearch_Click(object sender, EventArgs e) {
             var detail = new detail_search();
             detail.ShowDialog();
-            //詳細検索WHERE句を得て結果表示する
-            if (detail.search_flag == true)
-                RoadResult(detail.conditions);
+            RoadResult(detail.conditions);
         }
 
         //アイテムをダブルクリック選択時に更新フォームを開く
@@ -108,6 +109,12 @@ namespace 同人誌管理 {
             table_manege.ShowDialog();
         }
 
+        //結果の列クリックによるソート処理
+        private void listView_ColumnClick(object sender, ColumnClickEventArgs e) {
+            MessageBox.Show("列がクリックされました");
+            //未完成
+        }
+
         //
         //以下はファイルメニューの処理です
         //
@@ -126,26 +133,36 @@ namespace 同人誌管理 {
 
             //OKボタンがクリックされたときインポートする
             if (importFile.ShowDialog() == DialogResult.OK) {
-                StreamReader file = new StreamReader(importFile.FileName, Encoding.GetEncoding("Shift_JIS"));
+                var file = new StreamReader(importFile.FileName, Encoding.GetEncoding("Shift_JIS"));
                 string line;
                 progress.Visible = true;    //プログレス可視化
                 int cnt_record = 0;
                 while ((line = file.ReadLine()) != null) {
                     //一行単位で配列に格納してINSERT文に埋め込み
-                    string[] subwords = line.Split(',');
-                    if (subwords.Length != 8) { //一行から取り出したカラム数が8個でない時は中断
+                    string[] subWords = line.Split(',');
+                    if (subWords.Length != 8) { //一行から取り出したカラム数が8個でない時は中断
                         MessageBox.Show("フォーマットが正しくありません\n処理を中断します"); break;
                     }
                     string ins_doujinshi = "INSERT INTO t_doujinshi (ID,title,origin_ID,genre_ID,age_limit,date,place) VALUES(" +
-                        subwords[0] + "," +"'" + subwords[1] + "'," + subwords[2] +","+subwords[3] + "," +
-                        "'" + subwords[4] + "',"+subwords[7]+",'house')";
-                    string ins_circle = "INSERT INTO t_circle VALUES(" +
-                        subwords[0] + ",'" + subwords[5] + "')";
-                    string ins_author = "INSERT INTO t_author VALUES(" +
-                        subwords[0] + ",'" + subwords[6] + "')";
+                        subWords[0] + "," +"'" + subWords[1] + "'," + subWords[2] +","+subWords[3] + "," +
+                        "'" + subWords[4] + "',"+subWords[7]+",'house')";
                     SQLiteConnect.nonResponse(ins_doujinshi);
-                    SQLiteConnect.nonResponse(ins_circle);
-                    SQLiteConnect.nonResponse(ins_author);
+
+                    //subWords[5]=(サークル)とsubWords[6]=(作者)を全角スペースSplitして別レコードにしながら各テーブルに格納
+                    string[] splited_circle = subWords[5].Split('　');
+                    string[] splited_author = subWords[6].Split('　');
+                    for(int cnt=0; cnt < splited_circle.Length; cnt++) {
+                        string ins_circle = "INSERT INTO t_circle VALUES(" +
+                        subWords[0] + ",'" + splited_circle[cnt] + "')";
+                        SQLiteConnect.nonResponse(ins_circle);
+                    }
+
+                    for (int cnt = 0; cnt < splited_author.Length; cnt++) {
+                        string ins_author = "INSERT INTO t_author VALUES(" +
+                        subWords[0] + ",'" + splited_author[cnt] + "')";
+                        SQLiteConnect.nonResponse(ins_author);
+                    }
+                    
                     progress.Text = ((++cnt_record).ToString() + "件読み込みました。");
                     Application.DoEvents();
                 }
@@ -157,7 +174,16 @@ namespace 同人誌管理 {
 
         //エクスポート処理
         private void export_Click(object sender, EventArgs e) {
-            //全レコードを適切な形でcsv出力したい
+            var exportFile = new OpenFileDialog();
+            exportFile.Title = "保存先を選択してください";
+            exportFile.Filter = "csvファイル (*.csv)|*.csv";
+            
+            //OKボタンがクリックされたときインポートする
+            if (exportFile.ShowDialog() == DialogResult.OK) {
+                //全レコードを適切な形でcsv出力したい
+                var output = new StreamWriter(exportFile.FileName);
+                MessageBox.Show(exportFile.FileName);
+            }
         }
     }
 }

@@ -55,8 +55,4 @@ while(reader.Read()){
 reader.Close();
 conn.Close();
 
-まぁ結局、実装済みの自作関数使ったほうが便利なので
-detail_search.csのロード処理にcommonFunctionの自作関数を使ってみて！！
-by マッサン
-あと前回言い忘れてたけど、詳細検索画面でタブオーダーの変更を次回教えます
-topフォーム側でSELECT内容にエイリアスつけたのでWHERE句内もその別名に書き換えてほしい。
+クラスの異なる同名変数connが混在している。非常に危険。
