@@ -86,46 +86,55 @@
             // 
             // originChange
             // 
+            this.originChange.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.originChange.Location = new System.Drawing.Point(530, 144);
             this.originChange.Name = "originChange";
-            this.originChange.Size = new System.Drawing.Size(125, 35);
+            this.originChange.Size = new System.Drawing.Size(125, 49);
             this.originChange.TabIndex = 6;
             this.originChange.Text = "変更";
             this.originChange.UseVisualStyleBackColor = true;
+            this.originChange.Click += new System.EventHandler(this.originChange_Click);
             // 
             // originDelete
             // 
+            this.originDelete.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.originDelete.Location = new System.Drawing.Point(715, 144);
             this.originDelete.Name = "originDelete";
-            this.originDelete.Size = new System.Drawing.Size(125, 35);
+            this.originDelete.Size = new System.Drawing.Size(125, 49);
             this.originDelete.TabIndex = 7;
             this.originDelete.Text = "削除";
             this.originDelete.UseVisualStyleBackColor = true;
+            this.originDelete.Click += new System.EventHandler(this.originDelete_Click);
             // 
             // genreChange
             // 
+            this.genreChange.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.genreChange.Location = new System.Drawing.Point(531, 474);
             this.genreChange.Name = "genreChange";
-            this.genreChange.Size = new System.Drawing.Size(125, 35);
+            this.genreChange.Size = new System.Drawing.Size(125, 45);
             this.genreChange.TabIndex = 8;
             this.genreChange.Text = "変更";
             this.genreChange.UseVisualStyleBackColor = true;
+            this.genreChange.Click += new System.EventHandler(this.genreChange_Click);
             // 
             // genreDelete
             // 
+            this.genreDelete.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.genreDelete.Location = new System.Drawing.Point(715, 474);
             this.genreDelete.Name = "genreDelete";
-            this.genreDelete.Size = new System.Drawing.Size(125, 35);
+            this.genreDelete.Size = new System.Drawing.Size(125, 45);
             this.genreDelete.TabIndex = 9;
             this.genreDelete.Text = "削除";
             this.genreDelete.UseVisualStyleBackColor = true;
+            this.genreDelete.Click += new System.EventHandler(this.genreDelete_Click);
             // 
             // originAdd
             // 
             this.originAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.originAdd.Location = new System.Drawing.Point(864, 77);
+            this.originAdd.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.originAdd.Location = new System.Drawing.Point(864, 70);
             this.originAdd.Name = "originAdd";
-            this.originAdd.Size = new System.Drawing.Size(151, 31);
+            this.originAdd.Size = new System.Drawing.Size(151, 44);
             this.originAdd.TabIndex = 10;
             this.originAdd.Text = "新規追加";
             this.originAdd.UseVisualStyleBackColor = true;
@@ -134,19 +143,22 @@
             // genreAdd
             // 
             this.genreAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.genreAdd.Location = new System.Drawing.Point(864, 411);
+            this.genreAdd.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.genreAdd.Location = new System.Drawing.Point(864, 404);
             this.genreAdd.Name = "genreAdd";
-            this.genreAdd.Size = new System.Drawing.Size(151, 31);
+            this.genreAdd.Size = new System.Drawing.Size(151, 44);
             this.genreAdd.TabIndex = 11;
             this.genreAdd.Text = "新規追加";
             this.genreAdd.UseVisualStyleBackColor = true;
+            this.genreAdd.Click += new System.EventHandler(this.genreAdd_Click);
             // 
             // close
             // 
             this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.close.Location = new System.Drawing.Point(864, 647);
+            this.close.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.close.Location = new System.Drawing.Point(880, 635);
             this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(135, 38);
+            this.close.Size = new System.Drawing.Size(135, 50);
             this.close.TabIndex = 12;
             this.close.Text = "閉じる";
             this.close.UseVisualStyleBackColor = true;
@@ -157,6 +169,7 @@
             this.originList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.originID,
             this.originName});
+            this.originList.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.originList.FullRowSelect = true;
             this.originList.Location = new System.Drawing.Point(26, 77);
             this.originList.MultiSelect = false;
@@ -182,6 +195,7 @@
             this.genreList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.genreID,
             this.genreName});
+            this.genreList.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.genreList.FullRowSelect = true;
             this.genreList.Location = new System.Drawing.Point(26, 411);
             this.genreList.MultiSelect = false;
