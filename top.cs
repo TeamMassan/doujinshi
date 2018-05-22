@@ -109,10 +109,16 @@ namespace 同人誌管理 {
             table_manege.ShowDialog();
         }
 
-        //結果の列クリックによるソート処理
+        //列クリックによるソート処理、サブアイテムでのソートは未実装
         private void listView_ColumnClick(object sender, ColumnClickEventArgs e) {
-            MessageBox.Show("列がクリックされました");
-            //未完成
+            //listView.ListViewItemSorter = new ListViewItemComparer(e.Column);
+            //MessageBox.Show(e.Column.ToString()+"がクリックされました");
+            if (e.Column.ToString() == "0") {
+                if (listView.Sorting != System.Windows.Forms.SortOrder.Descending)
+                    listView.Sorting = System.Windows.Forms.SortOrder.Descending;
+                if (listView.Sorting == System.Windows.Forms.SortOrder.Descending)
+                    listView.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            }
         }
 
         //

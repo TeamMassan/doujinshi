@@ -198,21 +198,24 @@ namespace 同人誌管理 {
             // import
             // 
             this.import.Name = "import";
-            this.import.Size = new System.Drawing.Size(195, 22);
+            this.import.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.import.Size = new System.Drawing.Size(234, 22);
             this.import.Text = "CSV形式でインポート(&I)";
             this.import.Click += new System.EventHandler(this.import_Click);
             // 
             // export
             // 
             this.export.Name = "export";
-            this.export.Size = new System.Drawing.Size(195, 22);
+            this.export.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.export.Size = new System.Drawing.Size(234, 22);
             this.export.Text = "CSV形式でエクスポート(&E)";
             this.export.Click += new System.EventHandler(this.export_Click);
             // 
             // quit
             // 
             this.quit.Name = "quit";
-            this.quit.Size = new System.Drawing.Size(195, 22);
+            this.quit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.quit.Size = new System.Drawing.Size(234, 22);
             this.quit.Text = "終了(&X)";
             this.quit.Click += new System.EventHandler(this.quit_Click);
             // 

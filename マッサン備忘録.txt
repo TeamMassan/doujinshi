@@ -96,3 +96,11 @@ DELETE FROM t_origin WHERE (origin_ID != (SELECT MIN(origin_ID) FROM t_origin)) 
 作品テーブルの重複調べるSQL
 SELECT origin_title,COUNT(origin_ID) AS 件数 FROM t_origin GROUP BY origin_title; 
 
+ListView.Sorting プロパティについて
+https://msdn.microsoft.com/ja-jp/library/system.windows.forms.listview.sorting(v=vs.110).aspx
+
+カラムクリックによるリストビューソート実例
+https://dobon.net/vb/dotnet/control/lvitemsort.html
+
+IDが可変長なのでソート時に文字列と認識されて目的のソートが出来ない
+サブアイテムだけインタフェースごとソート処理実装する
