@@ -55,4 +55,12 @@ while(reader.Read()){
 reader.Close();
 conn.Close();
 
-クラスの異なる同名変数connが混在している。非常に危険。
+SELECT title AS タイトル, GROUP_CONCAT(circle) AS サークル, GROUP_CONCAT(author) AS 作者, origin_title AS 作品名, genre_title AS ジャンル, date AS 年月日, age_limit AS 年齢, place AS 場所, main_chara AS メインキャラ 
+FROM(((t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)
+LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID)
+LEFT OUTER JOIN t_genre ON t_doujinshi.ID = t_genre.genre_ID)
+LEFT OUTER JOIN t_origin ON t_doujinshi.ID = t_origin.origin_ID 
+WHERE 1 = t_doujinshi.ID LIMIT 1
+
+67,68行目　ComboBoxのテキストはSelectedIndexプロパティで設定する
+69行目　メソッド使わず、8桁の数値から直接Substringする
