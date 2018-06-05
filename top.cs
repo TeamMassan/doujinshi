@@ -113,11 +113,8 @@ namespace 同人誌管理 {
         private void listView_ColumnClick(object sender, ColumnClickEventArgs e) {
             //listView.ListViewItemSorter = new ListViewItemComparer(e.Column);
             //MessageBox.Show(e.Column.ToString()+"がクリックされました");
-            if (e.Column.ToString() == "0") {
-                if (listView.Sorting != System.Windows.Forms.SortOrder.Descending)
-                    listView.Sorting = System.Windows.Forms.SortOrder.Descending;
-                if (listView.Sorting == System.Windows.Forms.SortOrder.Descending)
-                    listView.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            if (e.Column.ToString() == "1") {   //タイトルカラムクリック時
+
             }
         }
 
@@ -132,14 +129,9 @@ namespace 同人誌管理 {
 
         //インポート処理
         private void import_Click(object sender, EventArgs e) {
-            //ファイルダイアログを開く
-            var importFile = new OpenFileDialog();
-            importFile.Filter = "csvファイル (*.csv)|*.csv|テキストファイル(*.txt)|*.txt";
-            importFile.Title = "開くファイルを選択してください";
-
             //OKボタンがクリックされたときインポートする
-            if (importFile.ShowDialog() == DialogResult.OK) {
-                var file = new StreamReader(importFile.FileName, Encoding.GetEncoding("Shift_JIS"));
+            if (importFileDialog.ShowDialog() == DialogResult.OK) {
+                var file = new StreamReader(importFileDialog.FileName, Encoding.GetEncoding("Shift_JIS"));
                 string line;
                 progress.Visible = true;    //プログレス可視化
                 int cnt_record = 0;
@@ -180,15 +172,20 @@ namespace 同人誌管理 {
 
         //エクスポート処理
         private void export_Click(object sender, EventArgs e) {
-            var exportFile = new OpenFileDialog();
-            exportFile.Title = "保存先を選択してください";
-            exportFile.Filter = "csvファイル (*.csv)|*.csv";
-            
             //OKボタンがクリックされたときインポートする
-            if (exportFile.ShowDialog() == DialogResult.OK) {
-                //全レコードを適切な形でcsv出力したい
-                var output = new StreamWriter(exportFile.FileName);
-                MessageBox.Show(exportFile.FileName);
+            if (exportFileDialog.ShowDialog() == DialogResult.OK) {
+                Stream stream = exportFileDialog.OpenFile();
+                if (stream != null) { 
+                    StreamWriter sw = new StreamWriter(stream, Encoding.GetEncoding("Shift_JIS"));
+                    //ここで書き込み処理
+                    //SELECT文で元の情報を集めてreaderを一行ずつ出力
+                    //sw.WriteLine("初めてのファイル出力です");
+
+
+                    sw.Close();
+                    stream.Close();
+                }
+                    
             }
         }
     }

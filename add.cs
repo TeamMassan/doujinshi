@@ -70,44 +70,29 @@ namespace 同人誌管理 {
                 + "'" + place + "',"            //場所
                 + "'" + mainChara.Text + "')";  //メインキャラ                
 
-            //同人誌登録
+            //t_doujinshi登録
             SQLiteConnect.nonResponse(insert_doujinshi);
-            //コロンで区切ったテキスト毎に作者orサークル名を分けて登録
-            string tmp = "";
+
+            //t_author登録
             if (authorsForm.Text.Length != 0) {
-                string insert_author = "";
-                for (int cnt = 0; cnt < authorsForm.Text.Length; cnt++) {
-                    if (authorsForm.Text[cnt] == ',') {
-                        insert_author = "INSERT INTO t_author(ID,author)" +
-                            "VALUES(" + idForm.Text + ",'" + tmp + "')";
-                        SQLiteConnect.nonResponse(insert_author);
-                        tmp = "";
-                        cnt++;
-                    }
-                    tmp += authorsForm.Text[cnt];
+                string[] authors = authorsForm.Text.Split(',');
+                for (int cnt = 0; cnt < authors.Length; cnt++) {
+                    string insert_author = "INSERT INTO t_author(ID,author)" +
+                        "VALUES(" + idForm.Text + ", '" + authors[cnt] + "')";
+                    SQLiteConnect.nonResponse(insert_author);
                 }
-                insert_author = "INSERT INTO t_author(ID,author)" +
-                            "VALUES(" + idForm.Text + ",'" + tmp + "')";
-                SQLiteConnect.nonResponse(insert_author);
-            }
-            if (circleForm.Text.Length != 0) {
-                tmp = "";
-                string insert_circle = "";
-                for (int cnt = 0; cnt < circleForm.Text.Length; cnt++) {
-                    if (circleForm.Text[cnt] == ',') {
-                        insert_circle = "INSERT INTO t_circle(ID,circle)" +
-                            "VALUES(" + idForm.Text + ",'" + tmp + "')";
-                        SQLiteConnect.nonResponse(insert_circle);
-                        tmp = "";
-                        cnt++;
-                    }
-                    tmp += circleForm.Text[cnt];
-                }
-                insert_circle = "INSERT INTO t_circle(ID,circle)" +
-                            "VALUES(" + idForm.Text + ",'" + tmp + "')";
-                SQLiteConnect.nonResponse(insert_circle);
             }
 
+            //t_circle登録
+            if (circleForm.Text.Length != 0) {
+                string[] circles = circleForm.Text.Split(',');
+                for (int cnt = 0; cnt < circles.Length; cnt++) {
+                    string insert_circle = "INSERT INTO t_circle(ID,circle)" +
+                        "VALUES(" + idForm.Text + ", '" + circles[cnt] + "')";
+                    SQLiteConnect.nonResponse(insert_circle);
+                }
+            }
+           
             MessageBox.Show("登録しました");
 
             //連続登録し易いようにフォーカスを戻す

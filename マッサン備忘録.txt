@@ -104,3 +104,23 @@ https://dobon.net/vb/dotnet/control/lvitemsort.html
 
 IDが可変長なのでソート時に文字列と認識されて目的のソートが出来ない
 サブアイテムだけインタフェースごとソート処理実装する
+
+SELECT t_doujinshi.ID,title,origin_title,genre_title,age_limit,GROUP_CONCAT(circle) AS サークル,GROUP_CONCAT(t_doujinshi.author) AS 作者,date,main_chara
+SELECT * 
+FROM((((t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)
+LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID)
+LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)
+LEFT OUTER JOIN t_origin ON t_doujinshi.origin_ID = t_origin.origin_ID)
+LEFT OUTER JOIN t_genre ON t_doujinshi.genre_ID = t_genre.genre_ID
+WHERE t_doujinshi.ID = 1
+GROUP BY t_doujinshi.ID
+
+
+SELECT title AS タイトル, GROUP_CONCAT(author) AS 作者, origin_title AS 作品, genre_title AS ジャンル, date AS 年月日, age_limit AS 年齢, place AS 場所, main_chara AS メインキャラ 
+FROM(((t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID) 
+LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID) 
+LEFT OUTER JOIN t_genre ON t_doujinshi.genre_ID = t_genre.genre_ID) 
+LEFT OUTER JOIN t_origin ON t_doujinshi.origin_ID = t_origin.origin_ID 
+WHERE t_doujinshi.ID < 6 
+GROUP BY t_doujinshi.ID
+外部結合時に既にある、同内容のレコードがグループ化で一つにまとめられない

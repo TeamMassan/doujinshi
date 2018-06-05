@@ -81,5 +81,15 @@ namespace 同人誌管理
         private void close_Click(object sender, EventArgs e) {
             Visible = false;
         }
+
+        private void readLeft_Click(object sender, EventArgs e) {
+            selected_ID = (int.Parse(selected_ID) - 1).ToString();
+            update_Load(sender, e);
+        }
+
+        private void readRight_Click(object sender, EventArgs e) {
+            selected_ID = (int.Parse(selected_ID) + 1).ToString();
+            update_Load(sender, e);
+        }
     }
 }

@@ -60,6 +60,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.readLeft = new System.Windows.Forms.Button();
+            this.readRight = new System.Windows.Forms.Button();
             this.place.SuspendLayout();
             this.ageLimit.SuspendLayout();
             this.SuspendLayout();
@@ -70,21 +72,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.label13.Location = new System.Drawing.Point(570, 306);
-            this.label13.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label13.Location = new System.Drawing.Point(342, 204);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(34, 24);
+            this.label13.Size = new System.Drawing.Size(24, 16);
             this.label13.TabIndex = 60;
             this.label13.Text = "日";
             // 
             // dayForm
             // 
             this.dayForm.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.dayForm.Location = new System.Drawing.Point(505, 298);
-            this.dayForm.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.dayForm.Location = new System.Drawing.Point(303, 199);
             this.dayForm.Name = "dayForm";
-            this.dayForm.Size = new System.Drawing.Size(52, 31);
-            this.dayForm.TabIndex = 46;
+            this.dayForm.Size = new System.Drawing.Size(33, 23);
+            this.dayForm.TabIndex = 7;
             // 
             // label12
             // 
@@ -92,21 +92,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.label12.Location = new System.Drawing.Point(455, 306);
-            this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label12.Location = new System.Drawing.Point(273, 204);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 24);
+            this.label12.Size = new System.Drawing.Size(24, 16);
             this.label12.TabIndex = 59;
             this.label12.Text = "月";
             // 
             // monthForm
             // 
             this.monthForm.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.monthForm.Location = new System.Drawing.Point(390, 298);
-            this.monthForm.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.monthForm.Location = new System.Drawing.Point(234, 199);
             this.monthForm.Name = "monthForm";
-            this.monthForm.Size = new System.Drawing.Size(52, 31);
-            this.monthForm.TabIndex = 45;
+            this.monthForm.Size = new System.Drawing.Size(33, 23);
+            this.monthForm.TabIndex = 6;
             // 
             // label11
             // 
@@ -114,21 +112,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.label11.Location = new System.Drawing.Point(352, 306);
-            this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label11.Location = new System.Drawing.Point(211, 204);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 24);
+            this.label11.Size = new System.Drawing.Size(24, 16);
             this.label11.TabIndex = 58;
             this.label11.Text = "年";
             // 
             // yearForm
             // 
             this.yearForm.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.yearForm.Location = new System.Drawing.Point(220, 298);
-            this.yearForm.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.yearForm.Location = new System.Drawing.Point(132, 199);
             this.yearForm.Name = "yearForm";
-            this.yearForm.Size = new System.Drawing.Size(119, 31);
-            this.yearForm.TabIndex = 44;
+            this.yearForm.Size = new System.Drawing.Size(73, 23);
+            this.yearForm.TabIndex = 5;
             // 
             // label10
             // 
@@ -136,10 +132,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.label10.Location = new System.Drawing.Point(47, 306);
-            this.label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label10.Location = new System.Drawing.Point(28, 204);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(130, 24);
+            this.label10.Size = new System.Drawing.Size(88, 16);
             this.label10.TabIndex = 57;
             this.label10.Text = "頒布年月日";
             // 
@@ -148,22 +143,20 @@
             this.genreComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genreComboBox.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.genreComboBox.FormattingEnabled = true;
-            this.genreComboBox.Location = new System.Drawing.Point(622, 250);
-            this.genreComboBox.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.genreComboBox.Location = new System.Drawing.Point(373, 167);
             this.genreComboBox.Name = "genreComboBox";
-            this.genreComboBox.Size = new System.Drawing.Size(279, 32);
-            this.genreComboBox.TabIndex = 43;
+            this.genreComboBox.Size = new System.Drawing.Size(169, 24);
+            this.genreComboBox.TabIndex = 4;
             // 
             // originComboBox
             // 
             this.originComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.originComboBox.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.originComboBox.FormattingEnabled = true;
-            this.originComboBox.Location = new System.Drawing.Point(157, 250);
-            this.originComboBox.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.originComboBox.Location = new System.Drawing.Point(94, 167);
             this.originComboBox.Name = "originComboBox";
-            this.originComboBox.Size = new System.Drawing.Size(279, 32);
-            this.originComboBox.TabIndex = 41;
+            this.originComboBox.Size = new System.Drawing.Size(169, 24);
+            this.originComboBox.TabIndex = 3;
             // 
             // place
             // 
@@ -172,21 +165,19 @@
             this.place.Controls.Add(this.house);
             this.place.Controls.Add(this.hometown);
             this.place.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.place.Location = new System.Drawing.Point(172, 393);
-            this.place.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.place.Location = new System.Drawing.Point(103, 262);
             this.place.Name = "place";
-            this.place.Size = new System.Drawing.Size(410, 40);
-            this.place.TabIndex = 52;
+            this.place.Size = new System.Drawing.Size(246, 27);
+            this.place.TabIndex = 9;
             // 
             // house
             // 
             this.house.AutoSize = true;
             this.house.Checked = true;
             this.house.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.house.Location = new System.Drawing.Point(23, 4);
-            this.house.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.house.Location = new System.Drawing.Point(14, 3);
             this.house.Name = "house";
-            this.house.Size = new System.Drawing.Size(107, 28);
+            this.house.Size = new System.Drawing.Size(74, 20);
             this.house.TabIndex = 0;
             this.house.TabStop = true;
             this.house.Text = "現住居";
@@ -196,10 +187,9 @@
             // 
             this.hometown.AutoSize = true;
             this.hometown.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.hometown.Location = new System.Drawing.Point(202, 4);
-            this.hometown.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.hometown.Location = new System.Drawing.Point(121, 3);
             this.hometown.Name = "hometown";
-            this.hometown.Size = new System.Drawing.Size(83, 28);
+            this.hometown.Size = new System.Drawing.Size(58, 20);
             this.hometown.TabIndex = 1;
             this.hometown.TabStop = true;
             this.hometown.Text = "実家";
@@ -213,21 +203,19 @@
             this.ageLimit.Controls.Add(this.r15);
             this.ageLimit.Controls.Add(this.r18);
             this.ageLimit.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.ageLimit.Location = new System.Drawing.Point(172, 339);
-            this.ageLimit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.ageLimit.Location = new System.Drawing.Point(103, 226);
             this.ageLimit.Name = "ageLimit";
-            this.ageLimit.Size = new System.Drawing.Size(605, 51);
-            this.ageLimit.TabIndex = 49;
+            this.ageLimit.Size = new System.Drawing.Size(363, 34);
+            this.ageLimit.TabIndex = 8;
             // 
             // all
             // 
             this.all.AutoSize = true;
             this.all.Checked = true;
             this.all.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.all.Location = new System.Drawing.Point(23, 12);
-            this.all.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.all.Location = new System.Drawing.Point(14, 8);
             this.all.Name = "all";
-            this.all.Size = new System.Drawing.Size(107, 28);
+            this.all.Size = new System.Drawing.Size(74, 20);
             this.all.TabIndex = 0;
             this.all.TabStop = true;
             this.all.Text = "全年齢";
@@ -237,10 +225,9 @@
             // 
             this.r15.AutoSize = true;
             this.r15.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.r15.Location = new System.Drawing.Point(202, 12);
-            this.r15.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.r15.Location = new System.Drawing.Point(121, 8);
             this.r15.Name = "r15";
-            this.r15.Size = new System.Drawing.Size(86, 28);
+            this.r15.Size = new System.Drawing.Size(60, 20);
             this.r15.TabIndex = 1;
             this.r15.TabStop = true;
             this.r15.Text = "R-15";
@@ -250,10 +237,9 @@
             // 
             this.r18.AutoSize = true;
             this.r18.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.r18.Location = new System.Drawing.Point(375, 12);
-            this.r18.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.r18.Location = new System.Drawing.Point(225, 8);
             this.r18.Name = "r18";
-            this.r18.Size = new System.Drawing.Size(86, 28);
+            this.r18.Size = new System.Drawing.Size(60, 20);
             this.r18.TabIndex = 2;
             this.r18.TabStop = true;
             this.r18.Text = "R-18";
@@ -263,11 +249,10 @@
             // 
             this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.close.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.close.Location = new System.Drawing.Point(745, 654);
-            this.close.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.close.Location = new System.Drawing.Point(447, 436);
             this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(125, 34);
-            this.close.TabIndex = 55;
+            this.close.Size = new System.Drawing.Size(75, 23);
+            this.close.TabIndex = 14;
             this.close.Text = "閉じる";
             this.close.UseVisualStyleBackColor = true;
             this.close.Click += new System.EventHandler(this.close_Click);
@@ -276,11 +261,10 @@
             // 
             this.insert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.insert.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.insert.Location = new System.Drawing.Point(568, 656);
-            this.insert.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.insert.Location = new System.Drawing.Point(341, 437);
             this.insert.Name = "insert";
-            this.insert.Size = new System.Drawing.Size(125, 34);
-            this.insert.TabIndex = 54;
+            this.insert.Size = new System.Drawing.Size(75, 23);
+            this.insert.TabIndex = 13;
             this.insert.Text = "更新";
             this.insert.UseVisualStyleBackColor = true;
             // 
@@ -289,10 +273,9 @@
             this.idForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.idForm.Enabled = false;
             this.idForm.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.idForm.Location = new System.Drawing.Point(83, 656);
-            this.idForm.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.idForm.Location = new System.Drawing.Point(50, 437);
             this.idForm.Name = "idForm";
-            this.idForm.Size = new System.Drawing.Size(164, 31);
+            this.idForm.Size = new System.Drawing.Size(100, 23);
             this.idForm.TabIndex = 56;
             // 
             // mainChara
@@ -301,55 +284,50 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainChara.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.mainChara.Location = new System.Drawing.Point(50, 484);
-            this.mainChara.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.mainChara.Location = new System.Drawing.Point(30, 323);
             this.mainChara.Multiline = true;
             this.mainChara.Name = "mainChara";
-            this.mainChara.Size = new System.Drawing.Size(827, 152);
-            this.mainChara.TabIndex = 53;
+            this.mainChara.Size = new System.Drawing.Size(498, 103);
+            this.mainChara.TabIndex = 10;
             // 
             // authorsForm
             // 
             this.authorsForm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.authorsForm.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.authorsForm.Location = new System.Drawing.Point(50, 198);
-            this.authorsForm.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.authorsForm.Location = new System.Drawing.Point(30, 132);
             this.authorsForm.Name = "authorsForm";
-            this.authorsForm.Size = new System.Drawing.Size(851, 31);
-            this.authorsForm.TabIndex = 39;
+            this.authorsForm.Size = new System.Drawing.Size(512, 23);
+            this.authorsForm.TabIndex = 2;
             // 
             // circleForm
             // 
             this.circleForm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.circleForm.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.circleForm.Location = new System.Drawing.Point(50, 117);
-            this.circleForm.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.circleForm.Location = new System.Drawing.Point(30, 78);
             this.circleForm.Name = "circleForm";
-            this.circleForm.Size = new System.Drawing.Size(851, 31);
-            this.circleForm.TabIndex = 36;
+            this.circleForm.Size = new System.Drawing.Size(512, 23);
+            this.circleForm.TabIndex = 1;
             // 
             // titleForm
             // 
             this.titleForm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.titleForm.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.titleForm.Location = new System.Drawing.Point(150, 32);
-            this.titleForm.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.titleForm.Location = new System.Drawing.Point(90, 21);
             this.titleForm.Name = "titleForm";
-            this.titleForm.Size = new System.Drawing.Size(751, 31);
-            this.titleForm.TabIndex = 35;
+            this.titleForm.Size = new System.Drawing.Size(452, 23);
+            this.titleForm.TabIndex = 0;
             // 
             // label9
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.label9.Location = new System.Drawing.Point(47, 662);
-            this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label9.Location = new System.Drawing.Point(28, 441);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 24);
+            this.label9.Size = new System.Drawing.Size(22, 16);
             this.label9.TabIndex = 48;
             this.label9.Text = "ID";
             // 
@@ -359,10 +337,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.label8.Location = new System.Drawing.Point(47, 450);
-            this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label8.Location = new System.Drawing.Point(28, 300);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(115, 24);
+            this.label8.Size = new System.Drawing.Size(78, 16);
             this.label8.TabIndex = 47;
             this.label8.Text = "メインキャラ";
             // 
@@ -372,10 +349,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.label7.Location = new System.Drawing.Point(47, 399);
-            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label7.Location = new System.Drawing.Point(28, 266);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(106, 24);
+            this.label7.Size = new System.Drawing.Size(72, 16);
             this.label7.TabIndex = 51;
             this.label7.Text = "保管場所";
             // 
@@ -385,10 +361,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.label6.Location = new System.Drawing.Point(47, 350);
-            this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label6.Location = new System.Drawing.Point(28, 233);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 24);
+            this.label6.Size = new System.Drawing.Size(72, 16);
             this.label6.TabIndex = 50;
             this.label6.Text = "対象年齢";
             // 
@@ -396,10 +371,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.label5.Location = new System.Drawing.Point(497, 255);
-            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label5.Location = new System.Drawing.Point(298, 170);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 24);
+            this.label5.Size = new System.Drawing.Size(57, 16);
             this.label5.TabIndex = 42;
             this.label5.Text = "ジャンル";
             // 
@@ -409,10 +383,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.label4.Location = new System.Drawing.Point(47, 255);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label4.Location = new System.Drawing.Point(28, 170);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 24);
+            this.label4.Size = new System.Drawing.Size(56, 16);
             this.label4.TabIndex = 40;
             this.label4.Text = "作品名";
             // 
@@ -422,10 +395,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.label3.Location = new System.Drawing.Point(47, 168);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label3.Location = new System.Drawing.Point(28, 112);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(460, 24);
+            this.label3.Size = new System.Drawing.Size(308, 16);
             this.label3.TabIndex = 38;
             this.label3.Text = "作者名　(複数人の場合は半角コンマで区切る)";
             // 
@@ -435,10 +407,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.label2.Location = new System.Drawing.Point(47, 88);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Location = new System.Drawing.Point(28, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(435, 24);
+            this.label2.Size = new System.Drawing.Size(289, 16);
             this.label2.TabIndex = 37;
             this.label2.Text = "サークル（合同の場合は半角コンマで区切る）";
             // 
@@ -448,18 +419,41 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.label1.Location = new System.Drawing.Point(47, 36);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Location = new System.Drawing.Point(28, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 24);
+            this.label1.Size = new System.Drawing.Size(55, 16);
             this.label1.TabIndex = 34;
             this.label1.Text = "タイトル";
             // 
+            // readLeft
+            // 
+            this.readLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.readLeft.Location = new System.Drawing.Point(193, 437);
+            this.readLeft.Name = "readLeft";
+            this.readLeft.Size = new System.Drawing.Size(35, 23);
+            this.readLeft.TabIndex = 11;
+            this.readLeft.Text = "←";
+            this.readLeft.UseVisualStyleBackColor = true;
+            this.readLeft.Click += new System.EventHandler(this.readLeft_Click);
+            // 
+            // readRight
+            // 
+            this.readRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.readRight.Location = new System.Drawing.Point(234, 437);
+            this.readRight.Name = "readRight";
+            this.readRight.Size = new System.Drawing.Size(35, 23);
+            this.readRight.TabIndex = 12;
+            this.readRight.Text = "→";
+            this.readRight.UseVisualStyleBackColor = true;
+            this.readRight.Click += new System.EventHandler(this.readRight_Click);
+            // 
             // update
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 722);
+            this.ClientSize = new System.Drawing.Size(570, 481);
+            this.Controls.Add(this.readRight);
+            this.Controls.Add(this.readLeft);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.dayForm);
             this.Controls.Add(this.label12);
@@ -487,6 +481,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "update";
             this.Text = "更新";
             this.Load += new System.EventHandler(this.update_Load);
@@ -533,5 +528,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button readLeft;
+        private System.Windows.Forms.Button readRight;
     }
 }

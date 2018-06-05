@@ -44,6 +44,8 @@ namespace 同人誌管理 {
             this.export = new System.Windows.Forms.ToolStripMenuItem();
             this.quit = new System.Windows.Forms.ToolStripMenuItem();
             this.progress = new System.Windows.Forms.Label();
+            this.exportFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.importFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -230,6 +232,17 @@ namespace 同人誌管理 {
             this.progress.Text = "progress_message";
             this.progress.Visible = false;
             // 
+            // exportFileDialog
+            // 
+            this.exportFileDialog.Filter = "csvファイル (*.csv)|*.csv|すべてのファイル|*.*";
+            this.exportFileDialog.RestoreDirectory = true;
+            this.exportFileDialog.Title = "保存先を選択してください";
+            // 
+            // importFileDialog
+            // 
+            this.importFileDialog.Filter = "csvファイル (*.csv)|*.csv|テキストファイル(*.txt)|*.txt";
+            this.importFileDialog.Title = "開くファイルを選択してください";
+            // 
             // top
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -275,6 +288,8 @@ namespace 同人誌管理 {
         private System.Windows.Forms.ToolStripMenuItem export;
         private System.Windows.Forms.ToolStripMenuItem quit;
         private System.Windows.Forms.Label progress;
+        private System.Windows.Forms.SaveFileDialog exportFileDialog;
+        private System.Windows.Forms.OpenFileDialog importFileDialog;
     }
 }
 
