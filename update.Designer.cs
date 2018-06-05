@@ -252,7 +252,7 @@
             this.close.Location = new System.Drawing.Point(447, 436);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(75, 23);
-            this.close.TabIndex = 14;
+            this.close.TabIndex = 12;
             this.close.Text = "閉じる";
             this.close.UseVisualStyleBackColor = true;
             this.close.Click += new System.EventHandler(this.close_Click);
@@ -264,7 +264,7 @@
             this.insert.Location = new System.Drawing.Point(341, 437);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(75, 23);
-            this.insert.TabIndex = 13;
+            this.insert.TabIndex = 11;
             this.insert.Text = "更新";
             this.insert.UseVisualStyleBackColor = true;
             // 

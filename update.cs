@@ -20,8 +20,6 @@ namespace 同人誌管理
         
         //リストビューから選択されたt_doujinshi.ID
         public string selected_ID;
-        //データベースの場所を指定
-        SQLiteConnection conn = new SQLiteConnection("Data Source = doujinshi.sqlite");
 
         //ロード処理
         private void update_Load(object sender, EventArgs e) {
@@ -42,8 +40,9 @@ namespace 同人誌管理
             //ジャンル名コンボボックスの中身の読み込み
             reader = null;
             query = "SELECT genre_title FROM t_genre";
-            SQLiteConnect.beResponse(query,ref reader);
-            while(reader.Read()) {
+            SQLiteConnect.beResponse(query, ref reader);
+            while (reader.Read())
+            {
                 genreComboBox.Items.Add(reader["genre_title"].ToString());
             }
             reader.Close();
@@ -51,28 +50,38 @@ namespace 同人誌管理
 
             //テキスト読み込み
             reader = null;
-            query = "SELECT * " + 
-                "FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)" +
-                "LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID ";
+            query = "SELECT title AS タイトル, GROUP_CONCAT(circle) AS サークル, GROUP_CONCAT(author) AS 作者, origin_title AS 作品, genre_title AS ジャンル, date AS 年月日, age_limit AS 年齢, place AS 場所, main_chara AS メインキャラ " +
+                "FROM(((t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)" +
+                "LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID)" +
+                "LEFT OUTER JOIN t_genre ON t_doujinshi.ID = t_genre.genre_ID)" +
+                "LEFT OUTER JOIN t_origin ON t_doujinshi.ID = t_origin.origin_ID ";
             //WHERE句記入
-            query += "WHERE " + selected_ID + " = t_doujinshi.ID　"; //全角スペース混じってるよ by マッサン
+            query += "WHERE " + selected_ID + " = t_doujinshi.ID ";
 
             //SQL発行
             SQLiteConnect.beResponse(query, ref reader);
-            while (reader.Read())
-            {
-                titleForm.Text = reader["title"].ToString();
-                circleForm.Text = reader["circle"].ToString();
-                authorsForm.Text = reader["author"].ToString();
-                //originComboBox.Text = reader["origin_title"].ToString();
-                //genreComboBox.Text = reader["ジャンル"].ToString();
-                date = Date.insert_y_m_d(reader["date"].ToString());    //年月日追加メソッドで整形する必要が無いよ
-                yearForm.Text = date.Substring(0,4);
-                monthForm.Text = date.Substring(5,2);
-                dayForm.Text = date.Substring(8,2);
-                //mainChara.Text = reader["mainchara"].ToString();
-
+            reader.Read();
+            titleForm.Text = reader["タイトル"].ToString();
+            circleForm.Text = reader["サークル"].ToString();
+            authorsForm.Text = reader["作者"].ToString();
+            originComboBox.Text = reader["作品"].ToString();
+            genreComboBox.Text = reader["ジャンル"].ToString();
+            date = Date.insert_y_m_d(reader["年月日"].ToString());    //年月日追加メソッドで整形する必要が無いよ
+            yearForm.Text = date.Substring(0, 4);
+            monthForm.Text = date.Substring(5, 2);
+            dayForm.Text = date.Substring(8, 2);
+            switch (reader["年齢"].ToString()) {
+                case "all": all.Checked = true; break;
+                case "r15": r15.Checked = true; break;
+                case "r18": r18.Checked = true; break;
             }
+            switch (reader["場所"].ToString())
+            {
+                case "house": house.Checked = true; break;
+                case "hometown": hometown.Checked = true; break;
+            }
+            mainChara.Text = reader["メインキャラ"].ToString();
+
             reader.Close();
             SQLiteConnect.conn.Close();
         }
