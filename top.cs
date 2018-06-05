@@ -26,7 +26,7 @@ namespace 同人誌管理 {
             //リストビューへの読み出し
             listView.Items.Clear();   //二回目以降の多重出力を回避
             SQLiteDataReader reader = null;
-            SQLiteConnect.beResponse(seach_query + WHEREphrase + group_by, ref reader);
+            SQLiteConnect.Excute(seach_query + WHEREphrase + group_by, ref reader);
             while (reader.Read()) {
                 string[] items = {reader["ID"].ToString(),
                         reader["タイトル"].ToString(),
@@ -45,7 +45,7 @@ namespace 同人誌管理 {
             //DBファイルが無い時にテーブル作成
             SQLiteConnect.make_db();
             //DB書き込み時に不要な領域自動解放するよう設定
-            SQLiteConnect.nonResponse("PRAGMA auto_vacuum = FULL");
+            SQLiteConnect.Excute("PRAGMA auto_vacuum = FULL");
             
             //簡易検索のジャンルをロード
             searchKind.Items.Add("全て");
@@ -144,7 +144,7 @@ namespace 同人誌管理 {
                     string ins_doujinshi = "INSERT INTO t_doujinshi (ID,title,origin_ID,genre_ID,age_limit,date,place) VALUES(" +
                         subWords[0] + "," +"'" + subWords[1] + "'," + subWords[2] +","+subWords[3] + "," +
                         "'" + subWords[4] + "',"+subWords[7]+",'house')";
-                    SQLiteConnect.nonResponse(ins_doujinshi);
+                    SQLiteConnect.Excute(ins_doujinshi);
 
                     //subWords[5]=(サークル)とsubWords[6]=(作者)を全角スペースSplitして別レコードにしながら各テーブルに格納
                     string[] splited_circle = subWords[5].Split('　');
@@ -152,13 +152,13 @@ namespace 同人誌管理 {
                     for(int cnt=0; cnt < splited_circle.Length; cnt++) {
                         string ins_circle = "INSERT INTO t_circle VALUES(" +
                         subWords[0] + ",'" + splited_circle[cnt] + "')";
-                        SQLiteConnect.nonResponse(ins_circle);
+                        SQLiteConnect.Excute(ins_circle);
                     }
 
                     for (int cnt = 0; cnt < splited_author.Length; cnt++) {
                         string ins_author = "INSERT INTO t_author VALUES(" +
                         subWords[0] + ",'" + splited_author[cnt] + "')";
-                        SQLiteConnect.nonResponse(ins_author);
+                        SQLiteConnect.Excute(ins_author);
                     }
                     
                     progress.Text = ((++cnt_record).ToString() + "件読み込みました。");

@@ -29,7 +29,7 @@ namespace 同人誌管理
             //作品名コンボボックスの中身の読み込み
             SQLiteDataReader reader = null;
             string query = "SELECT origin_title FROM t_origin";
-            SQLiteConnect.beResponse(query, ref reader);
+            SQLiteConnect.Excute(query, ref reader);
             while (reader.Read())
             {
                 originComboBox.Items.Add(reader["origin_title"].ToString());
@@ -40,7 +40,7 @@ namespace 同人誌管理
             //ジャンル名コンボボックスの中身の読み込み
             reader = null;
             query = "SELECT genre_title FROM t_genre";
-            SQLiteConnect.beResponse(query, ref reader);
+            SQLiteConnect.Excute(query, ref reader);
             while (reader.Read())
             {
                 genreComboBox.Items.Add(reader["genre_title"].ToString());
@@ -59,7 +59,7 @@ namespace 同人誌管理
             query += "WHERE " + selected_ID + " = t_doujinshi.ID ";
 
             //SQL発行
-            SQLiteConnect.beResponse(query, ref reader);
+            SQLiteConnect.Excute(query, ref reader);
             reader.Read();
             titleForm.Text = reader["タイトル"].ToString();
             circleForm.Text = reader["サークル"].ToString();

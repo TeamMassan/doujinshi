@@ -71,7 +71,7 @@ namespace 同人誌管理 {
                 + "'" + mainChara.Text + "')";  //メインキャラ                
 
             //t_doujinshi登録
-            SQLiteConnect.nonResponse(insert_doujinshi);
+            SQLiteConnect.Excute(insert_doujinshi);
 
             //t_author登録
             if (authorsForm.Text.Length != 0) {
@@ -79,7 +79,7 @@ namespace 同人誌管理 {
                 for (int cnt = 0; cnt < authors.Length; cnt++) {
                     string insert_author = "INSERT INTO t_author(ID,author)" +
                         "VALUES(" + idForm.Text + ", '" + authors[cnt] + "')";
-                    SQLiteConnect.nonResponse(insert_author);
+                    SQLiteConnect.Excute(insert_author);
                 }
             }
 
@@ -89,7 +89,7 @@ namespace 同人誌管理 {
                 for (int cnt = 0; cnt < circles.Length; cnt++) {
                     string insert_circle = "INSERT INTO t_circle(ID,circle)" +
                         "VALUES(" + idForm.Text + ", '" + circles[cnt] + "')";
-                    SQLiteConnect.nonResponse(insert_circle);
+                    SQLiteConnect.Excute(insert_circle);
                 }
             }
            
@@ -125,7 +125,7 @@ namespace 同人誌管理 {
             //レコードが存在する場合は新規IDをアサイン
             else {  
                 query = "SELECT MAX(ID) FROM t_doujinshi";
-                SQLiteConnect.beResponse(query, ref reader);
+                SQLiteConnect.Excute(query, ref reader);
                 reader.Read();
                 newID = int.Parse(reader["Max(ID)"].ToString())+1;
                 reader.Close();
@@ -137,7 +137,7 @@ namespace 同人誌管理 {
 
             //作品一覧をロード
             query = "SELECT origin_ID,origin_title FROM t_origin";
-            SQLiteConnect.beResponse(query, ref reader);
+            SQLiteConnect.Excute(query, ref reader);
             while(reader.Read())
                 originComboBox.Items.Add(reader["origin_title"].ToString());          
             reader.Close();
@@ -145,7 +145,7 @@ namespace 同人誌管理 {
 
             //ジャンル一覧をロード
             query = "SELECT genre_title FROM t_genre";
-            SQLiteConnect.beResponse(query, ref reader);
+            SQLiteConnect.Excute(query, ref reader);
             while (reader.Read())
                 genreComboBox.Items.Add(reader["genre_title"].ToString());
             reader.Close();

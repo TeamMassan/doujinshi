@@ -183,7 +183,7 @@ namespace 同人誌管理 {
             //ジャンルのコンボボックスの中身の読み込み
             SQLiteDataReader reader = null;
             string query = "SELECT genre_title FROM t_genre";
-            SQLiteConnect.beResponse(query, ref reader);
+            SQLiteConnect.Excute(query, ref reader);
             while (reader.Read()) {
                 genreForm.Items.Add(reader["genre_title"].ToString());
             }

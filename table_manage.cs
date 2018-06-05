@@ -14,6 +14,7 @@ namespace 同人誌管理 {
         public table_manage() {
             InitializeComponent();
         }
+        public static SQLiteConnection conn = new SQLiteConnection("Data Source = doujinshi.sqlite");
         int o_baseID;
         int g_baseID;
         string o_basetitle;
@@ -23,7 +24,7 @@ namespace 同人誌管理 {
              string query; 
             SQLiteDataReader reader = null;
             query = "SELECT * FROM t_origin";
-            SQLiteConnect.beResponse(query, ref reader);
+            SQLiteConnect.Excute(query, ref reader);
             while (reader.Read())
             {
                 string[] origin = { (reader["origin_ID"].ToString()),(reader["origin_title"].ToString()) };
@@ -37,7 +38,7 @@ namespace 同人誌管理 {
             string query;
             SQLiteDataReader reader = null;
             query = "SELECT genre_title,genre_ID FROM t_genre";
-            SQLiteConnect.beResponse(query, ref reader);
+            SQLiteConnect.Excute(query, ref reader);
             while (reader.Read())
             {
                 string[] genre = { (reader["genre_ID"].ToString()), (reader["genre_title"].ToString()) };
@@ -45,6 +46,24 @@ namespace 同人誌管理 {
             }
             reader.Close();
             SQLiteConnect.conn.Close();
+        }
+        private int counterID(string str,int ID)
+        {
+            string query;
+            int count = 0;
+            query = "select count(*) from t_doujinshi where "+str+"_ID="+ID;
+            var cmd = new SQLiteCommand(query, conn);
+            try
+            {
+                conn.Open();
+                count = System.Convert.ToInt32(cmd.ExecuteScalar());
+                conn.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("指定したテーブルが見つかりません\n" + err.ToString());
+            }
+            return count;
         }
         private void table_manage_Load(object sender, EventArgs e)
         {
@@ -93,18 +112,21 @@ namespace 同人誌管理 {
                    
                     IDquery = "select max(origin_ID) from t_origin";//現在のID最大値取得sql
                     //追加作業部分
-                    SQLiteConnect.beResponse(IDquery, ref reader);
-                    reader.Read();
-                    ID = int.Parse(reader["max(origin_ID)"].ToString()) + 1; //追加用の新規ID生成
-                    reader.Close();
-                    SQLiteConnect.conn.Close();
-
+                   
                     if (SQLiteConnect.checkRecord("t_origin") == 0)//レコードない時の処理
                         ID = 1;
-
+                    else
+                    {
+                        SQLiteConnect.Excute(IDquery, ref reader);
+                        reader.Read();
+                        ID = int.Parse(reader["max(origin_ID)"].ToString()) + 1; //追加用の新規ID生成
+                        reader.Close();
+                        SQLiteConnect.conn.Close();
+                    }
+                   
                     addquery = "INSERT into t_origin(origin_ID,origin_title)VALUES(" + ID + ","
                         + "'" + originBox.Text + "')";//追加用sql組み立て
-                    SQLiteConnect.nonResponse(addquery);//登録作業
+                    SQLiteConnect.Excute(addquery);//登録作業
 
                     originList.Items.Clear();
                     originset();
@@ -127,18 +149,20 @@ namespace 同人誌管理 {
 
                 IDquery = "select max(genre_ID) from t_genre";//現在のID最大値取得sql
                 //追加作業部分
-                SQLiteConnect.beResponse(IDquery, ref reader);
-                reader.Read();
-                ID = int.Parse(reader["max(genre_ID)"].ToString()) + 1; //追加用の新規ID生成
-                reader.Close();
-                SQLiteConnect.conn.Close();
-
                 if (SQLiteConnect.checkRecord("t_genre") == 0)//レコードない時の処理
                     ID = 1;
-
+                else
+                {
+                    SQLiteConnect.Excute(IDquery, ref reader);
+                    reader.Read();
+                    ID = int.Parse(reader["max(genre_ID)"].ToString()) + 1; //追加用の新規ID生成
+                    reader.Close();
+                    SQLiteConnect.conn.Close();
+                }
+                
                 addquery = "INSERT into t_genre(genre_ID,genre_title)VALUES(" + ID + ","
                     + "'" + genreBox.Text + "')";//追加用sql組み立て
-                SQLiteConnect.nonResponse(addquery);//登録作業
+                SQLiteConnect.Excute(addquery);//登録作業
 
                 genreList.Items.Clear();
                 genreset();
@@ -156,7 +180,7 @@ namespace 同人誌管理 {
             {
                 changequery = "update t_origin set origin_title = '" + changetitle + "'"
                     + "where origin_id = " + o_baseID;//クエリ組み立て
-                SQLiteConnect.nonResponse(changequery);//SQL文実行
+                SQLiteConnect.Excute(changequery);//SQL文実行
                 originList.Items.Clear();
                 originset();//リフレッシュ処理
             }
@@ -173,7 +197,7 @@ namespace 同人誌管理 {
             {
                 changequery = "update t_genre set genre_title = '" + changetitle + "'"
                     + "where genre_id = " + g_baseID;
-                SQLiteConnect.nonResponse(changequery);
+                SQLiteConnect.Excute(changequery);
                 genreList.Items.Clear();
                 genreset();
             }
@@ -182,26 +206,43 @@ namespace 同人誌管理 {
         private void originDelete_Click(object sender, EventArgs e)//項目削除
         {
             string deletequery;
+            int counter = 0;
+            counter = counterID("origin", o_baseID);
+            if (counter != 0)
+            {
+                MessageBox.Show("データが" + counter + "件存在するため、削除できません。","警告",MessageBoxButtons.OK);
+                return;
+            }
             DialogResult res = MessageBox.Show(o_basetitle + "を削除しますか？", "削除確認", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
+                
                 deletequery = "delete from t_origin where origin_id =" + o_baseID;
-                SQLiteConnect.nonResponse(deletequery);
+                SQLiteConnect.Excute(deletequery);
                 originList.Items.Clear();
                 originset();
+                originBox.Clear();
             }
         }
 
         private void genreDelete_Click(object sender, EventArgs e)
         {
-            string deletequery;
+            int counter = 0;
+            counter = counterID("genre", g_baseID);
+            if (counter != 0)
+            {
+                MessageBox.Show("データが" + counter + "件存在するため、削除できません。", "警告", MessageBoxButtons.OK);
+                return;
+            }
+           string deletequery;
             DialogResult res = MessageBox.Show(g_basetitle + "を削除しますか？", "削除確認", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
                 deletequery = "delete from t_genre where genre_id =" + g_baseID;
-                SQLiteConnect.nonResponse(deletequery);
+                SQLiteConnect.Excute(deletequery);
                 genreList.Items.Clear();
                 genreset();
+                genreBox.Clear();
             }
         }
 

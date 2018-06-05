@@ -29,7 +29,7 @@ namespace 同人誌管理 {
         }
 
         //SQL発行（readerを必要としない場合）
-        public static void nonResponse(string SQLquery) {
+        public static void Excute(string SQLquery) {
             var cmd = new SQLiteCommand(SQLquery, conn);
             try {
                 conn.Open();
@@ -45,7 +45,7 @@ namespace 同人誌管理 {
 
         //SQL発行（readerがある場合）
         //関数外でreader.Close()とconn.Close()する必要アリ
-        public static void beResponse(string SQLquery, ref SQLiteDataReader reader) {
+        public static void Excute(string SQLquery, ref SQLiteDataReader reader) {
             var cmd = new SQLiteCommand(SQLquery, conn);
             try {
                 conn.Open();
@@ -89,7 +89,7 @@ namespace 同人誌管理 {
                                 "circle TEXT, " +
                                 "FOREIGN KEY(ID) REFERENCES t_doujinshi(ID) ON DELETE CASCADE" +
                              "); ";
-            nonResponse(setting);
+            Excute(setting);
 
             //ジャンルコード・作品コード一覧初期設定
             //DBを0から設定し直す時の保険で残してるので完全リリース後は消します。
@@ -102,7 +102,7 @@ namespace 同人誌管理 {
                          "INSERT INTO t_origin VALUES(6, 'ラブライブ');" +
                          "INSERT INTO t_origin VALUES(7, 'デレマス');" +
                          "INSERT INTO t_origin VALUES(8, 'その他');";
-                nonResponse(original);
+                Excute(original);
             }
             if (checkRecord("t_genre") < 13) {
                 string genre = "INSERT INTO t_genre VALUES(1,'漫画');" +
@@ -118,7 +118,7 @@ namespace 同人誌管理 {
                         "INSERT INTO t_genre VALUES(11, '設定資料集');" +
                         "INSERT INTO t_genre VALUES(12, '合同本');" +
                         "INSERT INTO t_genre VALUES(13, 'その他');";
-                nonResponse(genre);
+                Excute(genre);
             }
         }
     }
