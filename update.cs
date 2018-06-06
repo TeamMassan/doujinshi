@@ -92,13 +92,36 @@ namespace 同人誌管理
         }
 
         private void readLeft_Click(object sender, EventArgs e) {
-            selected_ID = (int.Parse(selected_ID) - 1).ToString();
-            update_Load(sender, e);
+            SQLiteDataReader reader = null;
+            string minquery = "select min(ID) from t_doujinshi";
+            SQLiteConnect.Excute(minquery, ref reader);
+            reader.Read();
+            int minID = int.Parse(reader["min(ID)"].ToString());
+            reader.Close();
+            SQLiteConnect.conn.Close();
+            if (int.Parse(selected_ID) != minID)
+            {
+                selected_ID = (int.Parse(selected_ID) - 1).ToString();
+                update_Load(sender, e);
+            }
+            else return;
         }
 
         private void readRight_Click(object sender, EventArgs e) {
-            selected_ID = (int.Parse(selected_ID) + 1).ToString();
+             SQLiteDataReader reader = null;
+            string maxquery = "select max(ID) from t_doujinshi";
+            SQLiteConnect.Excute(maxquery, ref reader);
+            reader.Read();
+            int minID = int.Parse(reader["max(ID)"].ToString());
+            reader.Close();
+            SQLiteConnect.conn.Close();
+            if (int.Parse(selected_ID) != minID)
+            {
+                 selected_ID = (int.Parse(selected_ID) + 1).ToString();
             update_Load(sender, e);
+            }
+            else return;
+        }
+           
         }
     }
-}

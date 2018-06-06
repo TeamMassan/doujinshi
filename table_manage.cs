@@ -14,7 +14,6 @@ namespace 同人誌管理 {
         public table_manage() {
             InitializeComponent();
         }
-        public static SQLiteConnection conn = new SQLiteConnection("Data Source = doujinshi.sqlite");
         int o_baseID;
         int g_baseID;
         string o_basetitle;
@@ -46,24 +45,6 @@ namespace 同人誌管理 {
             }
             reader.Close();
             SQLiteConnect.conn.Close();
-        }
-        private int counterID(string str,int ID)
-        {
-            string query;
-            int count = 0;
-            query = "select count(*) from t_doujinshi where "+str+"_ID="+ID;
-            var cmd = new SQLiteCommand(query, conn);
-            try
-            {
-                conn.Open();
-                count = System.Convert.ToInt32(cmd.ExecuteScalar());
-                conn.Close();
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show("指定したテーブルが見つかりません\n" + err.ToString());
-            }
-            return count;
         }
         private void table_manage_Load(object sender, EventArgs e)
         {
@@ -207,7 +188,7 @@ namespace 同人誌管理 {
         {
             string deletequery;
             int counter = 0;
-            counter = counterID("origin", o_baseID);
+            counter = SQLiteConnect.counterID("origin", o_baseID);
             if (counter != 0)
             {
                 MessageBox.Show("データが" + counter + "件存在するため、削除できません。","警告",MessageBoxButtons.OK);
@@ -228,7 +209,7 @@ namespace 同人誌管理 {
         private void genreDelete_Click(object sender, EventArgs e)
         {
             int counter = 0;
-            counter = counterID("genre", g_baseID);
+            counter = SQLiteConnect.counterID("genre", g_baseID);
             if (counter != 0)
             {
                 MessageBox.Show("データが" + counter + "件存在するため、削除できません。", "警告", MessageBoxButtons.OK);
