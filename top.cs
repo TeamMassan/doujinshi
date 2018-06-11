@@ -18,20 +18,26 @@ namespace 同人誌管理 {
 
         //検索と結果読み込み処理
         private void RoadResult(string WHEREphrase) {
-            const string seach_query = "SELECT t_doujinshi.ID, title AS タイトル,GROUP_CONCAT(circle) AS サークル, " +
-                "GROUP_CONCAT(author) AS 作者, date AS 頒布日 " +
-                "FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)" +
-                "LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID ";
-            const string group_by=" GROUP BY t_doujinshi.ID";
+            const string seach_query = "SELECT t_doujinshi.ID,title AS タイトル,サークル,作者,origin_title AS 作品,date AS 頒布日 "+
+                "FROM(SELECT main.ID, title, origin_ID, genre_ID, age_limit, date, main_chara, place, サークル, GROUP_CONCAT(author) AS 作者 "+
+                "FROM(SELECT t_doujinshi.ID, title, origin_ID, genre_ID, age_limit, date, main_chara, place, GROUP_CONCAT(circle) AS サークル "+
+                "FROM t_doujinshi LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID GROUP BY t_doujinshi.ID) AS main "+
+                "LEFT OUTER JOIN t_author ON main.ID = t_author.ID GROUP BY main.ID) AS t_doujinshi "+
+                "LEFT OUTER JOIN t_origin ON t_doujinshi.origin_ID = t_origin.origin_ID ";
             //リストビューへの読み出し
             listView.Items.Clear();   //二回目以降の多重出力を回避
             SQLiteDataReader reader = null;
-            SQLiteConnect.Excute(seach_query + WHEREphrase + group_by, ref reader);
+            SQLiteConnect.Excute(seach_query + WHEREphrase, ref reader);
+            if (reader == null) {
+                MessageBox.Show("結果を取得出来ませんでした");
+                return;
+            }
             while (reader.Read()) {
                 string[] items = {reader["ID"].ToString(),
                         reader["タイトル"].ToString(),
                         reader["サークル"].ToString(),
                         reader["作者"].ToString(),
+                        reader["作品"].ToString(),
                         Date.insert_y_m_d(reader["頒布日"].ToString())
                 };
                 listView.Items.Add(new ListViewItem(items));
@@ -62,9 +68,9 @@ namespace 同人誌管理 {
                 case "作品タイトル":
                     conditions = "WHERE title LIKE '%" + conditionWord.Text + "%'"; break;
                 case "作家名":
-                    conditions = "WHERE author LIKE '%" + conditionWord.Text + "%'"; break;
+                    conditions = "WHERE 作者 LIKE '%" + conditionWord.Text + "%'"; break;
                 case "サークル名":
-                    conditions = "WHERE circle LIKE '%" + conditionWord.Text + "%'"; break;
+                    conditions = "WHERE サークル LIKE '%" + conditionWord.Text + "%'"; break;
                 case "キャラ名":
                     conditions = "WHERE main_chara LIKE '%" + conditionWord.Text + "%'"; break;
                 case "全て":
@@ -175,15 +181,37 @@ namespace 同人誌管理 {
             //OKボタンがクリックされたときインポートする
             if (exportFileDialog.ShowDialog() == DialogResult.OK) {
                 Stream stream = exportFileDialog.OpenFile();
-                if (stream != null) { 
+                if (stream != null) {
+                    //全情報を連結したSQLクエリの作成
+                    const string select = "SELECT main.ID,title AS タイトル,origin_title,genre_title,age_limit,サークル,作者,date,main_chara ";
+                    string query = select + SQLiteConnect.getFullInfoFrom + SQLiteConnect.getFullInfoLatter;
+                    SQLiteDataReader reader = null;
+                    SQLiteConnect.Excute(query, ref reader);
+                    if (reader == null) { 
+                        MessageBox.Show("SELECT結果が取得できませんでした");
+                        return;
+                    }
                     StreamWriter sw = new StreamWriter(stream, Encoding.GetEncoding("Shift_JIS"));
                     //ここで書き込み処理
-                    //SELECT文で元の情報を集めてreaderを一行ずつ出力
-                    //sw.WriteLine("初めてのファイル出力です");
-
-
+                    while (reader.Read()) {
+                        string[] items = {reader["ID"].ToString(),
+                            reader["タイトル"].ToString(),
+                            reader["origin_title"].ToString(),
+                            reader["genre_title"].ToString(),
+                            reader["age_limit"].ToString(),
+                            //複数サークル等を繋ぐカンマがcsvのカンマと誤認されないように置き換える
+                            reader["サークル"].ToString().Replace(',',' '),
+                            reader["作者"].ToString().Replace(',',' '),
+                            reader["date"].ToString(),
+                            reader["main_chara"].ToString() };
+                        for (int cnt = 0; cnt < items.Length; cnt++) {
+                            sw.Write(items[cnt] + ',');
+                        }
+                        sw.Write('\n');
+                    }
                     sw.Close();
                     stream.Close();
+                    MessageBox.Show("エクスポートが完了しました");
                 }
                     
             }

@@ -46,6 +46,7 @@ namespace 同人誌管理 {
             this.progress = new System.Windows.Forms.Label();
             this.exportFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.importFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.origin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +68,7 @@ namespace 同人誌管理 {
             this.conditionWord.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.conditionWord.Location = new System.Drawing.Point(192, 42);
             this.conditionWord.Name = "conditionWord";
-            this.conditionWord.Size = new System.Drawing.Size(522, 23);
+            this.conditionWord.Size = new System.Drawing.Size(659, 23);
             this.conditionWord.TabIndex = 1;
             // 
             // search
@@ -102,13 +103,14 @@ namespace 同人誌管理 {
             this.title,
             this.circle,
             this.author,
+            this.origin,
             this.date});
             this.listView.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.listView.FullRowSelect = true;
             this.listView.Location = new System.Drawing.Point(25, 108);
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(689, 303);
+            this.listView.Size = new System.Drawing.Size(826, 312);
             this.listView.TabIndex = 4;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -145,7 +147,7 @@ namespace 同人誌管理 {
             // 
             this.add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.add.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.add.Location = new System.Drawing.Point(25, 440);
+            this.add.Location = new System.Drawing.Point(25, 449);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(99, 51);
             this.add.TabIndex = 5;
@@ -157,7 +159,7 @@ namespace 同人誌管理 {
             // 
             this.tableManage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tableManage.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.tableManage.Location = new System.Drawing.Point(192, 440);
+            this.tableManage.Location = new System.Drawing.Point(192, 449);
             this.tableManage.Name = "tableManage";
             this.tableManage.Size = new System.Drawing.Size(100, 51);
             this.tableManage.TabIndex = 6;
@@ -169,7 +171,7 @@ namespace 同人誌管理 {
             // 
             this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.close.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.close.Location = new System.Drawing.Point(614, 440);
+            this.close.Location = new System.Drawing.Point(751, 449);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(100, 51);
             this.close.TabIndex = 7;
@@ -183,7 +185,7 @@ namespace 同人誌管理 {
             this.ファイルFToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(742, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(879, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -243,11 +245,16 @@ namespace 同人誌管理 {
             this.importFileDialog.Filter = "csvファイル (*.csv)|*.csv|テキストファイル(*.txt)|*.txt";
             this.importFileDialog.Title = "開くファイルを選択してください";
             // 
+            // origin
+            // 
+            this.origin.Text = "作品";
+            this.origin.Width = 110;
+            // 
             // top
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(742, 519);
+            this.ClientSize = new System.Drawing.Size(879, 528);
             this.Controls.Add(this.progress);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.close);
@@ -259,6 +266,7 @@ namespace 同人誌管理 {
             this.Controls.Add(this.searchKind);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(890, 565);
             this.Name = "top";
             this.Text = "同人誌管理";
             this.Load += new System.EventHandler(this.top_Load);
@@ -290,6 +298,7 @@ namespace 同人誌管理 {
         private System.Windows.Forms.Label progress;
         private System.Windows.Forms.SaveFileDialog exportFileDialog;
         private System.Windows.Forms.OpenFileDialog importFileDialog;
+        private System.Windows.Forms.ColumnHeader origin;
     }
 }
 

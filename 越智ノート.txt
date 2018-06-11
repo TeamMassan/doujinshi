@@ -62,5 +62,4 @@ LEFT OUTER JOIN t_genre ON t_doujinshi.ID = t_genre.genre_ID)
 LEFT OUTER JOIN t_origin ON t_doujinshi.ID = t_origin.origin_ID 
 WHERE 1 = t_doujinshi.ID LIMIT 1
 
-67,68行目　ComboBoxのテキストはSelectedIndexプロパティで設定する
-69行目　メソッド使わず、8桁の数値から直接Substringする
+ロード処理が複数回されたとき、コンボボックスの内容が再追加されて重複しないようItems.Clear()する

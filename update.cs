@@ -50,15 +50,13 @@ namespace 同人誌管理
 
             //テキスト読み込み
             reader = null;
-            query = "SELECT title AS タイトル, GROUP_CONCAT(circle) AS サークル, GROUP_CONCAT(author) AS 作者, origin_title AS 作品, genre_title AS ジャンル, date AS 年月日, age_limit AS 年齢, place AS 場所, main_chara AS メインキャラ " +
-                "FROM(((t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)" +
-                "LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID)" +
-                "LEFT OUTER JOIN t_genre ON t_doujinshi.ID = t_genre.genre_ID)" +
-                "LEFT OUTER JOIN t_origin ON t_doujinshi.ID = t_origin.origin_ID ";
+    
+            string select_all = "SELECT title AS タイトル,サークル,作者,origin_title AS 作品,genre_title AS ジャンル, date AS 年月日, age_limit AS 年齢, place AS 場所, main_chara AS メインキャラ ";
             //WHERE句記入
-            query += "WHERE " + selected_ID + " = t_doujinshi.ID ";
+            string where = "WHERE t_doujinshi.ID = " + selected_ID;
 
             //SQL発行
+            query = select_all + SQLiteConnect.getFullInfoFrom + where + SQLiteConnect.getFullInfoLatter;
             SQLiteConnect.Excute(query, ref reader);
             reader.Read();
             titleForm.Text = reader["タイトル"].ToString();
