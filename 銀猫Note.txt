@@ -22,3 +22,4 @@ INSERT INTO t_genre VALUES(10,'4コマ')
 INSERT INTO t_genre VALUES(11,'設定資料集')
 INSERT INTO t_genre VALUES(12,'合同本')
 INSERT INTO t_genre VALUES(13,'その他')
+

@@ -64,34 +64,6 @@ using System.Data.SQLite;を追加
 http://park.geocities.jp/gdfsm000/cs/cs603.html
 
 
-SELECT t_doujinshi.ID,title,circle,author,date 
-FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)
-LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID
-WHERE title LIKE '%月%';
-
-合同本の複数レコード処理に、同じグループのデータを一行で表示する
-GROUP_CONCAT関数が使えそう
-但し、その為のGROUP BY句はWHERE句より後に置く必要がある。
-SELECT t_doujinshi.ID,title AS タイトル,GROUP_CONCAT(circle) AS サークル,GROUP_CONCAT(author) AS 作者,date AS 頒布日 
-FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)
-LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID 
-GROUP BY t_doujinshi.ID;
-
-SELECT t_doujinshi.ID,title AS タイトル,GROUP_CONCAT(circle) AS サークル,GROUP_CONCAT(author) AS 作者,date AS 頒布日 
-FROM(t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)
-LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID 
-WHERE タイトル LIKE '%月%' GROUP BY t_doujinshi.ID;
-
-日付をdateから複数フォームに格納したい時に推奨
-SUBSTR関数で文字列の一部を返す
-
-
-DELETE FROM t_origin WHERE (origin_ID != (SELECT MIN(origin_ID) FROM t_origin)) AND origin_title = (
-	SELECT origin_title FROM t_origin WHERE origin_ID = (
-		SELECT MAX(origin_ID) 
-		FROM t_origin
-		)
-	)
 
 作品テーブルの重複調べるSQL
 SELECT origin_title,COUNT(origin_ID) AS 件数 FROM t_origin GROUP BY origin_title; 
@@ -102,25 +74,47 @@ https://msdn.microsoft.com/ja-jp/library/system.windows.forms.listview.sorting(v
 カラムクリックによるリストビューソート実例
 https://dobon.net/vb/dotnet/control/lvitemsort.html
 
+
+各テーブル全部連結時、update_Loadに使用
+SELECT main.ID,サークル名,作者名,origin_title,genre_title
+FROM((SELECT main.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place,サークル名,GROUP_CONCAT(author) AS 作者名
+		FROM(SELECT t_doujinshi.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place,GROUP_CONCAT(circle) AS サークル名
+				FROM t_doujinshi LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID
+				WHERE t_doujinshi.ID = 1 
+				GROUP BY t_doujinshi.ID) AS main
+		LEFT OUTER JOIN t_author ON main.ID = t_author.ID
+		GROUP BY main.ID) AS main
+LEFT OUTER JOIN t_origin ON main.origin_ID = t_origin.origin_ID)
+LEFT OUTER JOIN t_genre ON main.genre_ID = t_genre.genre_ID
+
+
+
+検索結果、頒布日前に作品を挿入
+top検索の際はWHERE句完全後付
+SELECT t_doujinshi.ID,title AS タイトル,サークル,作者,origin_title AS 作品,date AS 頒布日
+FROM(SELECT main.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place,サークル,GROUP_CONCAT(author) AS 作者
+		FROM(SELECT t_doujinshi.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place,GROUP_CONCAT(circle) AS サークル
+				FROM t_doujinshi LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID
+				GROUP BY t_doujinshi.ID) AS main
+		LEFT OUTER JOIN t_author ON main.ID = t_author.ID
+		GROUP BY main.ID) AS t_doujinshi
+LEFT OUTER JOIN t_origin ON t_doujinshi.origin_ID = t_origin.origin_ID 
+
+今後の実装予定
 IDが可変長なのでソート時に文字列と認識されて目的のソートが出来ない
 サブアイテムだけインタフェースごとソート処理実装する
+画像表示を追加、デザインは魔理沙氏のLINE参照
+t_doujinshiのテーブル設計をファイル名で保持するよう追加
+詳細検索の結合度を2に戻したい
+詳細検索を日付で可能にしたい
 
-SELECT t_doujinshi.ID,title,origin_title,genre_title,age_limit,GROUP_CONCAT(circle) AS サークル,GROUP_CONCAT(t_doujinshi.author) AS 作者,date,main_chara
-SELECT * 
-FROM((((t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)
-LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID)
-LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)
-LEFT OUTER JOIN t_origin ON t_doujinshi.origin_ID = t_origin.origin_ID)
-LEFT OUTER JOIN t_genre ON t_doujinshi.genre_ID = t_genre.genre_ID
-WHERE t_doujinshi.ID = 1
-GROUP BY t_doujinshi.ID
-
-
-SELECT title AS タイトル, GROUP_CONCAT(author) AS 作者, origin_title AS 作品, genre_title AS ジャンル, date AS 年月日, age_limit AS 年齢, place AS 場所, main_chara AS メインキャラ 
-FROM(((t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID) 
-LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID) 
-LEFT OUTER JOIN t_genre ON t_doujinshi.genre_ID = t_genre.genre_ID) 
-LEFT OUTER JOIN t_origin ON t_doujinshi.origin_ID = t_origin.origin_ID 
-WHERE t_doujinshi.ID < 6 
-GROUP BY t_doujinshi.ID
-外部結合時に既にある、同内容のレコードがグループ化で一つにまとめられない
+CREATE TABLE IF NOT EXISTS t_doujinshi(
+                                ID INTEGER PRIMARY KEY NOT NULL,
+                                title TEXT NOT NULL,
+                                origin_ID INTEGER NOT NULL,
+                                genre_ID INTEGER NOT NULL,
+                                age_limit TEXT NOT NULL,
+                                date INTEGER,
+                                main_chara TEXT,
+                                image TEXT,"+
+                                place TEXT);

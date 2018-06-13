@@ -34,18 +34,20 @@ namespace 同人誌管理 {
             this.title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.circle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.author = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.origin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.add = new System.Windows.Forms.Button();
             this.tableManage = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.ファイルFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.import = new System.Windows.Forms.ToolStripMenuItem();
-            this.export = new System.Windows.Forms.ToolStripMenuItem();
-            this.quit = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileMenuItemImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileMenuItemExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileMenuItemQuit = new System.Windows.Forms.ToolStripMenuItem();
             this.progress = new System.Windows.Forms.Label();
             this.exportFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.importFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.FileMenuItemSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +69,7 @@ namespace 同人誌管理 {
             this.conditionWord.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.conditionWord.Location = new System.Drawing.Point(192, 42);
             this.conditionWord.Name = "conditionWord";
-            this.conditionWord.Size = new System.Drawing.Size(522, 23);
+            this.conditionWord.Size = new System.Drawing.Size(659, 23);
             this.conditionWord.TabIndex = 1;
             // 
             // search
@@ -102,13 +104,14 @@ namespace 同人誌管理 {
             this.title,
             this.circle,
             this.author,
+            this.origin,
             this.date});
             this.listView.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.listView.FullRowSelect = true;
             this.listView.Location = new System.Drawing.Point(25, 108);
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(689, 303);
+            this.listView.Size = new System.Drawing.Size(826, 312);
             this.listView.TabIndex = 4;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -135,6 +138,11 @@ namespace 同人誌管理 {
             this.author.Text = "作者";
             this.author.Width = 124;
             // 
+            // origin
+            // 
+            this.origin.Text = "作品";
+            this.origin.Width = 110;
+            // 
             // date
             // 
             this.date.Text = "頒布日";
@@ -145,7 +153,7 @@ namespace 同人誌管理 {
             // 
             this.add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.add.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.add.Location = new System.Drawing.Point(25, 440);
+            this.add.Location = new System.Drawing.Point(25, 449);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(99, 51);
             this.add.TabIndex = 5;
@@ -157,7 +165,7 @@ namespace 同人誌管理 {
             // 
             this.tableManage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tableManage.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.tableManage.Location = new System.Drawing.Point(192, 440);
+            this.tableManage.Location = new System.Drawing.Point(192, 449);
             this.tableManage.Name = "tableManage";
             this.tableManage.Size = new System.Drawing.Size(100, 51);
             this.tableManage.TabIndex = 6;
@@ -169,7 +177,7 @@ namespace 同人誌管理 {
             // 
             this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.close.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.close.Location = new System.Drawing.Point(614, 440);
+            this.close.Location = new System.Drawing.Point(751, 449);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(100, 51);
             this.close.TabIndex = 7;
@@ -180,46 +188,47 @@ namespace 同人誌管理 {
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ファイルFToolStripMenuItem});
+            this.FileMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(742, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(879, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // ファイルFToolStripMenuItem
+            // FileMenuItem
             // 
-            this.ファイルFToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.import,
-            this.export,
-            this.quit});
-            this.ファイルFToolStripMenuItem.Name = "ファイルFToolStripMenuItem";
-            this.ファイルFToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.ファイルFToolStripMenuItem.Text = "ファイル(&F)";
+            this.FileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileMenuItemImport,
+            this.FileMenuItemExport,
+            this.FileMenuItemSeparator,
+            this.FileMenuItemQuit});
+            this.FileMenuItem.Name = "FileMenuItem";
+            this.FileMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.FileMenuItem.Text = "ファイル(&F)";
             // 
-            // import
+            // FileMenuItemImport
             // 
-            this.import.Name = "import";
-            this.import.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.import.Size = new System.Drawing.Size(234, 22);
-            this.import.Text = "CSV形式でインポート(&I)";
-            this.import.Click += new System.EventHandler(this.import_Click);
+            this.FileMenuItemImport.Name = "FileMenuItemImport";
+            this.FileMenuItemImport.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.FileMenuItemImport.Size = new System.Drawing.Size(234, 22);
+            this.FileMenuItemImport.Text = "CSV形式でインポート(&I)";
+            this.FileMenuItemImport.Click += new System.EventHandler(this.import_Click);
             // 
-            // export
+            // FileMenuItemExport
             // 
-            this.export.Name = "export";
-            this.export.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.export.Size = new System.Drawing.Size(234, 22);
-            this.export.Text = "CSV形式でエクスポート(&E)";
-            this.export.Click += new System.EventHandler(this.export_Click);
+            this.FileMenuItemExport.Name = "FileMenuItemExport";
+            this.FileMenuItemExport.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.FileMenuItemExport.Size = new System.Drawing.Size(234, 22);
+            this.FileMenuItemExport.Text = "CSV形式でエクスポート(&E)";
+            this.FileMenuItemExport.Click += new System.EventHandler(this.export_Click);
             // 
-            // quit
+            // FileMenuItemQuit
             // 
-            this.quit.Name = "quit";
-            this.quit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.quit.Size = new System.Drawing.Size(234, 22);
-            this.quit.Text = "終了(&X)";
-            this.quit.Click += new System.EventHandler(this.quit_Click);
+            this.FileMenuItemQuit.Name = "FileMenuItemQuit";
+            this.FileMenuItemQuit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.FileMenuItemQuit.Size = new System.Drawing.Size(234, 22);
+            this.FileMenuItemQuit.Text = "終了(&X)";
+            this.FileMenuItemQuit.Click += new System.EventHandler(this.quit_Click);
             // 
             // progress
             // 
@@ -243,11 +252,16 @@ namespace 同人誌管理 {
             this.importFileDialog.Filter = "csvファイル (*.csv)|*.csv|テキストファイル(*.txt)|*.txt";
             this.importFileDialog.Title = "開くファイルを選択してください";
             // 
+            // FileMenuItemSeparator
+            // 
+            this.FileMenuItemSeparator.Name = "FileMenuItemSeparator";
+            this.FileMenuItemSeparator.Size = new System.Drawing.Size(231, 6);
+            // 
             // top
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(742, 519);
+            this.ClientSize = new System.Drawing.Size(879, 528);
             this.Controls.Add(this.progress);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.close);
@@ -259,6 +273,7 @@ namespace 同人誌管理 {
             this.Controls.Add(this.searchKind);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(890, 565);
             this.Name = "top";
             this.Text = "同人誌管理";
             this.Load += new System.EventHandler(this.top_Load);
@@ -283,13 +298,15 @@ namespace 同人誌管理 {
         private System.Windows.Forms.ColumnHeader author;
         private System.Windows.Forms.ColumnHeader date;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem ファイルFToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem import;
-        private System.Windows.Forms.ToolStripMenuItem export;
-        private System.Windows.Forms.ToolStripMenuItem quit;
+        private System.Windows.Forms.ToolStripMenuItem FileMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FileMenuItemImport;
+        private System.Windows.Forms.ToolStripMenuItem FileMenuItemExport;
+        private System.Windows.Forms.ToolStripMenuItem FileMenuItemQuit;
         private System.Windows.Forms.Label progress;
         private System.Windows.Forms.SaveFileDialog exportFileDialog;
         private System.Windows.Forms.OpenFileDialog importFileDialog;
+        private System.Windows.Forms.ColumnHeader origin;
+        private System.Windows.Forms.ToolStripSeparator FileMenuItemSeparator;
     }
 }
 

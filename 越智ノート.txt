@@ -60,7 +60,82 @@ FROM(((t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)
 LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID)
 LEFT OUTER JOIN t_genre ON t_doujinshi.ID = t_genre.genre_ID)
 LEFT OUTER JOIN t_origin ON t_doujinshi.ID = t_origin.origin_ID 
+
+以下6/13勉強回終了時点
 WHERE 1 = t_doujinshi.ID LIMIT 1
 
-67,68行目　ComboBoxのテキストはSelectedIndexプロパティで設定する
-69行目　メソッド使わず、8桁の数値から直接Substringする
+UPDATE title AS タイトル, GROUP_CONCAT(circle) AS サークル, GROUP_CONCAT(author) AS 作者, origin_title AS 作品, genre_title AS ジャンル, date AS 年月日, age_limit AS 年齢, place AS 場所, main_chara AS メインキャラ " +
+FROM(((t_doujinshi LEFT OUTER JOIN t_author ON t_doujinshi.ID = t_author.ID)
+LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID)
+LEFT OUTER JOIN t_genre ON t_doujinshi.genre_ID = t_genre.genre_ID)
+LEFT OUTER JOIN t_origin ON t_doujinshi.origin_ID = t_origin.origin_ID 
+
+WHERE t_doujinshi = selected_ID
+
+UPDATE t_doujinshi
+SET title = 'HOG',
+origin_ID = 1,
+genre_ID = 1,
+date = 20180606,
+age_limit = 'r18',
+main_chara = '',
+place = 'house'
+WHERE 2 = ID;
+
+ DELETE FROM t_circle
+ WHERE ID = '1';
+
+ INSERT INTO t_circle
+ VALUES (1,'HOG');
+
+ DELETE FROM t_author
+ WHERE ID = '1';
+
+ INSERT INTO t_author
+ VALUES (1,'HOG');
+
+ UPDATE t_doujinshi 
+ SET 
+ title = '『It is not a dream.』 -夢じゃない-',
+ origin_ID  = (SELECT origin_ID + FROM t_origin WHERE '0' = t_origin.origin_title),
+ genre_ID = (SELECT genre_ID + FROM t_genre WHERE '0' = t_genle.genle_title),
+ date = '121230',
+ age_limit = 'all',
+ main_chara = 'テストキャラ',
+ place = 'house' 
+ WHERE= t_doujinshi
+
+SQL logic error or missing database
+near "FROM": syntax errorSystem.Data.SQLite
+
+UPDATE t_doujinshi 
+SET 
+title = '『It is not a dream.』 -夢じゃない-',
+origin_ID  = (SELECT origin_ID FROM t_origin WHERE '0' = t_origin.origin_title),
+genre_ID = (SELECT genre_ID FROM t_genre WHERE '0' = t_genle.genle_title),
+date = '121230',
+age_limit = 'all',
+main_chara = 'テストキャラ',
+place = 'house' 
+WHERE 1 = t_doujinshi
+
+SQL logic error or missing database
+no such column: t_genle.genle_titleSystem.Data.SQLite
+
+UPDATE t_doujinshi SET title = '『It is not a dream.』 -夢じゃない-',origin_ID  = (SELECT origin_ID FROM t_origin WHERE '0' = t_origin.origin_title),genre_ID = (SELECT genre_ID FROM t_genre WHERE '0' = t_genre.genre_title),date = '121230',age_limit = 'all',main_chara = 'テストキャラ',place = 'house' WHERE 1 = ID
+
+SQL logic error or missing database
+no such column: t_doujinshiSystem.Data.SQLite
+
+UPDATE t_doujinshi 
+SET 
+title = '『It is not a dream.』 -夢じゃない-',
+origin_ID  = (SELECT origin_ID FROM t_origin WHERE '0' = t_origin.origin_title),
+genre_ID = (SELECT genre_ID FROM t_genre WHERE '0' = t_genre.genre_title),
+date = '121230',
+age_limit = 'all',
+main_chara = 'テストキャラ',
+place = 'house' 
+WHERE 1 = ID
+
+NOT NULL constraint failed: t_doujinshi.origin_IDSystem.Data.SQLite

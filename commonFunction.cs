@@ -12,6 +12,16 @@ namespace 同人誌管理 {
         //DBの場所をexeファイルから相対パス指定
         public static SQLiteConnection conn = new SQLiteConnection("Data Source = doujinshi.sqlite");
 
+        //全テーブル結合した上で情報取得したいとき用のSQL文
+        //SELECT句、WHERE句は自作すること。SELECT句 + getFullInfoFrom + WHERE句 + getFullInfoLatter でつなげて発行
+        //WHERE句に指定出来るのは同人誌テーブルのIDだけ
+        public const string getFullInfoFrom = "FROM((SELECT main.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place,サークル,"+
+            "GROUP_CONCAT(author) AS 作者 FROM(SELECT t_doujinshi.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place,"+
+            "GROUP_CONCAT(circle) AS サークル FROM t_doujinshi LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID ";
+        public const string getFullInfoLatter = " GROUP BY t_doujinshi.ID) AS main LEFT OUTER JOIN t_author ON main.ID = t_author.ID "+
+            "GROUP BY main.ID) AS main LEFT OUTER JOIN t_origin ON main.origin_ID = t_origin.origin_ID) "+
+            "LEFT OUTER JOIN t_genre ON main.genre_ID = t_genre.genre_ID";
+        
         //任意テーブルのレコード件数を取得
         public static int checkRecord(string table_name) {
             int Rows = 0;
@@ -27,22 +37,20 @@ namespace 同人誌管理 {
             }
             return Rows;
         }
+
         //IDカウンター
-        public static int counterID(string str, int ID)
-        {
+        public static int counterID(string str, int ID) {
             string query;
             int count = 0;
             query = "select count(*) from t_doujinshi where " + str + "_ID=" + ID;
             var cmd = new SQLiteCommand(query, conn);
-            try
-            {
+            try {
                 conn.Open();
                 count = System.Convert.ToInt32(cmd.ExecuteScalar());
                 conn.Close();
 
             }
-            catch (Exception err)
-            {
+            catch (Exception err) {
                 MessageBox.Show("指定したテーブルが見つかりません\n" + err.ToString());
             }
             return count;
@@ -89,6 +97,7 @@ namespace 同人誌管理 {
                                 "age_limit TEXT NOT NULL," +
                                 "date INTEGER," +
                                 "main_chara TEXT," +
+                                "thumbnail TEXT," +
                                 "place TEXT" +
                              ");" +
                              "CREATE TABLE IF NOT EXISTS t_origin(" +

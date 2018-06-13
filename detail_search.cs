@@ -120,7 +120,7 @@ namespace 同人誌管理 {
                     conditions += " AND ";
                 else
                     check = true;
-                conditions += "t_Author.Author LIKE '%" +  bookAuthor.Text + "%'";
+                conditions += "作者 LIKE '%" +  bookAuthor.Text + "%'";
             }
             //ジャンル記入チェック
             if (genreForm.Text != "") {
