@@ -94,6 +94,7 @@ namespace 同人誌管理 {
         //アイテムをダブルクリック選択時に更新フォームを開く
         private void listView_DoubleClick(object sender, EventArgs e) {
             var update = new update();
+            //update呼び出し時に選択IDを渡す
             update.selected_ID = listView.SelectedItems[0].SubItems[0].Text;
             update.ShowDialog();
         }
@@ -139,7 +140,7 @@ namespace 同人誌管理 {
             if (importFileDialog.ShowDialog() == DialogResult.OK) {
                 var file = new StreamReader(importFileDialog.FileName, Encoding.GetEncoding("Shift_JIS"));
                 string line;
-                progress.Visible = true;    //プログレス可視化
+                progress.Visible = true;    //インポート状況可視化
                 int cnt_record = 0;
                 while ((line = file.ReadLine()) != null) {
                     //一行単位で配列に格納してINSERT文に埋め込み
@@ -209,11 +210,11 @@ namespace 同人誌管理 {
                         }
                         sw.Write('\n');
                     }
+                    SQLiteConnect.conn.Close();
                     sw.Close();
                     stream.Close();
                     MessageBox.Show("エクスポートが完了しました");
-                }
-                    
+                }             
             }
         }
     }

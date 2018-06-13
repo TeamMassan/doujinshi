@@ -46,7 +46,7 @@
             this.r15 = new System.Windows.Forms.RadioButton();
             this.r18 = new System.Windows.Forms.RadioButton();
             this.close = new System.Windows.Forms.Button();
-            this.insert = new System.Windows.Forms.Button();
+            this.updateBotton = new System.Windows.Forms.Button();
             this.idForm = new System.Windows.Forms.TextBox();
             this.mainChara = new System.Windows.Forms.TextBox();
             this.authorsForm = new System.Windows.Forms.TextBox();
@@ -260,16 +260,17 @@
             this.close.UseVisualStyleBackColor = true;
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
-            // insert
+            // updateBotton
             // 
-            this.insert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.insert.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.insert.Location = new System.Drawing.Point(392, 527);
-            this.insert.Name = "insert";
-            this.insert.Size = new System.Drawing.Size(75, 23);
-            this.insert.TabIndex = 13;
-            this.insert.Text = "更新";
-            this.insert.UseVisualStyleBackColor = true;
+            this.updateBotton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.updateBotton.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.updateBotton.Location = new System.Drawing.Point(392, 527);
+            this.updateBotton.Name = "updateBotton";
+            this.updateBotton.Size = new System.Drawing.Size(75, 23);
+            this.updateBotton.TabIndex = 13;
+            this.updateBotton.Text = "更新";
+            this.updateBotton.UseVisualStyleBackColor = true;
+            this.updateBotton.Click += new System.EventHandler(this.updateBotton_Click);
             // 
             // idForm
             // 
@@ -480,7 +481,7 @@
             this.Controls.Add(this.place);
             this.Controls.Add(this.ageLimit);
             this.Controls.Add(this.close);
-            this.Controls.Add(this.insert);
+            this.Controls.Add(this.updateBotton);
             this.Controls.Add(this.idForm);
             this.Controls.Add(this.mainChara);
             this.Controls.Add(this.authorsForm);
@@ -529,7 +530,7 @@
         private System.Windows.Forms.RadioButton r15;
         private System.Windows.Forms.RadioButton r18;
         private System.Windows.Forms.Button close;
-        private System.Windows.Forms.Button insert;
+        private System.Windows.Forms.Button updateBotton;
         private System.Windows.Forms.TextBox idForm;
         private System.Windows.Forms.TextBox mainChara;
         private System.Windows.Forms.TextBox authorsForm;

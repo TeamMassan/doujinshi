@@ -32,15 +32,15 @@ namespace 同人誌管理 {
                 empty += "ジャンル、";
                 empty_flag = true;
             }
-            if ((yearForm.Text != "" || monthForm.Text != "" || dayForm.Text != "") 
-                && Date.merge(dayForm.Text, monthForm.Text, dayForm.Text).Length != 8) {
+            if (yearForm.Text == "" || monthForm.Text == "" || dayForm.Text == "" || 
+                    Date.merge(yearForm.Text, monthForm.Text, dayForm.Text).Length != 8) {
                 //頒布日はnull可項目なので入力内容が存在する & 8桁でない時に注意を促す
                 empty += "頒布日、";
                 empty_flag = true;
             }
 
             //記入漏れ箇所提言
-            if (empty_flag == true) {
+            if (empty_flag) {
                 MessageBox.Show(empty + "が空白です。");
                 return;     //必須項目が抜けていたら処理を抜けて中断
             }
@@ -48,13 +48,13 @@ namespace 同人誌管理 {
             //チェックボタンの結果格納（暫定処理）
             //foreach使ってコレクションからchecked==trueの対象年齢と保管場所を取得したい
             string agelimit, place;
-            if (all.Checked == true)
+            if (all.Checked)
                 agelimit = "all";
-            else if (r15.Checked == true)
+            else if (r15.Checked)
                 agelimit = "r15";
             else
                 agelimit = "r18";
-            if (house.Checked == true)
+            if (house.Checked)
                 place = "house";
             else
                 place = "hometown";

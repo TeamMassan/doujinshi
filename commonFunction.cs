@@ -38,6 +38,24 @@ namespace 同人誌管理 {
             return Rows;
         }
 
+        //IDカウンター
+        public static int counterID(string str, int ID) {
+            string query;
+            int count = 0;
+            query = "select count(*) from t_doujinshi where " + str + "_ID=" + ID;
+            var cmd = new SQLiteCommand(query, conn);
+            try {
+                conn.Open();
+                count = System.Convert.ToInt32(cmd.ExecuteScalar());
+                conn.Close();
+
+            }
+            catch (Exception err) {
+                MessageBox.Show("指定したテーブルが見つかりません\n" + err.ToString());
+            }
+            return count;
+        }
+
         //SQL発行（readerを必要としない場合）
         public static void Excute(string SQLquery) {
             var cmd = new SQLiteCommand(SQLquery, conn);

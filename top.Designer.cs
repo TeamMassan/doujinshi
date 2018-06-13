@@ -34,19 +34,20 @@ namespace 同人誌管理 {
             this.title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.circle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.author = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.origin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.add = new System.Windows.Forms.Button();
             this.tableManage = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.ファイルFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.import = new System.Windows.Forms.ToolStripMenuItem();
-            this.export = new System.Windows.Forms.ToolStripMenuItem();
-            this.quit = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileMenuItemImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileMenuItemExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileMenuItemQuit = new System.Windows.Forms.ToolStripMenuItem();
             this.progress = new System.Windows.Forms.Label();
             this.exportFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.importFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.origin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.FileMenuItemSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,6 +138,11 @@ namespace 同人誌管理 {
             this.author.Text = "作者";
             this.author.Width = 124;
             // 
+            // origin
+            // 
+            this.origin.Text = "作品";
+            this.origin.Width = 110;
+            // 
             // date
             // 
             this.date.Text = "頒布日";
@@ -182,46 +188,47 @@ namespace 同人誌管理 {
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ファイルFToolStripMenuItem});
+            this.FileMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(879, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // ファイルFToolStripMenuItem
+            // FileMenuItem
             // 
-            this.ファイルFToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.import,
-            this.export,
-            this.quit});
-            this.ファイルFToolStripMenuItem.Name = "ファイルFToolStripMenuItem";
-            this.ファイルFToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.ファイルFToolStripMenuItem.Text = "ファイル(&F)";
+            this.FileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileMenuItemImport,
+            this.FileMenuItemExport,
+            this.FileMenuItemSeparator,
+            this.FileMenuItemQuit});
+            this.FileMenuItem.Name = "FileMenuItem";
+            this.FileMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.FileMenuItem.Text = "ファイル(&F)";
             // 
-            // import
+            // FileMenuItemImport
             // 
-            this.import.Name = "import";
-            this.import.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.import.Size = new System.Drawing.Size(234, 22);
-            this.import.Text = "CSV形式でインポート(&I)";
-            this.import.Click += new System.EventHandler(this.import_Click);
+            this.FileMenuItemImport.Name = "FileMenuItemImport";
+            this.FileMenuItemImport.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.FileMenuItemImport.Size = new System.Drawing.Size(234, 22);
+            this.FileMenuItemImport.Text = "CSV形式でインポート(&I)";
+            this.FileMenuItemImport.Click += new System.EventHandler(this.import_Click);
             // 
-            // export
+            // FileMenuItemExport
             // 
-            this.export.Name = "export";
-            this.export.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.export.Size = new System.Drawing.Size(234, 22);
-            this.export.Text = "CSV形式でエクスポート(&E)";
-            this.export.Click += new System.EventHandler(this.export_Click);
+            this.FileMenuItemExport.Name = "FileMenuItemExport";
+            this.FileMenuItemExport.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.FileMenuItemExport.Size = new System.Drawing.Size(234, 22);
+            this.FileMenuItemExport.Text = "CSV形式でエクスポート(&E)";
+            this.FileMenuItemExport.Click += new System.EventHandler(this.export_Click);
             // 
-            // quit
+            // FileMenuItemQuit
             // 
-            this.quit.Name = "quit";
-            this.quit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.quit.Size = new System.Drawing.Size(234, 22);
-            this.quit.Text = "終了(&X)";
-            this.quit.Click += new System.EventHandler(this.quit_Click);
+            this.FileMenuItemQuit.Name = "FileMenuItemQuit";
+            this.FileMenuItemQuit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.FileMenuItemQuit.Size = new System.Drawing.Size(234, 22);
+            this.FileMenuItemQuit.Text = "終了(&X)";
+            this.FileMenuItemQuit.Click += new System.EventHandler(this.quit_Click);
             // 
             // progress
             // 
@@ -245,10 +252,10 @@ namespace 同人誌管理 {
             this.importFileDialog.Filter = "csvファイル (*.csv)|*.csv|テキストファイル(*.txt)|*.txt";
             this.importFileDialog.Title = "開くファイルを選択してください";
             // 
-            // origin
+            // FileMenuItemSeparator
             // 
-            this.origin.Text = "作品";
-            this.origin.Width = 110;
+            this.FileMenuItemSeparator.Name = "FileMenuItemSeparator";
+            this.FileMenuItemSeparator.Size = new System.Drawing.Size(231, 6);
             // 
             // top
             // 
@@ -291,14 +298,15 @@ namespace 同人誌管理 {
         private System.Windows.Forms.ColumnHeader author;
         private System.Windows.Forms.ColumnHeader date;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem ファイルFToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem import;
-        private System.Windows.Forms.ToolStripMenuItem export;
-        private System.Windows.Forms.ToolStripMenuItem quit;
+        private System.Windows.Forms.ToolStripMenuItem FileMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FileMenuItemImport;
+        private System.Windows.Forms.ToolStripMenuItem FileMenuItemExport;
+        private System.Windows.Forms.ToolStripMenuItem FileMenuItemQuit;
         private System.Windows.Forms.Label progress;
         private System.Windows.Forms.SaveFileDialog exportFileDialog;
         private System.Windows.Forms.OpenFileDialog importFileDialog;
         private System.Windows.Forms.ColumnHeader origin;
+        private System.Windows.Forms.ToolStripSeparator FileMenuItemSeparator;
     }
 }
 
