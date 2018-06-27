@@ -90,7 +90,6 @@ namespace 同人誌管理 {
         private void updateBotton_Click(object sender, EventArgs e) {
             string query;
 
-            /*
             //UPDATE処理
             query = "UPDATE t_doujinshi ";
             query += "SET ";
@@ -117,7 +116,6 @@ namespace 同人誌管理 {
 
             //t_doujinshi更新
             SQLiteConnect.Excute(query);
-            */
 
             //サークルテーブル処理
             //DERETE文処理

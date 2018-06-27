@@ -25,6 +25,7 @@ namespace 同人誌管理 {
         /// コード エディターで変更しないでください。
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(top));
             this.searchKind = new System.Windows.Forms.ComboBox();
             this.conditionWord = new System.Windows.Forms.TextBox();
             this.search = new System.Windows.Forms.Button();
@@ -43,11 +44,11 @@ namespace 同人誌管理 {
             this.FileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FileMenuItemImport = new System.Windows.Forms.ToolStripMenuItem();
             this.FileMenuItemExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileMenuItemSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.FileMenuItemQuit = new System.Windows.Forms.ToolStripMenuItem();
             this.progress = new System.Windows.Forms.Label();
             this.exportFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.importFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.FileMenuItemSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -222,6 +223,11 @@ namespace 同人誌管理 {
             this.FileMenuItemExport.Text = "CSV形式でエクスポート(&E)";
             this.FileMenuItemExport.Click += new System.EventHandler(this.export_Click);
             // 
+            // FileMenuItemSeparator
+            // 
+            this.FileMenuItemSeparator.Name = "FileMenuItemSeparator";
+            this.FileMenuItemSeparator.Size = new System.Drawing.Size(231, 6);
+            // 
             // FileMenuItemQuit
             // 
             this.FileMenuItemQuit.Name = "FileMenuItemQuit";
@@ -252,11 +258,6 @@ namespace 同人誌管理 {
             this.importFileDialog.Filter = "csvファイル (*.csv)|*.csv|テキストファイル(*.txt)|*.txt";
             this.importFileDialog.Title = "開くファイルを選択してください";
             // 
-            // FileMenuItemSeparator
-            // 
-            this.FileMenuItemSeparator.Name = "FileMenuItemSeparator";
-            this.FileMenuItemSeparator.Size = new System.Drawing.Size(231, 6);
-            // 
             // top
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -272,6 +273,7 @@ namespace 同人誌管理 {
             this.Controls.Add(this.conditionWord);
             this.Controls.Add(this.searchKind);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(890, 565);
             this.Name = "top";

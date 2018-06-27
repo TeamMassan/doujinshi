@@ -61,7 +61,6 @@ LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID)
 LEFT OUTER JOIN t_genre ON t_doujinshi.ID = t_genre.genre_ID)
 LEFT OUTER JOIN t_origin ON t_doujinshi.ID = t_origin.origin_ID 
 
-以下6/13勉強回終了時点
 WHERE 1 = t_doujinshi.ID LIMIT 1
 
 UPDATE title AS タイトル, GROUP_CONCAT(circle) AS サークル, GROUP_CONCAT(author) AS 作者, origin_title AS 作品, genre_title AS ジャンル, date AS 年月日, age_limit AS 年齢, place AS 場所, main_chara AS メインキャラ " +
@@ -139,3 +138,7 @@ place = 'house'
 WHERE 1 = ID
 
 NOT NULL constraint failed: t_doujinshi.origin_IDSystem.Data.SQLite
+
+update 100~108行目	対象年齢を囲う'  'は他の行に置くと可読性が下がる
+if文の条件式中の値が最初からbool型の場合は==trueで比較結果(これもbool型)を取り直さなくても良い
+105行目 条件式と処理がr18じゃない？

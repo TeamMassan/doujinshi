@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(update));
             this.label13 = new System.Windows.Forms.Label();
             this.dayForm = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -64,6 +63,7 @@
             this.readLeft = new System.Windows.Forms.Button();
             this.readRight = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.openThumbnailBottun = new System.Windows.Forms.Button();
             this.place.SuspendLayout();
             this.ageLimit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -454,18 +454,29 @@
             // pictureBox
             // 
             this.pictureBox.ErrorImage = null;
-            this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
+            this.pictureBox.Image = global::同人誌管理.Properties.Resources.NoImage;
             this.pictureBox.Location = new System.Drawing.Point(30, 25);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(116, 135);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 61;
             this.pictureBox.TabStop = false;
+            // 
+            // openThumbnailBottun
+            // 
+            this.openThumbnailBottun.Location = new System.Drawing.Point(156, 141);
+            this.openThumbnailBottun.Name = "openThumbnailBottun";
+            this.openThumbnailBottun.Size = new System.Drawing.Size(75, 23);
+            this.openThumbnailBottun.TabIndex = 93;
+            this.openThumbnailBottun.Text = "サムネ設定";
+            this.openThumbnailBottun.UseVisualStyleBackColor = true;
             // 
             // update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(619, 571);
+            this.Controls.Add(this.openThumbnailBottun);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.readRight);
             this.Controls.Add(this.readLeft);
@@ -548,5 +559,6 @@
         private System.Windows.Forms.Button readLeft;
         private System.Windows.Forms.Button readRight;
         private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.Button openThumbnailBottun;
     }
 }

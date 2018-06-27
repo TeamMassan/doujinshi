@@ -57,6 +57,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.openThumbnailDialog = new System.Windows.Forms.OpenFileDialog();
+            this.openThumbnailBottun = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.place.SuspendLayout();
             this.ageLimit.SuspendLayout();
@@ -69,8 +71,11 @@
             this.pictureBox.Location = new System.Drawing.Point(30, 23);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(116, 135);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 91;
             this.pictureBox.TabStop = false;
+            this.pictureBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBox_DragDrop);
+            this.pictureBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBox_DragEnter);
             // 
             // all
             // 
@@ -432,11 +437,26 @@
             this.label1.TabIndex = 77;
             this.label1.Text = "タイトル";
             // 
+            // openThumbnailDialog
+            // 
+            this.openThumbnailDialog.Filter = "jpgファイル (*.jpg)|*.jpg|gifファイル(*.gif)|*.gif";
+            // 
+            // openThumbnailBottun
+            // 
+            this.openThumbnailBottun.Location = new System.Drawing.Point(156, 141);
+            this.openThumbnailBottun.Name = "openThumbnailBottun";
+            this.openThumbnailBottun.Size = new System.Drawing.Size(75, 23);
+            this.openThumbnailBottun.TabIndex = 92;
+            this.openThumbnailBottun.Text = "サムネ設定";
+            this.openThumbnailBottun.UseVisualStyleBackColor = true;
+            this.openThumbnailBottun.Click += new System.EventHandler(this.openThumbnailBottun_Click);
+            // 
             // add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(619, 571);
+            this.Controls.Add(this.openThumbnailBottun);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.dayForm);
@@ -465,6 +485,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(635, 610);
             this.Name = "add";
             this.Text = "新規追加";
@@ -514,5 +535,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.OpenFileDialog openThumbnailDialog;
+        private System.Windows.Forms.Button openThumbnailBottun;
     }
 }

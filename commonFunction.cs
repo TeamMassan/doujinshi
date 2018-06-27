@@ -46,7 +46,7 @@ namespace 同人誌管理 {
             var cmd = new SQLiteCommand(query, conn);
             try {
                 conn.Open();
-                count = System.Convert.ToInt32(cmd.ExecuteScalar());
+                count = Convert.ToInt32(cmd.ExecuteScalar());
                 conn.Close();
 
             }
@@ -65,8 +65,8 @@ namespace 同人誌管理 {
                 conn.Close();
             }
             catch (Exception err) {
-                MessageBox.Show("内容をクリップボードにコピーします\n"
-                    + err.ToString(), "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("内容をクリップボードにコピーします\n\n" +
+                     SQLquery + "\n" + err.ToString(), "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Clipboard.SetText(SQLquery + "\n\n" + err.Message + err.Source);
             }
         }
@@ -97,7 +97,6 @@ namespace 同人誌管理 {
                                 "age_limit TEXT NOT NULL," +
                                 "date INTEGER," +
                                 "main_chara TEXT," +
-                                "thumbnail TEXT," +
                                 "place TEXT" +
                              ");" +
                              "CREATE TABLE IF NOT EXISTS t_origin(" +

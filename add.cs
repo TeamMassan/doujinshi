@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,8 @@ namespace 同人誌管理 {
         public add() {
             InitializeComponent();
         }
-        
+
+
         //登録ボタンの処理
         private void insert_Click(object sender, EventArgs e) {
             //登録データの空白チェック
@@ -32,9 +34,9 @@ namespace 同人誌管理 {
                 empty += "ジャンル、";
                 empty_flag = true;
             }
+            //頒布日はnull可項目なので入力内容が存在する & 8桁でない時に注意を促す
             if (yearForm.Text == "" || monthForm.Text == "" || dayForm.Text == "" || 
                     Date.merge(yearForm.Text, monthForm.Text, dayForm.Text).Length != 8) {
-                //頒布日はnull可項目なので入力内容が存在する & 8桁でない時に注意を促す
                 empty += "頒布日、";
                 empty_flag = true;
             }
@@ -92,7 +94,13 @@ namespace 同人誌管理 {
                     SQLiteConnect.Excute(insert_circle);
                 }
             }
-           
+
+            //サムネイル登録
+            if (changedThumbnail) {
+                pictureBox.Image.Save(@"Thumbnail\" + idForm.Text + "_" + titleForm.Text + ".jpg", ImageFormat.Jpeg);
+                changedThumbnail = false;
+            }
+
             MessageBox.Show("登録しました");
 
             //連続登録し易いようにフォーカスを戻す
@@ -102,7 +110,8 @@ namespace 同人誌管理 {
             idForm.Text = ((int.Parse(idForm.Text)) + 1).ToString();
 
             //登録後のフォーム初期化
-            //登録時に重複しやすい年月日は残しておく
+            //連続登録時に重複しやすい年月日は残しておく
+            pictureBox.Image = Image.FromFile(@"Thumbnail\NoImage.jpg");
             titleForm.Clear();
             authorsForm.Clear();
             circleForm.Clear();
@@ -150,6 +159,53 @@ namespace 同人誌管理 {
                 genreComboBox.Items.Add(reader["genre_title"].ToString());
             reader.Close();
             SQLiteConnect.conn.Close();
+            
+            //サムネのDrag&Dropを許可
+            pictureBox.AllowDrop = true;
+
+            //サムネイルの読み込み
+            string filePath = @"Thumbnail\"+idForm.Text + "_" + titleForm.Text + ".jpg";
+            pictureBox.Image = Image.FromFile(@"Thumbnail\NoImage.jpg");
+        }
+
+        bool changedThumbnail = false;
+
+        //サムネを設定
+        private void assignThumbnail(string imageFilePath) {
+            changedThumbnail = true;
+            pictureBox.Image = Image.FromFile(imageFilePath);
+        }
+
+        private void openThumbnailBottun_Click(object sender, EventArgs e) {
+            if (openThumbnailDialog.ShowDialog() == DialogResult.OK) {
+                pictureBox.Image = Image.FromFile(openThumbnailDialog.FileName);
+            }
+            
+        }
+
+        //ファイルをドラッグした状態で入ったときにマウスアイコン変更
+        private void pictureBox_DragEnter(object sender, DragEventArgs e) {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop) ||
+                e.Data.GetDataPresent(DataFormats.Text))
+                e.Effect = DragDropEffects.Copy;
+        }
+
+        private void pictureBox_DragDrop(object sender, DragEventArgs e) {
+            string filePath = null;
+
+            //D&Dされたデータがファイルであることを確認
+            if (e.Data.GetDataPresent(DataFormats.FileDrop)) {
+                //Dragされたファイル名は配列で格納されているので頭だけ取る
+                filePath = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+            } 
+            //ブラウザからならばURLを取得
+            else if (e.Data.GetDataPresent(DataFormats.Text)) {
+                filePath = e.Data.GetData(DataFormats.Text).ToString();
+            } else {
+                MessageBox.Show("ファイルパスが取得出来ないか、ファイルが未対応です。");
+                return;
+            }
+            pictureBox.Image = Image.FromFile(filePath);
         }
     }
 }

@@ -103,10 +103,9 @@ LEFT OUTER JOIN t_origin ON t_doujinshi.origin_ID = t_origin.origin_ID
 今後の実装予定
 IDが可変長なのでソート時に文字列と認識されて目的のソートが出来ない
 サブアイテムだけインタフェースごとソート処理実装する
-画像表示を追加、デザインは魔理沙氏のLINE参照
-t_doujinshiのテーブル設計をファイル名で保持するよう追加
 詳細検索の結合度を2に戻したい
 詳細検索を日付で可能にしたい
+サムネ設定時に検索エンジンのAPIに渡してブラウザを立ち上げたい
 
 CREATE TABLE IF NOT EXISTS t_doujinshi(
                                 ID INTEGER PRIMARY KEY NOT NULL,
@@ -118,3 +117,4 @@ CREATE TABLE IF NOT EXISTS t_doujinshi(
                                 main_chara TEXT,
                                 image TEXT,"+
                                 place TEXT);
+
