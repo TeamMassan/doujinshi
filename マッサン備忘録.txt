@@ -107,14 +107,6 @@ IDが可変長なのでソート時に文字列と認識されて目的のソー
 詳細検索を日付で可能にしたい
 サムネ設定時に検索エンジンのAPIに渡してブラウザを立ち上げたい
 
-CREATE TABLE IF NOT EXISTS t_doujinshi(
-                                ID INTEGER PRIMARY KEY NOT NULL,
-                                title TEXT NOT NULL,
-                                origin_ID INTEGER NOT NULL,
-                                genre_ID INTEGER NOT NULL,
-                                age_limit TEXT NOT NULL,
-                                date INTEGER,
-                                main_chara TEXT,
-                                image TEXT,"+
-                                place TEXT);
-
+SELECT origin_ID,origin_title FROM t_origin
+SQL logic error or missing database
+no such table: t_originSystem.Data.SQLite

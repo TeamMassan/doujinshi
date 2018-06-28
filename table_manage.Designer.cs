@@ -72,7 +72,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.originBox.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.originBox.Location = new System.Drawing.Point(318, 51);
-            this.originBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.originBox.Margin = new System.Windows.Forms.Padding(2);
             this.originBox.Name = "originBox";
             this.originBox.Size = new System.Drawing.Size(188, 23);
             this.originBox.TabIndex = 4;
@@ -83,7 +83,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.genreBox.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.genreBox.Location = new System.Drawing.Point(319, 274);
-            this.genreBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.genreBox.Margin = new System.Windows.Forms.Padding(2);
             this.genreBox.Name = "genreBox";
             this.genreBox.Size = new System.Drawing.Size(187, 23);
             this.genreBox.TabIndex = 5;
@@ -92,7 +92,7 @@
             // 
             this.originChange.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.originChange.Location = new System.Drawing.Point(318, 96);
-            this.originChange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.originChange.Margin = new System.Windows.Forms.Padding(2);
             this.originChange.Name = "originChange";
             this.originChange.Size = new System.Drawing.Size(75, 33);
             this.originChange.TabIndex = 6;
@@ -104,7 +104,7 @@
             // 
             this.originDelete.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.originDelete.Location = new System.Drawing.Point(429, 96);
-            this.originDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.originDelete.Margin = new System.Windows.Forms.Padding(2);
             this.originDelete.Name = "originDelete";
             this.originDelete.Size = new System.Drawing.Size(75, 33);
             this.originDelete.TabIndex = 7;
@@ -116,7 +116,7 @@
             // 
             this.genreChange.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.genreChange.Location = new System.Drawing.Point(319, 316);
-            this.genreChange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.genreChange.Margin = new System.Windows.Forms.Padding(2);
             this.genreChange.Name = "genreChange";
             this.genreChange.Size = new System.Drawing.Size(75, 30);
             this.genreChange.TabIndex = 8;
@@ -128,7 +128,7 @@
             // 
             this.genreDelete.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.genreDelete.Location = new System.Drawing.Point(429, 316);
-            this.genreDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.genreDelete.Margin = new System.Windows.Forms.Padding(2);
             this.genreDelete.Name = "genreDelete";
             this.genreDelete.Size = new System.Drawing.Size(75, 30);
             this.genreDelete.TabIndex = 9;
@@ -141,7 +141,7 @@
             this.originAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.originAdd.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.originAdd.Location = new System.Drawing.Point(518, 47);
-            this.originAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.originAdd.Margin = new System.Windows.Forms.Padding(2);
             this.originAdd.Name = "originAdd";
             this.originAdd.Size = new System.Drawing.Size(91, 29);
             this.originAdd.TabIndex = 10;
@@ -154,7 +154,7 @@
             this.genreAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.genreAdd.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.genreAdd.Location = new System.Drawing.Point(518, 269);
-            this.genreAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.genreAdd.Margin = new System.Windows.Forms.Padding(2);
             this.genreAdd.Name = "genreAdd";
             this.genreAdd.Size = new System.Drawing.Size(91, 29);
             this.genreAdd.TabIndex = 11;
@@ -167,7 +167,7 @@
             this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.close.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.close.Location = new System.Drawing.Point(528, 423);
-            this.close.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.close.Margin = new System.Windows.Forms.Padding(2);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(81, 33);
             this.close.TabIndex = 12;
@@ -183,7 +183,7 @@
             this.originList.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.originList.FullRowSelect = true;
             this.originList.Location = new System.Drawing.Point(16, 51);
-            this.originList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.originList.Margin = new System.Windows.Forms.Padding(2);
             this.originList.MultiSelect = false;
             this.originList.Name = "originList";
             this.originList.Size = new System.Drawing.Size(294, 196);
@@ -200,7 +200,7 @@
             // originName
             // 
             this.originName.Text = "作品名";
-            this.originName.Width = 415;
+            this.originName.Width = 200;
             // 
             // genreList
             // 
@@ -210,7 +210,7 @@
             this.genreList.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.genreList.FullRowSelect = true;
             this.genreList.Location = new System.Drawing.Point(16, 274);
-            this.genreList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.genreList.Margin = new System.Windows.Forms.Padding(2);
             this.genreList.MultiSelect = false;
             this.genreList.Name = "genreList";
             this.genreList.Size = new System.Drawing.Size(291, 184);
@@ -227,7 +227,7 @@
             // genreName
             // 
             this.genreName.Text = "ジャンル名";
-            this.genreName.Width = 417;
+            this.genreName.Width = 200;
             // 
             // table_manage
             // 

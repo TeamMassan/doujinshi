@@ -49,6 +49,8 @@ namespace 同人誌管理 {
             this.progress = new System.Windows.Forms.Label();
             this.exportFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.importFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.extendBookBase = new System.Windows.Forms.Button();
+            this.abstractedAdd = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -240,7 +242,7 @@ namespace 同人誌管理 {
             // 
             this.progress.AutoSize = true;
             this.progress.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.progress.Location = new System.Drawing.Point(350, 452);
+            this.progress.Location = new System.Drawing.Point(307, 466);
             this.progress.Name = "progress";
             this.progress.Size = new System.Drawing.Size(127, 16);
             this.progress.TabIndex = 9;
@@ -258,11 +260,33 @@ namespace 同人誌管理 {
             this.importFileDialog.Filter = "csvファイル (*.csv)|*.csv|テキストファイル(*.txt)|*.txt";
             this.importFileDialog.Title = "開くファイルを選択してください";
             // 
+            // extendBookBase
+            // 
+            this.extendBookBase.Location = new System.Drawing.Point(561, 431);
+            this.extendBookBase.Name = "extendBookBase";
+            this.extendBookBase.Size = new System.Drawing.Size(142, 37);
+            this.extendBookBase.TabIndex = 10;
+            this.extendBookBase.Text = "親クラス生成";
+            this.extendBookBase.UseVisualStyleBackColor = true;
+            this.extendBookBase.Click += new System.EventHandler(this.extendBookBase_Click);
+            // 
+            // abstractedAdd
+            // 
+            this.abstractedAdd.Location = new System.Drawing.Point(561, 474);
+            this.abstractedAdd.Name = "abstractedAdd";
+            this.abstractedAdd.Size = new System.Drawing.Size(142, 37);
+            this.abstractedAdd.TabIndex = 11;
+            this.abstractedAdd.Text = "派生クラスupdate生成";
+            this.abstractedAdd.UseVisualStyleBackColor = true;
+            this.abstractedAdd.Click += new System.EventHandler(this.abstractedUpdate_Click);
+            // 
             // top
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(879, 528);
+            this.Controls.Add(this.abstractedAdd);
+            this.Controls.Add(this.extendBookBase);
             this.Controls.Add(this.progress);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.close);
@@ -309,6 +333,8 @@ namespace 同人誌管理 {
         private System.Windows.Forms.OpenFileDialog importFileDialog;
         private System.Windows.Forms.ColumnHeader origin;
         private System.Windows.Forms.ToolStripSeparator FileMenuItemSeparator;
+        private System.Windows.Forms.Button extendBookBase;
+        private System.Windows.Forms.Button abstractedAdd;
     }
 }
 

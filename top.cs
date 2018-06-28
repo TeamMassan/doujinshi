@@ -217,5 +217,15 @@ namespace 同人誌管理 {
                 }             
             }
         }
+
+        private void abstractedUpdate_Click(object sender, EventArgs e) {
+            //BookBaseを継承したupdateクラスのインスタンスをここで作成
+
+        }
+
+        private void extendBookBase_Click(object sender, EventArgs e) {
+            BookBase bookBase = new BookBase();
+            bookBase.ShowDialog();
+        }
     }
 }

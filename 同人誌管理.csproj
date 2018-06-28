@@ -59,6 +59,12 @@
     <Compile Include="add.Designer.cs">
       <DependentUpon>add.cs</DependentUpon>
     </Compile>
+    <Compile Include="BookBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookBase.Designer.cs">
+      <DependentUpon>BookBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="commonFunction.cs" />
     <Compile Include="detail_search.cs">
       <SubType>Form</SubType>
@@ -88,6 +94,9 @@
     </Compile>
     <EmbeddedResource Include="add.resx">
       <DependentUpon>add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookBase.resx">
+      <DependentUpon>BookBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
