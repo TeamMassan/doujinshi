@@ -12,6 +12,8 @@ namespace 同人誌管理 {
     public partial class add : BookBase {
         public add() {
             InitializeComponent();
+            this.Text = "新規追加";
+
             string query;
             SQLiteDataReader reader = null;
             int newID;

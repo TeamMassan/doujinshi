@@ -51,6 +51,7 @@ namespace 同人誌管理 {
             this.importFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.extendBookBase = new System.Windows.Forms.Button();
             this.abstractedAdd = new System.Windows.Forms.Button();
+            this.bookShelfManage = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -242,7 +243,7 @@ namespace 同人誌管理 {
             // 
             this.progress.AutoSize = true;
             this.progress.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.progress.Location = new System.Drawing.Point(307, 466);
+            this.progress.Location = new System.Drawing.Point(380, 262);
             this.progress.Name = "progress";
             this.progress.Size = new System.Drawing.Size(127, 16);
             this.progress.TabIndex = 9;
@@ -280,11 +281,23 @@ namespace 同人誌管理 {
             this.abstractedAdd.UseVisualStyleBackColor = true;
             this.abstractedAdd.Click += new System.EventHandler(this.abstractedUpdate_Click);
             // 
+            // bookShelfManage
+            // 
+            this.bookShelfManage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.bookShelfManage.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.bookShelfManage.Location = new System.Drawing.Point(329, 449);
+            this.bookShelfManage.Name = "bookShelfManage";
+            this.bookShelfManage.Size = new System.Drawing.Size(131, 51);
+            this.bookShelfManage.TabIndex = 12;
+            this.bookShelfManage.Text = "本棚番号管理";
+            this.bookShelfManage.UseVisualStyleBackColor = true;
+            // 
             // top
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(879, 528);
+            this.Controls.Add(this.bookShelfManage);
             this.Controls.Add(this.abstractedAdd);
             this.Controls.Add(this.extendBookBase);
             this.Controls.Add(this.progress);
@@ -335,6 +348,7 @@ namespace 同人誌管理 {
         private System.Windows.Forms.ToolStripSeparator FileMenuItemSeparator;
         private System.Windows.Forms.Button extendBookBase;
         private System.Windows.Forms.Button abstractedAdd;
+        private System.Windows.Forms.Button bookShelfManage;
     }
 }
 

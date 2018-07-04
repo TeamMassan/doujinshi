@@ -184,11 +184,13 @@ namespace 同人誌管理 {
             SQLiteDataReader reader = null;
             string query = "SELECT genre_title FROM t_genre";
             SQLiteConnect.Excute(query, ref reader);
-            while (reader.Read()) {
-                genreForm.Items.Add(reader["genre_title"].ToString());
+            if (reader != null) {
+                while (reader.Read()) {
+                    genreForm.Items.Add(reader["genre_title"].ToString());
+                }
+                reader.Close();
+                SQLiteConnect.conn.Close();
             }
-            reader.Close();
-            SQLiteConnect.conn.Close();
         }
     }
 }

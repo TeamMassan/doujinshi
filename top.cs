@@ -59,10 +59,14 @@ namespace 同人誌管理 {
             searchKind.Items.Add("作家名");
             searchKind.Items.Add("サークル名");
             searchKind.Items.Add("キャラ名");
+
+            searchKind.SelectedIndex = 0;
         }
 
         //通常検索実行時の処理
         private void search_Click(object sender, EventArgs e) {
+            if (conditionWord.Text.Length == 0)
+                return;
             string conditions = "";  //検索条件
             switch (searchKind.Text) {
                 case "作品タイトル":
@@ -75,8 +79,8 @@ namespace 同人誌管理 {
                     conditions = "WHERE main_chara LIKE '%" + conditionWord.Text + "%'"; break;
                 case "全て":
                     conditions = "WHERE title LIKE '%" + conditionWord.Text + "%' OR " +
-                        "author LIKE '%" + conditionWord.Text + "%' OR " +
-                        "circle LIKE '%" + conditionWord.Text + "%'";
+                        "作者 LIKE '%" + conditionWord.Text + "%' OR " +
+                        "サークル LIKE '%" + conditionWord.Text + "%'";
                     break;
                 default: break;
             }
@@ -220,7 +224,8 @@ namespace 同人誌管理 {
 
         private void abstractedUpdate_Click(object sender, EventArgs e) {
             //BookBaseを継承したupdateクラスのインスタンスをここで作成
-
+            var update = new update2();
+            update.ShowDialog();
         }
 
         private void extendBookBase_Click(object sender, EventArgs e) {

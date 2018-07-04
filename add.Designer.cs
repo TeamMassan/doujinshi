@@ -32,21 +32,6 @@
             // 
             this.dealing.Text = "登録";
             this.dealing.Click += new System.EventHandler(this.dealing_Click);
-            // 
-            // add
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.ClientSize = new System.Drawing.Size(619, 571);
-            this.Name = "add";
-            this.Text = "新規追加";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            this.place.ResumeLayout(false);
-            this.place.PerformLayout();
-            this.ageLimit.ResumeLayout(false);
-            this.ageLimit.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
         }
 
         #endregion

@@ -59,6 +59,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.openThumbnailDialog = new System.Windows.Forms.OpenFileDialog();
             this.openThumbnailBottun = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.bookShelf = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.place.SuspendLayout();
             this.ageLimit.SuspendLayout();
@@ -259,7 +261,7 @@
             // 
             this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.close.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.close.Location = new System.Drawing.Point(498, 524);
+            this.close.Location = new System.Drawing.Point(498, 560);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(75, 23);
             this.close.TabIndex = 13;
@@ -271,7 +273,7 @@
             // 
             this.dealing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.dealing.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.dealing.Location = new System.Drawing.Point(392, 525);
+            this.dealing.Location = new System.Drawing.Point(392, 561);
             this.dealing.Name = "dealing";
             this.dealing.Size = new System.Drawing.Size(75, 23);
             this.dealing.TabIndex = 12;
@@ -283,21 +285,20 @@
             this.idForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.idForm.Enabled = false;
             this.idForm.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.idForm.Location = new System.Drawing.Point(52, 525);
+            this.idForm.Location = new System.Drawing.Point(52, 561);
             this.idForm.Name = "idForm";
             this.idForm.Size = new System.Drawing.Size(100, 23);
             this.idForm.TabIndex = 86;
             // 
             // mainChara
             // 
-            this.mainChara.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.mainChara.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainChara.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.mainChara.Location = new System.Drawing.Point(30, 384);
+            this.mainChara.Location = new System.Drawing.Point(30, 420);
             this.mainChara.Multiline = true;
             this.mainChara.Name = "mainChara";
-            this.mainChara.Size = new System.Drawing.Size(552, 125);
+            this.mainChara.Size = new System.Drawing.Size(561, 124);
             this.mainChara.TabIndex = 11;
             // 
             // authorsForm
@@ -335,7 +336,7 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.label9.Location = new System.Drawing.Point(30, 526);
+            this.label9.Location = new System.Drawing.Point(30, 562);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(22, 16);
             this.label9.TabIndex = 83;
@@ -347,7 +348,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.label8.Location = new System.Drawing.Point(28, 360);
+            this.label8.Location = new System.Drawing.Point(28, 395);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 16);
             this.label8.TabIndex = 82;
@@ -361,9 +362,9 @@
             this.label7.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.label7.Location = new System.Drawing.Point(28, 326);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 16);
+            this.label7.Size = new System.Drawing.Size(56, 16);
             this.label7.TabIndex = 85;
-            this.label7.Text = "保管場所";
+            this.label7.Text = "保管先";
             // 
             // label6
             // 
@@ -449,11 +450,33 @@
             this.openThumbnailBottun.UseVisualStyleBackColor = true;
             this.openThumbnailBottun.Click += new System.EventHandler(this.openThumbnailBottun_Click);
             // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.label14.Location = new System.Drawing.Point(30, 361);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(40, 16);
+            this.label14.TabIndex = 92;
+            this.label14.Text = "書棚";
+            // 
+            // bookShelf
+            // 
+            this.bookShelf.FormattingEnabled = true;
+            this.bookShelf.Location = new System.Drawing.Point(103, 362);
+            this.bookShelf.Name = "bookShelf";
+            this.bookShelf.Size = new System.Drawing.Size(219, 20);
+            this.bookShelf.TabIndex = 93;
+            // 
             // BookBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 571);
+            this.ClientSize = new System.Drawing.Size(619, 607);
+            this.Controls.Add(this.bookShelf);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.openThumbnailBottun);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.label13);
@@ -534,5 +557,7 @@
         protected System.Windows.Forms.Label label1;
         protected System.Windows.Forms.OpenFileDialog openThumbnailDialog;
         protected System.Windows.Forms.Button openThumbnailBottun;
+        protected System.Windows.Forms.Label label14;
+        protected System.Windows.Forms.ComboBox bookShelf;
     }
 }

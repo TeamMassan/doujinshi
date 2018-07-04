@@ -92,6 +92,12 @@
     <Compile Include="update.Designer.cs">
       <DependentUpon>update.cs</DependentUpon>
     </Compile>
+    <Compile Include="update2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="update2.Designer.cs">
+      <DependentUpon>update2.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="add.resx">
       <DependentUpon>add.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="update.resx">
       <DependentUpon>update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="update2.resx">
+      <DependentUpon>update2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
