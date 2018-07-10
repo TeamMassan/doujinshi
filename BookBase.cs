@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SQLite;
 using System.Drawing.Imaging;
 
 namespace 同人誌管理 {
@@ -16,36 +15,27 @@ namespace 同人誌管理 {
         public BookBase() {
             InitializeComponent();
 
-            //デザインモード中は実行しない
+            //継承先フォームではデザインビュー閲覧時にコンストラクタが実行されてしまう
+            //回避策としてデザインモード中は実行しない
             if (this.IsDesignMode())
                 return;
 
             string query;
-            SQLiteDataReader reader = null;
             //作品一覧をロード
             query = "SELECT origin_title FROM t_origin";
-            SQLiteConnect.Excute(query, ref reader);
-            if (reader != null) {
-                while (reader.Read())
-                    originComboBox.Items.Add(reader["origin_title"].ToString());
-                reader.Close();
-                SQLiteConnect.conn.Close();
-                originComboBox.SelectedIndex = 0;
-            }
+            SQLiteConnect.ComboBoxLoad(ref originComboBox, query, "origin_title");
 
             //ジャンル一覧をロード
             query = "SELECT genre_title FROM t_genre";
-            SQLiteConnect.Excute(query, ref reader);
-            if (reader != null) {
-                while (reader.Read())
-                    genreComboBox.Items.Add(reader["genre_title"].ToString());
-                reader.Close();
-                SQLiteConnect.conn.Close();
-                genreComboBox.SelectedIndex = 0;
-            }
+            SQLiteConnect.ComboBoxLoad(ref genreComboBox, query, "genre_title");
+
+            //本棚一覧をロード
+            query = "SELECT shelf_name FROM t_house_shelf WHERE place= 'house'";
+            SQLiteConnect.ComboBoxLoad(ref bookShelf, query, "shelf_name");
 
             //サムネのDrag&Dropを許可
             pictureBox.AllowDrop = true;
+
             //サムネイルの読み込み
             pictureBox.Image = Image.FromFile(@"Thumbnail\NoImage.jpg");
         }
@@ -113,6 +103,22 @@ namespace 同人誌管理 {
                 MessageBox.Show(empty + "が空白です。");
 
             return empty_flag;
+        }
+
+        //保管先に現住所を選択
+        private void house_CheckedChanged(object sender, EventArgs e) {
+            //本棚一覧を現住所用にリセット
+            string query = "SELECT shelf_name FROM t_house_shelf WHERE place= 'house'";
+            bookShelf.Items.Clear();
+            SQLiteConnect.ComboBoxLoad(ref bookShelf, query, "shelf_name");
+        }
+
+        //保管先に実家を選択
+        private void hometown_CheckedChanged(object sender, EventArgs e) {
+            //本棚一覧を実家用でリセット
+            string query = "SELECT shelf_name FROM t_house_shelf WHERE place= 'hometown'";
+            bookShelf.Items.Clear();
+            SQLiteConnect.ComboBoxLoad(ref bookShelf, query, "shelf_name");
         }
     }
 

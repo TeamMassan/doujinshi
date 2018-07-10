@@ -127,6 +127,7 @@
             this.house.TabStop = true;
             this.house.Text = "現住居";
             this.house.UseVisualStyleBackColor = true;
+            this.house.CheckedChanged += new System.EventHandler(this.house_CheckedChanged);
             // 
             // hometown
             // 
@@ -139,6 +140,7 @@
             this.hometown.TabStop = true;
             this.hometown.Text = "実家";
             this.hometown.UseVisualStyleBackColor = true;
+            this.hometown.CheckedChanged += new System.EventHandler(this.hometown_CheckedChanged);
             // 
             // label13
             // 

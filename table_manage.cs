@@ -68,6 +68,7 @@ namespace 同人誌管理 {
             }
        
         }
+
         private void genreList_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (genreList.SelectedItems.Count > 0)
@@ -77,6 +78,7 @@ namespace 同人誌管理 {
                 g_basetitle = genreList.SelectedItems[0].SubItems[1].Text;
             }
         }
+
         private void originAdd_Click(object sender, EventArgs e)//追加ボタン
         {
             string addquery;
@@ -225,8 +227,6 @@ namespace 同人誌管理 {
                 genreset();
                 genreBox.Clear();
             }
-        }
-
-       
+        } 
     }
 }

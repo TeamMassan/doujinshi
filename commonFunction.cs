@@ -87,9 +87,23 @@ namespace 同人誌管理 {
             }
         }
 
+        //クエリから一つのカラムをコンボボックスに全部追加
+        //ジャンル、作品、本棚などのコンボボックスのロード時に多用出来る
+        public static void ComboBoxLoad(ref ComboBox comboBox, string query, string columnName) {
+            SQLiteDataReader reader = null;
+            Excute(query, ref reader);
+            if (reader != null) {
+                while (reader.Read())
+                    comboBox.Items.Add(reader[columnName].ToString());
+                reader.Close();
+                conn.Close();
+                comboBox.SelectedIndex = 0; //最初の項目を初期状態で入れておく
+            }
+        }
+
         //テーブル自動作成
         public static void make_db() {
-            string setting = "CREATE TABLE IF NOT EXISTS t_doujinshi(" +
+            const string setting = "CREATE TABLE IF NOT EXISTS t_doujinshi(" +
                                 "ID INTEGER PRIMARY KEY NOT NULL," +
                                 "title TEXT NOT NULL," +
                                 "origin_ID INTEGER NOT NULL," +
@@ -97,7 +111,8 @@ namespace 同人誌管理 {
                                 "age_limit TEXT NOT NULL," +
                                 "date INTEGER," +
                                 "main_chara TEXT," +
-                                "place TEXT" +
+                                "place TEXT," +
+                                "bookShelf INTEGER" +
                              ");" +
                              "CREATE TABLE IF NOT EXISTS t_origin(" +
                                 "origin_ID INTEGER PRIMARY KEY NOT NULL," +
@@ -116,13 +131,19 @@ namespace 同人誌管理 {
                                 "ID INTEGER NOT NULL, " +
                                 "circle TEXT, " +
                                 "FOREIGN KEY(ID) REFERENCES t_doujinshi(ID) ON DELETE CASCADE" +
+                             "); " +
+                             "CREATE TABLE IF NOT EXISTS t_house_shelf(" +
+                                "place TEXT NOT NULL, " +
+                                "shelf_ID INTEGER," +
+                                "shelf_name TEXT," +
+                                "FOREIGN KEY(place) REFERENCES t_doujinshi(place) ON DELETE CASCADE" +
                              "); ";
             Excute(setting);
 
             //ジャンルコード・作品コード一覧初期設定
             //DBを0から設定し直す時の保険で残してるので完全リリース後は消します。
             if (checkRecord("t_origin") < 8) {
-                string original = "INSERT INTO t_origin VALUES(1,'東方Project');" +
+                const string original = "INSERT INTO t_origin VALUES(1,'東方Project');" +
                          "INSERT INTO t_origin VALUES(2, '艦これ');" +
                          "INSERT INTO t_origin VALUES(3, 'オリジナル');" +
                          "INSERT INTO t_origin VALUES(4, 'グラブル');" +
@@ -133,7 +154,7 @@ namespace 同人誌管理 {
                 Excute(original);
             }
             if (checkRecord("t_genre") < 13) {
-                string genre = "INSERT INTO t_genre VALUES(1,'漫画');" +
+                const string genre = "INSERT INTO t_genre VALUES(1,'漫画');" +
                         "INSERT INTO t_genre VALUES(2, 'イラスト集'); " +
                         "INSERT INTO t_genre VALUES(3, '成人向け'); " +
                         "INSERT INTO t_genre VALUES(4, 'コピ本'); " +
@@ -147,6 +168,18 @@ namespace 同人誌管理 {
                         "INSERT INTO t_genre VALUES(12, '合同本');" +
                         "INSERT INTO t_genre VALUES(13, 'その他');";
                 Excute(genre);
+            }
+            if (checkRecord("t_house_shelf") < 8) {
+                const string bookShelf = "INSERT INTO t_house_shelf VALUES('house', 1 ,'棚A - 1段目');" +
+                    "INSERT INTO t_house_shelf VALUES('house', 2 ,'棚A - 2段目');" +
+                    "INSERT INTO t_house_shelf VALUES('house', 3 ,'棚B - 1段目');" +
+                    "INSERT INTO t_house_shelf VALUES('house', 4 ,'棚B - 2段目');" +
+
+                    "INSERT INTO t_house_shelf VALUES('hometown', 1 ,'棚 - 1段目');" +
+                    "INSERT INTO t_house_shelf VALUES('hometown', 2 ,'棚 - 2段目');" +
+                    "INSERT INTO t_house_shelf VALUES('hometown', 3 ,'棚 - 3段目');" +
+                    "INSERT INTO t_house_shelf VALUES('hometown', 4 ,'棚 - 4段目');";
+                Excute(bookShelf);
             }
         }
     }

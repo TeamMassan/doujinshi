@@ -33,6 +33,7 @@
             // dealing
             // 
             this.dealing.Text = "更新";
+            this.dealing.Click += new System.EventHandler(this.dealing_Click);
             // 
             // readRight
             // 
@@ -43,6 +44,7 @@
             this.readRight.TabIndex = 95;
             this.readRight.Text = "→";
             this.readRight.UseVisualStyleBackColor = true;
+            this.readRight.Click += new System.EventHandler(this.readRight_Click);
             // 
             // readLeft
             // 
@@ -53,6 +55,7 @@
             this.readLeft.TabIndex = 94;
             this.readLeft.Text = "←";
             this.readLeft.UseVisualStyleBackColor = true;
+            this.readLeft.Click += new System.EventHandler(this.readLeft_Click);
             // 
             // update2
             // 
@@ -61,6 +64,7 @@
             this.Controls.Add(this.readRight);
             this.Controls.Add(this.readLeft);
             this.Name = "update2";
+            this.Load += new System.EventHandler(this.update2_Load);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label3, 0);
