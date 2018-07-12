@@ -111,7 +111,7 @@ namespace 同人誌管理 {
                                 "age_limit TEXT NOT NULL," +
                                 "date INTEGER," +
                                 "main_chara TEXT," +
-                                "place TEXT," +
+                                "place INTEGER," +
                                 "bookShelf INTEGER" +
                              ");" +
                              "CREATE TABLE IF NOT EXISTS t_origin(" +
@@ -132,8 +132,13 @@ namespace 同人誌管理 {
                                 "circle TEXT, " +
                                 "FOREIGN KEY(ID) REFERENCES t_doujinshi(ID) ON DELETE CASCADE" +
                              "); " +
+                             "CREATE TABLE IF NOT EXISTS t_storage("+
+                                "place INTEGER NOT NULL, "+
+                                "place_name TEXT, "+
+                                "FOREIGN KEY(place) REFERENCES t_doujinshi(place) ON DELETE CASCADE" +
+                            "); "+
                              "CREATE TABLE IF NOT EXISTS t_house_shelf(" +
-                                "place TEXT NOT NULL, " +
+                                "place INTEGER NOT NULL, " +
                                 "shelf_ID INTEGER," +
                                 "shelf_name TEXT," +
                                 "FOREIGN KEY(place) REFERENCES t_doujinshi(place) ON DELETE CASCADE" +
@@ -169,16 +174,21 @@ namespace 同人誌管理 {
                         "INSERT INTO t_genre VALUES(13, 'その他');";
                 Excute(genre);
             }
+            if (checkRecord("t_storage") < 2) {
+                const string storage = "INSERT INTO t_storage VALUES(1, '下宿');" +
+                    "INSERT INTO t_storage VALUES(2, '実家');";
+                Excute(storage);
+            }
             if (checkRecord("t_house_shelf") < 8) {
-                const string bookShelf = "INSERT INTO t_house_shelf VALUES('house', 1 ,'棚A - 1段目');" +
-                    "INSERT INTO t_house_shelf VALUES('house', 2 ,'棚A - 2段目');" +
-                    "INSERT INTO t_house_shelf VALUES('house', 3 ,'棚B - 1段目');" +
-                    "INSERT INTO t_house_shelf VALUES('house', 4 ,'棚B - 2段目');" +
+                const string bookShelf = "INSERT INTO t_house_shelf VALUES(1, 1 ,'棚A - 1段目');" +
+                    "INSERT INTO t_house_shelf VALUES(1, 2 ,'棚A - 2段目');" +
+                    "INSERT INTO t_house_shelf VALUES(1, 3 ,'棚B - 1段目');" +
+                    "INSERT INTO t_house_shelf VALUES(1, 4 ,'棚B - 2段目');" +
 
-                    "INSERT INTO t_house_shelf VALUES('hometown', 1 ,'棚 - 1段目');" +
-                    "INSERT INTO t_house_shelf VALUES('hometown', 2 ,'棚 - 2段目');" +
-                    "INSERT INTO t_house_shelf VALUES('hometown', 3 ,'棚 - 3段目');" +
-                    "INSERT INTO t_house_shelf VALUES('hometown', 4 ,'棚 - 4段目');";
+                    "INSERT INTO t_house_shelf VALUES(2, 1 ,'棚 - 1段目');" +
+                    "INSERT INTO t_house_shelf VALUES(2, 2 ,'棚 - 2段目');" +
+                    "INSERT INTO t_house_shelf VALUES(2, 3 ,'棚 - 3段目');" +
+                    "INSERT INTO t_house_shelf VALUES(2, 4 ,'棚 - 4段目');";
                 Excute(bookShelf);
             }
         }

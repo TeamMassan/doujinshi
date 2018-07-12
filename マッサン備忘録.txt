@@ -93,13 +93,11 @@ FROM(SELECT main.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place,サ
 LEFT OUTER JOIN t_origin ON t_doujinshi.origin_ID = t_origin.origin_ID 
 
 今後の実装予定
-add処理時に本棚の情報もインサートする
 IDが可変長なのでソート時に文字列と認識されて目的のソートが出来ない
 サブアイテムだけインタフェースごとソート処理実装する
-詳細検索の結合度を2に戻したい
-詳細検索を日付で可能にしたい
-サムネ設定時に検索エンジンのAPIに渡してブラウザを立ち上げたい
+詳細検索の結合度を2に戻したい	//越智の頒布日検索処理コミット後にやる
 
-SELECT origin_ID,origin_title FROM t_origin
-SQL logic error or missing database
-no such table: t_originSystem.Data.SQLite
+書棚番号副問合せ
+SELECT shelf_name FROM t_house_shelf WHERE 
+	(SELECT place FROM t_storage WHERE place_name = '選択中の保管場所') = t_house_shelf.place
+

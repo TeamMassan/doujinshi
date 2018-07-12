@@ -24,7 +24,6 @@
         /// </summary>
         private new void InitializeComponent() {
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            this.place.SuspendLayout();
             this.ageLimit.SuspendLayout();
             this.SuspendLayout();
             // 

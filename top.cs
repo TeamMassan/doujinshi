@@ -154,7 +154,7 @@ namespace 同人誌管理 {
                     }
                     string ins_doujinshi = "INSERT INTO t_doujinshi (ID,title,origin_ID,genre_ID,age_limit,date,place) VALUES(" +
                         subWords[0] + "," +"'" + subWords[1] + "'," + subWords[2] +","+subWords[3] + "," +
-                        "'" + subWords[4] + "',"+subWords[7]+",'house')";
+                        "'" + subWords[4] + "',"+subWords[7]+",1)";
                     SQLiteConnect.Excute(ins_doujinshi);
 
                     //subWords[5]=(サークル)とsubWords[6]=(作者)を全角スペースSplitして別レコードにしながら各テーブルに格納

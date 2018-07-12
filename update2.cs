@@ -70,10 +70,12 @@ namespace 同人誌管理 {
                 case "r15": r15.Checked = true; break;
                 case "r18": r18.Checked = true; break;
             }
+            /*  場所の仕様変更の為一時コメントアウト
             switch (reader["場所"].ToString()) {
                 case "house": house.Checked = true; break;
                 case "hometown": hometown.Checked = true; break;
             }
+            */
             mainChara.Text = reader["メインキャラ"].ToString();
 
             reader.Close();
@@ -100,11 +102,13 @@ namespace 同人誌管理 {
             }
             query += "',main_chara = '" + mainChara.Text + "'";
             query += "," + "place = '";
+            /*  場所の仕様変更の為一時コメントアウト
             if (house.Checked == true) {
                 query += "house";
             } else if (hometown.Checked == true) {
                 query += "hometown";
             }
+            */
             query += "' WHERE " + selected_ID + " = ID";
 
             //t_doujinshi更新

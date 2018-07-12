@@ -26,7 +26,6 @@
             this.readRight = new System.Windows.Forms.Button();
             this.readLeft = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            this.place.SuspendLayout();
             this.ageLimit.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +81,6 @@
             this.Controls.SetChildIndex(this.dealing, 0);
             this.Controls.SetChildIndex(this.close, 0);
             this.Controls.SetChildIndex(this.ageLimit, 0);
-            this.Controls.SetChildIndex(this.place, 0);
             this.Controls.SetChildIndex(this.originComboBox, 0);
             this.Controls.SetChildIndex(this.genreComboBox, 0);
             this.Controls.SetChildIndex(this.label10, 0);
@@ -99,8 +97,6 @@
             this.Controls.SetChildIndex(this.readLeft, 0);
             this.Controls.SetChildIndex(this.readRight, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            this.place.ResumeLayout(false);
-            this.place.PerformLayout();
             this.ageLimit.ResumeLayout(false);
             this.ageLimit.PerformLayout();
             this.ResumeLayout(false);

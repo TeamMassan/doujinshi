@@ -28,8 +28,6 @@
             this.all = new System.Windows.Forms.RadioButton();
             this.r15 = new System.Windows.Forms.RadioButton();
             this.r18 = new System.Windows.Forms.RadioButton();
-            this.house = new System.Windows.Forms.RadioButton();
-            this.hometown = new System.Windows.Forms.RadioButton();
             this.label13 = new System.Windows.Forms.Label();
             this.dayForm = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -39,7 +37,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.genreComboBox = new System.Windows.Forms.ComboBox();
             this.originComboBox = new System.Windows.Forms.ComboBox();
-            this.place = new System.Windows.Forms.Panel();
             this.ageLimit = new System.Windows.Forms.Panel();
             this.close = new System.Windows.Forms.Button();
             this.dealing = new System.Windows.Forms.Button();
@@ -61,8 +58,8 @@
             this.openThumbnailBottun = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.bookShelf = new System.Windows.Forms.ComboBox();
+            this.storage = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            this.place.SuspendLayout();
             this.ageLimit.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -114,33 +111,6 @@
             this.r18.TabStop = true;
             this.r18.Text = "R-18";
             this.r18.UseVisualStyleBackColor = true;
-            // 
-            // house
-            // 
-            this.house.AutoSize = true;
-            this.house.Checked = true;
-            this.house.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.house.Location = new System.Drawing.Point(14, 3);
-            this.house.Name = "house";
-            this.house.Size = new System.Drawing.Size(74, 20);
-            this.house.TabIndex = 0;
-            this.house.TabStop = true;
-            this.house.Text = "現住居";
-            this.house.UseVisualStyleBackColor = true;
-            this.house.CheckedChanged += new System.EventHandler(this.house_CheckedChanged);
-            // 
-            // hometown
-            // 
-            this.hometown.AutoSize = true;
-            this.hometown.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.hometown.Location = new System.Drawing.Point(121, 3);
-            this.hometown.Name = "hometown";
-            this.hometown.Size = new System.Drawing.Size(58, 20);
-            this.hometown.TabIndex = 1;
-            this.hometown.TabStop = true;
-            this.hometown.Text = "実家";
-            this.hometown.UseVisualStyleBackColor = true;
-            this.hometown.CheckedChanged += new System.EventHandler(this.hometown_CheckedChanged);
             // 
             // label13
             // 
@@ -233,18 +203,6 @@
             this.originComboBox.Name = "originComboBox";
             this.originComboBox.Size = new System.Drawing.Size(169, 24);
             this.originComboBox.TabIndex = 4;
-            // 
-            // place
-            // 
-            this.place.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.place.Controls.Add(this.house);
-            this.place.Controls.Add(this.hometown);
-            this.place.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.place.Location = new System.Drawing.Point(103, 323);
-            this.place.Name = "place";
-            this.place.Size = new System.Drawing.Size(295, 27);
-            this.place.TabIndex = 10;
             // 
             // ageLimit
             // 
@@ -466,17 +424,31 @@
             // 
             // bookShelf
             // 
+            this.bookShelf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bookShelf.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.bookShelf.FormattingEnabled = true;
-            this.bookShelf.Location = new System.Drawing.Point(103, 362);
+            this.bookShelf.Location = new System.Drawing.Point(103, 358);
             this.bookShelf.Name = "bookShelf";
-            this.bookShelf.Size = new System.Drawing.Size(219, 20);
+            this.bookShelf.Size = new System.Drawing.Size(219, 24);
             this.bookShelf.TabIndex = 93;
+            // 
+            // storage
+            // 
+            this.storage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.storage.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.storage.FormattingEnabled = true;
+            this.storage.Location = new System.Drawing.Point(103, 323);
+            this.storage.Name = "storage";
+            this.storage.Size = new System.Drawing.Size(121, 24);
+            this.storage.TabIndex = 94;
+            this.storage.SelectedIndexChanged += new System.EventHandler(this.storage_SelectedIndexChanged);
             // 
             // BookBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(619, 607);
+            this.Controls.Add(this.storage);
             this.Controls.Add(this.bookShelf);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.openThumbnailBottun);
@@ -490,7 +462,6 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.genreComboBox);
             this.Controls.Add(this.originComboBox);
-            this.Controls.Add(this.place);
             this.Controls.Add(this.ageLimit);
             this.Controls.Add(this.close);
             this.Controls.Add(this.dealing);
@@ -513,8 +484,6 @@
             this.Name = "BookBase";
             this.Text = "追加&更新_親フォーム";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            this.place.ResumeLayout(false);
-            this.place.PerformLayout();
             this.ageLimit.ResumeLayout(false);
             this.ageLimit.PerformLayout();
             this.ResumeLayout(false);
@@ -528,8 +497,6 @@
         protected System.Windows.Forms.RadioButton all;
         protected System.Windows.Forms.RadioButton r15;
         protected System.Windows.Forms.RadioButton r18;
-        protected System.Windows.Forms.RadioButton house;
-        protected System.Windows.Forms.RadioButton hometown;
         protected System.Windows.Forms.Label label13;
         protected System.Windows.Forms.TextBox dayForm;
         protected System.Windows.Forms.Label label12;
@@ -539,7 +506,6 @@
         protected System.Windows.Forms.Label label10;
         protected System.Windows.Forms.ComboBox genreComboBox;
         protected System.Windows.Forms.ComboBox originComboBox;
-        protected System.Windows.Forms.Panel place;
         protected System.Windows.Forms.Panel ageLimit;
         protected System.Windows.Forms.Button close;
         protected System.Windows.Forms.Button dealing;
@@ -561,5 +527,6 @@
         protected System.Windows.Forms.Button openThumbnailBottun;
         protected System.Windows.Forms.Label label14;
         protected System.Windows.Forms.ComboBox bookShelf;
+        protected System.Windows.Forms.ComboBox storage;
     }
 }

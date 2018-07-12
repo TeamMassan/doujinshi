@@ -37,32 +37,31 @@ namespace 同人誌管理 {
 
         //登録ボタンの処理
         private void dealing_Click(object sender, EventArgs e) {
+            //必須箇所が抜けていれば埋めるように促す
             if (checkNullForm())
                 return;
 
             //チェックボタンの結果格納（暫定処理）
-            //foreach使ってコレクションからchecked==trueの対象年齢と保管場所を取得したい
-            string agelimit, place;
+            //foreach使ってコレクションから対象年齢と保管場所を取得したい
+            string agelimit;
             if (all.Checked)
                 agelimit = "all";
             else if (r15.Checked)
                 agelimit = "r15";
             else
                 agelimit = "r18";
-            if (house.Checked)
-                place = "house";
-            else
-                place = "hometown";
+
             //SQL文組み立て
             //作品IDとジャンルIDはコンボボックスの値からSQLの副問合せを利用
-            string insert_doujinshi = "INSERT INTO t_doujinshi(ID,title,origin_ID,genre_ID,age_limit,date,place,main_chara)" +
+            string insert_doujinshi = "INSERT INTO t_doujinshi(ID,title,origin_ID,genre_ID,age_limit,date,place,bookShelf,main_chara)" +
                 "VALUES(" + idForm.Text + ","   //ID
                 + "'" + titleForm.Text + "',"   //タイトル
                 + "(SELECT origin_ID FROM t_origin WHERE '" + originComboBox.Text + "' = origin_title),"  //作品ID
                 + "(SELECT genre_ID FROM t_genre WHERE '" + genreComboBox.Text + "' = genre_title),"      //ジャンルID
                 + "'" + agelimit + "',"         //対象年齢ID
                 + Date.merge(yearForm.Text, monthForm.Text, dayForm.Text) + ","                           //頒布年月日
-                + "'" + place + "',"            //場所
+                + placeID +","                   //場所
+                + "(SELECT shelf_ID FROM t_house_shelf WHERE place = "+ placeID +" AND shelf_name = '" + bookShelf.Text + "'),"    //本棚ID
                 + "'" + mainChara.Text + "')";  //メインキャラ                
 
             //t_doujinshi登録

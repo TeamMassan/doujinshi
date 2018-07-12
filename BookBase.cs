@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
+using System.Data.SQLite;
 
 namespace 同人誌管理 {
     public partial class BookBase : Form {
@@ -19,7 +20,6 @@ namespace 同人誌管理 {
             //回避策としてデザインモード中は実行しない
             if (this.IsDesignMode())
                 return;
-
             string query;
             //作品一覧をロード
             query = "SELECT origin_title FROM t_origin";
@@ -29,16 +29,21 @@ namespace 同人誌管理 {
             query = "SELECT genre_title FROM t_genre";
             SQLiteConnect.ComboBoxLoad(ref genreComboBox, query, "genre_title");
 
-            //本棚一覧をロード
-            query = "SELECT shelf_name FROM t_house_shelf WHERE place= 'house'";
-            SQLiteConnect.ComboBoxLoad(ref bookShelf, query, "shelf_name");
-
+            //保管場所一覧をロード
+            query = "SELECT place_name FROM t_storage";
+            SQLiteConnect.ComboBoxLoad(ref storage, query, "place_name");
+            //storage.Textがchangedするので本棚一覧もロードされる
+            placeID = 1;    //保管場所を最初の項目で初期化
+            
             //サムネのDrag&Dropを許可
             pictureBox.AllowDrop = true;
 
             //サムネイルの読み込み
             pictureBox.Image = Image.FromFile(@"Thumbnail\NoImage.jpg");
         }
+
+        //保管場所のplace_ID
+        protected int placeID;
 
         //サムネイル変更フラグ
         //trueになったらサムネを保存してfalseに戻す
@@ -105,18 +110,22 @@ namespace 同人誌管理 {
             return empty_flag;
         }
 
-        //保管先に現住所を選択
-        private void house_CheckedChanged(object sender, EventArgs e) {
-            //本棚一覧を現住所用にリセット
-            string query = "SELECT shelf_name FROM t_house_shelf WHERE place= 'house'";
-            bookShelf.Items.Clear();
-            SQLiteConnect.ComboBoxLoad(ref bookShelf, query, "shelf_name");
-        }
+        //保管先が変更された時に書棚を当該場所の内容に変える
+        private void storage_SelectedIndexChanged(object sender, EventArgs e) {
+            //保管場所IDの変更
+            SQLiteDataReader reader = null;
+            string query = "SELECT place FROM t_storage WHERE  place_name = '" + storage.Text + "'";
+            SQLiteConnect.Excute(query, ref reader);
+            if (reader != null) {
+                reader.Read();
+                placeID = Convert.ToInt32(reader["place"]);
+                reader.Close();
+            }
+            SQLiteConnect.conn.Close();
 
-        //保管先に実家を選択
-        private void hometown_CheckedChanged(object sender, EventArgs e) {
-            //本棚一覧を実家用でリセット
-            string query = "SELECT shelf_name FROM t_house_shelf WHERE place= 'hometown'";
+            //本棚の内容変更
+            query = "SELECT shelf_name FROM t_house_shelf WHERE "+
+                "(SELECT place FROM t_storage WHERE place_name = '"+storage.Text+"') = t_house_shelf.place";
             bookShelf.Items.Clear();
             SQLiteConnect.ComboBoxLoad(ref bookShelf, query, "shelf_name");
         }
