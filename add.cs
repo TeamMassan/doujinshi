@@ -53,7 +53,7 @@ namespace 同人誌管理 {
 
             //SQL文組み立て
             //作品IDとジャンルIDはコンボボックスの値からSQLの副問合せを利用
-            string insert_doujinshi = "INSERT INTO t_doujinshi(ID,title,origin_ID,genre_ID,age_limit,date,place,bookShelf,main_chara)" +
+            string insert_doujinshi = "INSERT INTO t_doujinshi(ID,title,origin_ID,genre_ID,age_limit,date,place_ID,bookShelf_ID,main_chara)" +
                 "VALUES(" + idForm.Text + ","   //ID
                 + "'" + titleForm.Text + "',"   //タイトル
                 + "(SELECT origin_ID FROM t_origin WHERE '" + originComboBox.Text + "' = origin_title),"  //作品ID
@@ -61,7 +61,7 @@ namespace 同人誌管理 {
                 + "'" + agelimit + "',"         //対象年齢ID
                 + Date.merge(yearForm.Text, monthForm.Text, dayForm.Text) + ","                           //頒布年月日
                 + placeID +","                   //場所
-                + "(SELECT shelf_ID FROM t_house_shelf WHERE place = "+ placeID +" AND shelf_name = '" + bookShelf.Text + "'),"    //本棚ID
+                + "(SELECT bookShelf_ID FROM t_house_shelf WHERE place_ID = "+ placeID +" AND shelf_name = '" + bookShelf.Text + "'),"    //本棚ID
                 + "'" + mainChara.Text + "')";  //メインキャラ                
 
             //t_doujinshi登録

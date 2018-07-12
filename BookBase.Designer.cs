@@ -131,6 +131,8 @@
             this.dayForm.Name = "dayForm";
             this.dayForm.Size = new System.Drawing.Size(33, 23);
             this.dayForm.TabIndex = 8;
+            this.dayForm.TextChanged += new System.EventHandler(this.dayForm_TextChanged);
+            this.dayForm.Enter += new System.EventHandler(this.dayForm_Enter);
             // 
             // label12
             // 
@@ -151,6 +153,8 @@
             this.monthForm.Name = "monthForm";
             this.monthForm.Size = new System.Drawing.Size(33, 23);
             this.monthForm.TabIndex = 7;
+            this.monthForm.TextChanged += new System.EventHandler(this.monthForm_TextChanged);
+            this.monthForm.Enter += new System.EventHandler(this.monthForm_Enter);
             // 
             // label11
             // 
@@ -171,6 +175,8 @@
             this.yearForm.Name = "yearForm";
             this.yearForm.Size = new System.Drawing.Size(73, 23);
             this.yearForm.TabIndex = 6;
+            this.yearForm.TextChanged += new System.EventHandler(this.yearForm_TextChanged);
+            this.yearForm.Enter += new System.EventHandler(this.yearForm_Enter);
             // 
             // label10
             // 

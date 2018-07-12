@@ -111,23 +111,50 @@ namespace 同人誌管理 {
         }
 
         //保管先が変更された時に書棚を当該場所の内容に変える
-        private void storage_SelectedIndexChanged(object sender, EventArgs e) {
+        protected void storage_SelectedIndexChanged(object sender, EventArgs e) {
             //保管場所IDの変更
             SQLiteDataReader reader = null;
-            string query = "SELECT place FROM t_storage WHERE  place_name = '" + storage.Text + "'";
+            string query = "SELECT place_ID FROM t_storage WHERE  place_name = '" + storage.Text + "'";
             SQLiteConnect.Excute(query, ref reader);
             if (reader != null) {
                 reader.Read();
-                placeID = Convert.ToInt32(reader["place"]);
+                placeID = Convert.ToInt32(reader["place_ID"]);
                 reader.Close();
             }
             SQLiteConnect.conn.Close();
 
             //本棚の内容変更
             query = "SELECT shelf_name FROM t_house_shelf WHERE "+
-                "(SELECT place FROM t_storage WHERE place_name = '"+storage.Text+"') = t_house_shelf.place";
+                "(SELECT place_ID FROM t_storage WHERE place_name = '"+storage.Text+"') = t_house_shelf.place_ID";
             bookShelf.Items.Clear();
             SQLiteConnect.ComboBoxLoad(ref bookShelf, query, "shelf_name");
+        }
+
+        protected void yearForm_Enter(object sender, EventArgs e) {
+            yearForm.SelectAll();
+        }
+
+        protected void monthForm_Enter(object sender, EventArgs e) {
+            monthForm.SelectAll();
+        }
+
+        protected void dayForm_Enter(object sender, EventArgs e) {
+            dayForm.SelectAll();
+        }
+
+        protected void yearForm_TextChanged(object sender, EventArgs e) {
+            if (yearForm.Text.Length > 4)
+                yearForm.Text = yearForm.Text.Substring(0, 4);
+        }
+
+        protected void monthForm_TextChanged(object sender, EventArgs e) {
+            if (monthForm.Text.Length > 2)
+                monthForm.Text = monthForm.Text.Substring(0, 2);
+        }
+
+        protected void dayForm_TextChanged(object sender, EventArgs e) {
+            if (dayForm.Text.Length > 2)
+                dayForm.Text = dayForm.Text.Substring(0, 2);
         }
     }
 

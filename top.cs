@@ -19,8 +19,8 @@ namespace 同人誌管理 {
         //検索と結果読み込み処理
         private void RoadResult(string WHEREphrase) {
             const string seach_query = "SELECT t_doujinshi.ID,title AS タイトル,サークル,作者,origin_title AS 作品,date AS 頒布日 "+
-                "FROM(SELECT main.ID, title, origin_ID, genre_ID, age_limit, date, main_chara, place, サークル, GROUP_CONCAT(author) AS 作者 "+
-                "FROM(SELECT t_doujinshi.ID, title, origin_ID, genre_ID, age_limit, date, main_chara, place, GROUP_CONCAT(circle) AS サークル "+
+                "FROM(SELECT main.ID, title, origin_ID, genre_ID, age_limit, date, main_chara, place_ID, サークル, GROUP_CONCAT(author) AS 作者 "+
+                "FROM(SELECT t_doujinshi.ID, title, origin_ID, genre_ID, age_limit, date, main_chara, place_ID, GROUP_CONCAT(circle) AS サークル "+
                 "FROM t_doujinshi LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID GROUP BY t_doujinshi.ID) AS main "+
                 "LEFT OUTER JOIN t_author ON main.ID = t_author.ID GROUP BY main.ID) AS t_doujinshi "+
                 "LEFT OUTER JOIN t_origin ON t_doujinshi.origin_ID = t_origin.origin_ID ";
@@ -152,7 +152,7 @@ namespace 同人誌管理 {
                     if (subWords.Length != 8) { //一行から取り出したカラム数が8個でない時は中断
                         MessageBox.Show("フォーマットが正しくありません\n処理を中断します"); break;
                     }
-                    string ins_doujinshi = "INSERT INTO t_doujinshi (ID,title,origin_ID,genre_ID,age_limit,date,place) VALUES(" +
+                    string ins_doujinshi = "INSERT INTO t_doujinshi (ID,title,origin_ID,genre_ID,age_limit,date,place_ID) VALUES(" +
                         subWords[0] + "," +"'" + subWords[1] + "'," + subWords[2] +","+subWords[3] + "," +
                         "'" + subWords[4] + "',"+subWords[7]+",1)";
                     SQLiteConnect.Excute(ins_doujinshi);

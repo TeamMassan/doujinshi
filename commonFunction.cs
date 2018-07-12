@@ -111,8 +111,8 @@ namespace 同人誌管理 {
                                 "age_limit TEXT NOT NULL," +
                                 "date INTEGER," +
                                 "main_chara TEXT," +
-                                "place INTEGER," +
-                                "bookShelf INTEGER" +
+                                "place_ID INTEGER NOT NULL," +
+                                "bookShelf_ID INTEGER" +
                              ");" +
                              "CREATE TABLE IF NOT EXISTS t_origin(" +
                                 "origin_ID INTEGER PRIMARY KEY NOT NULL," +
@@ -133,15 +133,15 @@ namespace 同人誌管理 {
                                 "FOREIGN KEY(ID) REFERENCES t_doujinshi(ID) ON DELETE CASCADE" +
                              "); " +
                              "CREATE TABLE IF NOT EXISTS t_storage("+
-                                "place INTEGER NOT NULL, "+
+                                "place_ID INTEGER NOT NULL, "+
                                 "place_name TEXT, "+
-                                "FOREIGN KEY(place) REFERENCES t_doujinshi(place) ON DELETE CASCADE" +
+                                "FOREIGN KEY(place_ID) REFERENCES t_doujinshi(place_ID) ON DELETE CASCADE" +
                             "); "+
                              "CREATE TABLE IF NOT EXISTS t_house_shelf(" +
-                                "place INTEGER NOT NULL, " +
-                                "shelf_ID INTEGER," +
+                                "place_ID INTEGER NOT NULL, " +
+                                "bookShelf_ID INTEGER," +
                                 "shelf_name TEXT," +
-                                "FOREIGN KEY(place) REFERENCES t_doujinshi(place) ON DELETE CASCADE" +
+                                "FOREIGN KEY(place_ID) REFERENCES t_doujinshi(place_ID) ON DELETE CASCADE" +
                              "); ";
             Excute(setting);
 
