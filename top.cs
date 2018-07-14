@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -33,7 +33,7 @@ namespace 同人誌管理 {
                 return;
             }
             while (reader.Read()) {
-                string[] items = {reader["ID"].ToString(),
+                string[] items = { reader["ID"].ToString(),
                         reader["タイトル"].ToString(),
                         reader["サークル"].ToString(),
                         reader["作者"].ToString(),
@@ -46,27 +46,37 @@ namespace 同人誌管理 {
             SQLiteConnect.conn.Close();
         }
 
+
+        //ListViewItemSorterに指定するフィールド
+        ListViewItemComparer listViewItemSorter;
+
         //ロード時の処理
         private void top_Load(object sender, EventArgs e) {
             //DBファイルが無い時にテーブル作成
             SQLiteConnect.make_db();
             //DB書き込み時に不要な領域自動解放するよう設定
             SQLiteConnect.Excute("PRAGMA auto_vacuum = FULL");
-            
+
             //簡易検索のジャンルをロード
             searchKind.Items.Add("全て");
             searchKind.Items.Add("作品タイトル");
             searchKind.Items.Add("作家名");
             searchKind.Items.Add("サークル名");
             searchKind.Items.Add("キャラ名");
-
             searchKind.SelectedIndex = 0;
+
+            //ListViewItemComparerの作成と設定
+            listViewItemSorter = new ListViewItemComparer();
+            listViewItemSorter.ColumnModes = new ListViewItemComparer.ComparerMode[]{
+                ListViewItemComparer.ComparerMode.String,
+                ListViewItemComparer.ComparerMode.Integer
+            };
+            //ListViewItemSorterを指定する
+            listView.ListViewItemSorter = listViewItemSorter;
         }
 
         //通常検索実行時の処理
         private void search_Click(object sender, EventArgs e) {
-            if (conditionWord.Text.Length == 0)
-                return;
             string conditions = "";  //検索条件
             switch (searchKind.Text) {
                 case "作品タイトル":
@@ -120,18 +130,11 @@ namespace 同人誌管理 {
             table_manege.ShowDialog();
         }
 
-        //列クリックによるソート処理、サブアイテムでのソートは未実装
+        //列クリックによるソート処理
         private void listView_ColumnClick(object sender, ColumnClickEventArgs e) {
-            //listView.ListViewItemSorter = new ListViewItemComparer(e.Column);
-            //MessageBox.Show(e.Column.ToString()+"がクリックされました");
-            if (e.Column.ToString() == "1") {   //タイトルカラムクリック時
-
-            }
+            listViewItemSorter.Column = e.Column;
+            listView.Sort();
         }
-
-        //
-        //以下はファイルメニューの処理です
-        //
 
         //終了処理
         private void quit_Click(object sender, EventArgs e) {
@@ -231,6 +234,144 @@ namespace 同人誌管理 {
         private void extendBookBase_Click(object sender, EventArgs e) {
             BookBase bookBase = new BookBase();
             bookBase.ShowDialog();
+        }
+    }
+
+    //リストビューのカラムクリックによるソートに使うクラス
+    public class ListViewItemComparer : IComparer {
+        /// <summary>
+        /// 比較する方法
+        /// </summary>
+        public enum ComparerMode {
+            /// <summary>
+            /// 文字列として比較
+            /// </summary>
+            String,
+            /// <summary>
+            /// 数値（Int32型）として比較
+            /// </summary>
+            Integer,
+            /// <summary>
+            /// 日時（DataTime型）として比較
+            /// </summary>
+            DateTime
+        };
+
+        private int _column;
+        private SortOrder _order;
+        private ComparerMode _mode;
+        private ComparerMode[] _columnModes;
+
+        /// <summary>
+        /// 並び替えるListView列の番号
+        /// </summary>
+        public int Column {
+            set {
+                //現在と同じ列の時は、昇順降順を切り替える
+                if (_column == value) {
+                    if (_order == SortOrder.Ascending) {
+                        _order = SortOrder.Descending;
+                    } else if (_order == SortOrder.Descending) {
+                        _order = SortOrder.Ascending;
+                    }
+                }
+                _column = value;
+            }
+            get {
+                return _column;
+            }
+        }
+        /// <summary>
+        /// 昇順か降順か
+        /// </summary>
+        public SortOrder Order {
+            set {
+                _order = value;
+            }
+            get {
+                return _order;
+            }
+        }
+        /// <summary>
+        /// 並び替えの方法
+        /// </summary>
+        public ComparerMode Mode {
+            set {
+                _mode = value;
+            }
+            get {
+                return _mode;
+            }
+        }
+        /// <summary>
+        /// 列ごとの並び替えの方法
+        /// </summary>
+        public ComparerMode[] ColumnModes {
+            set {
+                _columnModes = value;
+            }
+        }
+
+        /// <summary>
+        /// ListViewItemComparerクラスのコンストラクタ
+        /// </summary>
+        /// <param name="col">並び替える列の番号</param>
+        /// <param name="ord">昇順か降順か</param>
+        /// <param name="cmod">並び替えの方法</param>
+        public ListViewItemComparer(
+            int col, SortOrder ord, ComparerMode cmod) {
+            _column = col;
+            _order = ord;
+            _mode = cmod;
+        }
+        public ListViewItemComparer() {
+            _column = 0;
+            _order = SortOrder.Ascending;
+            _mode = ComparerMode.String;
+        }
+
+        //xがyより小さいときはマイナスの数、大きいときはプラスの数、
+        //同じときは0を返す
+        public int Compare(object x, object y) {
+            if (_order == SortOrder.None) {
+                //並び替えない時
+                return 0;
+            }
+
+            int result = 0;
+            //ListViewItemの取得
+            ListViewItem itemx = (ListViewItem)x;
+            ListViewItem itemy = (ListViewItem)y;
+
+            //並べ替えの方法を決定
+            if (_columnModes != null && _columnModes.Length > _column) {
+                _mode = _columnModes[_column];
+            }
+
+            //並び替えの方法別に、xとyを比較する
+            switch (_mode) {
+                case ComparerMode.String:
+                case ComparerMode.Integer:
+                    //文字列をとして比較
+                    result = string.Compare(itemx.SubItems[_column].Text,
+                        itemy.SubItems[_column].Text);
+                    break;
+                case ComparerMode.DateTime:
+                    //DateTimeに変換して比較
+                    //.NET Framework 2.0からは、TryParseメソッドを使うこともできる
+                    result = DateTime.Compare(
+                        DateTime.Parse(itemx.SubItems[_column].Text),
+                        DateTime.Parse(itemy.SubItems[_column].Text));
+                    break;
+            }
+
+            //降順の時は結果を+-逆にする
+            if (_order == SortOrder.Descending) {
+                result = -result;
+            }
+
+            //結果を返す
+            return result;
         }
     }
 }

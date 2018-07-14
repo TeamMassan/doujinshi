@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -223,40 +223,6 @@ namespace 同人誌管理 {
             else
                 distribution += date.Substring(6, 2) + "日";
             return distribution;
-        }
-    }
-
-    //リストビューのカラムクリックによるソートに使うクラス
-    //インターフェースへの理解力が足りてない
-    public class ListViewItemComparer : IComparer<ListViewItem> {
-        private int _column;
-
-        /// <summary>
-        /// ListViewItemComparerクラスのコンストラクタ
-        /// </summary>
-        /// <param name="col">並び替える列番号</param>
-        public ListViewItemComparer(int col) {
-            _column = col;
-        }
-
-        public int Compare(SQLiteDataReader x, SQLiteDataReader y) {
-            throw new NotImplementedException();
-        }
-
-        //xがyより小さいときはマイナスの数、大きいときはプラスの数、
-        //同じときは0を返す
-        public int Compare(object x, object y) {
-            //ListViewItemの取得
-            ListViewItem itemx = (ListViewItem)x;
-            ListViewItem itemy = (ListViewItem)y;
-
-            //xとyを文字列として比較する
-            return string.Compare(itemx.SubItems[_column].Text,
-                itemy.SubItems[_column].Text);
-        }
-
-        int IComparer<ListViewItem>.Compare(ListViewItem x, ListViewItem y) {
-            throw new NotImplementedException();
         }
     }
 }
