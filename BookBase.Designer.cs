@@ -276,6 +276,7 @@
             this.authorsForm.Name = "authorsForm";
             this.authorsForm.Size = new System.Drawing.Size(561, 23);
             this.authorsForm.TabIndex = 3;
+            this.authorsForm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.authorsForm_KeyDown);
             // 
             // circleForm
             // 
@@ -286,6 +287,7 @@
             this.circleForm.Name = "circleForm";
             this.circleForm.Size = new System.Drawing.Size(437, 23);
             this.circleForm.TabIndex = 1;
+            this.circleForm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.circleForm_KeyDown);
             // 
             // titleForm
             // 

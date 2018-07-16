@@ -156,6 +156,42 @@ namespace 同人誌管理 {
             if (dayForm.Text.Length > 2)
                 dayForm.Text = dayForm.Text.Substring(0, 2);
         }
+
+        //入力中にEnterで既存のサークル名を補完
+        protected void circleForm_KeyDown(object sender, KeyEventArgs e) {
+            Suggest(circleForm, e, "circle");
+        }
+
+        //既存の作者名を補完
+        private void authorsForm_KeyDown(object sender, KeyEventArgs e) {
+            Suggest(authorsForm, e, "author");
+        }
+
+        //既存サークルや作者の候補を提案する
+        protected void Suggest(TextBox textbox, KeyEventArgs e, string table_name) {
+            string inputtingWord = textbox.Text.Split(',').Last();
+            //,より後の入力文字が2文字以上の時のみ候補をサジェストする
+            if (inputtingWord.Length < 2 || e.KeyCode != Keys.Enter)
+                return;
+            string query = "SELECT DISTINCT " + table_name + " FROM t_" + table_name + " WHERE " + table_name + " LIKE '" + inputtingWord + "%' LIMIT 1";
+            SQLiteDataReader reader = null;
+            SQLiteConnect.Excute(query, ref reader);
+            if (reader != null) {
+                if (reader.HasRows) {
+                    reader.Read();
+                    string remnant = reader[table_name].ToString();
+                    //未入力の文字列を差分としてremnantに取得
+                    if (inputtingWord.CompareTo(remnant) != 0) {
+                        remnant = remnant.Substring(inputtingWord.Length);
+                        int currentEnd = textbox.Text.Length;
+                        textbox.AppendText(remnant);
+                        textbox.Select(currentEnd, textbox.Text.Length - 1);
+                    }
+                }
+            }
+            reader.Close();
+            SQLiteConnect.conn.Close();
+        }
     }
 
     //デザインモード中かどうか判断

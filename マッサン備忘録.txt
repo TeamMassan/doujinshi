@@ -100,4 +100,3 @@ IDが可変長なのでソート時に文字列と認識されて目的のソー
 書棚番号副問合せ
 SELECT shelf_name FROM t_house_shelf WHERE 
 	(SELECT place FROM t_storage WHERE place_name = '選択中の保管場所') = t_house_shelf.place
-
