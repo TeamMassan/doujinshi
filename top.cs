@@ -242,6 +242,18 @@ namespace 同人誌管理 {
             BookBase bookBase = new BookBase();
             bookBase.ShowDialog();
         }
+
+        private void test_Click(object sender, EventArgs e)
+        {
+            var table_manage2 = new table_manage();
+            table_manage2.ShowDialog();
+        }
+
+        private void bookShelfManage_Click(object sender, EventArgs e)
+        {
+            var shelf_manage = new shelf_manage();
+            shelf_manage.ShowDialog();
+        }
     }
 
     //リストビューのカラムクリックによるソートに使うクラス

@@ -100,6 +100,21 @@ namespace 同人誌管理 {
                 comboBox.SelectedIndex = 0; //最初の項目を初期状態で入れておく
             }
         }
+        public static void lording(ref ListView listview, string query, string column1, string column2)//ロード処理、リストビュー版
+        {
+            SQLiteDataReader reader = null;
+            SQLiteConnect.Excute(query, ref reader);
+            if (reader != null)
+            {
+                while (reader.Read())
+                {
+                    string[] item = { (reader[column1].ToString()), (reader[column2].ToString()) };
+                    listview.Items.Add(new ListViewItem(item));
+                }
+                reader.Close();
+                SQLiteConnect.conn.Close();
+            }
+        }
 
         //テーブル自動作成
         public static void make_db() {
