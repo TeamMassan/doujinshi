@@ -34,7 +34,16 @@ namespace 同人誌管理 {
             SQLiteConnect.ComboBoxLoad(ref storage, query, "place_name");
             //storage.Textがchangedするので本棚一覧もロードされる
             placeID = 1;    //保管場所を最初の項目で初期化
-            
+
+            //西暦にローカルタイムから過去15年分を追加
+            DateTime dt = DateTime.Today;
+            for (int cnt = 0; cnt < 15; cnt++) 
+                yearForm.Items.Add(dt.Year - cnt);
+            for (int cnt = 1; cnt <= 12; cnt++)
+                monthForm.Items.Add(cnt);
+            for (int cnt = 1; cnt <= 31; cnt++)
+                dayForm.Items.Add(cnt);
+
             //サムネのDrag&Dropを許可
             pictureBox.AllowDrop = true;
 
@@ -91,8 +100,16 @@ namespace 同人誌管理 {
         protected bool checkNullForm() {
             string empty = "";
             bool empty_flag = false;
-            if (titleForm.Text == "") {
+            if (titleForm.Text.Length == 0) {
                 empty += "タイトル、";
+                empty_flag = true;
+            }
+            if (circleForm.Text.Length == 0) {
+                empty += "サークル名、";
+                empty_flag = true;
+            }
+            if (authorsForm.Text.Length == 0) {
+                empty += "作者名、";
                 empty_flag = true;
             }
 
@@ -134,17 +151,13 @@ namespace 同人誌管理 {
             yearForm.SelectAll();
         }
 
-        protected void monthForm_Enter(object sender, EventArgs e) {
-            monthForm.SelectAll();
-        }
-
-        protected void dayForm_Enter(object sender, EventArgs e) {
-            dayForm.SelectAll();
-        }
-
         protected void yearForm_TextChanged(object sender, EventArgs e) {
             if (yearForm.Text.Length > 4)
                 yearForm.Text = yearForm.Text.Substring(0, 4);
+        }
+
+        protected void monthForm_Enter(object sender, EventArgs e) {
+            monthForm.SelectAll();
         }
 
         protected void monthForm_TextChanged(object sender, EventArgs e) {
@@ -152,6 +165,10 @@ namespace 同人誌管理 {
                 monthForm.Text = monthForm.Text.Substring(0, 2);
         }
 
+        protected void dayForm_Enter(object sender, EventArgs e) {
+            dayForm.SelectAll();
+        }
+        
         protected void dayForm_TextChanged(object sender, EventArgs e) {
             if (dayForm.Text.Length > 2)
                 dayForm.Text = dayForm.Text.Substring(0, 2);
@@ -163,23 +180,23 @@ namespace 同人誌管理 {
         }
 
         //既存の作者名を補完
-        private void authorsForm_KeyDown(object sender, KeyEventArgs e) {
+        protected void authorsForm_KeyDown(object sender, KeyEventArgs e) {
             Suggest(authorsForm, e, "author");
         }
 
         //既存サークルや作者の候補を提案する
-        protected void Suggest(TextBox textbox, KeyEventArgs e, string table_name) {
+        protected void Suggest(TextBox textbox, KeyEventArgs e, string column_name) {
             string inputtingWord = textbox.Text.Split(',').Last();
             //,より後の入力文字が2文字以上の時のみ候補をサジェストする
             if (inputtingWord.Length < 2 || e.KeyCode != Keys.Enter)
                 return;
-            string query = "SELECT DISTINCT " + table_name + " FROM t_" + table_name + " WHERE " + table_name + " LIKE '" + inputtingWord + "%' LIMIT 1";
+            string query = "SELECT DISTINCT " + column_name + " FROM t_" + column_name + " WHERE " + column_name + " LIKE '" + inputtingWord + "%' LIMIT 1";
             SQLiteDataReader reader = null;
             SQLiteConnect.Excute(query, ref reader);
             if (reader != null) {
                 if (reader.HasRows) {
                     reader.Read();
-                    string remnant = reader[table_name].ToString();
+                    string remnant = reader[column_name].ToString();
                     //未入力の文字列を差分としてremnantに取得
                     if (inputtingWord.CompareTo(remnant) != 0) {
                         remnant = remnant.Substring(inputtingWord.Length);
@@ -191,6 +208,27 @@ namespace 同人誌管理 {
             }
             reader.Close();
             SQLiteConnect.conn.Close();
+        }
+
+        //サークルが入力済みの場合、作者候補を自動で入れる
+        private void authorsForm_Enter(object sender, EventArgs e) {
+            if (circleForm.Text.Length > 0 && authorsForm.Text.Length == 0) {
+                string inputtedCircle = circleForm.Text.Split(',').First();
+                string query = "SELECT author FROM t_author WHERE " +
+                    "(SELECT ID FROM t_circle WHERE circle = '" + inputtedCircle + "') = ID LIMIT 1";
+                SQLiteDataReader reader = null;
+                SQLiteConnect.Excute(query, ref reader);
+                if (reader != null) {
+                    if (reader.HasRows) {
+                        reader.Read();
+                        string candidate = reader["author"].ToString();
+                        authorsForm.AppendText(candidate);
+                        authorsForm.SelectAll();
+                    }
+                }
+                reader.Close();
+                SQLiteConnect.conn.Close();
+            }
         }
     }
 

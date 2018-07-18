@@ -56,6 +56,8 @@ namespace 同人誌管理 {
             SQLiteConnect.make_db();
             //DB書き込み時に不要な領域自動解放するよう設定
             SQLiteConnect.Excute("PRAGMA auto_vacuum = FULL");
+            //外部キー設定の有効化
+            SQLiteConnect.Excute("PRAGMA foreign_keys = true");
 
             //簡易検索のジャンルをロード
             searchKind.Items.Add("全て");
@@ -71,8 +73,6 @@ namespace 同人誌管理 {
                 ListViewItemComparer.ComparerMode.String,
                 ListViewItemComparer.ComparerMode.Integer
             };
-            //ListViewItemSorterを指定する
-            listView.ListViewItemSorter = listViewItemSorter;
         }
 
         //通常検索実行時の処理
@@ -96,6 +96,11 @@ namespace 同人誌管理 {
             }
             //検索結果を表示
             RoadResult(conditions);
+        }
+        //Enterが押されても検索処理を行う
+        private void conditionWord_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter)
+                search_Click(sender, e);
         }
 
         //詳細検索実行時の処理
@@ -132,8 +137,10 @@ namespace 同人誌管理 {
 
         //列クリックによるソート処理
         private void listView_ColumnClick(object sender, ColumnClickEventArgs e) {
+            listView.ListViewItemSorter = listViewItemSorter;
             listViewItemSorter.Column = e.Column;
             listView.Sort();
+            listView.ListViewItemSorter = null;
         }
 
         //終了処理
@@ -347,15 +354,23 @@ namespace 同人誌管理 {
             if (_columnModes != null && _columnModes.Length > _column) {
                 _mode = _columnModes[_column];
             }
-
             //並び替えの方法別に、xとyを比較する
             switch (_mode) {
                 case ComparerMode.String:
-                case ComparerMode.Integer:
                     //文字列をとして比較
                     result = string.Compare(itemx.SubItems[_column].Text,
                         itemy.SubItems[_column].Text);
                     break;
+                case ComparerMode.Integer:
+                    //Int32に変換して比較
+                    //.NET Framework 2.0からは、TryParseメソッドを使うこともできる
+                    int itemX, itemY;
+                    if (int.TryParse(itemx.SubItems[_column].Text, out itemX) && 
+                        int.TryParse(itemy.SubItems[_column].Text, out itemY))
+                        result = itemX.CompareTo(itemY);
+                    else result =string.Compare(itemx.SubItems[_column].Text,itemy.SubItems[_column].Text);
+                    break;
+                    
                 case ComparerMode.DateTime:
                     //DateTimeに変換して比較
                     //.NET Framework 2.0からは、TryParseメソッドを使うこともできる

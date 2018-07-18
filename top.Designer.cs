@@ -52,6 +52,7 @@ namespace 同人誌管理 {
             this.extendBookBase = new System.Windows.Forms.Button();
             this.abstractedAdd = new System.Windows.Forms.Button();
             this.bookShelfManage = new System.Windows.Forms.Button();
+            this.test = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +76,7 @@ namespace 同人誌管理 {
             this.conditionWord.Name = "conditionWord";
             this.conditionWord.Size = new System.Drawing.Size(659, 23);
             this.conditionWord.TabIndex = 1;
+            this.conditionWord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.conditionWord_KeyDown);
             // 
             // search
             // 
@@ -292,11 +294,22 @@ namespace 同人誌管理 {
             this.bookShelfManage.Text = "本棚番号管理";
             this.bookShelfManage.UseVisualStyleBackColor = true;
             // 
+            // test
+            // 
+            this.test.Font = new System.Drawing.Font("MS UI Gothic", 9F);
+            this.test.Location = new System.Drawing.Point(480, 449);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(75, 51);
+            this.test.TabIndex = 13;
+            this.test.Text = "派生属性\r\n管理";
+            this.test.UseVisualStyleBackColor = true;
+            // 
             // top
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(879, 528);
+            this.Controls.Add(this.test);
             this.Controls.Add(this.bookShelfManage);
             this.Controls.Add(this.abstractedAdd);
             this.Controls.Add(this.extendBookBase);
@@ -349,6 +362,7 @@ namespace 同人誌管理 {
         private System.Windows.Forms.Button extendBookBase;
         private System.Windows.Forms.Button abstractedAdd;
         private System.Windows.Forms.Button bookShelfManage;
+        private System.Windows.Forms.Button test;
     }
 }
 

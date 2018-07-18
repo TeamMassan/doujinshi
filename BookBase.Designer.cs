@@ -29,11 +29,8 @@
             this.r15 = new System.Windows.Forms.RadioButton();
             this.r18 = new System.Windows.Forms.RadioButton();
             this.label13 = new System.Windows.Forms.Label();
-            this.dayForm = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.monthForm = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.yearForm = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.genreComboBox = new System.Windows.Forms.ComboBox();
             this.originComboBox = new System.Windows.Forms.ComboBox();
@@ -59,6 +56,9 @@
             this.label14 = new System.Windows.Forms.Label();
             this.bookShelf = new System.Windows.Forms.ComboBox();
             this.storage = new System.Windows.Forms.ComboBox();
+            this.yearForm = new System.Windows.Forms.ComboBox();
+            this.monthForm = new System.Windows.Forms.ComboBox();
+            this.dayForm = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.ageLimit.SuspendLayout();
             this.SuspendLayout();
@@ -118,21 +118,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.label13.Location = new System.Drawing.Point(342, 264);
+            this.label13.Location = new System.Drawing.Point(367, 264);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(24, 16);
-            this.label13.TabIndex = 90;
+            this.label13.TabIndex = 19;
             this.label13.Text = "日";
-            // 
-            // dayForm
-            // 
-            this.dayForm.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.dayForm.Location = new System.Drawing.Point(303, 260);
-            this.dayForm.Name = "dayForm";
-            this.dayForm.Size = new System.Drawing.Size(33, 23);
-            this.dayForm.TabIndex = 8;
-            this.dayForm.TextChanged += new System.EventHandler(this.dayForm_TextChanged);
-            this.dayForm.Enter += new System.EventHandler(this.dayForm_Enter);
             // 
             // label12
             // 
@@ -140,21 +130,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.label12.Location = new System.Drawing.Point(273, 265);
+            this.label12.Location = new System.Drawing.Point(289, 265);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(24, 16);
-            this.label12.TabIndex = 89;
+            this.label12.TabIndex = 15;
             this.label12.Text = "月";
-            // 
-            // monthForm
-            // 
-            this.monthForm.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.monthForm.Location = new System.Drawing.Point(234, 260);
-            this.monthForm.Name = "monthForm";
-            this.monthForm.Size = new System.Drawing.Size(33, 23);
-            this.monthForm.TabIndex = 7;
-            this.monthForm.TextChanged += new System.EventHandler(this.monthForm_TextChanged);
-            this.monthForm.Enter += new System.EventHandler(this.monthForm_Enter);
             // 
             // label11
             // 
@@ -165,18 +145,8 @@
             this.label11.Location = new System.Drawing.Point(211, 264);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(24, 16);
-            this.label11.TabIndex = 88;
+            this.label11.TabIndex = 13;
             this.label11.Text = "年";
-            // 
-            // yearForm
-            // 
-            this.yearForm.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.yearForm.Location = new System.Drawing.Point(132, 259);
-            this.yearForm.Name = "yearForm";
-            this.yearForm.Size = new System.Drawing.Size(73, 23);
-            this.yearForm.TabIndex = 6;
-            this.yearForm.TextChanged += new System.EventHandler(this.yearForm_TextChanged);
-            this.yearForm.Enter += new System.EventHandler(this.yearForm_Enter);
             // 
             // label10
             // 
@@ -187,7 +157,7 @@
             this.label10.Location = new System.Drawing.Point(28, 264);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(88, 16);
-            this.label10.TabIndex = 87;
+            this.label10.TabIndex = 11;
             this.label10.Text = "頒布年月日";
             // 
             // genreComboBox
@@ -198,7 +168,7 @@
             this.genreComboBox.Location = new System.Drawing.Point(373, 227);
             this.genreComboBox.Name = "genreComboBox";
             this.genreComboBox.Size = new System.Drawing.Size(169, 24);
-            this.genreComboBox.TabIndex = 5;
+            this.genreComboBox.TabIndex = 10;
             // 
             // originComboBox
             // 
@@ -208,7 +178,7 @@
             this.originComboBox.Location = new System.Drawing.Point(94, 228);
             this.originComboBox.Name = "originComboBox";
             this.originComboBox.Size = new System.Drawing.Size(169, 24);
-            this.originComboBox.TabIndex = 4;
+            this.originComboBox.TabIndex = 8;
             // 
             // ageLimit
             // 
@@ -221,7 +191,7 @@
             this.ageLimit.Location = new System.Drawing.Point(103, 287);
             this.ageLimit.Name = "ageLimit";
             this.ageLimit.Size = new System.Drawing.Size(412, 34);
-            this.ageLimit.TabIndex = 9;
+            this.ageLimit.TabIndex = 18;
             // 
             // close
             // 
@@ -230,7 +200,7 @@
             this.close.Location = new System.Drawing.Point(498, 560);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(75, 23);
-            this.close.TabIndex = 13;
+            this.close.TabIndex = 29;
             this.close.Text = "閉じる";
             this.close.UseVisualStyleBackColor = true;
             this.close.Click += new System.EventHandler(this.close_Click);
@@ -242,7 +212,7 @@
             this.dealing.Location = new System.Drawing.Point(392, 561);
             this.dealing.Name = "dealing";
             this.dealing.Size = new System.Drawing.Size(75, 23);
-            this.dealing.TabIndex = 12;
+            this.dealing.TabIndex = 28;
             this.dealing.Text = "dealing";
             this.dealing.UseVisualStyleBackColor = true;
             // 
@@ -254,7 +224,7 @@
             this.idForm.Location = new System.Drawing.Point(52, 561);
             this.idForm.Name = "idForm";
             this.idForm.Size = new System.Drawing.Size(100, 23);
-            this.idForm.TabIndex = 86;
+            this.idForm.TabIndex = 27;
             // 
             // mainChara
             // 
@@ -265,7 +235,7 @@
             this.mainChara.Multiline = true;
             this.mainChara.Name = "mainChara";
             this.mainChara.Size = new System.Drawing.Size(561, 124);
-            this.mainChara.TabIndex = 11;
+            this.mainChara.TabIndex = 25;
             // 
             // authorsForm
             // 
@@ -275,7 +245,8 @@
             this.authorsForm.Location = new System.Drawing.Point(30, 193);
             this.authorsForm.Name = "authorsForm";
             this.authorsForm.Size = new System.Drawing.Size(561, 23);
-            this.authorsForm.TabIndex = 3;
+            this.authorsForm.TabIndex = 6;
+            this.authorsForm.Enter += new System.EventHandler(this.authorsForm_Enter);
             this.authorsForm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.authorsForm_KeyDown);
             // 
             // circleForm
@@ -286,7 +257,7 @@
             this.circleForm.Location = new System.Drawing.Point(154, 114);
             this.circleForm.Name = "circleForm";
             this.circleForm.Size = new System.Drawing.Size(437, 23);
-            this.circleForm.TabIndex = 1;
+            this.circleForm.TabIndex = 3;
             this.circleForm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.circleForm_KeyDown);
             // 
             // titleForm
@@ -297,7 +268,7 @@
             this.titleForm.Location = new System.Drawing.Point(224, 34);
             this.titleForm.Name = "titleForm";
             this.titleForm.Size = new System.Drawing.Size(367, 27);
-            this.titleForm.TabIndex = 0;
+            this.titleForm.TabIndex = 1;
             // 
             // label9
             // 
@@ -307,7 +278,7 @@
             this.label9.Location = new System.Drawing.Point(30, 562);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(22, 16);
-            this.label9.TabIndex = 83;
+            this.label9.TabIndex = 26;
             this.label9.Text = "ID";
             // 
             // label8
@@ -319,7 +290,7 @@
             this.label8.Location = new System.Drawing.Point(28, 395);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 16);
-            this.label8.TabIndex = 82;
+            this.label8.TabIndex = 24;
             this.label8.Text = "メインキャラ";
             // 
             // label7
@@ -331,7 +302,7 @@
             this.label7.Location = new System.Drawing.Point(28, 326);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 16);
-            this.label7.TabIndex = 85;
+            this.label7.TabIndex = 20;
             this.label7.Text = "保管先";
             // 
             // label6
@@ -343,7 +314,7 @@
             this.label6.Location = new System.Drawing.Point(28, 293);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 16);
-            this.label6.TabIndex = 84;
+            this.label6.TabIndex = 17;
             this.label6.Text = "対象年齢";
             // 
             // label5
@@ -353,7 +324,7 @@
             this.label5.Location = new System.Drawing.Point(298, 231);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 16);
-            this.label5.TabIndex = 81;
+            this.label5.TabIndex = 9;
             this.label5.Text = "ジャンル";
             // 
             // label4
@@ -365,7 +336,7 @@
             this.label4.Location = new System.Drawing.Point(28, 230);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 16);
-            this.label4.TabIndex = 80;
+            this.label4.TabIndex = 7;
             this.label4.Text = "作品名";
             // 
             // label3
@@ -377,7 +348,7 @@
             this.label3.Location = new System.Drawing.Point(28, 173);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(308, 16);
-            this.label3.TabIndex = 79;
+            this.label3.TabIndex = 5;
             this.label3.Text = "作者名　(複数人の場合は半角コンマで区切る)";
             // 
             // label2
@@ -389,7 +360,7 @@
             this.label2.Location = new System.Drawing.Point(152, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(289, 16);
-            this.label2.TabIndex = 78;
+            this.label2.TabIndex = 2;
             this.label2.Text = "サークル（合同の場合は半角コンマで区切る）";
             // 
             // label1
@@ -401,7 +372,7 @@
             this.label1.Location = new System.Drawing.Point(152, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 20);
-            this.label1.TabIndex = 77;
+            this.label1.TabIndex = 0;
             this.label1.Text = "タイトル";
             // 
             // openThumbnailDialog
@@ -413,7 +384,7 @@
             this.openThumbnailBottun.Location = new System.Drawing.Point(156, 141);
             this.openThumbnailBottun.Name = "openThumbnailBottun";
             this.openThumbnailBottun.Size = new System.Drawing.Size(75, 23);
-            this.openThumbnailBottun.TabIndex = 2;
+            this.openThumbnailBottun.TabIndex = 4;
             this.openThumbnailBottun.Text = "サムネ設定";
             this.openThumbnailBottun.UseVisualStyleBackColor = true;
             this.openThumbnailBottun.Click += new System.EventHandler(this.openThumbnailBottun_Click);
@@ -427,7 +398,7 @@
             this.label14.Location = new System.Drawing.Point(30, 361);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(40, 16);
-            this.label14.TabIndex = 92;
+            this.label14.TabIndex = 22;
             this.label14.Text = "書棚";
             // 
             // bookShelf
@@ -438,7 +409,7 @@
             this.bookShelf.Location = new System.Drawing.Point(103, 358);
             this.bookShelf.Name = "bookShelf";
             this.bookShelf.Size = new System.Drawing.Size(219, 24);
-            this.bookShelf.TabIndex = 93;
+            this.bookShelf.TabIndex = 23;
             // 
             // storage
             // 
@@ -448,25 +419,58 @@
             this.storage.Location = new System.Drawing.Point(103, 323);
             this.storage.Name = "storage";
             this.storage.Size = new System.Drawing.Size(121, 24);
-            this.storage.TabIndex = 94;
+            this.storage.TabIndex = 21;
             this.storage.SelectedIndexChanged += new System.EventHandler(this.storage_SelectedIndexChanged);
+            // 
+            // yearForm
+            // 
+            this.yearForm.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.yearForm.FormattingEnabled = true;
+            this.yearForm.Location = new System.Drawing.Point(132, 260);
+            this.yearForm.Name = "yearForm";
+            this.yearForm.Size = new System.Drawing.Size(73, 24);
+            this.yearForm.TabIndex = 12;
+            this.yearForm.TextChanged += new System.EventHandler(this.yearForm_TextChanged);
+            this.yearForm.Enter += new System.EventHandler(this.yearForm_Enter);
+            // 
+            // monthForm
+            // 
+            this.monthForm.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.monthForm.FormattingEnabled = true;
+            this.monthForm.Location = new System.Drawing.Point(234, 260);
+            this.monthForm.Name = "monthForm";
+            this.monthForm.Size = new System.Drawing.Size(50, 24);
+            this.monthForm.TabIndex = 14;
+            this.monthForm.TextChanged += new System.EventHandler(this.monthForm_TextChanged);
+            this.monthForm.Enter += new System.EventHandler(this.monthForm_Enter);
+            // 
+            // dayForm
+            // 
+            this.dayForm.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.dayForm.FormattingEnabled = true;
+            this.dayForm.Location = new System.Drawing.Point(313, 260);
+            this.dayForm.Name = "dayForm";
+            this.dayForm.Size = new System.Drawing.Size(50, 24);
+            this.dayForm.TabIndex = 16;
+            this.dayForm.TextChanged += new System.EventHandler(this.dayForm_TextChanged);
+            this.dayForm.Enter += new System.EventHandler(this.dayForm_Enter);
             // 
             // BookBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(619, 607);
+            this.Controls.Add(this.dayForm);
+            this.Controls.Add(this.monthForm);
+            this.Controls.Add(this.yearForm);
             this.Controls.Add(this.storage);
             this.Controls.Add(this.bookShelf);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.openThumbnailBottun);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.dayForm);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.monthForm);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.yearForm);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.genreComboBox);
             this.Controls.Add(this.originComboBox);
@@ -506,11 +510,8 @@
         protected System.Windows.Forms.RadioButton r15;
         protected System.Windows.Forms.RadioButton r18;
         protected System.Windows.Forms.Label label13;
-        protected System.Windows.Forms.TextBox dayForm;
         protected System.Windows.Forms.Label label12;
-        protected System.Windows.Forms.TextBox monthForm;
         protected System.Windows.Forms.Label label11;
-        protected System.Windows.Forms.TextBox yearForm;
         protected System.Windows.Forms.Label label10;
         protected System.Windows.Forms.ComboBox genreComboBox;
         protected System.Windows.Forms.ComboBox originComboBox;
@@ -536,5 +537,8 @@
         protected System.Windows.Forms.Label label14;
         protected System.Windows.Forms.ComboBox bookShelf;
         protected System.Windows.Forms.ComboBox storage;
+        protected System.Windows.Forms.ComboBox yearForm;
+        protected System.Windows.Forms.ComboBox monthForm;
+        protected System.Windows.Forms.ComboBox dayForm;
     }
 }
