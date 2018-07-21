@@ -53,6 +53,7 @@ namespace 同人誌管理 {
             this.abstractedAdd = new System.Windows.Forms.Button();
             this.bookShelfManage = new System.Windows.Forms.Button();
             this.test = new System.Windows.Forms.Button();
+            this.searchedArray = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -114,6 +115,7 @@ namespace 同人誌管理 {
             this.date});
             this.listView.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.listView.FullRowSelect = true;
+            this.listView.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.listView.Location = new System.Drawing.Point(25, 108);
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
@@ -304,11 +306,20 @@ namespace 同人誌管理 {
             this.test.Text = "派生属性\r\n管理";
             this.test.UseVisualStyleBackColor = true;
             // 
+            // searchedArray
+            // 
+            this.searchedArray.FormattingEnabled = true;
+            this.searchedArray.Location = new System.Drawing.Point(626, 76);
+            this.searchedArray.Name = "searchedArray";
+            this.searchedArray.Size = new System.Drawing.Size(121, 20);
+            this.searchedArray.TabIndex = 14;
+            // 
             // top
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(879, 528);
+            this.Controls.Add(this.searchedArray);
             this.Controls.Add(this.test);
             this.Controls.Add(this.bookShelfManage);
             this.Controls.Add(this.abstractedAdd);
@@ -363,6 +374,7 @@ namespace 同人誌管理 {
         private System.Windows.Forms.Button abstractedAdd;
         private System.Windows.Forms.Button bookShelfManage;
         private System.Windows.Forms.Button test;
+        private System.Windows.Forms.ComboBox searchedArray;
     }
 }
 

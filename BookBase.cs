@@ -96,7 +96,8 @@ namespace 同人誌管理 {
             this.Close();
         }
 
-        //登録データの空欄チェック(タイトル、頒布日)して、空欄があればtrueを返す
+        //登録データの空欄チェック(タイトル、頒布日等)して
+        //空欄があればユーザーに指摘してtrueを返す
         protected bool checkNullForm() {
             string empty = "";
             bool empty_flag = false;

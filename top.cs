@@ -112,10 +112,24 @@ namespace 同人誌管理 {
 
         //アイテムをダブルクリック選択時に更新フォームを開く
         private void listView_DoubleClick(object sender, EventArgs e) {
+            /*
             var update = new update();
             //update呼び出し時に選択IDを渡す
             update.selected_ID = listView.SelectedItems[0].SubItems[0].Text;
             update.ShowDialog();
+            */
+            searchedArray.Text = listView.SelectedItems[0].SubItems[0].Text;
+            var seachedIdxs = new string[0];
+            string selectedIdx=null;
+            searchedArray.Items.Clear();
+            for (int cnt = 0; cnt < listView.Items.Count; cnt++) { 
+                searchedArray.Items.Add(listView.Items[cnt].SubItems[0].Text);
+
+                Array.Resize(ref seachedIdxs, cnt+1);
+                seachedIdxs[cnt] = listView.Items[cnt].SubItems[0].Text;
+            }
+            selectedIdx = listView.SelectedItems[0].Index.ToString();
+            MessageBox.Show(selectedIdx);
         }
 
         //閉じるボタンの処理

@@ -146,3 +146,7 @@ if文の条件式中の値が最初からbool型の場合は==trueで比較結�
 必ずしもメンバー変数はメソッド上部で宣言する必要は無い。まとまっていたが見やすいこともある string date
 
 SQLでエラーが起きるとreader.Read()出来ないのでRead()する前にreaderがnullかチェックする
+
+リストビューの検索結果のIDを格納する配列resultAllIDを要素数0で用意し格納する
+listView.Items.Countでリストビューの全てのアイテムの数を取得出来る
+listView.Items[cnt].SubItems[0].Textで各アイテムのIDを取得出来る
