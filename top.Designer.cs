@@ -50,10 +50,7 @@ namespace 同人誌管理 {
             this.exportFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.importFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.extendBookBase = new System.Windows.Forms.Button();
-            this.abstractedAdd = new System.Windows.Forms.Button();
             this.bookShelfManage = new System.Windows.Forms.Button();
-            this.test = new System.Windows.Forms.Button();
-            this.searchedArray = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +62,7 @@ namespace 同人誌管理 {
             this.searchKind.Location = new System.Drawing.Point(25, 42);
             this.searchKind.Name = "searchKind";
             this.searchKind.Size = new System.Drawing.Size(121, 24);
-            this.searchKind.TabIndex = 0;
+            this.searchKind.TabIndex = 1;
             // 
             // conditionWord
             // 
@@ -76,7 +73,7 @@ namespace 同人誌管理 {
             this.conditionWord.Location = new System.Drawing.Point(192, 42);
             this.conditionWord.Name = "conditionWord";
             this.conditionWord.Size = new System.Drawing.Size(659, 23);
-            this.conditionWord.TabIndex = 1;
+            this.conditionWord.TabIndex = 2;
             this.conditionWord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.conditionWord_KeyDown);
             // 
             // search
@@ -85,7 +82,7 @@ namespace 同人誌管理 {
             this.search.Location = new System.Drawing.Point(25, 76);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(86, 23);
-            this.search.TabIndex = 2;
+            this.search.TabIndex = 3;
             this.search.Text = "検索";
             this.search.UseVisualStyleBackColor = true;
             this.search.Click += new System.EventHandler(this.search_Click);
@@ -96,13 +93,14 @@ namespace 同人誌管理 {
             this.detailSearch.Location = new System.Drawing.Point(152, 76);
             this.detailSearch.Name = "detailSearch";
             this.detailSearch.Size = new System.Drawing.Size(91, 23);
-            this.detailSearch.TabIndex = 3;
+            this.detailSearch.TabIndex = 4;
             this.detailSearch.Text = "詳細検索";
             this.detailSearch.UseVisualStyleBackColor = true;
             this.detailSearch.Click += new System.EventHandler(this.detailSearch_Click);
             // 
             // listView
             // 
+            this.listView.AllowColumnReorder = true;
             this.listView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -115,12 +113,13 @@ namespace 同人誌管理 {
             this.date});
             this.listView.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.listView.FullRowSelect = true;
+            this.listView.HideSelection = false;
             this.listView.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.listView.Location = new System.Drawing.Point(25, 108);
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
             this.listView.Size = new System.Drawing.Size(826, 312);
-            this.listView.TabIndex = 4;
+            this.listView.TabIndex = 5;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
             this.listView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView_ColumnClick);
@@ -164,7 +163,7 @@ namespace 同人誌管理 {
             this.add.Location = new System.Drawing.Point(25, 449);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(99, 51);
-            this.add.TabIndex = 5;
+            this.add.TabIndex = 6;
             this.add.Text = "新規追加";
             this.add.UseVisualStyleBackColor = true;
             this.add.Click += new System.EventHandler(this.add_Click);
@@ -176,7 +175,7 @@ namespace 同人誌管理 {
             this.tableManage.Location = new System.Drawing.Point(192, 449);
             this.tableManage.Name = "tableManage";
             this.tableManage.Size = new System.Drawing.Size(100, 51);
-            this.tableManage.TabIndex = 6;
+            this.tableManage.TabIndex = 7;
             this.tableManage.Text = "属性管理";
             this.tableManage.UseVisualStyleBackColor = true;
             this.tableManage.Click += new System.EventHandler(this.tableManage_Click);
@@ -188,7 +187,7 @@ namespace 同人誌管理 {
             this.close.Location = new System.Drawing.Point(751, 449);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(100, 51);
-            this.close.TabIndex = 7;
+            this.close.TabIndex = 9;
             this.close.Text = "閉じる";
             this.close.UseVisualStyleBackColor = true;
             this.close.Click += new System.EventHandler(this.close_Click);
@@ -200,7 +199,7 @@ namespace 同人誌管理 {
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(879, 24);
-            this.menuStrip1.TabIndex = 8;
+            this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // FileMenuItem
@@ -267,23 +266,13 @@ namespace 同人誌管理 {
             // 
             // extendBookBase
             // 
-            this.extendBookBase.Location = new System.Drawing.Point(561, 431);
+            this.extendBookBase.Location = new System.Drawing.Point(530, 449);
             this.extendBookBase.Name = "extendBookBase";
-            this.extendBookBase.Size = new System.Drawing.Size(142, 37);
+            this.extendBookBase.Size = new System.Drawing.Size(96, 51);
             this.extendBookBase.TabIndex = 10;
             this.extendBookBase.Text = "親クラス生成";
             this.extendBookBase.UseVisualStyleBackColor = true;
             this.extendBookBase.Click += new System.EventHandler(this.extendBookBase_Click);
-            // 
-            // abstractedAdd
-            // 
-            this.abstractedAdd.Location = new System.Drawing.Point(561, 474);
-            this.abstractedAdd.Name = "abstractedAdd";
-            this.abstractedAdd.Size = new System.Drawing.Size(142, 37);
-            this.abstractedAdd.TabIndex = 11;
-            this.abstractedAdd.Text = "派生クラスupdate生成";
-            this.abstractedAdd.UseVisualStyleBackColor = true;
-            this.abstractedAdd.Click += new System.EventHandler(this.abstractedUpdate_Click);
             // 
             // bookShelfManage
             // 
@@ -292,37 +281,16 @@ namespace 同人誌管理 {
             this.bookShelfManage.Location = new System.Drawing.Point(329, 449);
             this.bookShelfManage.Name = "bookShelfManage";
             this.bookShelfManage.Size = new System.Drawing.Size(131, 51);
-            this.bookShelfManage.TabIndex = 12;
+            this.bookShelfManage.TabIndex = 8;
             this.bookShelfManage.Text = "本棚番号管理";
             this.bookShelfManage.UseVisualStyleBackColor = true;
-            // 
-            // test
-            // 
-            this.test.Font = new System.Drawing.Font("MS UI Gothic", 9F);
-            this.test.Location = new System.Drawing.Point(480, 449);
-            this.test.Name = "test";
-            this.test.Size = new System.Drawing.Size(75, 51);
-            this.test.TabIndex = 13;
-            this.test.Text = "派生属性\r\n管理";
-            this.test.UseVisualStyleBackColor = true;
-            // 
-            // searchedArray
-            // 
-            this.searchedArray.FormattingEnabled = true;
-            this.searchedArray.Location = new System.Drawing.Point(626, 76);
-            this.searchedArray.Name = "searchedArray";
-            this.searchedArray.Size = new System.Drawing.Size(121, 20);
-            this.searchedArray.TabIndex = 14;
             // 
             // top
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(879, 528);
-            this.Controls.Add(this.searchedArray);
-            this.Controls.Add(this.test);
             this.Controls.Add(this.bookShelfManage);
-            this.Controls.Add(this.abstractedAdd);
             this.Controls.Add(this.extendBookBase);
             this.Controls.Add(this.progress);
             this.Controls.Add(this.listView);
@@ -339,7 +307,6 @@ namespace 同人誌管理 {
             this.MinimumSize = new System.Drawing.Size(890, 565);
             this.Name = "top";
             this.Text = "同人誌管理";
-            this.Load += new System.EventHandler(this.top_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -371,10 +338,7 @@ namespace 同人誌管理 {
         private System.Windows.Forms.ColumnHeader origin;
         private System.Windows.Forms.ToolStripSeparator FileMenuItemSeparator;
         private System.Windows.Forms.Button extendBookBase;
-        private System.Windows.Forms.Button abstractedAdd;
         private System.Windows.Forms.Button bookShelfManage;
-        private System.Windows.Forms.Button test;
-        private System.Windows.Forms.ComboBox searchedArray;
     }
 }
 

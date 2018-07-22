@@ -14,7 +14,32 @@ namespace 同人誌管理 {
     public partial class top : Form {
         public top() {
             InitializeComponent();
+            //DBファイルが無い時にテーブル作成
+            SQLiteConnect.make_db();
+            //DB書き込み時に不要な領域自動解放するよう設定
+            SQLiteConnect.Excute("PRAGMA auto_vacuum = FULL");
+            //外部キー設定の有効化
+            SQLiteConnect.Excute("PRAGMA foreign_keys = true");
+
+            //簡易検索のジャンルをロード
+            searchKind.Items.Add("全て");
+            searchKind.Items.Add("作品タイトル");
+            searchKind.Items.Add("作家名");
+            searchKind.Items.Add("サークル名");
+            searchKind.Items.Add("キャラ名");
+            searchKind.SelectedIndex = 0;
+
+            //ListViewItemComparerの作成と設定
+            listViewItemSorter = new ListViewItemComparer();
+            listViewItemSorter.ColumnModes = new ListViewItemComparer.ComparerMode[]{
+                ListViewItemComparer.ComparerMode.String,
+                ListViewItemComparer.ComparerMode.Integer
+            };
         }
+
+
+        //ListViewItemSorterに指定するフィールド
+        ListViewItemComparer listViewItemSorter;
 
         //検索と結果読み込み処理
         private void RoadResult(string WHEREphrase) {
@@ -44,35 +69,6 @@ namespace 同人誌管理 {
             }
             reader.Close();
             SQLiteConnect.conn.Close();
-        }
-
-
-        //ListViewItemSorterに指定するフィールド
-        ListViewItemComparer listViewItemSorter;
-
-        //ロード時の処理
-        private void top_Load(object sender, EventArgs e) {
-            //DBファイルが無い時にテーブル作成
-            SQLiteConnect.make_db();
-            //DB書き込み時に不要な領域自動解放するよう設定
-            SQLiteConnect.Excute("PRAGMA auto_vacuum = FULL");
-            //外部キー設定の有効化
-            SQLiteConnect.Excute("PRAGMA foreign_keys = true");
-
-            //簡易検索のジャンルをロード
-            searchKind.Items.Add("全て");
-            searchKind.Items.Add("作品タイトル");
-            searchKind.Items.Add("作家名");
-            searchKind.Items.Add("サークル名");
-            searchKind.Items.Add("キャラ名");
-            searchKind.SelectedIndex = 0;
-
-            //ListViewItemComparerの作成と設定
-            listViewItemSorter = new ListViewItemComparer();
-            listViewItemSorter.ColumnModes = new ListViewItemComparer.ComparerMode[]{
-                ListViewItemComparer.ComparerMode.String,
-                ListViewItemComparer.ComparerMode.Integer
-            };
         }
 
         //通常検索実行時の処理
@@ -112,24 +108,16 @@ namespace 同人誌管理 {
 
         //アイテムをダブルクリック選択時に更新フォームを開く
         private void listView_DoubleClick(object sender, EventArgs e) {
-            /*
             var update = new update();
             //update呼び出し時に選択IDを渡す
-            update.selected_ID = listView.SelectedItems[0].SubItems[0].Text;
-            update.ShowDialog();
-            */
-            searchedArray.Text = listView.SelectedItems[0].SubItems[0].Text;
-            var seachedIdxs = new string[0];
-            string selectedIdx=null;
-            searchedArray.Items.Clear();
-            for (int cnt = 0; cnt < listView.Items.Count; cnt++) { 
-                searchedArray.Items.Add(listView.Items[cnt].SubItems[0].Text);
-
-                Array.Resize(ref seachedIdxs, cnt+1);
-                seachedIdxs[cnt] = listView.Items[cnt].SubItems[0].Text;
+            update.currentIndex = listView.SelectedItems[0].Index;
+            //可変個の検索結果に対応
+            Array.Resize(ref update.resultArray, listView.Items.Count);
+            //検索結果の全アイテムのIDを格納
+            for (int cnt = 0; cnt < listView.Items.Count; cnt++) {
+                update.resultArray.SetValue(listView.Items[cnt].SubItems[0].Text, cnt);
             }
-            selectedIdx = listView.SelectedItems[0].Index.ToString();
-            MessageBox.Show(selectedIdx);
+            update.ShowDialog();
         }
 
         //閉じるボタンの処理
@@ -248,7 +236,7 @@ namespace 同人誌管理 {
 
         private void abstractedUpdate_Click(object sender, EventArgs e) {
             //BookBaseを継承したupdateクラスのインスタンスをここで作成
-            var update = new update2();
+            var update = new update();
             update.ShowDialog();
         }
 

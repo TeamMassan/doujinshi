@@ -94,6 +94,8 @@ LEFT OUTER JOIN t_origin ON t_doujinshi.origin_ID = t_origin.origin_ID
 
 今後の実装予定
 詳細検索の結合度を2に戻したい	//越智の頒布日検索処理コミット後にやる
+超弩級SQLのテーブル仕様変更対応
+エクスポート処理の詳細化
 
 書棚番号副問合せ
 SELECT shelf_name FROM t_house_shelf WHERE 

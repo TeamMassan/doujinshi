@@ -150,3 +150,13 @@ SQLでエラーが起きるとreader.Read()出来ないのでRead()する前にr
 リストビューの検索結果のIDを格納する配列resultAllIDを要素数0で用意し格納する
 listView.Items.Countでリストビューの全てのアイテムの数を取得出来る
 listView.Items[cnt].SubItems[0].Textで各アイテムのIDを取得出来る
+
+SELECT title AS タイトル,サークル,作者,origin_title AS 作品,genre_title AS ジャンル, date AS 年月日, age_limit AS 年齢, place_ID AS 場所, main_chara AS メインキャラ FROM((SELECT main.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place_ID,サークル,GROUP_CONCAT(author) AS 作者 FROM(SELECT t_doujinshi.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place_ID,GROUP_CONCAT(circle) AS サークル FROM t_doujinshi LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID WHERE t_doujinshi.ID = ListViewSubItem: {3} GROUP BY t_doujinshi.ID) AS main LEFT OUTER JOIN t_author ON main.ID = t_author.ID GROUP BY main.ID) AS main LEFT OUTER JOIN t_origin ON main.origin_ID = t_origin.origin_ID) LEFT OUTER JOIN t_genre ON main.genre_ID = t_genre.genre_ID
+SQL logic error or missing database
+unrecognized token: ":"System.Data.SQLite
+
+・update内でDELETE文とINSERT文をplace_IDに対応させる
+・詳細検索の保管場所をコンボボックスに変更
+・詳細検索の対象年齢をforeachで動くように書き換える（優先度：低）
+・readLeft,Rightした際にサムネが無い場合はNoImage.jpgで書き換える　by マッサン
+・更新処理の最初でcheckNullFormして欲しい

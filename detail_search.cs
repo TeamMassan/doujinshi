@@ -24,17 +24,17 @@ namespace 同人誌管理 {
             if (checkbox_str[0] == "house") mode = true;
             for (int cnt = 0; cnt < num; cnt++)
             {
-                if (checkbox_flag[cnt] == true)
+                if (checkbox_flag[cnt])
                 {
                     //ORの有無チェック
-                    if (check == true)
+                    if (check)
                         part_where += " OR ";
                     else
                         check = true;
                     part_where += "'" + checkbox_str[cnt] + "' = t_doujinshi.";
                     
                     //ageとplaseのどちらと比較するかの処理
-                    if(mode == true)
+                    if(mode)
                         part_where += "place";
                     else
                         part_where += "age_limit";
@@ -51,7 +51,7 @@ namespace 同人誌管理 {
             int num = checkbox_flag.Length;
             for (int cnt = 0; cnt < num; cnt++)
             {
-                if (checkbox_flag[cnt] == true)
+                if (checkbox_flag[cnt])
                 {
                     check = true;
                     break;
@@ -60,22 +60,29 @@ namespace 同人誌管理 {
             return check;
         }
 
+        void exist_conditions(ref string conditions, ref bool check) {
+            if (check)
+                conditions += " AND ";
+            else
+                check = true;
+        }
+
         string limit_shaiping(bool all_flag, bool r15_flag, bool r18_flag)
         {
             bool check = false;
             string part_where = "(";
 
             //全年齢チェック(用済み)
-            if (all_flag == true)
+            if (all_flag)
             {
                 check = true;
                 part_where += "'" + all.Checked + "'";
             }
 
             //R-15チェック
-            if (r15_flag == true)
+            if (r15_flag)
             {
-                if (check == true)
+                if (check)
                     part_where += " OR ";
                 else
                     check = true;
@@ -83,9 +90,9 @@ namespace 同人誌管理 {
             }
 
             //R-18チェック
-            if (r18_flag == true)
+            if (r18_flag)
             {
-                if (check == true)
+                if (check)
                     part_where += " OR ";
                 else
                     check = true;
@@ -116,29 +123,22 @@ namespace 同人誌管理 {
             //作者名記入チェック
             if (bookAuthor.Text != "")
             {
-                if (check == true)
-                    conditions += " AND ";
-                else
-                    check = true;
+                exist_conditions(ref conditions, ref check);
                 conditions += "作者 LIKE '%" +  bookAuthor.Text + "%'";
             }
             //ジャンル記入チェック
             if (genreForm.Text != "") {
-                if (check == true)
-                    conditions += " AND ";
-                else
-                    check = true;
+                exist_conditions(ref conditions, ref check);
                 conditions += "(SELECT genre_ID FROM t_genre WHERE '";
                 conditions += genreForm.Text + "' = genre_title) = ";
                 conditions += "t_doujinshi.genre_ID";
             }
             
             //年齢チェックボックスの有無判定
-            if (protoage_shaiping_check(all.Checked, r15.Checked, r18.Checked) == true)
+            if (protoage_shaiping_check(all.Checked, r15.Checked, r18.Checked))
             {
                 //過去の記入チェックの有無判定
-                if (check == true) conditions += " AND ";
-                check = true;
+                exist_conditions(ref conditions, ref check);
 
                 checkbox_flag[0] = all.Checked;
                 checkbox_flag[1] = r15.Checked;
@@ -149,10 +149,9 @@ namespace 同人誌管理 {
 
             //保存場所チェックボックスのチェックの有無判定
             //保存場所チェックボックス判定
-            if (protoage_shaiping_check(house.Checked, hometown.Checked) == true)
+            if (protoage_shaiping_check(house.Checked, hometown.Checked))
             {
-                if (check == true) conditions += " AND ";
-                check = true;
+                exist_conditions(ref conditions, ref check);
                 checkbox_flag[0] = house.Checked;
                 checkbox_flag[1] = hometown.Checked;
                 conditions += protoage_shaiping(checkbox_flag, "house", "hometown");
@@ -161,15 +160,26 @@ namespace 同人誌管理 {
             //キャラ記入チェック
             if (charaForm.Text != "")
             {
-                if (check == true)
-                    conditions += " AND ";
-                else
-                    check = true;
+                exist_conditions(ref conditions, ref check);
                 conditions += "t_doujinshi.main_chara LIKE '%" + charaForm.Text + "%'";
             }
 
+            //分布日記入チェック
+            string date = Date.merge(bYear.Text, bMonth.Text, bDay.Text);
+            if (bYear.Text != "" && bMonth.Text != "" && bDay.Text != "" && date.Length == 8) {
+                exist_conditions(ref conditions, ref check);
+                conditions += date + " <= date";
+            }
+
+            date = Date.merge(aYear.Text, aMonth.Text, aDay.Text);
+            if (aYear.Text != "" && aMonth.Text != "" && aDay.Text != "" && date.Length==8)
+            {
+                exist_conditions(ref conditions, ref check);
+                conditions += date + " >= date";
+            }
+
             //全項目記入チェック                         
-            if (check == true)
+            if (check)
                 conditions = "WHERE " + conditions;
                 //return;
             //search_flag = true;
@@ -181,16 +191,9 @@ namespace 同人誌管理 {
             bookName.Focus();
 
             //ジャンルのコンボボックスの中身の読み込み
-            SQLiteDataReader reader = null;
             string query = "SELECT genre_title FROM t_genre";
-            SQLiteConnect.Excute(query, ref reader);
-            if (reader != null) {
-                while (reader.Read()) {
-                    genreForm.Items.Add(reader["genre_title"].ToString());
-                }
-                reader.Close();
-                SQLiteConnect.conn.Close();
-            }
+            SQLiteConnect.ComboBoxLoad(ref genreForm, query, "genre_title");
+            genreForm.Text = null;
         }
     }
 }

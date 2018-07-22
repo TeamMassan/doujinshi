@@ -116,7 +116,7 @@ namespace 同人誌管理 {
 
             //頒布日はnull可項目なので入力内容が存在する & 8桁でない時に注意を促す
             string date = Date.merge(yearForm.Text, monthForm.Text, dayForm.Text);
-            if (yearForm.Text == "" || monthForm.Text == "" || dayForm.Text == "" || date.Length != 8) {
+            if (yearForm.Text.Length == 0 || monthForm.Text.Length == 0 || dayForm.Text.Length == 0 || date.Length != 8) {
                 empty += "頒布日、";
                 empty_flag = true;
             }

@@ -15,8 +15,8 @@ namespace 同人誌管理 {
         //全テーブル結合した上で情報取得したいとき用のSQL文
         //SELECT句、WHERE句は自作すること。SELECT句 + getFullInfoFrom + WHERE句 + getFullInfoLatter でつなげて発行
         //WHERE句に指定出来るのは同人誌テーブルのIDだけ
-        public const string getFullInfoFrom = "FROM((SELECT main.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place,サークル,"+
-            "GROUP_CONCAT(author) AS 作者 FROM(SELECT t_doujinshi.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place,"+
+        public const string getFullInfoFrom = "FROM((SELECT main.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place_ID,サークル,"+
+            "GROUP_CONCAT(author) AS 作者 FROM(SELECT t_doujinshi.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place_ID,"+
             "GROUP_CONCAT(circle) AS サークル FROM t_doujinshi LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID ";
         public const string getFullInfoLatter = " GROUP BY t_doujinshi.ID) AS main LEFT OUTER JOIN t_author ON main.ID = t_author.ID "+
             "GROUP BY main.ID) AS main LEFT OUTER JOIN t_origin ON main.origin_ID = t_origin.origin_ID) "+
