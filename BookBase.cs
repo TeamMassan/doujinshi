@@ -130,12 +130,15 @@ namespace 同人誌管理 {
 
         //保管先が変更された時に書棚を当該場所の内容に変える
         protected void storage_SelectedIndexChanged(object sender, EventArgs e) {
-            //保管場所IDの変更
+            //別のreader読み込み処理中にconn.Close()してしまう減少を回避する
+            if (SQLiteConnect.conn.State == ConnectionState.Open)
+                return;
             SQLiteDataReader reader = null;
             string query = "SELECT place_ID FROM t_storage WHERE  place_name = '" + storage.Text + "'";
             SQLiteConnect.Excute(query, ref reader);
             if (reader != null) {
                 reader.Read();
+                // 保管場所IDの変更
                 placeID = Convert.ToInt32(reader["place_ID"]);
                 reader.Close();
             }

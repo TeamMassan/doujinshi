@@ -388,7 +388,6 @@
             this.MinimumSize = new System.Drawing.Size(490, 400);
             this.Name = "detail_search";
             this.Text = "詳細検索";
-            this.Load += new System.EventHandler(this.detail_search_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

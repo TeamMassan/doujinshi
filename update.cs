@@ -40,7 +40,7 @@ namespace 同人誌管理 {
             string date;//分布日を挿入する
             string query;
             SQLiteDataReader reader = null;
-            string select_all = "SELECT title AS タイトル,サークル,作者,origin_title AS 作品,genre_title AS ジャンル, date AS 年月日, age_limit AS 年齢, place_ID AS 場所, main_chara AS メインキャラ ";
+            string select_all = "SELECT title AS タイトル,サークル,作者,origin_title AS 作品,genre_title AS ジャンル, date AS 年月日, age_limit AS 年齢, place_ID, 場所, 本棚, main_chara AS メインキャラ ";
             //WHERE句記入
             string where = "WHERE t_doujinshi.ID = " + resultArray[currentIndex].ToString();
 
@@ -64,10 +64,16 @@ namespace 同人誌管理 {
                     case "r15": r15.Checked = true; break;
                     case "r18": r18.Checked = true; break;
                 }
-                placeID = int.Parse(reader["場所"].ToString());
+                placeID = int.Parse(reader["place_ID"].ToString());
+                //ここでstorage_SelectedIndexChangedが動いてしまうので処理先で無理矢理動かさない
+                storage.Text = reader["場所"].ToString();
+                bookShelf.Text = reader["本棚"].ToString();
                 mainChara.Text = reader["メインキャラ"].ToString();
                 reader.Close();
                 SQLiteConnect.conn.Close();
+
+                //場所名変更時に変更出来なかった本棚一覧を改めて動かす
+                storage_SelectedIndexChanged(sender, e);
 
                 /*
                 query = "SELECT place_name FROM t_storage WHERE place_ID = " + placeID;
@@ -82,7 +88,7 @@ namespace 同人誌管理 {
 
                 //イメージ表示
                 string imageFilePath = @"Thumbnail\" + idForm.Text + "_" + titleForm.Text + ".jpg";
-                MessageBox.Show(imageFilePath);
+                //MessageBox.Show(imageFilePath);
                 if (File.Exists(imageFilePath)) {
                     pictureBox.Image = Image.FromFile(imageFilePath);
                     imageFilePath = "処理済み";
@@ -155,10 +161,9 @@ namespace 同人誌管理 {
                 string imageFileNameBefore = @"Thumbnail\" + idForm + "_" + fileTitle + ".jpg";
                 string imageFileNameAfter = @"Thumbnail\" + idForm + "_" + titleForm.Text + ".jpg";
             //ファイル名変更判定
-            if (titleForm.BackColor==Color.Cyan) {
+            if (titleForm.BackColor == Color.Cyan) {
                     File.Move(imageFileNameBefore, imageFileNameAfter);
             }
-            
 
             MessageBox.Show("更新しました");
         }

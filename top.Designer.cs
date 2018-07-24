@@ -74,7 +74,7 @@ namespace 同人誌管理 {
             this.conditionWord.Name = "conditionWord";
             this.conditionWord.Size = new System.Drawing.Size(659, 23);
             this.conditionWord.TabIndex = 2;
-            this.conditionWord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.conditionWord_KeyDown);
+            this.conditionWord.TextChanged += new System.EventHandler(this.conditionWord_TextChanged);
             // 
             // search
             // 

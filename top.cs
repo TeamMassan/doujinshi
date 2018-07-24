@@ -43,7 +43,7 @@ namespace 同人誌管理 {
 
         //検索と結果読み込み処理
         private void RoadResult(string WHEREphrase) {
-            const string seach_query = "SELECT t_doujinshi.ID,title AS タイトル,サークル,作者,origin_title AS 作品,date AS 頒布日 "+
+            const string seach_query = "SELECT t_doujinshi.ID,title AS タイトル,サークル,作者,origin_title AS 作品,date AS 頒布日 " +
                 "FROM(SELECT main.ID, title, origin_ID, genre_ID, age_limit, date, main_chara, place_ID, サークル, GROUP_CONCAT(author) AS 作者 "+
                 "FROM(SELECT t_doujinshi.ID, title, origin_ID, genre_ID, age_limit, date, main_chara, place_ID, GROUP_CONCAT(circle) AS サークル "+
                 "FROM t_doujinshi LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID GROUP BY t_doujinshi.ID) AS main "+
@@ -93,17 +93,14 @@ namespace 同人誌管理 {
             //検索結果を表示
             RoadResult(conditions);
         }
-        //Enterが押されても検索処理を行う
-        private void conditionWord_KeyDown(object sender, KeyEventArgs e) {
-            if (e.KeyCode == Keys.Enter)
-                search_Click(sender, e);
-        }
 
         //詳細検索実行時の処理
         private void detailSearch_Click(object sender, EventArgs e) {
             var detail = new detail_search();
             detail.ShowDialog();
-            RoadResult(detail.conditions);
+            if (detail.searchRun == true) {
+                RoadResult(detail.conditions);
+            }
         }
 
         //アイテムをダブルクリック選択時に更新フォームを開く
@@ -200,7 +197,7 @@ namespace 同人誌管理 {
                 Stream stream = exportFileDialog.OpenFile();
                 if (stream != null) {
                     //全情報を連結したSQLクエリの作成
-                    const string select = "SELECT main.ID,title AS タイトル,origin_title,genre_title,age_limit,サークル,作者,date,main_chara ";
+                    const string select = "SELECT main.ID,title AS タイトル,origin_title,genre_title,age_limit,サークル,作者,場所,本棚,date,main_chara ";
                     string query = select + SQLiteConnect.getFullInfoFrom + SQLiteConnect.getFullInfoLatter;
                     SQLiteDataReader reader = null;
                     SQLiteConnect.Excute(query, ref reader);
@@ -220,7 +217,9 @@ namespace 同人誌管理 {
                             reader["サークル"].ToString().Replace(',',' '),
                             reader["作者"].ToString().Replace(',',' '),
                             reader["date"].ToString(),
-                            reader["main_chara"].ToString() };
+                            reader["main_chara"].ToString(),
+                            reader["場所"].ToString(),
+                            reader["本棚"].ToString()};
                         for (int cnt = 0; cnt < items.Length; cnt++) {
                             sw.Write(items[cnt] + ',');
                         }
@@ -243,6 +242,11 @@ namespace 同人誌管理 {
         private void extendBookBase_Click(object sender, EventArgs e) {
             BookBase bookBase = new BookBase();
             bookBase.ShowDialog();
+        }
+
+        //検索ワードが変わる度に検索処理を行う
+        private void conditionWord_TextChanged(object sender, EventArgs e) {
+            search_Click(sender, e);
         }
     }
 

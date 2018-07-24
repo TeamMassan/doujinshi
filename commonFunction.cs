@@ -15,9 +15,13 @@ namespace 同人誌管理 {
         //全テーブル結合した上で情報取得したいとき用のSQL文
         //SELECT句、WHERE句は自作すること。SELECT句 + getFullInfoFrom + WHERE句 + getFullInfoLatter でつなげて発行
         //WHERE句に指定出来るのは同人誌テーブルのIDだけ
-        public const string getFullInfoFrom = "FROM((SELECT main.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place_ID,サークル,"+
-            "GROUP_CONCAT(author) AS 作者 FROM(SELECT t_doujinshi.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place_ID,"+
-            "GROUP_CONCAT(circle) AS サークル FROM t_doujinshi LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID ";
+        public const string getFullInfoFrom = "FROM((SELECT main.ID, title, origin_ID, genre_ID, "+
+            "age_limit, date, main_chara, 場所, 本棚, サークル, GROUP_CONCAT(author) AS 作者, main.place_ID FROM("+
+            "SELECT t_doujinshi.ID, title, origin_ID, genre_ID, age_limit, date, main_chara, place_name AS 場所, "+
+            "shelf_name AS 本棚, GROUP_CONCAT(circle) AS サークル, t_doujinshi.place_ID FROM t_doujinshi INNER JOIN "+
+            "t_storage ON t_doujinshi.place_ID = t_storage.place_ID INNER JOIN t_house_shelf ON "+
+            "t_doujinshi.place_ID = t_house_shelf.place_ID AND t_doujinshi.bookShelf_ID = t_house_shelf.bookShelf_ID "+
+            "LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID ";
         public const string getFullInfoLatter = " GROUP BY t_doujinshi.ID) AS main LEFT OUTER JOIN t_author ON main.ID = t_author.ID "+
             "GROUP BY main.ID) AS main LEFT OUTER JOIN t_origin ON main.origin_ID = t_origin.origin_ID) "+
             "LEFT OUTER JOIN t_genre ON main.genre_ID = t_genre.genre_ID";
@@ -99,6 +103,8 @@ namespace 同人誌管理 {
                 conn.Close();
                 comboBox.SelectedIndex = 0; //最初の項目を初期状態で入れておく
             }
+            reader.Close();
+            conn.Close();
         }
 
         //テーブル自動作成

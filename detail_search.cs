@@ -13,8 +13,15 @@ namespace 同人誌管理 {
     public partial class detail_search : Form {
         public detail_search() {
             InitializeComponent();
+            bookName.Focus();
+            //ジャンルのコンボボックスの中身の読み込み
+            string query = "SELECT genre_title FROM t_genre";
+            SQLiteConnect.ComboBoxLoad(ref genreForm, query, "genre_title");
+            genreForm.Text = null;
         }
+
         public string conditions = "";
+        public bool searchRun = false;
 
         string protoage_shaiping(bool[] checkbox_flag , params string[] checkbox_str) {
             string part_where = "(";
@@ -43,8 +50,7 @@ namespace 同人誌管理 {
             part_where += ")";
             return part_where;
         }
-
-
+        
         bool protoage_shaiping_check(params bool[] checkbox_flag)
         {
             bool check = false;
@@ -179,21 +185,11 @@ namespace 同人誌管理 {
             }
 
             //全項目記入チェック                         
-            if (check)
+            if (check) {
                 conditions = "WHERE " + conditions;
-                //return;
-            //search_flag = true;
-            Visible = false;
-        }
-        //ロード時の処理
-        private void detail_search_Load(object sender, EventArgs e)
-        {
-            bookName.Focus();
-
-            //ジャンルのコンボボックスの中身の読み込み
-            string query = "SELECT genre_title FROM t_genre";
-            SQLiteConnect.ComboBoxLoad(ref genreForm, query, "genre_title");
-            genreForm.Text = null;
+                searchRun = true;
+            }
+            this.Close();
         }
     }
 }
