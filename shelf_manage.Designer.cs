@@ -38,6 +38,34 @@
             // 
             this.column1.Text = "保管場所";
             // 
+            // Listview1
+            // 
+            this.Listview1.SelectedIndexChanged += new System.EventHandler(this.Listview1_SelectedIndexChanged_1);
+            // 
+            // Add2
+            // 
+            this.Add2.Click += new System.EventHandler(this.Add2_Click);
+            // 
+            // Add1
+            // 
+            this.Add1.Click += new System.EventHandler(this.Add1_Click);
+            // 
+            // Delete2
+            // 
+            this.Delete2.Click += new System.EventHandler(this.Delete2_Click);
+            // 
+            // Change2
+            // 
+            this.Change2.Click += new System.EventHandler(this.Change2_Click);
+            // 
+            // Delete1
+            // 
+            this.Delete1.Click += new System.EventHandler(this.Delete1_Click);
+            // 
+            // Change1
+            // 
+            this.Change1.Click += new System.EventHandler(this.Change1_Click);
+            // 
             // label2
             // 
             this.label2.Size = new System.Drawing.Size(58, 24);
