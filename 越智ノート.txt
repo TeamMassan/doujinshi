@@ -140,24 +140,4 @@ WHERE 1 = ID
 NOT NULL constraint failed: t_doujinshi.origin_IDSystem.Data.SQLite
 
 update 100~108行目	対象年齢を囲う'  'は他の行に置くと可読性が下がる
-if文の条件式中の値が最初からbool型の場合は==trueで比較結果(これもbool型)を取り直さなくても良い
-105行目 条件式と処理がr18じゃない？
-タイトル、頒布日はジャンル登録データの空欄チェックが必要
 必ずしもメンバー変数はメソッド上部で宣言する必要は無い。まとまっていたが見やすいこともある string date
-
-SQLでエラーが起きるとreader.Read()出来ないのでRead()する前にreaderがnullかチェックする
-
-リストビューの検索結果のIDを格納する配列resultAllIDを要素数0で用意し格納する
-listView.Items.Countでリストビューの全てのアイテムの数を取得出来る
-listView.Items[cnt].SubItems[0].Textで各アイテムのIDを取得出来る
-
-
-・update内でDELETE文とINSERT文をplace_IDに対応させる
-・詳細検索の保管場所をコンボボックスに変更
-・詳細検索の対象年齢をforeachで動くように書き換える（優先度：低）
-・readLeft,Rightした際にサムネが無い場合はNoImage.jpgで書き換える　by マッサン
-・更新処理の最初でcheckNullFormして欲しい
-・fileTitleの変数名じゃ「変更前の同人誌タイトル」であることが不明瞭、かつ使われてる場所が広い範囲に分散しすぎている
-・imageFilePathに"処理済み"を入れる意味が無い
-・ロード処理でreaderとconnを2回閉じている
-・ロード処理のラジオボタン部分をforeachで書き換える

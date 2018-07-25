@@ -18,11 +18,21 @@ namespace 同人誌管理 {
             string query = "SELECT genre_title FROM t_genre";
             SQLiteConnect.ComboBoxLoad(ref genreForm, query, "genre_title");
             genreForm.Text = null;
+            query = "SELECT origin_title FROM t_origin";
+            SQLiteConnect.ComboBoxLoad(ref originForm, query, "origin_title");
+            originForm.Text = null;
         }
 
         public string conditions = "";
         public bool searchRun = false;
 
+        string protoage_shaiping(bool checkbox) {
+            string part_where = "(";
+            
+            return part_where;
+        }
+
+        
         string protoage_shaiping(bool[] checkbox_flag , params string[] checkbox_str) {
             string part_where = "(";
             bool check = false;
@@ -51,6 +61,7 @@ namespace 同人誌管理 {
             return part_where;
         }
         
+        
         bool protoage_shaiping_check(params bool[] checkbox_flag)
         {
             bool check = false;
@@ -73,99 +84,70 @@ namespace 同人誌管理 {
                 check = true;
         }
 
-        string limit_shaiping(bool all_flag, bool r15_flag, bool r18_flag)
-        {
-            bool check = false;
-            string part_where = "(";
-
-            //全年齢チェック(用済み)
-            if (all_flag)
-            {
-                check = true;
-                part_where += "'" + all.Checked + "'";
-            }
-
-            //R-15チェック
-            if (r15_flag)
-            {
-                if (check)
-                    part_where += " OR ";
-                else
-                    check = true;
-                part_where += "'" + r15.Checked + "'";
-            }
-
-            //R-18チェック
-            if (r18_flag)
-            {
-                if (check)
-                    part_where += " OR ";
-                else
-                    check = true;
-                part_where += "'" + r18.Checked + "'";
-            }
-
-            part_where += ")";
-            return part_where;
-        }
+        
         //閉じるボタン
         private void close_Click(object sender, EventArgs e)
         {
             Visible = false;  
         }
         //検索ボタン
-        private void search_Click(object sender, EventArgs e)
-        {
+        private void search_Click(object sender, EventArgs e) {
             conditions = "";
             bool check = false;//記入チェック変数
             bool[] checkbox_flag = new bool[3];
 
             //誌名記入チェック
-            if (bookName.Text != "")
-            {
+            if (bookName.Text != "") {
                 check = true;
                 conditions += "t_doujinshi.title LIKE '%" + bookName.Text + "%'";
             }
             //作者名記入チェック
-            if (bookAuthor.Text != "")
-            {
+            if (bookAuthor.Text != "") {
                 exist_conditions(ref conditions, ref check);
-                conditions += "作者 LIKE '%" +  bookAuthor.Text + "%'";
+                conditions += "作者 LIKE '%" + bookAuthor.Text + "%'";
             }
+
+            //作品名記入チェック
+            if (originForm.Text != "") {
+                exist_conditions(ref conditions, ref check);
+                conditions += "(SELECT origin_ID FROM t_origin ";
+                conditions += "WHERE '" + originForm.Text + "' = origin_title) ";
+                conditions += " = t_doujinshi.origin_ID";
+            }
+
             //ジャンル記入チェック
             if (genreForm.Text != "") {
                 exist_conditions(ref conditions, ref check);
-                conditions += "(SELECT genre_ID FROM t_genre WHERE '";
-                conditions += genreForm.Text + "' = genre_title) = ";
-                conditions += "t_doujinshi.genre_ID";
+                conditions += "(SELECT genre_ID FROM t_genre ";
+                conditions += "WHERE '" + genreForm.Text + "' = genre_title)";
+                conditions += " = t_doujinshi.genre_ID";
             }
             
             //年齢チェックボックスの有無判定
-            if (protoage_shaiping_check(all.Checked, r15.Checked, r18.Checked))
-            {
-                //過去の記入チェックの有無判定
-                exist_conditions(ref conditions, ref check);
+            foreach (CheckBox cb in panel1.Controls) {
+                if (cb.Checked) {
+                    bool orCheck = false;
+                    //過去の記入チェックの有無判定
+                    exist_conditions(ref conditions, ref check);
 
-                checkbox_flag[0] = all.Checked;
-                checkbox_flag[1] = r15.Checked;
-                checkbox_flag[2] = r18.Checked;
-                conditions += protoage_shaiping(checkbox_flag, "all", "r15", "r18");
-                //conditions += limit_shaiping(all.Checked, r15.Checked, r18.Checked);
+                    conditions += "(";
+                    foreach (CheckBox incb in panel1.Controls) {
+                        if (incb.Checked) {
+                            //ORの有無チェック
+                            if (orCheck)
+                                conditions += " OR ";
+                            else
+                                orCheck = true;
+                            conditions += "'" + incb.Tag + "' = t_doujinshi.age_limit";
+                        }
+                    }
+                    conditions += ")";
+                    break;
+                }
             }
-
-            //保存場所チェックボックスのチェックの有無判定
-            //保存場所チェックボックス判定
-            if (protoage_shaiping_check(house.Checked, hometown.Checked))
-            {
-                exist_conditions(ref conditions, ref check);
-                checkbox_flag[0] = house.Checked;
-                checkbox_flag[1] = hometown.Checked;
-                conditions += protoage_shaiping(checkbox_flag, "house", "hometown");
-            }
-
+            
             //キャラ記入チェック
-            if (charaForm.Text != "")
-            {
+            if (charaForm.Text != "") {
                 exist_conditions(ref conditions, ref check);
                 conditions += "t_doujinshi.main_chara LIKE '%" + charaForm.Text + "%'";
             }
@@ -178,8 +160,7 @@ namespace 同人誌管理 {
             }
 
             date = Date.merge(aYear.Text, aMonth.Text, aDay.Text);
-            if (aYear.Text != "" && aMonth.Text != "" && aDay.Text != "" && date.Length==8)
-            {
+            if (aYear.Text != "" && aMonth.Text != "" && aDay.Text != "" && date.Length == 8) {
                 exist_conditions(ref conditions, ref check);
                 conditions += date + " >= date";
             }
