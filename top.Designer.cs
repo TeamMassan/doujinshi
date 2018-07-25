@@ -284,6 +284,7 @@ namespace 同人誌管理 {
             this.bookShelfManage.TabIndex = 8;
             this.bookShelfManage.Text = "本棚番号管理";
             this.bookShelfManage.UseVisualStyleBackColor = true;
+            this.bookShelfManage.Click += new System.EventHandler(this.bookShelfManage_Click);
             // 
             // top
             // 

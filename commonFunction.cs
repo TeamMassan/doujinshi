@@ -41,6 +41,25 @@ namespace 同人誌管理 {
             }
             return Rows;
         }
+        public static int checkRecord2(string table_name,string where,int whereID)
+            //ID条件指定付き、テーブルのレコード取得
+        {
+            int Rows = 0;
+            string query = "select count(*) from " + table_name + " where " + where +" = "+ whereID;
+            var cmd = new SQLiteCommand(query, conn);
+            try
+            {
+                conn.Open();
+                Rows = System.Convert.ToInt32(cmd.ExecuteScalar());
+                conn.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("指定したテーブルが見つかりません\n" + err.ToString());
+            }
+            return Rows;
+        }
+
 
         //IDカウンター
         public static int counterID(string str, int ID) {
@@ -55,6 +74,26 @@ namespace 同人誌管理 {
 
             }
             catch (Exception err) {
+                MessageBox.Show("指定したテーブルが見つかりません\n" + err.ToString());
+            }
+            return count;
+        }
+        public static int counterID2(string str, int ID,string str2,int ID2) //条件指定付きIDカウンタ
+        {
+            string query;
+            int count = 0;
+            query = "select count(*) from t_doujinshi where " + str + "_ID =" + ID 
+                + " and " + str2 +"_ID ="+ID2;
+            var cmd = new SQLiteCommand(query, conn);
+            try
+            {
+                conn.Open();
+                count = Convert.ToInt32(cmd.ExecuteScalar());
+                conn.Close();
+
+            }
+            catch (Exception err)
+            {
                 MessageBox.Show("指定したテーブルが見つかりません\n" + err.ToString());
             }
             return count;
@@ -105,6 +144,21 @@ namespace 同人誌管理 {
             }
             reader.Close();
             conn.Close();
+        }
+        public static void lording(ref ListView listview, string query, string column1, string column2)//ロード処理、リストビュー版
+        {
+            SQLiteDataReader reader = null;
+            SQLiteConnect.Excute(query, ref reader);
+            if (reader != null)
+            {
+                while (reader.Read())
+                {
+                    string[] item = { (reader[column1].ToString()), (reader[column2].ToString()) };
+                    listview.Items.Add(new ListViewItem(item));
+                }
+                reader.Close();
+                SQLiteConnect.conn.Close();
+            }
         }
 
         //テーブル自動作成

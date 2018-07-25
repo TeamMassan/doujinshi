@@ -248,6 +248,11 @@ namespace 同人誌管理 {
         private void conditionWord_TextChanged(object sender, EventArgs e) {
             search_Click(sender, e);
         }
+
+        private void bookShelfManage_Click(object sender, EventArgs e) {
+            var shelf_manage = new shelf_manage();
+            shelf_manage.ShowDialog();
+        }
     }
 
     //リストビューのカラムクリックによるソートに使うクラス

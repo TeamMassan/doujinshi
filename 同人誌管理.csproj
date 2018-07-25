@@ -72,6 +72,18 @@
     <Compile Include="detail_search.Designer.cs">
       <DependentUpon>detail_search.cs</DependentUpon>
     </Compile>
+    <Compile Include="manageBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manageBase.Designer.cs">
+      <DependentUpon>manageBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="shelf_manage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="shelf_manage.Designer.cs">
+      <DependentUpon>shelf_manage.cs</DependentUpon>
+    </Compile>
     <Compile Include="table_manage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +110,9 @@
     <EmbeddedResource Include="BookBase.resx">
       <DependentUpon>BookBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="manageBase.resx">
+      <DependentUpon>manageBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -110,6 +125,9 @@
     </Compile>
     <EmbeddedResource Include="detail_search.resx">
       <DependentUpon>detail_search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="shelf_manage.resx">
+      <DependentUpon>shelf_manage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="table_manage.resx">
       <DependentUpon>table_manage.cs</DependentUpon>
