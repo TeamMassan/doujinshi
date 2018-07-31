@@ -17,10 +17,27 @@ namespace 同人誌管理 {
             //ジャンルのコンボボックスの中身の読み込み
             string query = "SELECT genre_title FROM t_genre";
             SQLiteConnect.ComboBoxLoad(ref genreForm, query, "genre_title");
-            genreForm.Text = null;
             query = "SELECT origin_title FROM t_origin";
             SQLiteConnect.ComboBoxLoad(ref originForm, query, "origin_title");
-            originForm.Text = null;
+            
+            //保管場所一覧をロード
+            query = "SELECT place_name FROM t_storage";
+            SQLiteConnect.ComboBoxLoad(ref storage, query, "place_name");
+
+            DateTime dt = DateTime.Today;
+            for (int cnt=0; cnt < 15; cnt++) {
+                bYear.Items.Add(dt.Year - cnt);
+                aYear.Items.Add(dt.Year - cnt);
+            }
+            for(int cnt = 1; cnt <= 12; cnt++) {
+                bMonth.Items.Add(cnt);
+                aMonth.Items.Add(cnt);
+            }
+            for(int cnt = 1; cnt <= 31; cnt++) {
+                bDay.Items.Add(cnt);
+                aDay.Items.Add(cnt);
+            }
+
         }
 
         public string conditions = "";
@@ -99,7 +116,7 @@ namespace 同人誌管理 {
             //誌名記入チェック
             if (bookName.Text != "") {
                 check = true;
-                conditions += "t_doujinshi.title LIKE '%" + bookName.Text + "%'";
+                conditions += "タイトル LIKE '%" + bookName.Text + "%'";
             }
             //作者名記入チェック
             if (bookAuthor.Text != "") {
@@ -112,7 +129,7 @@ namespace 同人誌管理 {
                 exist_conditions(ref conditions, ref check);
                 conditions += "(SELECT origin_ID FROM t_origin ";
                 conditions += "WHERE '" + originForm.Text + "' = origin_title) ";
-                conditions += " = t_doujinshi.origin_ID";
+                conditions += " = main.origin_ID";
             }
 
             //ジャンル記入チェック
@@ -120,7 +137,7 @@ namespace 同人誌管理 {
                 exist_conditions(ref conditions, ref check);
                 conditions += "(SELECT genre_ID FROM t_genre ";
                 conditions += "WHERE '" + genreForm.Text + "' = genre_title)";
-                conditions += " = t_doujinshi.genre_ID";
+                conditions += " = main.genre_ID";
             }
             
             //年齢チェックボックスの有無判定
@@ -138,31 +155,43 @@ namespace 同人誌管理 {
                                 conditions += " OR ";
                             else
                                 orCheck = true;
-                            conditions += "'" + incb.Tag + "' = t_doujinshi.age_limit";
+                            conditions += "'" + incb.Tag + "' = 対象年齢";
                         }
                     }
                     conditions += ")";
                     break;
                 }
             }
-            
+
+            //保管場所記入チェック
+            if (storage.Text.Length != 0) {
+                exist_conditions(ref conditions, ref check);
+                conditions += "場所 = '" + storage.Text + "'";
+            }
+
+            //本棚記入チェック
+            if (bookShelf.Text.Length != 0) {
+                exist_conditions(ref conditions, ref check);
+                conditions += "本棚 = '" + bookShelf.Text + "'";
+            }
+
             //キャラ記入チェック
             if (charaForm.Text != "") {
                 exist_conditions(ref conditions, ref check);
-                conditions += "t_doujinshi.main_chara LIKE '%" + charaForm.Text + "%'";
+                conditions += "キャラ LIKE '%" + charaForm.Text + "%'";
             }
 
             //分布日記入チェック
             string date = Date.merge(bYear.Text, bMonth.Text, bDay.Text);
             if (bYear.Text != "" && bMonth.Text != "" && bDay.Text != "" && date.Length == 8) {
                 exist_conditions(ref conditions, ref check);
-                conditions += date + " <= date";
+                conditions += date + " <= 頒布日";
             }
 
             date = Date.merge(aYear.Text, aMonth.Text, aDay.Text);
             if (aYear.Text != "" && aMonth.Text != "" && aDay.Text != "" && date.Length == 8) {
                 exist_conditions(ref conditions, ref check);
-                conditions += date + " >= date";
+                conditions += date + " >= 頒布日";
             }
 
             //全項目記入チェック                         
@@ -171,6 +200,24 @@ namespace 同人誌管理 {
                 searchRun = true;
             }
             this.Close();
+        }
+
+        //保管先が変更された時に書棚を当該場所の内容に変える
+        private void storage_SelectedIndexChanged(object sender, EventArgs e) {
+            SQLiteDataReader reader = null;
+            string query = "SELECT place_ID FROM t_storage WHERE  place_name = '" + storage.Text + "'";
+            SQLiteConnect.Excute(query, ref reader);
+            if (reader != null) {
+                reader.Read();
+                reader.Close();
+            }
+            SQLiteConnect.conn.Close();
+
+            //本棚の内容変更
+            query = "SELECT shelf_name FROM t_house_shelf WHERE " +
+                "(SELECT place_ID FROM t_storage WHERE place_name = '" + storage.Text + "') = t_house_shelf.place_ID";
+            bookShelf.Items.Clear();
+            SQLiteConnect.ComboBoxLoad(ref bookShelf, query, "shelf_name");
         }
     }
 }

@@ -29,10 +29,27 @@
             this.ageLimit.SuspendLayout();
             this.SuspendLayout();
             // 
+            // label13
+            // 
+            this.label13.TabIndex = 17;
+            // 
+            // ageLimit
+            // 
+            this.ageLimit.TabIndex = 19;
+            // 
+            // close
+            // 
+            this.close.TabIndex = 31;
+            // 
             // dealing
             // 
+            this.dealing.TabIndex = 30;
             this.dealing.Text = "更新";
             this.dealing.Click += new System.EventHandler(this.dealing_Click);
+            // 
+            // label6
+            // 
+            this.label6.TabIndex = 18;
             // 
             // readDown
             // 
@@ -40,7 +57,7 @@
             this.readDown.Location = new System.Drawing.Point(249, 563);
             this.readDown.Name = "readDown";
             this.readDown.Size = new System.Drawing.Size(35, 23);
-            this.readDown.TabIndex = 95;
+            this.readDown.TabIndex = 29;
             this.readDown.Text = "↓";
             this.readDown.UseVisualStyleBackColor = true;
             this.readDown.Click += new System.EventHandler(this.readDown_Click);
@@ -51,7 +68,7 @@
             this.readUp.Location = new System.Drawing.Point(208, 563);
             this.readUp.Name = "readUp";
             this.readUp.Size = new System.Drawing.Size(35, 23);
-            this.readUp.TabIndex = 94;
+            this.readUp.TabIndex = 28;
             this.readUp.Text = "↑";
             this.readUp.UseVisualStyleBackColor = true;
             this.readUp.Click += new System.EventHandler(this.readUp_Click);

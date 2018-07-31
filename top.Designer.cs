@@ -49,7 +49,6 @@ namespace 同人誌管理 {
             this.progress = new System.Windows.Forms.Label();
             this.exportFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.importFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.extendBookBase = new System.Windows.Forms.Button();
             this.bookShelfManage = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -264,16 +263,6 @@ namespace 同人誌管理 {
             this.importFileDialog.Filter = "csvファイル (*.csv)|*.csv|テキストファイル(*.txt)|*.txt";
             this.importFileDialog.Title = "開くファイルを選択してください";
             // 
-            // extendBookBase
-            // 
-            this.extendBookBase.Location = new System.Drawing.Point(530, 449);
-            this.extendBookBase.Name = "extendBookBase";
-            this.extendBookBase.Size = new System.Drawing.Size(96, 51);
-            this.extendBookBase.TabIndex = 10;
-            this.extendBookBase.Text = "親クラス生成";
-            this.extendBookBase.UseVisualStyleBackColor = true;
-            this.extendBookBase.Click += new System.EventHandler(this.extendBookBase_Click);
-            // 
             // bookShelfManage
             // 
             this.bookShelfManage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -292,7 +281,6 @@ namespace 同人誌管理 {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(879, 528);
             this.Controls.Add(this.bookShelfManage);
-            this.Controls.Add(this.extendBookBase);
             this.Controls.Add(this.progress);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.close);
@@ -338,7 +326,6 @@ namespace 同人誌管理 {
         private System.Windows.Forms.OpenFileDialog importFileDialog;
         private System.Windows.Forms.ColumnHeader origin;
         private System.Windows.Forms.ToolStripSeparator FileMenuItemSeparator;
-        private System.Windows.Forms.Button extendBookBase;
         private System.Windows.Forms.Button bookShelfManage;
     }
 }

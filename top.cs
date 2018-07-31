@@ -43,12 +43,8 @@ namespace 同人誌管理 {
 
         //検索と結果読み込み処理
         private void RoadResult(string WHEREphrase) {
-            const string seach_query = "SELECT t_doujinshi.ID,title AS タイトル,サークル,作者,origin_title AS 作品,date AS 頒布日 " +
-                "FROM(SELECT main.ID, title, origin_ID, genre_ID, age_limit, date, main_chara, place_ID, サークル, GROUP_CONCAT(author) AS 作者 "+
-                "FROM(SELECT t_doujinshi.ID, title, origin_ID, genre_ID, age_limit, date, main_chara, place_ID, GROUP_CONCAT(circle) AS サークル "+
-                "FROM t_doujinshi LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID GROUP BY t_doujinshi.ID) AS main "+
-                "LEFT OUTER JOIN t_author ON main.ID = t_author.ID GROUP BY main.ID) AS t_doujinshi "+
-                "LEFT OUTER JOIN t_origin ON t_doujinshi.origin_ID = t_origin.origin_ID ";
+            const string seach_query = "SELECT main.ID,タイトル,サークル,作者,origin_title AS 作品,頒布日 "
+                + SQLiteConnect.getFullInfoFrom + SQLiteConnect.getFullInfoLatter;
             //リストビューへの読み出し
             listView.Items.Clear();   //二回目以降の多重出力を回避
             SQLiteDataReader reader = null;
@@ -76,15 +72,15 @@ namespace 同人誌管理 {
             string conditions = "";  //検索条件
             switch (searchKind.Text) {
                 case "作品タイトル":
-                    conditions = "WHERE title LIKE '%" + conditionWord.Text + "%'"; break;
+                    conditions = "WHERE タイトル LIKE '%" + conditionWord.Text + "%'"; break;
                 case "作家名":
                     conditions = "WHERE 作者 LIKE '%" + conditionWord.Text + "%'"; break;
                 case "サークル名":
                     conditions = "WHERE サークル LIKE '%" + conditionWord.Text + "%'"; break;
                 case "キャラ名":
-                    conditions = "WHERE main_chara LIKE '%" + conditionWord.Text + "%'"; break;
+                    conditions = "WHERE キャラ LIKE '%" + conditionWord.Text + "%'"; break;
                 case "全て":
-                    conditions = "WHERE title LIKE '%" + conditionWord.Text + "%' OR " +
+                    conditions = "WHERE タイトル LIKE '%" + conditionWord.Text + "%' OR " +
                         "作者 LIKE '%" + conditionWord.Text + "%' OR " +
                         "サークル LIKE '%" + conditionWord.Text + "%'";
                     break;
@@ -197,7 +193,7 @@ namespace 同人誌管理 {
                 Stream stream = exportFileDialog.OpenFile();
                 if (stream != null) {
                     //全情報を連結したSQLクエリの作成
-                    const string select = "SELECT main.ID,title AS タイトル,origin_title,genre_title,age_limit,サークル,作者,場所,本棚,date,main_chara ";
+                    const string select = "SELECT main.ID,タイトル,サークル,作者,origin_title,genre_title,対象年齢,main.place_ID,場所,本棚,頒布日,キャラ ";
                     string query = select + SQLiteConnect.getFullInfoFrom + SQLiteConnect.getFullInfoLatter;
                     SQLiteDataReader reader = null;
                     SQLiteConnect.Excute(query, ref reader);
@@ -212,12 +208,12 @@ namespace 同人誌管理 {
                             reader["タイトル"].ToString(),
                             reader["origin_title"].ToString(),
                             reader["genre_title"].ToString(),
-                            reader["age_limit"].ToString(),
+                            reader["対象年齢"].ToString(),
                             //複数サークル等を繋ぐカンマがcsvのカンマと誤認されないように置き換える
                             reader["サークル"].ToString().Replace(',',' '),
                             reader["作者"].ToString().Replace(',',' '),
-                            reader["date"].ToString(),
-                            reader["main_chara"].ToString(),
+                            reader["頒布日"].ToString(),
+                            reader["キャラ"].ToString(),
                             reader["場所"].ToString(),
                             reader["本棚"].ToString()};
                         for (int cnt = 0; cnt < items.Length; cnt++) {
@@ -238,12 +234,7 @@ namespace 同人誌管理 {
             var update = new update();
             update.ShowDialog();
         }
-
-        private void extendBookBase_Click(object sender, EventArgs e) {
-            BookBase bookBase = new BookBase();
-            bookBase.ShowDialog();
-        }
-
+        
         //検索ワードが変わる度に検索処理を行う
         private void conditionWord_TextChanged(object sender, EventArgs e) {
             search_Click(sender, e);

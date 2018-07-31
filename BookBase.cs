@@ -24,14 +24,17 @@ namespace 同人誌管理 {
             //作品一覧をロード
             query = "SELECT origin_title FROM t_origin";
             SQLiteConnect.ComboBoxLoad(ref originComboBox, query, "origin_title");
+            originComboBox.SelectedIndex = 0;
 
             //ジャンル一覧をロード
             query = "SELECT genre_title FROM t_genre";
             SQLiteConnect.ComboBoxLoad(ref genreComboBox, query, "genre_title");
+            genreComboBox.SelectedIndex = 0;
 
             //保管場所一覧をロード
             query = "SELECT place_name FROM t_storage";
             SQLiteConnect.ComboBoxLoad(ref storage, query, "place_name");
+            storage.SelectedIndex = 0;
             //storage.Textがchangedするので本棚一覧もロードされる
             placeID = 1;    //保管場所を最初の項目で初期化
 
@@ -81,14 +84,15 @@ namespace 同人誌管理 {
                 dragDropPath = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
             }
             //ブラウザからDragなら画像URLを取得
-            else if (e.Data.GetDataPresent(DataFormats.Text)) {
+            else
                 dragDropPath = e.Data.GetData(DataFormats.Text).ToString();
-            } else {
-                MessageBox.Show("ファイルパスが取得出来ないか、ファイルが未対応です。");
-                return;
+            try {
+                pictureBox.Image = Image.FromFile(dragDropPath);
+                changedThumbnail = true;
             }
-            pictureBox.Image = Image.FromFile(dragDropPath);
-            changedThumbnail = true;
+            catch {
+                MessageBox.Show("ファイルパスが取得出来ないか、ファイルが未対応です。");
+            }
         }
 
         //閉じるボタンの処理
@@ -149,6 +153,7 @@ namespace 同人誌管理 {
                 "(SELECT place_ID FROM t_storage WHERE place_name = '"+storage.Text+"') = t_house_shelf.place_ID";
             bookShelf.Items.Clear();
             SQLiteConnect.ComboBoxLoad(ref bookShelf, query, "shelf_name");
+            bookShelf.SelectedIndex = 0;
         }
 
         protected void yearForm_Enter(object sender, EventArgs e) {

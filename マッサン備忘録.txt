@@ -92,11 +92,6 @@ FROM(SELECT main.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place,サ
 		GROUP BY main.ID) AS t_doujinshi
 LEFT OUTER JOIN t_origin ON t_doujinshi.origin_ID = t_origin.origin_ID 
 
-今後の実装予定
-詳細検索の結合度を2に戻したい	//越智の頒布日検索処理コミット後にやる
-超弩級SQLのテーブル仕様変更対応
-エクスポート処理の詳細化
-
 書棚番号副問合せ
 SELECT shelf_name FROM t_house_shelf WHERE 
 	(SELECT place_ID FROM t_storage WHERE place_name = '選択中の保管場所') = t_house_shelf.place_ID
@@ -121,12 +116,6 @@ LEFT OUTER JOIN t_origin ON main.origin_ID = t_origin.origin_ID
 LEFT OUTER JOIN t_genre ON main.genre_ID = t_genre.genre_ID
 LIMIT 3
 
+今後の実装予定
+バグの無い限りは無し。
 
-保管場所取り出し用簡易SQL
-SELECT ID,place_name FROM t_doujinshi INNER JOIN t_storage ON t_doujinshi.place_ID = t_storage.place_ID LIMIT 3
-
-SELECT place_ID FROM t_storage WHERE  place_name = '下宿'
-
-SELECT t_doujinshi.ID,title AS タイトル,サークル,作者,origin_title AS 作品,date AS 頒布日 FROM(SELECT main.ID, title, origin_ID, genre_ID, age_limit, date, main_chara, place_ID, サークル, GROUP_CONCAT(author) AS 作者 FROM(SELECT t_doujinshi.ID, title, origin_ID, genre_ID, age_limit, date, main_chara, place_ID, GROUP_CONCAT(circle) AS サークル FROM t_doujinshi LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID GROUP BY t_doujinshi.ID) AS main LEFT OUTER JOIN t_author ON main.ID = t_author.ID GROUP BY main.ID) AS t_doujinshi LEFT OUTER JOIN t_origin ON t_doujinshi.origin_ID = t_origin.origin_ID WHERE ('all' t_doujinshi.age_limit OR 'r15' t_doujinshi.age_limit)
-SQL logic error or missing database
-near "t_doujinshi": syntax errorSystem.Data.SQLite

@@ -54,7 +54,7 @@ namespace 同人誌管理 {
             string date;//分布日を挿入する
             string query;
             SQLiteDataReader reader = null;
-            string select_all = "SELECT title AS タイトル,サークル,作者,origin_title AS 作品,genre_title AS ジャンル, date AS 年月日, age_limit AS 年齢, place_ID, 場所, 本棚, main_chara AS メインキャラ ";
+            string select_all = "SELECT タイトル,サークル,作者,origin_title AS 作品,genre_title AS ジャンル, 頒布日, 対象年齢, place_ID, 場所, 本棚, キャラ ";
             //WHERE句記入
             string where = "WHERE t_doujinshi.ID = " + resultArray[currentIndex].ToString();
 
@@ -68,12 +68,12 @@ namespace 同人誌管理 {
                 authorsForm.Text = reader["作者"].ToString();
                 originComboBox.Text = reader["作品"].ToString();
                 genreComboBox.Text = reader["ジャンル"].ToString();
-                date = reader["年月日"].ToString();
+                date = reader["頒布日"].ToString();
                 yearForm.Text = date.Substring(0, 4);
                 monthForm.Text = date.Substring(4, 2);
                 dayForm.Text = date.Substring(6, 2);
                 foreach (RadioButton rb in ageLimit.Controls) {
-                    if (rb.Tag.ToString() == reader["年齢"].ToString())
+                    if (rb.Tag.ToString() == reader["対象年齢"].ToString())
                         rb.Checked = true;
                 }
 
@@ -81,7 +81,7 @@ namespace 同人誌管理 {
                 //ここでstorage_SelectedIndexChangedが動いてしまうので処理先で無理矢理動かさない
                 storage.Text = reader["場所"].ToString();
                 bookShelf.Text = reader["本棚"].ToString();
-                mainChara.Text = reader["メインキャラ"].ToString();
+                mainChara.Text = reader["キャラ"].ToString();
                 reader.Close();
                 SQLiteConnect.conn.Close();
 
@@ -173,12 +173,14 @@ namespace 同人誌管理 {
         //色をデフォルトに戻す
         private void restoreColors() {
             foreach (Control item in this.Controls) {
-                if (item is TextBox)
-                    item.BackColor = SystemColors.Control;
-                else if (item is Label)
-                    item.BackColor = SystemColors.Control;
-                else if (item is ComboBox)
-                    item.BackColor = SystemColors.Control;
+                if (item.BackColor == Color.Cyan) {
+                    if (item is TextBox)
+                        item.BackColor = SystemColors.Window;
+                    else if (item is Label)
+                        item.BackColor = SystemColors.Control;
+                    else if (item is ComboBox)
+                        item.BackColor = SystemColors.Window;
+                }
             }
         }
 
