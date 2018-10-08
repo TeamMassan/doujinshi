@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using System.Data.SQLite;
 
 namespace 同人誌管理 {
@@ -110,10 +111,10 @@ namespace 同人誌管理 {
             catch (Exception err) {
                 MessageBox.Show("内容をクリップボードにコピーします\n\n" +
                      SQLquery + "\n" + err.ToString(), "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Clipboard.SetText(SQLquery + "\n\n" + err.Message + err.Source);
+                Logging(SQLquery + "\n\n" + err.Message + err.Source);
             }
         }
-
+        
         //SQL発行（readerがある場合）
         //関数外でreader.Close()とconn.Close()する必要アリ
         public static void Excute(string SQLquery, ref SQLiteDataReader reader) {
@@ -124,10 +125,18 @@ namespace 同人誌管理 {
             }
             catch (Exception err) {
                 MessageBox.Show("SELECTの結果が取得出来ませんでした\n" + SQLquery + "\n" +
-                    err.Message + "\n" + err.ToString() + "\n内容をコピーしました",
+                    err.Message + "\n" + err.ToString() + "\nログを取得しました",
                     "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Clipboard.SetText(SQLquery + "\n" + err.Message + err.Source);
+                Logging(SQLquery + "\n" + err.Message + err.Source);
             }
+        }
+
+        //エラー内容をテキストで吐く
+        public static void Logging(string ErrMessage) {
+            DateTime dt = DateTime.Now;
+            StreamWriter StreamWriter = new StreamWriter("ErrorLog.txt", true, Encoding.GetEncoding("Shift_JIS"));
+            StreamWriter.WriteLine(dt + "\n" + ErrMessage);
+            StreamWriter.Close();
         }
 
         //クエリから一つのカラムをコンボボックスに全部追加

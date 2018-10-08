@@ -14,8 +14,8 @@ namespace 同人誌管理 {
     public partial class top : Form {
         public top() {
             InitializeComponent();
-            //DBファイルが無い時にテーブル作成
-            SQLiteConnect.make_db();
+            //DBファイルが無い時にテーブル作成(開発中にDBを消して作り直す時に外す)
+            //SQLiteConnect.make_db();
             //DB書き込み時に不要な領域自動解放するよう設定
             SQLiteConnect.Excute("PRAGMA auto_vacuum = FULL");
             //外部キー設定の有効化
