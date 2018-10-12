@@ -132,8 +132,7 @@
             this.Add1.Size = new System.Drawing.Size(152, 44);
             this.Add1.TabIndex = 2;
             this.Add1.Text = "新規追加";
-            this.Add1.UseVisualStyleBackColor = true;
-            // 
+            this.Add1.UseVisualStyleBackColor = true;            // 
             // Delete2
             // 
             this.Delete2.Font = new System.Drawing.Font("MS UI Gothic", 12F);
