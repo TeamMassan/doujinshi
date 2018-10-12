@@ -3,91 +3,108 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.IO;
 
 namespace 同人誌管理 {
-    public partial class update : Form {
+    public partial class update : 同人誌管理.BookBase {
+
         public update() {
             InitializeComponent();
+            this.Text = "更新";
+            this.genreComboBox.SelectedIndexChanged += new System.EventHandler(this.genreComboBox_SelectedIndexChanged);
+            this.originComboBox.SelectedIndexChanged += new System.EventHandler(this.originComboBox_SelectedIndexChanged);
+            this.mainChara.TextChanged += new System.EventHandler(this.mainChara_TextChanged);
+            this.authorsForm.TextChanged += new System.EventHandler(this.authorsForm_TextChanged);
+            this.circleForm.TextChanged += new System.EventHandler(this.circleForm_TextChanged);
+            this.titleForm.TextChanged += new System.EventHandler(this.titleForm_TextChanged);
+            this.bookShelf.SelectedIndexChanged += new System.EventHandler(this.bookShelf_SelectedIndexChanged);
+            this.storage.SelectedIndexChanged += new System.EventHandler(this.storage_SelectedIndexChanged_1);
+            this.yearForm.SelectedIndexChanged += new System.EventHandler(this.yearForm_SelectedIndexChanged);
+            this.monthForm.SelectedIndexChanged += new System.EventHandler(this.monthForm_SelectedIndexChanged);
+            this.dayForm.SelectedIndexChanged += new System.EventHandler(this.dayForm_SelectedIndexChanged);
+            this.all.CheckedChanged += new System.EventHandler(this.all_CheckedChanged);
+            this.r15.CheckedChanged += new System.EventHandler(this.r15_CheckedChanged);
         }
 
-        //リストビューから選択されたt_doujinshi.ID
-        public string selected_ID;
+        public string[] resultArray = new string[0];
+        public int currentIndex;
+        private string beforeTitle;
+
+        private void readUp_Click(object sender, EventArgs e) {
+            if (currentIndex > 0) {
+                currentIndex--;
+                update_Load(sender, e);
+            }
+        }
+
+        private void readDown_Click(object sender, EventArgs e) {
+            if (currentIndex < resultArray.Length - 1) {
+                currentIndex++;
+                update_Load(sender, e);
+            }
+        }
 
         //ロード処理
         private void update_Load(object sender, EventArgs e) {
+            //ロード時のID表示
+            idForm.Text = resultArray[currentIndex];
             string date;//分布日を挿入する
-            idForm.Text = selected_ID;
-
-            //作品名コンボボックスの中身の読み込み
+            string query;
             SQLiteDataReader reader = null;
-            string query = "SELECT origin_title FROM t_origin";
-            SQLiteConnect.Excute(query, ref reader);
-            originComboBox.Items.Clear();
-            while (reader.Read()) {
-                originComboBox.Items.Add(reader["origin_title"].ToString());
-            }
-            reader.Close();
-            SQLiteConnect.conn.Close();
-
-            //ジャンル名コンボボックスの中身の読み込み
-            reader = null;
-            query = "SELECT genre_title FROM t_genre";
-            SQLiteConnect.Excute(query, ref reader);
-            genreComboBox.Items.Clear();
-            while (reader.Read()) {
-                genreComboBox.Items.Add(reader["genre_title"].ToString());
-            }
-            reader.Close();
-            SQLiteConnect.conn.Close();
-
-            //テキスト読み込み
-            reader = null;
-
-            string select_all = "SELECT title AS タイトル,サークル,作者,origin_title AS 作品,genre_title AS ジャンル, date AS 年月日, age_limit AS 年齢, place AS 場所, main_chara AS メインキャラ ";
+            string select_all = "SELECT タイトル,サークル,作者,origin_title AS 作品,genre_title AS ジャンル, 頒布日, 対象年齢, place_ID, 場所, 本棚, キャラ ";
             //WHERE句記入
-            string where = "WHERE t_doujinshi.ID = " + selected_ID;
+            string where = "WHERE t_doujinshi.ID = " + resultArray[currentIndex].ToString();
 
             //SQL発行
             query = select_all + SQLiteConnect.getFullInfoFrom + where + SQLiteConnect.getFullInfoLatter;
             SQLiteConnect.Excute(query, ref reader);
-            reader.Read();
-            titleForm.Text = reader["タイトル"].ToString();
-            circleForm.Text = reader["サークル"].ToString();
-            authorsForm.Text = reader["作者"].ToString();
-            originComboBox.Text = reader["作品"].ToString();
-            genreComboBox.Text = reader["ジャンル"].ToString();
-            date = reader["年月日"].ToString();
-            yearForm.Text = date.Substring(0, 4);
-            monthForm.Text = date.Substring(4, 2);
-            dayForm.Text = date.Substring(6, 2);
-            switch (reader["年齢"].ToString()) {
-                case "all": all.Checked = true; break;
-                case "r15": r15.Checked = true; break;
-                case "r18": r18.Checked = true; break;
-            }
-            switch (reader["場所"].ToString()) {
-                case "house": house.Checked = true; break;
-                case "hometown": hometown.Checked = true; break;
-            }
-            mainChara.Text = reader["メインキャラ"].ToString();
+            if (reader != null) {
+                reader.Read();
+                titleForm.Text = beforeTitle = reader["タイトル"].ToString();
+                circleForm.Text = reader["サークル"].ToString();
+                authorsForm.Text = reader["作者"].ToString();
+                originComboBox.Text = reader["作品"].ToString();
+                genreComboBox.Text = reader["ジャンル"].ToString();
+                date = reader["頒布日"].ToString();
+                yearForm.Text = date.Substring(0, 4);
+                monthForm.Text = date.Substring(4, 2);
+                dayForm.Text = date.Substring(6, 2);
+                foreach (RadioButton rb in ageLimit.Controls) {
+                    if (rb.Tag.ToString() == reader["対象年齢"].ToString())
+                        rb.Checked = true;
+                }
 
-            reader.Close();
-            SQLiteConnect.conn.Close();
+                placeID = int.Parse(reader["place_ID"].ToString());
+                //ここでstorage_SelectedIndexChangedが動いてしまうので処理先で無理矢理動かさない
+                storage.Text = reader["場所"].ToString();
+                bookShelf.Text = reader["本棚"].ToString();
+                mainChara.Text = reader["キャラ"].ToString();
+                reader.Close();
+                SQLiteConnect.conn.Close();
+
+                //場所名変更時に変更出来なかった本棚一覧を改めて動かす
+                storage_SelectedIndexChanged(sender, e);
+
+                //イメージ表示
+                string imageFilePath = @"Thumbnail\" + idForm.Text + "_" + titleForm.Text + ".jpg";
+                //MessageBox.Show(imageFilePath);
+                if (File.Exists(imageFilePath)) {
+                    pictureBox.Image = Image.FromFile(imageFilePath);
+                }
+                else {
+                    pictureBox.Image = Image.FromFile(@"Thumbnail\NoImage.jpg");
+                }
+                restoreColors();
+            }
         }
 
+        private void dealing_Click(object sender, EventArgs e) {
+            //空白箇所の提言
+            if (checkNullForm()) return;
 
-        //閉じるボタン処理
-        private void close_Click(object sender, EventArgs e) {
-            Visible = false;
-        }
-
-        //更新ボタン処理
-        private void updateBotton_Click(object sender, EventArgs e) {
             string query;
 
             //UPDATE処理
@@ -96,23 +113,16 @@ namespace 同人誌管理 {
             query += "title = '" + titleForm.Text + "'," +
                 "origin_ID  = (SELECT origin_ID FROM t_origin WHERE '" + originComboBox.Text + "' = origin_title)," +
                 "genre_ID = (SELECT genre_ID FROM t_genre WHERE '" + genreComboBox.Text + "' = genre_title)," +
-                "date = " + Date.merge(yearForm.Text, monthForm.Text,dayForm.Text) + "," +
+                "date = " + Date.merge(yearForm.Text, monthForm.Text, dayForm.Text) + "," +
                 "age_limit = '";
-            if (all.Checked == true){
-                query += "all";
-            }else if (r15.Checked == true){
-                query += "r15";
-            }else if (all.Checked == true){
-                query += "all";
+            foreach (RadioButton rb in ageLimit.Controls) {
+                if (rb.Checked)
+                    query += rb.Tag.ToString();
             }
             query += "',main_chara = '" + mainChara.Text + "'";
-            query += "," + "place = '";
-            if (house.Checked == true){
-                query += "house";
-            }else if (hometown.Checked == true){
-                query += "hometown";
-            }
-            query += "' WHERE " + selected_ID + " = ID";
+            query += "," + "place_ID = " + placeID;
+            query += "," + "bookShelf_ID = (SELECT bookShelf_ID FROM t_house_shelf WHERE shelf_name = '" + bookShelf.Text + "' )";
+            query += " WHERE " + resultArray[currentIndex] + " = ID";
 
             //t_doujinshi更新
             SQLiteConnect.Excute(query);
@@ -120,14 +130,14 @@ namespace 同人誌管理 {
             //サークルテーブル処理
             //DERETE文処理
             query = "DELETE FROM t_circle ";
-            query += "WHERE " + selected_ID + " = ID";
+            query += "WHERE " + resultArray[currentIndex] + " = ID";
             SQLiteConnect.Excute(query);
             if (circleForm.Text != "") {
                 string[] circle = circleForm.Text.Split(',');
                 for (int cnt = 0; cnt < circle.Length; cnt++) {
                     //INSERT文処理
                     query = "INSERT INTO t_circle ";
-                    query += "VALUES (" + selected_ID + ",'" + circle[cnt] + "')";
+                    query += "VALUES (" + resultArray[currentIndex] + ",'" + circle[cnt] + "')";
                     SQLiteConnect.Excute(query);
                 }
             }
@@ -135,46 +145,95 @@ namespace 同人誌管理 {
             //作者名テーブル処理
             //DERETE文
             query = "DELETE FROM t_author ";
-            query += "WHERE " + selected_ID + " = ID";
+            query += "WHERE " + resultArray[currentIndex] + " = ID";
             SQLiteConnect.Excute(query);
             if (authorsForm.Text != "") {
                 string[] authors = authorsForm.Text.Split(',');
                 for (int cnt = 0; cnt < authors.Length; cnt++) {
                     query = "INSERT INTO t_author ";
-                    query += "VALUES (" + selected_ID + ",'" + authors[cnt] + "')";
+                    query += "VALUES (" + resultArray[currentIndex] + ",'" + authors[cnt] + "')";
                     SQLiteConnect.Excute(query);
                 }
             }
 
+            //書き込み処理
+                string imageFileNameBefore = @"Thumbnail\" + idForm + "_" + beforeTitle + ".jpg";
+                string imageFileNameAfter = @"Thumbnail\" + idForm + "_" + titleForm.Text + ".jpg";
+            //ファイル名変更判定
+            if(File.Exists(imageFileNameBefore)){
+                if (titleForm.BackColor == Color.Cyan) {
+                    File.Move(imageFileNameBefore, imageFileNameAfter);
+                }
+            }
+
             MessageBox.Show("更新しました");
+            restoreColors();
         }
 
-        private void readLeft_Click(object sender, EventArgs e) {
-            SQLiteDataReader reader = null;
-            string minquery = "select min(ID) from t_doujinshi";
-            SQLiteConnect.Excute(minquery, ref reader);
-            reader.Read();
-            int minID = int.Parse(reader["min(ID)"].ToString());
-            reader.Close();
-            SQLiteConnect.conn.Close();
-            if (int.Parse(selected_ID) != minID) {
-                selected_ID = (int.Parse(selected_ID) - 1).ToString();
-                update_Load(sender, e);
-            } else return;
+        //色をデフォルトに戻す
+        private void restoreColors() {
+            foreach (Control item in this.Controls) {
+                if (item.BackColor == Color.Cyan) {
+                    if (item is TextBox)
+                        item.BackColor = SystemColors.Window;
+                    else if (item is Label)
+                        item.BackColor = SystemColors.Control;
+                    else if (item is ComboBox)
+                        item.BackColor = SystemColors.Window;
+                }
+            }
         }
 
-        private void readRight_Click(object sender, EventArgs e) {
-            SQLiteDataReader reader = null;
-            string maxquery = "select max(ID) from t_doujinshi";
-            SQLiteConnect.Excute(maxquery, ref reader);
-            reader.Read();
-            int minID = int.Parse(reader["max(ID)"].ToString());
-            reader.Close();
-            SQLiteConnect.conn.Close();
-            if (int.Parse(selected_ID) != minID) {
-                selected_ID = (int.Parse(selected_ID) + 1).ToString();
-                update_Load(sender, e);
-            } else return;
+        private void titleForm_TextChanged(object sender, EventArgs e) {
+            titleForm.BackColor = Color.Cyan;
+        }
+
+        private void circleForm_TextChanged(object sender, EventArgs e) {
+            circleForm.BackColor = Color.Cyan;
+        }
+
+        private void authorsForm_TextChanged(object sender, EventArgs e) {
+            authorsForm.BackColor = Color.Cyan;
+        }
+
+        private void originComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+            label4.BackColor = Color.Cyan;
+        }
+
+        private void genreComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+            label5.BackColor = Color.Cyan;
+        }
+
+        private void yearForm_SelectedIndexChanged(object sender, EventArgs e) {
+            yearForm.BackColor = Color.Cyan;
+        }
+
+        private void monthForm_SelectedIndexChanged(object sender, EventArgs e) {
+            monthForm.BackColor = Color.Cyan;
+        }
+
+        private void dayForm_SelectedIndexChanged(object sender, EventArgs e) {
+            dayForm.BackColor = Color.Cyan;
+        }
+
+        private void storage_SelectedIndexChanged_1(object sender, EventArgs e) {
+            label7.BackColor = Color.Cyan;
+        }
+
+        private void bookShelf_SelectedIndexChanged(object sender, EventArgs e) {
+            label14.BackColor = Color.Cyan;
+        }
+
+        private void mainChara_TextChanged(object sender, EventArgs e) {
+            mainChara.BackColor = Color.Cyan;
+        }
+
+        private void all_CheckedChanged(object sender, EventArgs e) {
+            label6.BackColor = Color.Cyan;
+        }
+
+        private void r15_CheckedChanged(object sender, EventArgs e) {
+            label6.BackColor = Color.Cyan;
         }
     }
 }

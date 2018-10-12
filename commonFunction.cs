@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using System.Data.SQLite;
 
 namespace 同人誌管理 {
@@ -15,12 +16,16 @@ namespace 同人誌管理 {
         //全テーブル結合した上で情報取得したいとき用のSQL文
         //SELECT句、WHERE句は自作すること。SELECT句 + getFullInfoFrom + WHERE句 + getFullInfoLatter でつなげて発行
         //WHERE句に指定出来るのは同人誌テーブルのIDだけ
-        public const string getFullInfoFrom = "FROM((SELECT main.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place,サークル,"+
-            "GROUP_CONCAT(author) AS 作者 FROM(SELECT t_doujinshi.ID,title,origin_ID,genre_ID,age_limit,date,main_chara,place,"+
-            "GROUP_CONCAT(circle) AS サークル FROM t_doujinshi LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID ";
+        public const string getFullInfoFrom = "FROM((SELECT main.ID, タイトル, origin_ID, genre_ID, 対象年齢, 頒布日, キャラ, "+
+            "場所, 本棚, サークル, GROUP_CONCAT(author) AS 作者, main.place_ID FROM(SELECT t_doujinshi.ID, title AS タイトル, "+
+            "origin_ID, genre_ID, age_limit AS 対象年齢, date AS 頒布日, main_chara AS キャラ,place_name AS 場所, "+
+            "shelf_name AS 本棚, GROUP_CONCAT(circle) AS サークル, t_doujinshi.place_ID FROM t_doujinshi "+
+            "INNER JOIN t_storage ON t_doujinshi.place_ID = t_storage.place_ID INNER JOIN t_house_shelf ON "+
+            "t_doujinshi.place_ID = t_house_shelf.place_ID AND t_doujinshi.bookShelf_ID = t_house_shelf.bookShelf_ID "+
+            "LEFT OUTER JOIN t_circle ON t_doujinshi.ID = t_circle.ID ";
         public const string getFullInfoLatter = " GROUP BY t_doujinshi.ID) AS main LEFT OUTER JOIN t_author ON main.ID = t_author.ID "+
             "GROUP BY main.ID) AS main LEFT OUTER JOIN t_origin ON main.origin_ID = t_origin.origin_ID) "+
-            "LEFT OUTER JOIN t_genre ON main.genre_ID = t_genre.genre_ID";
+            "LEFT OUTER JOIN t_genre ON main.genre_ID = t_genre.genre_ID ";
         
         //任意テーブルのレコード件数を取得
         public static int checkRecord(string table_name) {
@@ -106,10 +111,10 @@ namespace 同人誌管理 {
             catch (Exception err) {
                 MessageBox.Show("内容をクリップボードにコピーします\n\n" +
                      SQLquery + "\n" + err.ToString(), "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Clipboard.SetText(SQLquery + "\n\n" + err.Message + err.Source);
+                Logging(SQLquery + "\n\n" + err.Message + err.Source);
             }
         }
-
+        
         //SQL発行（readerがある場合）
         //関数外でreader.Close()とconn.Close()する必要アリ
         public static void Excute(string SQLquery, ref SQLiteDataReader reader) {
@@ -120,10 +125,18 @@ namespace 同人誌管理 {
             }
             catch (Exception err) {
                 MessageBox.Show("SELECTの結果が取得出来ませんでした\n" + SQLquery + "\n" +
-                    err.Message + "\n" + err.ToString() + "\n内容をコピーしました",
+                    err.Message + "\n" + err.ToString() + "\nログを取得しました",
                     "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Clipboard.SetText(SQLquery + "\n" + err.Message + err.Source);
+                Logging(SQLquery + "\n" + err.Message + err.Source);
             }
+        }
+
+        //エラー内容をテキストで吐く
+        public static void Logging(string ErrMessage) {
+            DateTime dt = DateTime.Now;
+            StreamWriter StreamWriter = new StreamWriter("ErrorLog.txt", true, Encoding.GetEncoding("Shift_JIS"));
+            StreamWriter.WriteLine(dt + "\n" + ErrMessage);
+            StreamWriter.Close();
         }
 
         //クエリから一つのカラムをコンボボックスに全部追加
@@ -136,8 +149,9 @@ namespace 同人誌管理 {
                     comboBox.Items.Add(reader[columnName].ToString());
                 reader.Close();
                 conn.Close();
-                comboBox.SelectedIndex = 0; //最初の項目を初期状態で入れておく
             }
+            reader.Close();
+            conn.Close();
         }
         public static void lording(ref ListView listview, string query, string column1, string column2)//ロード処理、リストビュー版
         {

@@ -85,6 +85,7 @@
             this.all.Size = new System.Drawing.Size(74, 20);
             this.all.TabIndex = 0;
             this.all.TabStop = true;
+            this.all.Tag = "all";
             this.all.Text = "全年齢";
             this.all.UseVisualStyleBackColor = true;
             // 
@@ -97,6 +98,7 @@
             this.r15.Size = new System.Drawing.Size(60, 20);
             this.r15.TabIndex = 1;
             this.r15.TabStop = true;
+            this.r15.Tag = "r15";
             this.r15.Text = "R-15";
             this.r15.UseVisualStyleBackColor = true;
             // 
@@ -109,6 +111,7 @@
             this.r18.Size = new System.Drawing.Size(60, 20);
             this.r18.TabIndex = 2;
             this.r18.TabStop = true;
+            this.r18.Tag = "r18";
             this.r18.Text = "R-18";
             this.r18.UseVisualStyleBackColor = true;
             // 

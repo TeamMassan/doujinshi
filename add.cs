@@ -41,15 +41,12 @@ namespace 同人誌管理 {
             if (checkNullForm())
                 return;
 
-            //チェックボタンの結果格納（暫定処理）
-            //foreach使ってコレクションから対象年齢と保管場所を取得したい
-            string agelimit;
-            if (all.Checked)
-                agelimit = "all";
-            else if (r15.Checked)
-                agelimit = "r15";
-            else
-                agelimit = "r18";
+            //チェックボタンの結果格納
+            string agelimit = null;
+            foreach (RadioButton rb in ageLimit.Controls) {
+                if (rb.Checked)
+                    agelimit=rb.Tag.ToString();
+            }
 
             //SQL文組み立て
             //作品IDとジャンルIDはコンボボックスの値からSQLの副問合せを利用

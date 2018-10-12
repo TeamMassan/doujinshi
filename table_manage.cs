@@ -17,7 +17,7 @@ namespace 同人誌管理
             InitializeComponent();
         }
 
-        private void table_manage2_Load(object sender, EventArgs e)//フォームロード時の処理
+        private void table_manage_Load(object sender, EventArgs e)//フォームロード時の処理
         {
             SQLiteConnect.lording(ref Listview1, "select origin_ID,origin_title from t_origin", "origin_ID", "origin_title");
             SQLiteConnect.lording(ref Listview2, "select genre_ID,genre_title from t_genre", "genre_ID", "genre_title");

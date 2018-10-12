@@ -140,9 +140,4 @@ WHERE 1 = ID
 NOT NULL constraint failed: t_doujinshi.origin_IDSystem.Data.SQLite
 
 update 100~108行目	対象年齢を囲う'  'は他の行に置くと可読性が下がる
-if文の条件式中の値が最初からbool型の場合は==trueで比較結果(これもbool型)を取り直さなくても良い
-105行目 条件式と処理がr18じゃない？
-タイトル、頒布日はジャンル登録データの空欄チェックが必要
 必ずしもメンバー変数はメソッド上部で宣言する必要は無い。まとまっていたが見やすいこともある string date
-
-SQLでエラーが起きるとreader.Read()出来ないのでRead()する前にreaderがnullかチェックする

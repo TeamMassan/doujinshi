@@ -78,7 +78,7 @@
             this.ClientSize = new System.Drawing.Size(1030, 666);
             this.Name = "table_manage2";
             this.Text = "属性管理";
-            this.Load += new System.EventHandler(this.table_manage2_Load);
+            this.Load += new System.EventHandler(this.table_manage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
