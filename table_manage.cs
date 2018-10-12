@@ -31,7 +31,10 @@ namespace 同人誌管理
             int ID;
             SQLiteDataReader reader = null;//リフレッシュ用
             addtitle = Textbox1.Text;//textboxから追加したい文言の取得
-
+            if (Textbox1.TextLength == 0)
+            {
+                return;
+            }
             DialogResult res = MessageBox.Show(addtitle + "　を登録しますか？",//確認処理
                 "追加確認", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
@@ -65,6 +68,10 @@ namespace 同人誌管理
             string changequery;
             string changetitle;
             changetitle = Textbox1.Text;//変更する内容の取得
+            if (Textbox1.TextLength == 0)
+            {
+                return;
+            }
             DialogResult res = MessageBox.Show(beforeListview1Title+ "を" + changetitle + "に変更しますか？", "変更確認", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
@@ -108,6 +115,10 @@ namespace 同人誌管理
             SQLiteDataReader reader = null;//リフレッシュ用
             addtitle = Textbox2.Text;//textboxから追加したい文言の取得
 
+            if (Textbox2.TextLength == 0)
+            {
+                return;
+            }
             DialogResult res = MessageBox.Show(addtitle + "　を登録しますか？",//確認処理
                 "追加確認", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
@@ -141,6 +152,10 @@ namespace 同人誌管理
             string changequery;
             string changetitle;
             changetitle = Textbox2.Text;//変更する内容の取得
+            if (Textbox2.TextLength == 0)
+            {
+                return;
+            }
             DialogResult res = MessageBox.Show(beforeListview2Title + "を" + changetitle + "に変更しますか？", "変更確認", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
